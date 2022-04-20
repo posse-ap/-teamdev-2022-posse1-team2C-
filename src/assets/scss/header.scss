@@ -1,0 +1,38 @@
+@use "./variables" as vb;
+
+.header {
+  z-index: 10;
+  width: 100%;
+  text-align: center;
+  position: fixed;
+  background-color: vb.$color_keynote;
+  margin: 0 auto;
+
+  &__title {
+    text-align: center;
+    font-size: 30px;
+    color: vb.$color_white;
+    padding: 20px 0px;
+  }
+
+  &__nav{
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  &__nav__list {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+  }
+
+  &__nav__item {
+    color: vb.$color_white;
+    margin: 0 auto;
+    font-size: 15px;
+    @media screen and (max-width: 1000px) {
+      font-size: 12px;
+    }
+    padding: 15px 0;
+  }
+}
