@@ -16,7 +16,7 @@
   <div class="content">
     <div class="container inner">
       <main class="main"></main>
-      <aside class="aside"></aside>
+      <?php require  "./capsule/aside.php"; ?>
     </div>
   </div>
 </body>
