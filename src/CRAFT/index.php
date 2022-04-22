@@ -11,5 +11,6 @@
 
 <body>
     <?php require  "./capsule/header.php";?>
+    <!-- <div><a href="./agent/login.php">ログインページ</a></div> -->
 </body>
 </html>
