@@ -1,0 +1,294 @@
+@use "./variables" as vb;
+@use "./style" as style;
+@use "./header_craft" as header;
+@use "./aside_craft" as aside;
+
+/* ==============
+apply__title
+=============== */
+
+.apply {
+  &__title {
+    color: vb.$color_white;
+    font-weight: 800;
+    font-size: 20px;
+    text-align: left;
+    padding: 10px 0px 10px 10px;
+    margin: 20px 0px;
+    background-color: vb.$color_keynote;
+  }
+}
+
+/* ==============
+stepBar
+=============== */
+
+.stepbar {
+  display: flex;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+}
+
+.stepbar__item {
+  box-sizing: border-box;
+  position: relative;
+  width: calc((100% - 20px) / 3);
+  height: 80px;
+  margin: 0 5px;
+  padding: 1px;
+  background: #299100;
+}
+
+.stepbar__item:nth-child(1) {
+  z-index: 4;
+}
+
+.stepbar__item:nth-child(2) {
+  z-index: 3;
+}
+
+.stepbar__item:nth-child(3) {
+  z-index: 2;
+}
+
+.stepbar__item:first-child {
+  margin-left: 0;
+}
+
+.stepbar__item:last-child {
+  margin-right: 0;
+}
+
+.stepbar__item:not(:first-child)::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 1px;
+  width: 0;
+  height: 0;
+  border-top: 40px solid transparent;
+  border-right: 0;
+  border-bottom: 40px solid transparent;
+  border-left: 20px solid #299100;
+}
+
+.stepbar__item:not(:first-child)::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-top: 40px solid transparent;
+  border-right: 0;
+  border-bottom: 40px solid transparent;
+  border-left: 20px solid #ffffff;
+}
+
+.stepbar__item-inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.stepbar__item-inner--current {
+  background: transparent;
+  color: #ffffff;
+}
+
+.stepbar__item:not(:last-child) .stepbar__item-inner::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 100%;
+  width: 0;
+  height: 0;
+  border-top: 40px solid transparent;
+  border-right: 0;
+  border-bottom: 40px solid transparent;
+  border-left: 20px solid #299100;
+}
+
+.stepbar__item:not(:last-child) .stepbar__item-inner::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: calc(100% - 1px);
+  width: 0;
+  height: 0;
+  border-top: 40px solid transparent;
+  border-right: 0;
+  border-bottom: 40px solid transparent;
+  border-left: 20px solid #ffffff;
+}
+
+.stepbar__item:not(:last-child) .stepbar__item-inner--current::after {
+  display: none;
+}
+
+/* ==============
+apply__form
+=============== */
+
+.apply {
+  &__form {
+    margin: 10px 30px 0px 30px;
+  }
+
+  &__form__item {
+    display: flex;
+  }
+
+  &__form__item {
+    & + & {
+      margin-top: 18px;
+    }
+
+    dt {
+      flex: 0 0 160px;
+      font-size: 12px;
+      line-height: 30px;
+    }
+
+    dd {
+      flex: 0 1 100%;
+      margin-left: 60px;
+      font-size: 11px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    label + label {
+      margin-left: 40px;
+    }
+
+    input[type="radio"],
+    input[type="checkbox"] {
+      margin-right: 8px;
+    }
+
+    select,
+    input[type="text"],
+    input[type="email"],
+    input[type="date"],
+    textarea {
+      font-size: 16px;
+      border: solid 1px #a5a5a5;
+      border-radius: 4px;
+      width: 100%;
+      height: 30px;
+      padding: 8px;
+      letter-spacing: 0.1em;
+    }
+
+    select {
+      height: 60px;
+    }
+
+    textarea {
+      height: 210px;
+    }
+  }
+
+  &__form__item__select {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    &::before {
+      content: "";
+      display: block;
+      width: 7px;
+      height: 7px;
+      border-right: solid 2px #333;
+      border-bottom: solid 2px #333;
+      pointer-events: none;
+      position: absolute;
+      right: 12px;
+      top: calc(50% - 2px);
+      transform: rotate(45deg) translate(0, -50%);
+    }
+  }
+
+  &__form__footer {
+    text-align: center;
+    margin-top: 40px;
+  }
+
+  &__form__button {
+    font-size: 18px;
+    font-weight: bold;
+    background: vb.$color_accent;
+    border-radius: 4px;
+    min-width: 350px;
+    color: vb.$color_white;
+    padding: 12px;
+  }
+}
+
+/* ==============
+apply__table
+=============== */
+
+.apply__table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+
+  &__header {
+    border: 1px solid black;
+    width: 35%;
+    padding: 10px 0;
+    background-color: vb.$color_keynote;
+  }
+
+  &__data {
+    border: 1px solid black;
+    width: 65%;
+    background-color: vb.$color_white;
+  }
+}
+
+/* ==============
+apply__thanks
+=============== */
+
+.apply__thanks {
+  &__complete {
+    margin: 15px 0;
+    padding: 10px 5px;
+    background-color: vb.$color_accent;
+    color: vb.$color_white;
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  &__inner {
+    margin: 0 40px;
+  }
+
+  &__text {
+    text-align: left;
+  }
+
+  &__nav {
+    color: vb.$color_accent;
+    border-bottom: 1px solid vb.$color_accent;
+  }
+
+  &__button {
+    background-color: vb.$color_accent;
+    width: 200px;
+    padding: 15px 0px;
+    margin: 20px 0;
+    color: vb.$color_white;
+  }
+}
