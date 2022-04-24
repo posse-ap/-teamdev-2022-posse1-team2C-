@@ -1,0 +1,82 @@
+body {
+  font-size: 14px;
+  line-height: 1.5;
+  letter-spacing: 0.1em;
+  box-sizing: border-box;
+}
+
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+.content {
+  background-color: #e0e4eb;
+  padding-top: 150px;
+  min-height: 1000px;
+}
+.content .container {
+  width: calc(100% - 100px);
+  margin: 0 auto;
+  display: grid;
+  justify-items: center;
+  grid-template-columns: 3fr 1fr;
+  gap: 50px;
+}
+
+.main {
+  background-color: #ffffff;
+  border-top: 3px solid #26a69a;
+  text-align: center;
+  padding: 0 20px;
+  width: 100%;
+}
+.main__title {
+  font-size: 30px;
+  font-weight: bolder;
+  padding: 10px 0;
+  color: red;
+}
+.main__text {
+  display: block;
+  color: red;
+  padding: 10px 0;
+}
+
+.inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  z-index: 10;
+  width: 100%;
+  text-align: center;
+  position: fixed;
+  background-color: #26a69a;
+  margin: 0 auto;
+}
+.header__title {
+  text-align: center;
+  font-size: 30px;
+  color: #ffffff;
+  padding: 20px 0px;
+}
+.header__nav__list {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+}
+.header__nav__item {
+  color: #ffffff;
+  margin: 0 auto;
+  font-size: 15px;
+  padding: 15px 0;
+}
+@media screen and (max-width: 1000px) {
+  .header__nav__item {
+    font-size: 12px;
+  }
+}
+
+/*# sourceMappingURL=result_craft.css.map */

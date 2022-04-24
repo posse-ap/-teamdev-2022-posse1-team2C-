@@ -1,6 +1,6 @@
 <?php
 session_start();
-require('../dbconnect.php');
+require('../../dbconnect.php');
 
 if (!empty($_POST)) {
   $login = $db->prepare('SELECT * FROM users WHERE email=? AND password=?');
@@ -40,7 +40,7 @@ if (!empty($_POST)) {
       <input type="password" required name="password">
       <input type="submit" value="ログイン">
     </form>
-    <a href="/index.php">イベント一覧</a>
+    <a href="">イベント一覧</a>
   </div>
 </body>
 
