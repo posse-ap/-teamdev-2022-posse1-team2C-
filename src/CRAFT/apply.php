@@ -404,7 +404,7 @@
     </div>
   </div>
 
-  <script src="../assets/js/app.js?123"></script>
+  <script src="../assets/js/apply_user.js"></script>
 </body>
 
 </html>

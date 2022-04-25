@@ -42,7 +42,7 @@
               <span class="apply__title"> 入力</span>
             </p>
 
-            <form action="/" name="" class="apply__form">
+            <form action="/" name="apply__form" class="apply__form">
               <dl class="apply__form__list">
                 <div class="apply__form__item">
                   <dt><label for="name">企業名</label></dt>
@@ -195,7 +195,7 @@
     </div>
   </div>
 
-  <script src="../../assets/js/app.js"></script>
+  <script src="../../assets/js/apply_agent.js"></script>
 </body>
 
 </html>
