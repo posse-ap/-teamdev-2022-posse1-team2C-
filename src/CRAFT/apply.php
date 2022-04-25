@@ -23,6 +23,11 @@
         </span>
         <div class="apply">
           <div class="apply__input" role="apply">
+            <p class="title">
+              新卒エージェント　お問い合わせ
+              <span class="title"> 入力</span>
+            </p>
+
             <ul class="stepbar">
               <li class="stepbar__item">
                 <div class="stepbar__item-inner stepbar__item-inner--current">
@@ -37,10 +42,6 @@
               </li>
             </ul>
 
-            <p class="apply__title">
-              新卒エージェント　お問い合わせ
-              <span class="apply__title"> 入力</span>
-            </p>
 
             <form action="/" name="apply__form" class="apply__form">
               <dl class="apply__form__list">
@@ -129,6 +130,11 @@
           </div>
 
           <div class="apply__confirm" role="apply" hidden="true">
+            <p class="title">
+              新卒エージェント　お問い合わせ
+              <span class="title"> 確認</span>
+            </p>
+
             <ul class="stepbar">
               <li class="stepbar__item">
                 <div class="stepbar__item-inner">STEP1</div>
@@ -143,10 +149,6 @@
               </li>
             </ul>
 
-            <p class="apply__title">
-              新卒エージェント　お問い合わせ
-              <span class=""> 確認</span>
-            </p>
 
             <form action="/" name="" class="apply__form">
               <table class="apply__table">
@@ -210,6 +212,11 @@
           </div>
 
           <div class="apply__thanks" role="apply" hidden="true">
+            <p class="title">
+              新卒エージェント　お問い合わせ
+              <span class="title"> 完了</span>
+            </p>
+
             <ul class="stepbar">
               <li class="stepbar__item">
                 <div class="stepbar__item-inner">STEP1</div>
@@ -223,10 +230,7 @@
                 </div>
               </li>
             </ul>
-            <p class="apply__title">
-              新卒エージェント　お問い合わせ
-              <span class="apply__title"> 完了</span>
-            </p>
+
             <div class="apply__thanks__inner">
               <p class="apply__thanks__complete">
                 お問い合わせを受け付けました

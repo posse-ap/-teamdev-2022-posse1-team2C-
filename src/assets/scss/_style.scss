@@ -52,3 +52,13 @@ img {
   max-width: 1200px;
   margin: 0 auto;
 }
+
+.title {
+  padding: 20px 0 20px 20px;
+  margin-bottom: 40px;
+  border-top: 3px solid vb.$color_keynote;
+  border-bottom: 3px solid vb.$color_keynote;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: left;
+}
