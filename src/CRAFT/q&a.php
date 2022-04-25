@@ -15,10 +15,147 @@
 
   <div class="content">
     <div class="container inner">
-      <main class="main"></main>
+      <main class="main">
+        <h2 class="main__title">CRAFT</h2>
+        <span class="main__text">
+          あなたに合った企業が見つかる！<br />就活エージェント比較サイト
+        </span>
+        <p class="title">
+          よくある質問一覧
+        </p>
+        <ul class="accordion_list">
+
+          <li class="accordion__item">
+            <p class="accordion__title">ここに質問が入ります<span class="accordion__btn"></span></p>
+            <div class="accordion__content">
+              <p>ここに解答が入ります</p>
+            </div>
+          </li>
+
+          <li class="accordion__item">
+            <p class="accordion__title">ここに質問が入ります<span class="accordion__btn"></span></p>
+            <div class="accordion__content">
+              <p>ここに解答が入ります</p>
+            </div>
+          </li>
+
+          <li class="accordion__item">
+            <p class="accordion__title">ここに質問が入ります<span class="accordion__btn"></span></p>
+            <div class="accordion__content">
+              <p>ここに解答が入ります</p>
+            </div>
+          </li>
+
+          <li class="accordion__item">
+            <p class="accordion__title">ここに質問が入ります<span class="accordion__btn"></span></p>
+            <div class="accordion__content">
+              <p>ここに解答が入ります</p>
+              <p>ここに解答が入ります</p>
+            </div>
+          </li>
+
+          <li class="accordion__item">
+            <p class="accordion__title">ここに質問が入ります<span class="accordion__btn"></span></p>
+            <div class="accordion__content">
+              <p>ここに解答が入ります</p>
+              <p>ここに解答が入ります</p>
+              <p>ここに解答が入ります</p>
+            </div>
+          </li>
+          
+          <li class="accordion__item">
+            <p class="accordion__title">ここに質問が入ります<span class="accordion__btn"></span></p>
+            <div class="accordion__content">
+              <p>ここに解答が入ります</p>
+            </div>
+          </li>
+
+          <li class="accordion__item">
+            <p class="accordion__title">ここに質問が入ります<span class="accordion__btn"></span></p>
+            <div class="accordion__content">
+              <p>ここに解答が入ります</p>
+              <p>ここに解答が入ります</p>
+            </div>
+          </li>
+
+          <li class="accordion__item">
+            <p class="accordion__title">ここに質問が入ります<span class="accordion__btn"></span></p>
+            <div class="accordion__content">
+              <p>ここに解答が入ります</p>
+              <p>ここに解答が入ります</p>
+              <p>ここに解答が入ります</p>
+            </div>
+          </li>
+          
+          <li class="accordion__item">
+            <p class="accordion__title">ここに質問が入ります<span class="accordion__btn"></span></p>
+            <div class="accordion__content">
+              <p>ここに解答が入ります</p>
+            </div>
+          </li>
+
+          <li class="accordion__item">
+            <p class="accordion__title">ここに質問が入ります<span class="accordion__btn"></span></p>
+            <div class="accordion__content">
+              <p>ここに解答が入ります</p>
+            </div>
+          </li>
+
+          <li class="accordion__item">
+            <p class="accordion__title">ここに質問が入ります<span class="accordion__btn"></span></p>
+            <div class="accordion__content">
+              <p>ここに解答が入ります</p>
+            </div>
+          </li>
+
+          <li class="accordion__item">
+            <p class="accordion__title">ここに質問が入ります<span class="accordion__btn"></span></p>
+            <div class="accordion__content">
+              <p>ここに解答が入ります</p>
+              <p>ここに解答が入ります</p>
+            </div>
+          </li>
+
+          <li class="accordion__item">
+            <p class="accordion__title">ここに質問が入ります<span class="accordion__btn"></span></p>
+            <div class="accordion__content">
+              <p>ここに解答が入ります</p>
+              <p>ここに解答が入ります</p>
+              <p>ここに解答が入ります</p>
+            </div>
+          </li>
+
+          <li class="accordion__item">
+            <p class="accordion__title">ここに質問が入ります<span class="accordion__btn"></span></p>
+            <div class="accordion__content">
+              <p>ここに解答が入ります</p>
+            </div>
+          </li>
+
+          <li class="accordion__item">
+            <p class="accordion__title">ここに質問が入ります<span class="accordion__btn"></span></p>
+            <div class="accordion__content">
+              <p>ここに解答が入ります</p>
+              <p>ここに解答が入ります</p>
+            </div>
+          </li>
+
+          <li class="accordion__item">
+            <p class="accordion__title">ここに質問が入ります<span class="accordion__btn"></span></p>
+            <div class="accordion__content">
+              <p>ここに解答が入ります</p>
+              <p>ここに解答が入ります</p>
+              <p>ここに解答が入ります</p>
+            </div>
+          </li>
+      </main>
+
       <?php require  "./capsule/aside.php"; ?>
     </div>
   </div>
+
+  <script src="../assets/js/jquery-3.6.0.min.js"></script>
+  <script src="../assets/js/q&a.js"></script>
 </body>
 
 </html>

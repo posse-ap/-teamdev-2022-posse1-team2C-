@@ -112,4 +112,107 @@ img {
   background-color: #ffffff;
 }
 
+.title {
+  padding: 20px 0 20px 20px;
+  margin-bottom: 40px;
+  border-top: 3px solid #26a69a;
+  border-bottom: 3px solid #26a69a;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: left;
+}
+
+.accordion__item {
+  max-width: 1024px;
+  margin: 0 auto 10px auto;
+}
+.accordion__item:nth-of-type(2) .accordion__title {
+  background-color: rgba(26, 114, 182, 0.234);
+}
+.accordion__item:nth-of-type(3) .accordion__title {
+  background-color: rgba(26, 114, 182, 0.234);
+}
+.accordion__item:nth-of-type(2) .accordion__content {
+  border-left: 2px solid rgba(26, 114, 182, 0.234);
+  border-right: 2px solid rgba(26, 114, 182, 0.234);
+  border-bottom: 2px solid rgba(26, 114, 182, 0.234);
+}
+.accordion__item:nth-of-type(3) .accordion__content {
+  border-left: 2px solid rgba(26, 114, 182, 0.234);
+  border-right: 2px solid rgba(26, 114, 182, 0.234);
+  border-bottom: 2px solid rgba(26, 114, 182, 0.234);
+}
+.accordion__title {
+  position: relative;
+  background-color: rgba(26, 114, 182, 0.234);
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 15px 60px 15px 15px;
+  text-align: left;
+  z-index: 1;
+  cursor: pointer;
+  transition-duration: 0.2s;
+}
+.accordion__title:hover {
+  opacity: 0.8;
+}
+.accordion__btn {
+  position: absolute;
+  top: 37%;
+  right: 10%;
+  width: 18px;
+  height: 18px;
+  transform-origin: center center;
+  transition-duration: 0.2s;
+}
+.accordion__btn:before, .accordion__btn:after {
+  content: "";
+  background-color: #ffffff;
+  border-radius: 10px;
+  width: 18px;
+  height: 4px;
+  position: absolute;
+  top: 7px;
+  left: 0;
+  transform-origin: center center;
+}
+.accordion__btn:before {
+  width: 4px;
+  height: 18px;
+  top: 0;
+  left: 7px;
+}
+.active .accordion__btn {
+  transform: rotate(-180deg);
+}
+.active .accordion__btn:before {
+  content: none;
+}
+.accordion__content {
+  display: none;
+  padding: 30px 30px;
+  border-left: 2px solid rgba(26, 114, 182, 0.234);
+  border-right: 2px solid rgba(26, 114, 182, 0.234);
+  border-bottom: 2px solid rgba(26, 114, 182, 0.234);
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 1024px) {
+  .accordion_list .accordion_item .accordion__title {
+    font-size: 24px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .accordion_list .accordion_item .accordion__title {
+    font-size: 16px;
+    text-align: left;
+  }
+}
+#a {
+  background-color: #ffffff;
+  color: rgba(26, 114, 182, 0.234);
+  border: 2px solid rgba(26, 114, 182, 0.234);
+}
+
 /*# sourceMappingURL=q&a_craft.css.map */
