@@ -2,3 +2,120 @@
 @use "./style" as style;
 @use "./header_craft" as header;
 @use "./aside_craft" as aside;
+
+.title {
+  padding: 20px 0 20px 20px;
+  margin-bottom: 40px;
+  border-top: 3px solid vb.$color_keynote;
+  border-bottom: 3px solid vb.$color_keynote;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: left;
+}
+
+.accordion {
+  &__item {
+    max-width: 1024px;
+    margin: 0 auto 10px auto;
+
+    &:nth-of-type(2) .accordion__title {
+      background-color: vb.$color_accent;
+    }
+    &:nth-of-type(3) .accordion__title {
+      background-color: vb.$color_accent;
+    }
+    &:nth-of-type(2) .accordion__content {
+      border-left: 2px solid vb.$color_accent;
+      border-right: 2px solid vb.$color_accent;
+      border-bottom: 2px solid vb.$color_accent;
+    }
+
+    &:nth-of-type(3) .accordion__content {
+      border-left: 2px solid vb.$color_accent;
+      border-right: 2px solid vb.$color_accent;
+      border-bottom: 2px solid vb.$color_accent;
+    }
+  }
+
+  &__title {
+    position: relative;
+    background-color: vb.$color_accent;
+    color: #fff;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 15px 60px 15px 15px;
+    text-align: left;
+    z-index: +1;
+    cursor: pointer;
+    transition-duration: 0.2s;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &__btn {
+    position: absolute;
+    top: 37%;
+    right: 10%;
+    width: 18px;
+    height: 18px;
+    transform-origin: center center;
+    transition-duration: 0.2s;
+
+    &:before,
+    &:after {
+      content: "";
+      background-color: vb.$color_white;
+      border-radius: 10px;
+      width: 18px;
+      height: 4px;
+      position: absolute;
+      top: 7px;
+      left: 0;
+      transform-origin: center center;
+    }
+    &:before {
+      width: 4px;
+      height: 18px;
+      top: 0;
+      left: 7px;
+    }
+  }
+
+  .active &__btn {
+    -webkit-transform: rotate(-180deg);
+    transform: rotate(-180deg);
+    &:before {
+      content: none;
+    }
+  }
+
+  &__content {
+    display: none;
+    padding: 30px 30px;
+    border-left: 2px solid vb.$color_accent;
+    border-right: 2px solid vb.$color_accent;
+    border-bottom: 2px solid vb.$color_accent;
+    box-sizing: border-box;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .accordion_list .accordion_item .accordion__title {
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .accordion_list .accordion_item .accordion__title {
+    font-size: 16px;
+    text-align: left;
+  }
+}
+
+#a {
+  background-color: vb.$color_white;
+  color: vb.$color_accent;
+  border: 2px solid vb.$color_accent;
+}
