@@ -24,11 +24,11 @@
     font-size: 25px;
     padding: 30px 0;
 
-    span{
+    span {
       padding-right: 50px;
     }
   }
-  
+
   &__form {
     width: 600px;
     margin: 0 auto;
@@ -88,24 +88,24 @@
     color: vb.$color_white;
     padding: 12px;
   }
-  
-  &__text{
+
+  &__text {
     padding: 20px 0;
   }
-  
-  &__border{
+
+  &__border {
     border-top: 1px solid black;
     width: 600px;
     height: 1px;
     margin: 0 auto;
   }
-  
+
   &__nav {
     color: vb.$color_accent;
     border-bottom: 1px solid vb.$color_accent;
   }
-  
-  &__new{
+
+  &__new {
     font-size: 18px;
     font-weight: bold;
     border: 1px solid black;
