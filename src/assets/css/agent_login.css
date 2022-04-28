@@ -13,7 +13,6 @@ img {
 .content {
   background-color: #e0e4eb;
   padding-top: 150px;
-  min-height: 1000px;
 }
 .content .container {
   width: calc(100% - 100px);
@@ -91,7 +90,6 @@ img {
 
 .content {
   margin: 0 auto;
-  min-height: 0;
   height: 100vh;
   padding-top: 80px;
 }
