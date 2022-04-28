@@ -13,7 +13,6 @@ img {
 .content {
   background-color: #e0e4eb;
   padding-top: 150px;
-  min-height: 1000px;
 }
 .content .container {
   width: calc(100% - 100px);
@@ -28,8 +27,11 @@ img {
   background-color: #ffffff;
   border-top: 3px solid #26a69a;
   text-align: center;
-  padding: 0 20px;
+  padding: 0 20px 50px 20px;
   width: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 .main__title {
   font-size: 30px;
@@ -122,4 +124,80 @@ img {
   background-color: #ffffff;
 }
 
-/*# sourceMappingURL=help_craft.css.map */
+.contact__form {
+  margin: 10px 30px 0px 30px;
+}
+.contact__form__item {
+  display: flex;
+}
+.contact__form__item + .contact__form__item {
+  margin-top: 18px;
+}
+.contact__form__item dt {
+  flex: 0 0 160px;
+  font-size: 12px;
+  line-height: 30px;
+}
+.contact__form__item dd {
+  flex: 0 1 100%;
+  margin-left: 60px;
+  font-size: 11px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.contact__form__item label + label {
+  margin-left: 40px;
+}
+.contact__form__item input[type=text],
+.contact__form__item input[type=email],
+.contact__form__item textarea {
+  font-size: 16px;
+  border: solid 1px #a5a5a5;
+  border-radius: 4px;
+  width: 100%;
+  height: 30px;
+  padding: 8px;
+  letter-spacing: 0.1em;
+  text-align: left;
+}
+.contact__form__item textarea {
+  height: 210px;
+}
+.contact__form__footer {
+  text-align: center;
+  margin-top: 40px;
+}
+.contact__form__button {
+  font-size: 18px;
+  font-weight: bold;
+  background: rgba(26, 114, 182, 0.234);
+  border-radius: 4px;
+  min-width: 350px;
+  color: #ffffff;
+  padding: 12px;
+}
+.contact__thanks__complete {
+  margin: 15px 0;
+  padding: 10px 5px;
+  background-color: rgba(26, 114, 182, 0.234);
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 600;
+}
+.contact__thanks__text {
+  text-align: left;
+}
+.contact__thanks__nav {
+  color: rgba(26, 114, 182, 0.234);
+  border-bottom: 1px solid rgba(26, 114, 182, 0.234);
+}
+.contact__thanks__button {
+  background-color: rgba(26, 114, 182, 0.234);
+  width: 200px;
+  padding: 15px 0px;
+  margin: 20px 0;
+  color: #ffffff;
+}
+
+/*# sourceMappingURL=contact_craft.css.map */

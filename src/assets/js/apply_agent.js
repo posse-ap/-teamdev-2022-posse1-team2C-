@@ -10,6 +10,8 @@ function changeForm(e) {
   // 次のSTEPを表示
   next__apply.removeAttribute("hidden");
 
+  window.scroll({top: 0, left: 0, behavior: 'smooth'});
+
   // consoleに出力
   const formElements = document.forms.apply__form;
   console.log(
