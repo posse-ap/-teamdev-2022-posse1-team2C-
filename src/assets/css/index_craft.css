@@ -14,7 +14,6 @@ img {
 .content {
   background-color: #e0e4eb;
   padding-top: 150px;
-  min-height: 1000px;
 }
 .content .container {
   width: calc(100% - 100px);
@@ -29,8 +28,11 @@ img {
   background-color: #ffffff;
   border-top: 3px solid #26a69a;
   text-align: center;
-  padding: 0 20px;
+  padding: 0 20px 50px 20px;
   width: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 .main__title {
   font-size: 30px;
