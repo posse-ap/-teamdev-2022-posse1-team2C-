@@ -6,6 +6,14 @@ USE shukatsu;
 
 
 
+-- DROP TABLE IF EXISTS test;
+
+-- CREATE TABLE test (
+
+--   graduate VARCHAR(255)
+-- )ENGINE = InnoDB;
+
+
 DROP TABLE IF EXISTS students;
 
 CREATE TABLE students (
@@ -16,14 +24,23 @@ CREATE TABLE students (
   postal_code VARCHAR(255) NOT NULL,
   address VARCHAR(255) NOT NULL,
   telephone_number INT,
-  birthday INT,
+  birthday date,
   university_id INT,
-  faculity VARCHAR(255) NOT NULL,
+  faculty VARCHAR(255) NOT NULL,
   department VARCHAR(255) NOT NULL,
   graduate_year INT,
   free_comment VARCHAR(255),
   apply_time date
-);
+)ENGINE = InnoDB;
+
+INSERT INTO students VALUES
+(1,'武田龍一','タケダリュウイチ','ryuicih@keio.jp','2011111','東京都',89999,20010902,1,'理工学部','電気譲歩が',24,'あ',20220908);
+
+
+
+
+
+
 
 DROP TABLE IF EXISTS universities;
 
@@ -66,7 +83,7 @@ CREATE TABLE managers (
   mail VARCHAR(255),
   password VARCHAR(255) NOT NULL,
   agent_id VARCHAR(255) NOT NULL,
-  faculity VARCHAR(255) NOT NULL
+  faculty VARCHAR(255) NOT NULL
 );
 
 
@@ -141,6 +158,24 @@ CREATE TABLE CRAFT (
   password VARCHAR(255) NOT NULL
 );
 
+-- INSERT INTO
+--   CRAFT VALUES
+-- -- SET
+-- --   email = 'test@posse-ap.com',
+-- --   password = sha1('password');
+-- ('test@posse-ap.com',sha1('password'));
+
+
+
+
+
+
+DROP TABLE IF EXISTS test;
+
+CREATE TABLE test (
+  id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+  university VARCHAR(255)
+)ENGINE = InnoDB;
 
 
 
@@ -160,11 +195,13 @@ CREATE TABLE CRAFT (
 
 
 
-
-
-
-
-
+-- CREATE TABLE users (
+--   id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+--   email VARCHAR(255) UNIQUE NOT NULL,
+--   password VARCHAR(255) NOT NULL,
+--   created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+--   updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+-- );
 
 -- INSERT INTO
 --   users
@@ -190,3 +227,49 @@ CREATE TABLE CRAFT (
 --   events
 -- SET
 --   title = 'イベント2';
+
+
+-- DROP TABLE IF EXISTS students;
+
+-- CREATE TABLE students (
+--   id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+--   name VARCHAR(255) UNIQUE NOT NULL,
+--   furigana VARCHAR(255) NOT NULL,
+--   mail VARCHAR(255) NOT NULL,
+--   postal_code VARCHAR(255) NOT NULL,
+--   address VARCHAR(255) NOT NULL,
+--   telephone_number INT,
+--   birthday date,
+--   university_id INT,
+--   faculty VARCHAR(255) NOT NULL,
+--   department VARCHAR(255) NOT NULL,
+--   graduate_year INT,
+--   free_comment VARCHAR(255),
+--   apply_time date
+-- )ENGINE = InnoDB;
+
+-- INSERT INTO students VALUES
+-- (1,'武田龍一','タケダリュウイチ','ryuicih@keio.jp','2011111','東京都',89999,20010902,1,'理工学部','電気譲歩が',24,'あ',20220908);
+
+
+-- -- DROP TABLE IF EXISTS students;
+
+-- -- CREATE TABLE students (
+-- --   id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+-- --   name VARCHAR(255) UNIQUE NOT NULL
+-- -- )ENGINE = InnoDB;
+-- -- INSERT INTO students VALUES
+-- -- (1,'武田龍一');
+
+-- DROP TABLE IF EXISTS test;
+
+-- CREATE TABLE test (
+--   id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+--   postcode TEXT NOT NULL ,
+--   address TEXT NOT NULL,
+--   day DATETIME NOT NULL 
+--   PRIMARY KEY (`id`)) ENGINE = InnoDB;
+
+
+
+--   -- CREATE TABLE test ( id INT NOT NULL AUTO_INCREMENT , postcode TEXT NOT NULL , address TEXT NOT NULL,  day DATETIME NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;

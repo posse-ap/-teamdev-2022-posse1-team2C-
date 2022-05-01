@@ -1,3 +1,13 @@
+<?php
+session_start();
+require(dirname(__FILE__) . "../../dbconnect.php");
+
+// $stmt = $db->query('SELECT id, title FROM events');
+// $events = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -43,7 +53,7 @@
             </ul>
 
 
-            <form action="/" name="apply__form" class="apply__form">
+            <form  name="apply__form" class="apply__form" method="post">
               <dl class="apply__form__list">
                 <div class="apply__form__item">
                   <dt><label for="agent">お問い合わせ先<br>エージェント企業</label></dt>
@@ -123,8 +133,8 @@
                   </dd>
                 </div>
               </dl>
-              <div class="apply__form__footer">
-                <button class="apply__form__button" id="step1" role="submit">確認画面へ</button>
+              <div>
+                <button type="submit" name="button">確認画面へ</button>
               </div>
             </form>
           </div>
@@ -205,11 +215,40 @@
                   <td class="apply__table__data"></td>
                 </tr>
               </table>
-              <div class="apply__form__footer">
-                <button class="apply__form__button" id="step2" role="submit">送信する</button>
+              <div>
+                <button>送信する</button>
               </div>
             </form>
           </div>
+
+          <?php
+
+if (!empty($_POST)) {
+
+    // $alert = "<script type='text/javascript'>alert('こちらは侍エンジニアです。');</script>";
+    // echo $alert;
+
+    $student = $db->exec('INSERT INTO students SET 
+    name="' . $_POST['name__kanji'] .'",
+    furigana="' . $_POST['name__kana'] .'",
+    mail="' . $_POST['email'] .'",
+    postal_code="' . $_POST['postcode'] .'",
+    address="'. $_POST['address'] .'",
+    telephone_number="' . $_POST['tel'] .'",
+    birthday="'. $_POST['birth'] .'",
+    university_id="'. $_POST['university'] .'",
+    faculty="'. $_POST['faculty'] .'",
+    department="'. $_POST['course'] .'",
+    graduate_year="'. $_POST['graduate'] .'",
+    free_comment="'. $_POST['content'] .'",
+    apply_time = NOW()');
+}
+?>
+
+
+
+
+
 
           <div class="apply__thanks" role="apply" hidden="true">
             <p class="title">

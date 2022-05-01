@@ -40,6 +40,9 @@ if (!empty($_POST)) {
       <input type="password" required name="password">
       <input type="submit" value="ログイン">
     </form>
+    <a href="./apply.php">apply</a>
+    <a href="./detail.php">イベント一覧</a>
+    <a href="./">イベント一覧</a>
     <a href="">イベント一覧</a>
   </div>
 </body>
