@@ -176,7 +176,7 @@
               <dl class="student__panel__item__content"></dl>
             </div>
           </div>
-          </section>
+        </div>
       </li>
     </ul>
   </main>
