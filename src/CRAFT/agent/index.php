@@ -37,6 +37,7 @@ if (isset($_SESSION['user_id']) && $_SESSION['time'] + 60 * 60 * 24 > time()) {
         </form>
         <a href="/index.php">イベント一覧</a>
     </div>
+  
 </body>
 
 </html>

@@ -3,7 +3,7 @@ session_start();
 require('../../dbconnect.php');
 
 if (!empty($_POST)) {
-  $login = $db->prepare('SELECT * FROM users WHERE email=? AND password=?');
+  $login = $db->prepare('SELECT * FROM  WHERE email=? AND password=?');
   $login->execute(array(
     $_POST['email'],
     sha1($_POST['password'])
@@ -47,7 +47,7 @@ if (!empty($_POST)) {
       <div class="login">
         <div class="login__inner">
           <h1 class="login__inner__title"><span>CRAFT</span>エージェント企業画面ログイン</h1>
-          <form action="/" method="" class="login__inner__form">
+          <form method="post" class="login__inner__form">
             <dl class="login__inner__form__list">
               <div class="login__inner__form__item">
                 <dt><label for="loginID">ログインID</label></dt>

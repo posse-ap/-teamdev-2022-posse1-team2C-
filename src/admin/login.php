@@ -1,3 +1,35 @@
+<?php
+session_start();
+require('../dbconnect.php');
+
+if (!empty($_POST)) {
+
+//   $alert = "<script type='text/javascript'>alert('こちらは侍エンジニアです。');</script>";
+// echo $alert;
+
+  $login = $db->prepare('SELECT * FROM CRAFT WHERE log_id=? AND password=?');
+  $login->execute(array(
+    $_POST['loginID'],
+    $_POST['password']
+  ));
+  $user = $login->fetch();
+  // echo $user[1];
+
+  if ($user) {
+//       $alert = "<script type='text/javascript'>alert('こちらは侍エンジニアです。');</script>";
+// echo $alert;
+
+
+    $_SESSION = array();
+    // $_SESSION['user_id'] = $user['id'];
+    $_SESSION['time'] = time();
+    header('Location: http://' . $_SERVER['HTTP_HOST'] . '/admin/students.php');
+    exit();
+  } else {
+    $error = 'fail';
+  }
+}
+?>
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -11,12 +43,21 @@
 </head>
 
 <body>
-  <div class="content">
+<div>
+    <h1>管理者ログイン</h1>
+    <form action="/admin/login.php" method="POST">
+      <input type="text" name="loginID" required>
+      <input type="text" required name="password">
+      <input type="submit" value="ログイン">
+    </form>
+    <a href="/index.php">イベント一覧</a>
+  </div>
+  <!-- <div class="content">
     <main class="main">
       <div class="login">
         <div class="login__inner">
           <h1 class="login__inner__title"><span>boozer</span>ログイン</h1>
-          <form action="/" method="" class="login__inner__form">
+          <form method="post" class="login__inner__form">
             <dl class="login__inner__form__list">
               <div class="login__inner__form__item">
                 <dt><label for="loginID">ログインID</label></dt>
@@ -33,7 +74,8 @@
         </div>
       </div>
     </main>
-  </div>
+  </div> -->
+  <a href="./students.php">生徒</a>
 </body>
 
 </html>
