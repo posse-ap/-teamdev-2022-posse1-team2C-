@@ -17,7 +17,7 @@ require(dirname(__FILE__) . "../../dbconnect.php");
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="../assets/css/reset.css">
-  <link rel="stylesheet" href="../assets/css/apply.min.css">
+  <link rel="stylesheet" href="../assets/css/apply.css">
   <link rel="stylesheet" href="../assets/css/index_craft.min.css">
 </head>
 
@@ -31,7 +31,7 @@ require(dirname(__FILE__) . "../../dbconnect.php");
         <span class="main__text">
           あなたに合った企業が見つかる！<br />就活エージェント比較サイト
         </span>
-        <div class="apply">
+        <div class="apply" id="apply">
           <div class="apply__input" role="apply">
             <p class="title">
               新卒エージェント　お問い合わせ
@@ -164,59 +164,62 @@ require(dirname(__FILE__) . "../../dbconnect.php");
               <table class="apply__table">
                 <tr>
                   <th class="apply__table__header">お問い合わせ先エージェント企業</th>
-                  <td class="apply__table__data"></td>
+                  <td class="apply__table__data" id="insert__agent"></td>
                 </tr>
                 <tr>
                   <th class="apply__table__header">お名前（漢字）</th>
-                  <td class="apply__table__data"></td>
+                  <td class="apply__table__data" id="insert__name__kanji"></td>
                 </tr>
                 <tr>
                   <th class="apply__table__header">お名前（フリガナ）</th>
-                  <td class="apply__table__data"></td>
+                  <td class="apply__table__data" id="insert__name__kana"></td>
                 </tr>
                 <tr>
                   <th class="apply__table__header">メールアドレス</th>
-                  <td class="apply__table__data"></td>
+                  <td class="apply__table__data" id="insert__email"></td>
                 </tr>
                 <tr>
                   <th class="apply__table__header">電話番号</th>
-                  <td class="apply__table__data"></td>
+                  <td class="apply__table__data" id="insert__tel"></td>
                 </tr>
                 <tr>
                   <th class="apply__table__header">郵便番号</th>
-                  <td class="apply__table__data"></td>
+                  <td class="apply__table__data" id="insert__postcode"></td>
                 </tr>
                 <tr>
                   <th class="apply__table__header">住所</th>
-                  <td class="apply__table__data"></td>
+                  <td class="apply__table__data" id="insert__address"></td>
                 </tr>
                 <tr>
                   <th class="apply__table__header">生年月日</th>
-                  <td class="apply__table__data"></td>
+                  <td class="apply__table__data" id="insert__date"></td>
                 </tr>
                 <tr>
                   <th class="apply__table__header">大学</th>
-                  <td class="apply__table__data"></td>
+                  <td class="apply__table__data" id="insert__univ"></td>
                 </tr>
                 <tr>
                   <th class="apply__table__header">学部</th>
-                  <td class="apply__table__data"></td>
+                  <td class="apply__table__data" id="insert__faculty"></td>
                 </tr>
                 <tr>
                   <th class="apply__table__header">学科</th>
-                  <td class="apply__table__data"></td>
+                  <td class="apply__table__data" id="insert__course"></td>
                 </tr>
                 <tr>
                   <th class="apply__table__header">卒業年度</th>
-                  <td class="apply__table__data"></td>
+                  <td class="apply__table__data" id="insert__graduate"></td>
                 </tr>
                 <tr>
                   <th class="apply__table__header">その他自由記述欄</th>
-                  <td class="apply__table__data"></td>
+                  <td class="apply__table__data" id="insert__content"></td>
                 </tr>
               </table>
-              <div>
-                <button>送信する</button>
+              <div class="apply__form__footer">
+                <button class="apply__form__button" id="back">戻る</button>
+              </div>
+              <div class="apply__form__footer">
+                <button class="apply__form__button" id="step2" role="submit">送信する</button>
               </div>
             </form>
           </div>

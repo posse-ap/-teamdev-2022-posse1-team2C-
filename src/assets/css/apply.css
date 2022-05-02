@@ -13,7 +13,6 @@ img {
 .content {
   background-color: #e0e4eb;
   padding-top: 150px;
-  min-height: 1000px;
 }
 .content .container {
   width: calc(100% - 100px);
@@ -28,8 +27,11 @@ img {
   background-color: #ffffff;
   border-top: 3px solid #26a69a;
   text-align: center;
-  padding: 0 20px;
+  padding: 0 20px 50px 20px;
   width: 100%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 .main__title {
   font-size: 30px;
@@ -46,6 +48,16 @@ img {
 .inner {
   max-width: 1200px;
   margin: 0 auto;
+}
+
+.title {
+  padding: 20px 0 20px 20px;
+  margin-bottom: 40px;
+  border-top: 3px solid #26a69a;
+  border-bottom: 3px solid #26a69a;
+  font-size: 20px;
+  font-weight: 700;
+  text-align: left;
 }
 
 .header {
@@ -339,6 +351,9 @@ apply__table
   border: 1px solid black;
   width: 65%;
   background-color: #ffffff;
+  vertical-align: middle;
+  text-align: left;
+  padding-left: 20px;
 }
 
 /* ==============
