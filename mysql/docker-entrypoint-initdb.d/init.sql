@@ -219,7 +219,9 @@ DROP TABLE IF EXISTS test;
 
 CREATE TABLE test (
   id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
-  university VARCHAR(255)
+  name VARCHAR(255),
+  email VARCHAR(255),
+  message VARCHAR(255)
 )ENGINE = InnoDB;
 
 
