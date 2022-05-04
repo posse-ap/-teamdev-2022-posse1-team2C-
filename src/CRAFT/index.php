@@ -24,6 +24,59 @@
           エージェント企業を探す
         </p>
         <section class="section">
+          <div class="search">
+            <div class="search__box">
+              <dl class="search__list">
+                <div class="search__item">
+                  <dt>サポート体制</dt>
+                  <dd>就職セミナー</dd>
+                  <dd>じっくり面接対策</dd>
+                  <dd>ES添削</dd>
+                </div>
+                <div class="search__item">
+                  <dt>得意な業種・業界</dt>
+                  <dd>総合コンサル</dd>
+                  <dd>IT系</dd>
+                  <dd>エンタメ</dd>
+                  <dd>教育</dd>
+                  <dd>金融</dd>
+                </div>
+                <div class="search__item">
+                  <dt>公開求人数</dt>
+                  <dd class="select__wrapper">
+                    <select name="" id="">
+                      <option value="選択してください" selected disabled>
+                        選択してください
+                      </option>
+                      <option value="～3万">～3万</option>
+                      <option value="3万～5万">3万～5万</option>
+                      <option value="5万～10万">5万～10万</option>
+                      <option value="10万～">10万～</option>
+                    </select>
+                  </dd>
+                </div>
+                <div class="search__item">
+                  <dt>公開求人数</dt>
+                  <dd class="select__wrapper">
+                    <select name="" id="">
+                      <option value="選択してください" selected disabled>
+                        選択してください
+                      </option>
+                      <option value="～3万">～3万</option>
+                      <option value="3万～5万">3万～5万</option>
+                      <option value="5万～10万">5万～10万</option>
+                      <option value="10万～">10万～</option>
+                    </select>
+                  </dd>
+                </div>
+                <div class="search__item">
+                  <button>検索する</button>
+                </div>
+              </dl>
+            </div>
+          </div>
+        </section>
+        <section class="section">
           <ul class="agents">
             <li class="agent">
               <ul class="agent__list">
