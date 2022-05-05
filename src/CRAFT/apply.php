@@ -17,10 +17,6 @@
   <div class="content">
     <div class="container inner">
       <main class="main">
-        <h2 class="main__title">CRAFT</h2>
-        <span class="main__text">
-          あなたに合った企業が見つかる！<br />就活エージェント比較サイト
-        </span>
         <div class="apply" id="apply">
           <div class="apply__input" role="apply">
             <p class="title">
