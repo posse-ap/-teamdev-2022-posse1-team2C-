@@ -1,6 +1,6 @@
 <header class="header">
   <div class="header__title">
-    <h1>就活.com</h1>
+    <h1><img src="../../assets/img/logo__site-white.png" alt="就活.com"></h1>
   </div>
   <nav class="header__nav inner">
     <ul class="header__nav__list">

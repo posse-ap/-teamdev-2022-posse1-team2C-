@@ -251,7 +251,7 @@
                 <li class="agent">
                   <ul class="agent__list">
                     <li class="agent__item">
-                      <img class="img agent__item__img" src="../assets/img/article.png" alt="企業名" width="300px" style="display: inline" />
+                      <img class="img agent__item__img" src="../assets/img/top.jpg" alt="企業名" width="300px" style="display: inline" />
                     </li>
                     <li class="agent__item">
                       <h3 class="agent__item__name">アンチパターン</h3>
@@ -276,7 +276,7 @@
                 <li class="agent">
                   <ul class="agent__list">
                     <li class="agent__item">
-                      <img class="img agent__img" src="../assets/img/article.png" alt="企業名" width="300px" style="display: inline" />
+                      <img class="img agent__img" src="../assets/img/top.jpg" alt="企業名" width="300px" style="display: inline" />
                     </li>
                     <li class="agent__item">
                       <h3 class="agent__item__name">アンチパターン</h3>
@@ -301,7 +301,7 @@
                 <li class="agent">
                   <ul class="agent__list">
                     <li class="agent__item">
-                      <img class="img agent__img" src="../assets/img/article.png" alt="企業名" width="300px" style="display: inline" />
+                      <img class="img agent__img" src="../assets/img/top.jpg" alt="企業名" width="300px" style="display: inline" />
                     </li>
                     <li class="agent__item">
                       <h3 class="agent__item__name">アンチパターン</h3>
@@ -326,7 +326,7 @@
                 <li class="agent">
                   <ul class="agent__list">
                     <li class="agent__item">
-                      <img class="img agent__img" src="../assets/img/article.png" alt="企業名" width="300px" style="display: inline" />
+                      <img class="img agent__img" src="../assets/img/top.jpg" alt="企業名" width="300px" style="display: inline" />
                     </li>
                     <li class="agent__item">
                       <h3 class="agent__item__name">アンチパターン</h3>
@@ -351,7 +351,7 @@
                 <li class="agent">
                   <ul class="agent__list">
                     <li class="agent__item">
-                      <img class="img agent__img" src="../assets/img/article.png" alt="企業名" width="300px" style="display: inline" />
+                      <img class="img agent__img" src="../assets/img/top.jpg" alt="企業名" width="300px" style="display: inline" />
                     </li>
                     <li class="agent__item">
                       <h3 class="agent__item__name">アンチパターン</h3>
@@ -376,7 +376,7 @@
                 <li class="agent">
                   <ul class="agent__list">
                     <li class="agent__item">
-                      <img class="img agent__img" src="../assets/img/article.png" alt="企業名" width="300px" style="display: inline" />
+                      <img class="img agent__img" src="../assets/img/top.jpg" alt="企業名" width="300px" style="display: inline" />
                     </li>
                     <li class="agent__item">
                       <h3 class="agent__item__name">アンチパターン</h3>
