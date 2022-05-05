@@ -1,6 +1,6 @@
 <header class="header">
   <div class="header__title">
-    <h1><img src="../../../assets/img/CRAFT.png" alt="CRAFT" height="65px" width="auto"></h1>
+    <h1><img src="../../../assets/img/logo_craft-white.png" alt="CRAFT" height="65px" width="auto"></h1>
   </div>
   <nav class="header__nav inner">
     <ul class="header__nav__list">
