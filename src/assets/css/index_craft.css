@@ -42,7 +42,7 @@ img {
 
 .title {
   padding: 20px 0 20px 20px;
-  margin-bottom: 40px;
+  margin: 40px 0;
   border-top: 3px solid #26a69a;
   border-bottom: 3px solid #26a69a;
   font-size: 20px;
