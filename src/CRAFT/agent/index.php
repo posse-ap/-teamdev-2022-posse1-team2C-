@@ -1,22 +1,26 @@
 <?php
-// session_start();
-// require('../dbconnect.php');
-// if (isset($_SESSION['user_id']) && $_SESSION['time'] + 60 * 60 * 24 > time()) {
-//   $_SESSION['time'] = time();
+session_start();
+require('../../dbconnect.php');
+if (isset($_SESSION['agent_id']) && $_SESSION['time'] + 60 * 60 * 24 > time()) {
+  $_SESSION['time'] = time();
 
-//   if (!empty($_POST)) {
-//     $stmt = $db->prepare('INSERT INTO events SET title=?');
-//     $stmt->execute(array(
-//       $_POST['title']
-//     ));
+  if (!empty($_POST)) {
+    header('Location: http://' . $_SERVER['HTTP_HOST'] . '/CRAFT/agent/index.php');
+    exit();
+  }
+} else {
+  header('Location: http://' . $_SERVER['HTTP_HOST'] . '/CRAFT/agent/login.php');
+  exit();
+}
 
-//     header('Location: http://' . $_SERVER['HTTP_HOST'] . '/admin/index.php');
-//     exit();
-//   }
-// } else {
-//   header('Location: http://' . $_SERVER['HTTP_HOST'] . '/admin/login.php');
-//   exit();
-// }
+// $agent_stmt = $db->prepare('SELECT * FROM agents WHERE id=?');
+// $agent_stmt->bindValue(1, $_SESSION['agent_id']);
+// $agent_stmt->execute();
+// $agent_data = $agent_stmt->fetchAll();
+// // echo(print_r($agent_data));
+// echo ('こんにちは');
+// echo ($agent_data[0]['name']);
+// echo ('様');
 ?>
 
 <!DOCTYPE html>
