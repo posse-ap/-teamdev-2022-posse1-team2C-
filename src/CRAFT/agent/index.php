@@ -1,26 +1,5 @@
 <?php
-session_start();
-require('../../dbconnect.php');
-if (isset($_SESSION['agent_id']) && $_SESSION['time'] + 60 * 60 * 24 > time()) {
-  $_SESSION['time'] = time();
-
-  if (!empty($_POST)) {
-    header('Location: http://' . $_SERVER['HTTP_HOST'] . '/CRAFT/agent/index.php');
-    exit();
-  }
-} else {
-  header('Location: http://' . $_SERVER['HTTP_HOST'] . '/CRAFT/agent/login.php');
-  exit();
-}
-
-// $agent_stmt = $db->prepare('SELECT * FROM agents WHERE id=?');
-// $agent_stmt->bindValue(1, $_SESSION['agent_id']);
-// $agent_stmt->execute();
-// $agent_data = $agent_stmt->fetchAll();
-// // echo(print_r($agent_data));
-// echo ('こんにちは');
-// echo ($agent_data[0]['name']);
-// echo ('様');
+// require('./capsule/session.php');
 ?>
 
 <!DOCTYPE html>
@@ -47,7 +26,7 @@ if (isset($_SESSION['agent_id']) && $_SESSION['time'] + 60 * 60 * 24 > time()) {
   </div> -->
 
   <?php require  "./capsule/header.php"; ?>
-
+<a href="./edit.php">edit</a>
   <main class="main">
     <ul class="main__list">
       <li class="main__item">
@@ -183,6 +162,7 @@ if (isset($_SESSION['agent_id']) && $_SESSION['time'] + 60 * 60 * 24 > time()) {
         </div>
       </li>
     </ul>
+    <a href="./edit.php">edit</a>
   </main>
 
   <script src="https://kit.fontawesome.com/65129cd335.js" crossorigin="anonymous"></script>
