@@ -1,0 +1,240 @@
+@use "./variables" as vb;
+@use "./header-agent" as header;
+
+body {
+  min-width: 1000px;
+}
+
+.main {
+  background-color: vb.$color_back;
+  padding: 0 100px;
+  padding-top: 100px;
+  min-height: 100vh;
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+    padding-bottom: 50px;
+  }
+
+  &__item {
+    box-shadow: rgb(0 0 0 / 12%) 0px 2px 10px;
+    background-color: vb.$color_white;
+    border-radius: 10px;
+    padding: 10px;
+
+    &:nth-child(1) {
+      width: 62%;
+    }
+    &:nth-child(2) {
+      width: 34%;
+      background: linear-gradient(
+        110.59deg,
+        rgb(28, 188, 187) 1.51%,
+        rgb(116, 209, 142) 124.9%
+      );
+      color: white;
+    }
+    &:nth-child(3) {
+      width: 100%;
+    }
+  }
+
+  &__item__account {
+    padding: 15px 0;
+    vertical-align: middle;
+
+    input {
+      line-height: 30px;
+      margin-left: 10px;
+    }
+  }
+
+  .score {
+    &__list {
+      display: flex;
+      margin: 10px 0;
+    }
+
+    &__item {
+      display: flex;
+      position: relative;
+      margin: 0 20px;
+      padding: 20px 0px;
+      width: calc((100% - 40px) / 3);
+
+      &:nth-of-type(1)::after,
+      &:nth-of-type(2)::after {
+        position: absolute;
+        top: 10%;
+        left: 100%;
+        margin: 0 20px;
+        content: "";
+        width: 1px;
+        height: 80%;
+        background-color: #333;
+      }
+    }
+
+    &__item__content {
+      margin-left: 15px;
+    }
+
+    &__item__title {
+      font-weight: 600;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    &__item__value {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    &__item__number {
+      font-weight: 600;
+      line-height: 34px;
+      font-size: 20px;
+    }
+
+    &__item__rank {
+      background-color: aqua;
+      color: blue;
+      border-radius: 40%;
+      margin-left: 10px;
+      padding: 8px;
+      font-size: 10px;
+      line-height: 16px;
+
+      span {
+        font-size: 16px;
+        line-height: 16px;
+      }
+    }
+  }
+
+  &__item__detail {
+    padding: 20px 0;
+    text-align: center;
+  }
+}
+
+.myCard {
+  height: 100%;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  &__number {
+    font-size: 40px;
+    font-weight: 700;
+    text-align: center;
+    border: 1px dotted black;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+  }
+
+  &__text {
+    text-align: center;
+    font-size: 12px;
+    line-height: 20px;
+  }
+}
+
+.student {
+  &__tab {
+    display: flex;
+    gap: 24px;
+  }
+
+  &__tab__button {
+    background: gray;
+    color: white;
+    border-radius: 10px 10px 0 0;
+    width: 25%;
+    text-align: center;
+    padding: 20px 8px;
+    min-width: 210px;
+
+    &[aria-selected="true"] {
+      background: black;
+      font-weight: bold;
+    }
+  }
+
+  &__panel {
+    border: solid 1px gray;
+    padding: 32px 32px 40px;
+  }
+}
+
+.student__panel__item {
+  &[aria-hidden="true"] {
+    display: none;
+  }
+
+  &__title {
+    font-size: 18px;
+    font-weight: bold;
+  }
+
+  &__content {
+    display: flex;
+  }
+
+  &__content__piece {
+    &:nth-child(1) {
+      width: 80px;
+    }
+    &:nth-child(2) {
+      width: 170px;
+    }
+    &:nth-child(3) {
+      width: 100px;
+    }
+    &:nth-child(4) {
+      width: 80px;
+    }
+    &:nth-child(5) {
+      width: calc(100% - 620px);
+    }
+    &:nth-child(6) {
+      width: 60px;
+    }
+    &:nth-child(7) {
+      width: 130px;
+    }
+  }
+
+  dt {
+    text-align: center;
+    background-color: vb.$color-keynote;
+    line-height: 30px;
+    padding: 5px 5px;
+    border: 1px solid black;
+  }
+
+  dd {
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 0px 5px;
+    border: 1px solid black;
+    height: 50px;
+
+    button {
+      margin: 0 auto;
+      border: 1px solid black;
+      border-radius: 10px;
+    }
+  }
+}

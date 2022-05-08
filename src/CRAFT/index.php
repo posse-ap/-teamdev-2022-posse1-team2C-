@@ -26,19 +26,68 @@ require(dirname(__FILE__) . "../../dbconnect.php");
   <div class="content">
     <div class="container inner">
       <main class="main">
-        <h2 class="main__title">CRAFT</h2>
-        <span class="main__text">
-          あなたに合った企業が見つかる！<br />就活エージェント比較サイト
-        </span>
         <p class="title">
           エージェント企業を探す
         </p>
+        <section class="section">
+          <div class="search">
+            <div class="search__box">
+              <dl class="search__list">
+                <div class="search__item">
+                  <dt>サポート体制</dt>
+                  <dd>就職セミナー</dd>
+                  <dd>じっくり面接対策</dd>
+                  <dd>ES添削</dd>
+                </div>
+                <div class="search__item">
+                  <dt>得意な業種・業界</dt>
+                  <dd>総合コンサル</dd>
+                  <dd>IT系</dd>
+                  <dd>エンタメ</dd>
+                  <dd>教育</dd>
+                  <dd>金融</dd>
+                </div>
+                <div class="search__item">
+                  <dt>公開求人数</dt>
+                  <dd class="select__wrapper">
+                    <select name="" id="">
+                      <option value="選択してください" selected disabled>
+                        選択してください
+                      </option>
+                      <option value="～3万">～3万</option>
+                      <option value="3万～5万">3万～5万</option>
+                      <option value="5万～10万">5万～10万</option>
+                      <option value="10万～">10万～</option>
+                    </select>
+                  </dd>
+                </div>
+                <div class="search__item">
+                  <dt>公開求人数</dt>
+                  <dd class="select__wrapper">
+                    <select name="" id="">
+                      <option value="選択してください" selected disabled>
+                        選択してください
+                      </option>
+                      <option value="～3万">～3万</option>
+                      <option value="3万～5万">3万～5万</option>
+                      <option value="5万～10万">5万～10万</option>
+                      <option value="10万～">10万～</option>
+                    </select>
+                  </dd>
+                </div>
+                <div class="search__item">
+                  <button>検索する</button>
+                </div>
+              </dl>
+            </div>
+          </div>
+        </section>
         <section class="section">
           <ul class="agents">
             <li class="agent">
               <ul class="agent__list">
                 <li class="agent__item">
-                  <img class="img agent__item__img" src="../assets/img/article.png" alt="企業名" width="300px" style="display: inline" />
+                  <img class="img agent__item__img" src="../assets/img/agent.png" alt="企業名" width="300px" style="display: inline" />
                 </li>
                 <li class="agent__item">
                   <h3 class="agent__item__name">アンチパターン</h3>
@@ -63,7 +112,7 @@ require(dirname(__FILE__) . "../../dbconnect.php");
             <li class="agent">
               <ul class="agent__list">
                 <li class="agent__item">
-                  <img class="img agent__img" src="../assets/img/article.png" alt="企業名" width="300px" style="display: inline" />
+                  <img class="img agent__img" src="../assets/img/agent.png" alt="企業名" width="300px" style="display: inline" />
                 </li>
                 <li class="agent__item">
                   <h3 class="agent__item__name">アンチパターン</h3>
@@ -88,7 +137,7 @@ require(dirname(__FILE__) . "../../dbconnect.php");
             <li class="agent">
               <ul class="agent__list">
                 <li class="agent__item">
-                  <img class="img agent__img" src="../assets/img/article.png" alt="企業名" width="300px" style="display: inline" />
+                  <img class="img agent__img" src="../assets/img/agent.png" alt="企業名" width="300px" style="display: inline" />
                 </li>
                 <li class="agent__item">
                   <h3 class="agent__item__name">アンチパターン</h3>
@@ -113,7 +162,7 @@ require(dirname(__FILE__) . "../../dbconnect.php");
             <li class="agent">
               <ul class="agent__list">
                 <li class="agent__item">
-                  <img class="img agent__img" src="../assets/img/article.png" alt="企業名" width="300px" style="display: inline" />
+                  <img class="img agent__img" src="../assets/img/agent.png" alt="企業名" width="300px" style="display: inline" />
                 </li>
                 <li class="agent__item">
                   <h3 class="agent__item__name">アンチパターン</h3>
@@ -138,7 +187,7 @@ require(dirname(__FILE__) . "../../dbconnect.php");
             <li class="agent">
               <ul class="agent__list">
                 <li class="agent__item">
-                  <img class="img agent__img" src="../assets/img/article.png" alt="企業名" width="300px" style="display: inline" />
+                  <img class="img agent__img" src="../assets/img/agent.png" alt="企業名" width="300px" style="display: inline" />
                 </li>
                 <li class="agent__item">
                   <h3 class="agent__item__name">アンチパターン</h3>
@@ -163,7 +212,7 @@ require(dirname(__FILE__) . "../../dbconnect.php");
             <li class="agent">
               <ul class="agent__list">
                 <li class="agent__item">
-                  <img class="img agent__img" src="../assets/img/article.png" alt="企業名" width="300px" style="display: inline" />
+                  <img class="img agent__img" src="../assets/img/agent.png" alt="企業名" width="300px" style="display: inline" />
                 </li>
                 <li class="agent__item">
                   <h3 class="agent__item__name">アンチパターン</h3>
@@ -188,7 +237,7 @@ require(dirname(__FILE__) . "../../dbconnect.php");
             <li class="agent">
               <ul class="agent__list">
                 <li class="agent__item">
-                  <img class="img agent__img" src="../assets/img/article.png" alt="企業名" width="300px" style="display: inline" />
+                  <img class="img agent__img" src="../assets/img/agent.png" alt="企業名" width="300px" style="display: inline" />
                 </li>
                 <li class="agent__item">
                   <h3 class="agent__item__name">アンチパターン</h3>
@@ -213,7 +262,7 @@ require(dirname(__FILE__) . "../../dbconnect.php");
             <li class="agent">
               <ul class="agent__list">
                 <li class="agent__item">
-                  <img class="img agent__img" src="../assets/img/article.png" alt="企業名" width="300px" style="display: inline" />
+                  <img class="img agent__img" src="../assets/img/agent.png" alt="企業名" width="300px" style="display: inline" />
                 </li>
                 <li class="agent__item">
                   <h3 class="agent__item__name">アンチパターン</h3>
@@ -238,7 +287,7 @@ require(dirname(__FILE__) . "../../dbconnect.php");
             <li class="agent">
               <ul class="agent__list">
                 <li class="agent__item">
-                  <img class="img agent__img" src="../assets/img/article.png" alt="企業名" width="300px" style="display: inline" />
+                  <img class="img agent__img" src="../assets/img/agent.png" alt="企業名" width="300px" style="display: inline" />
                 </li>
                 <li class="agent__item">
                   <h3 class="agent__item__name">アンチパターン</h3>
@@ -263,7 +312,7 @@ require(dirname(__FILE__) . "../../dbconnect.php");
             <li class="agent">
               <ul class="agent__list">
                 <li class="agent__item">
-                  <img class="img agent__img" src="../assets/img/article.png" alt="企業名" width="300px" style="display: inline" />
+                  <img class="img agent__img" src="../assets/img/agent.png" alt="企業名" width="300px" style="display: inline" />
                 </li>
                 <li class="agent__item">
                   <h3 class="agent__item__name">アンチパターン</h3>
@@ -288,7 +337,7 @@ require(dirname(__FILE__) . "../../dbconnect.php");
             <li class="agent">
               <ul class="agent__list">
                 <li class="agent__item">
-                  <img class="img agent__img" src="../assets/img/article.png" alt="企業名" width="300px" style="display: inline" />
+                  <img class="img agent__img" src="../assets/img/agent.png" alt="企業名" width="300px" style="display: inline" />
                 </li>
                 <li class="agent__item">
                   <h3 class="agent__item__name">アンチパターン</h3>
@@ -316,7 +365,10 @@ require(dirname(__FILE__) . "../../dbconnect.php");
       <?php require  "./capsule/aside.php"; ?>
     </div>
   </div>
+  <a href="../../admin/login.php">login</a>
+  <a href="../../admin/students.php">in</a>
 
+  <?php require  "./capsule/footer.php"; ?>
 </body>
 
 </html>

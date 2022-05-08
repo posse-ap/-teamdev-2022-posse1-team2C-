@@ -13,7 +13,7 @@ img {
 .content {
   background-color: #e0e4eb;
   padding-top: 150px;
-  min-height: 1000px;
+  padding-bottom: 50px;
 }
 .content .container {
   width: calc(100% - 100px);
@@ -28,19 +28,11 @@ img {
   background-color: #ffffff;
   border-top: 3px solid #26a69a;
   text-align: center;
-  padding: 0 20px;
+  padding: 0 20px 50px 20px;
   width: 100%;
-}
-.main__title {
-  font-size: 30px;
-  font-weight: bolder;
-  padding: 10px 0;
-  color: red;
-}
-.main__text {
-  display: block;
-  color: red;
-  padding: 10px 0;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
 }
 
 .inner {
@@ -50,7 +42,7 @@ img {
 
 .title {
   padding: 20px 0 20px 20px;
-  margin-bottom: 40px;
+  margin: 40px 0;
   border-top: 3px solid #26a69a;
   border-bottom: 3px solid #26a69a;
   font-size: 20px;
@@ -67,10 +59,10 @@ img {
   margin: 0 auto;
 }
 .header__title {
-  text-align: center;
-  font-size: 30px;
-  color: #ffffff;
-  padding: 20px 0px;
+  margin: 15px 0;
+}
+.header__title img {
+  height: 60px;
 }
 .header__nav__list {
   display: flex;

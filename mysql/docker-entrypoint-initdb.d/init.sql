@@ -18,33 +18,25 @@ DROP TABLE IF EXISTS students;
 
 CREATE TABLE students (
   id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
-  name VARCHAR(255) UNIQUE NOT NULL,
-  furigana VARCHAR(255) NOT NULL,
-  mail VARCHAR(255) NOT NULL,
-  postal_code VARCHAR(255) NOT NULL,
+  name__kanji VARCHAR(255)  NOT NULL,
+  name__kana VARCHAR(255) NOT NULL,
+  email VARCHAR(255) NOT NULL,
+  tel VARCHAR(255) NOT NULL,
+  postcode VARCHAR(255) NOT NULL,
   address VARCHAR(255) NOT NULL,
-  telephone_number INT,
-  birthday date,
-  university_id INT,
+  birth date,
+  university INT,
   faculty VARCHAR(255) NOT NULL,
-  department VARCHAR(255) NOT NULL,
-  graduate_year INT,
-  free_comment VARCHAR(255),
+  course VARCHAR(255) NOT NULL,
+  graduate INT,
+  content VARCHAR(255),
   apply_time date
 )ENGINE = InnoDB;
 
-INSERT INTO students VALUES
-(1,'武田龍一','タケダリュウイチ','ryuicih@keio.jp','2011111','東京都',89999,20010902,1,'理工学部','電気譲歩が',24,'あ',20220908);
-
-
-
-
-
-
 
 INSERT INTO students VALUES
-('高梨彩音','タカナシアヤネ','ayane@posse.com','0010002','東京都港区赤坂1-1-1','2022/06/01',1,'カルチャー部','誕生日お祝い科',23,'コメント',2022/04/27),
-('石井麻由奈','イシイマユナ','mayuna@posse.com','1234567','神奈川県横浜市港区日吉1-2-3','2001/05/01',2,'テック部','キューピー科',30,'POSSE大好き',2022/06/28)
+(1,'高梨彩音','タカナシアヤネ','ayane@posse.com','0010002','2345678','東京都港区赤坂1-1-1','2022-06-01',1,'カルチャー部','誕生日お祝い科',23,'コメント','2022-04-27'),
+(2,'石井麻由奈','イシイマユナ','mayuna@posse.com','1234567','2345679','神奈川県横浜市港区日吉1-2-3','2001-05-01',2,'テック部','キューピー科',30,'POSSE大好き','2022-06-28');
 
 DROP TABLE IF EXISTS universities;
 
@@ -77,19 +69,20 @@ DROP TABLE IF EXISTS agents;
 
 CREATE TABLE agents (
   id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
-  agent VARCHAR(255) NOT NULL,
-  URL VARCHAR(255),
-  agent_president VARCHAR(255),
-  president_furigana VARCHAR(255),
-  postal_code VARCHAR(255) NOT NULL,
+  name VARCHAR(255) NOT NULL,
+  url VARCHAR(255),
+  name__kanji VARCHAR(255),
+  name__kana VARCHAR(255),
+  email VARCHAR(255) NOT NULL,
+  tel VARCHAR(255) NOT NULL,
+  postcode VARCHAR(255) NOT NULL,
   address VARCHAR(255) NOT NULL,
-  telephone_number INT,
-  mail VARCHAR(255) NOT NULL,
+  content VARCHAR(255) NOT NULL,
   remind_mail VARCHAR(255) NOT NULL
 );
 INSERT INTO agents VALUES 
-('POSSE（株）','https://posse-ap.com/','石田大輝','イシダダイキ','1234567','千葉県ディズニーランド市',09012345678,'posse@mr.com','mr-posse@rikkyo.jp'),
-('表参道（株）','https://posse-ap.com/','小堺駿','コザカイシュン','2345678','千葉県野田市',08052340011,'makisyun@gmail.com','harbors@docomo.ne.jp')
+(1,'POSSE（株）','https://posse-ap.com/','石田大輝','イシダダイキ','posse@mr.com','09012345678','1234567','千葉県ディズニーランド市','コメント','mr-posse@rikkyo.jp'),
+(2,'表参道（株）','https://posse-ap.com/','小堺駿','コザカイシュン','makisyun@gmail.com','08052340011','2345678','千葉県野田市','コメント','harbors@docomo.ne.jp');
 
 
 DROP TABLE IF EXISTS managers;
@@ -101,10 +94,15 @@ CREATE TABLE managers (
   telephone_number VARCHAR(255),
   mail VARCHAR(255),
   password VARCHAR(255) NOT NULL,
+  agent_id INT,
+  faculty VARCHAR(255) NOT NULL
+);
+
+
 
 INSERT INTO managers  VALUES
-('石川朝香','イシキワアサカ','09068757384','asaka@keio.jp','Asaka',1,'本部'),
-('武田龍一','タケダリュウイチ','08011330789','ryuuichi@keio.jp','Ryuichi',2,'日吉支部');
+(1,'石川朝香','イシキワアサカ','09068757384','asaka@keio.jp','Asaka',1,'本部'),
+(2,'武田龍一','タケダリュウイチ','08011330789','ryuuichi@keio.jp','Ryuichi',2,'日吉支部');
 
 
 DROP TABLE IF EXISTS agent_info;
@@ -133,7 +131,9 @@ CREATE TABLE specialties (
   specialties VARCHAR(255) NOT NULL
 );
 INSERT INTO specialties  VALUES
-('理系'),('文系'),('その他');
+(1,'理系'),
+(2,'文系'),
+(3,'その他');
 
 DROP TABLE IF EXISTS specialties_agents_connect;
 
@@ -154,9 +154,9 @@ CREATE TABLE recommendations (
 );
 
 INSERT INTO recommendations  VALUES
-('ES添削'),
-('面接'),
-('グループディスカッション');
+(1,'ES添削'),
+(2,'面接'),
+(3,'グループディスカッション');
 
 
 DROP TABLE IF EXISTS recommendations_agents_connect;
@@ -178,11 +178,11 @@ CREATE TABLE tags (
 );
 
 INSERT INTO tags VALUES 
-('理系'),
-('文系'),
-('エンジニア'),
-('コンサル'),
-('マスコミ');
+(1,'理系'),
+(2,'文系'),
+(3,'エンジニア'),
+(4,'コンサル'),
+(5,'マスコミ');
 
 
 DROP TABLE IF EXISTS tags_agents_connect;
@@ -211,19 +211,39 @@ INSERT INTO CRAFT VALUES
 ('boozer','CRAFT');
 
 
+-- DROP TABLE IF EXISTS agent_login;
 
+-- CREATE TABLE agent_login (
+--   id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+--   log_id VARCHAR(255) NOT NULL,
+--   password VARCHAR(255) NOT NULL
+-- );
 
+-- INSERT INTO agent_login VALUES 
+-- ('boozer1',sha1('CRAFT')),
+-- ('boozer2',sha1('CRAFT'));
 
+DROP TABLE IF EXISTS agent_login;
 
-DROP TABLE IF EXISTS test;
-
-CREATE TABLE test (
+CREATE TABLE agent_login (
   id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
-  name VARCHAR(255),
-  email VARCHAR(255),
-  message VARCHAR(255)
-)ENGINE = InnoDB;
+  log_id VARCHAR(255) UNIQUE NOT NULL,
+  password VARCHAR(255) NOT NULL,
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+  updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
 
+INSERT INTO
+  agent_login
+SET
+  log_id = 'test1@posse-ap.com',
+  password =sha1('password1');
+
+INSERT INTO
+  agent_login
+SET
+  log_id = 'test2@posse-ap.com',
+  password =sha1('password2');
 
 
 
