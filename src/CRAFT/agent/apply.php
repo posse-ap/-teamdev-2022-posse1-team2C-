@@ -8,17 +8,17 @@ $errmessage = array();
 if (isset($_POST['back']) && $_POST['back']) {
     // 何もしない
 } else if (isset($_POST['confirm']) && $_POST['confirm']) {
-    if (
+    if (1==1
         
-        isset($_POST['name']) &&
-        isset($_POST['url']) &&
-        isset($_POST['name__kanji']) &&
-        isset($_POST['name__kana']) &&
-        isset($_POST['email']) &&
-        isset($_POST['tel']) &&
-        isset($_POST['postcode']) &&
-        isset($_POST['address']) &&
-        isset($_POST['content'])
+        // isset($_POST['name']) &&
+        // isset($_POST['url']) &&
+        // isset($_POST['name__kanji']) &&
+        // isset($_POST['name__kana']) &&
+        // isset($_POST['email']) &&
+        // isset($_POST['tel']) &&
+        // isset($_POST['postcode']) &&
+        // isset($_POST['address']) &&
+        // isset($_POST['content'])
     ) {
         // 確認画面
         if ($errmessage) {
@@ -166,7 +166,7 @@ if (isset($_POST['back']) && $_POST['back']) {
                 </div>
               </dl>
               <div class="apply__form__footer">
-                <button type="submit" class="apply__form__button" id="step1" role="submit" name="confirm" value="確認">確認画面へ</button>
+                <button  type="submit" name="confirm" value="確認">確認画面へ</button>
               </div>
             </form>
           </div>
