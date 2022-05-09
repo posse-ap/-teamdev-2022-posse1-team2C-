@@ -209,7 +209,7 @@ if (isset($_POST['back']) && $_POST['back']) {
                                     </div>
                                 </dl>
                                 <div>
-                                    <button type="submit" name="confirm" value="確認">確認画面へ</button>
+                                    <button class="apply__form__button" type="submit" name="confirm" value="確認">確認画面へ</button>
                                 </div>
                             </form>
                         </div>
