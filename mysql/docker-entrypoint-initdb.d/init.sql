@@ -6,6 +6,14 @@ USE shukatsu;
 
 
 
+-- DROP TABLE IF EXISTS test;
+
+-- CREATE TABLE test (
+
+--   graduate VARCHAR(255)
+-- )ENGINE = InnoDB;
+
+
 DROP TABLE IF EXISTS students;
 
 CREATE TABLE students (
@@ -17,13 +25,14 @@ CREATE TABLE students (
   postcode VARCHAR(255) NOT NULL,
   address VARCHAR(255) NOT NULL,
   birth date,
-  university_id INT,
+  university INT,
   faculty VARCHAR(255) NOT NULL,
   course VARCHAR(255) NOT NULL,
   graduate INT,
   content VARCHAR(255),
   apply_time date
-);
+)ENGINE = InnoDB;
+
 
 INSERT INTO students VALUES
 (1,'高梨彩音','タカナシアヤネ','ayane@posse.com','0010002','2345678','東京都港区赤坂1-1-1','2022-06-01',1,'カルチャー部','誕生日お祝い科',23,'コメント','2022-04-27'),
@@ -201,6 +210,7 @@ INSERT INTO tags_agents_connect VALUES
 -- INSERT INTO CRAFT VALUES 
 -- ('boozer','CRAFT');
 
+
 DROP TABLE IF EXISTS CRAFT;
 
 CREATE TABLE CRAFT (
@@ -212,11 +222,17 @@ CREATE TABLE CRAFT (
 );
 
 INSERT INTO
-  CRAFT
-SET
-  log_id = 'boozer',
-  password =sha1('CRAFT');
 
+  agent_login
+SET
+  log_id = 'test1@posse-ap.com',
+  password =sha1('password1');
+
+INSERT INTO
+  agent_login
+SET
+  log_id = 'test2@posse-ap.com',
+  password =sha1('password2');
 
 
 -- DROP TABLE IF EXISTS agent_login;
@@ -259,5 +275,4 @@ INSERT INTO
 SET
   log_id = 'test2@posse-ap.com',
   password =sha1('password2');
-
 
