@@ -1,24 +1,26 @@
 <?php
 session_start();
 require(dirname(__FILE__) . "../../../dbconnect.php");
-$array_forms = ['name','url','name__kanji', 'name__kana', 'email', 'tel', 'postcode', 'address', 'content'];
+$array_forms = ['name__kanji', 'name__kana', 'email', 'tel', 'postcode', 'address', 'birth', 'university', 'faculty', 'course', 'graduate', 'content'];
 $forms_length = count($array_forms);
 $mode = 'input';
 $errmessage = array();
 if (isset($_POST['back']) && $_POST['back']) {
     // 何もしない
 } else if (isset($_POST['confirm']) && $_POST['confirm']) {
-    if (1==1
-        
-        // isset($_POST['name']) &&
-        // isset($_POST['url']) &&
-        // isset($_POST['name__kanji']) &&
-        // isset($_POST['name__kana']) &&
-        // isset($_POST['email']) &&
-        // isset($_POST['tel']) &&
-        // isset($_POST['postcode']) &&
-        // isset($_POST['address']) &&
-        // isset($_POST['content'])
+    if (
+        isset($_POST['name__kanji']) &&
+        isset($_POST['name__kana']) &&
+        isset($_POST['email']) &&
+        isset($_POST['tel']) &&
+        isset($_POST['postcode']) &&
+        isset($_POST['address']) &&
+        isset($_POST['birth']) &&
+        isset($_POST['university']) &&
+        isset($_POST['faculty']) &&
+        isset($_POST['course']) &&
+        isset($_POST['graduate']) &&
+        isset($_POST['content'])
     ) {
         // 確認画面
         if ($errmessage) {
@@ -32,14 +34,17 @@ if (isset($_POST['back']) && $_POST['back']) {
     }
 } else if (isset($_POST['send']) && $_POST['send']) {
     if (
-        isset($_SESSION['name']) &&
-        isset($_SESSION['url']) &&
         isset($_SESSION['name__kanji']) &&
         isset($_SESSION['name__kana']) &&
         isset($_SESSION['email']) &&
         isset($_SESSION['tel']) &&
         isset($_SESSION['postcode']) &&
         isset($_SESSION['address']) &&
+        isset($_SESSION['birth']) &&
+        isset($_SESSION['university']) &&
+        isset($_SESSION['faculty']) &&
+        isset($_SESSION['course']) &&
+        isset($_SESSION['graduate']) &&
         isset($_SESSION['content'])
     ) {
         // 送信ボタンを押したとき
@@ -50,15 +55,18 @@ if (isset($_POST['back']) && $_POST['back']) {
             . preg_replace("/\r\n|\r|\n/", "\r\n", $_SESSION['content']);
         mail($_SESSION['email'], 'お問い合わせありがとうございます', $message);
         mail('fuga@hogehoge.com', 'お問い合わせありがとうございます', $message);
-        $agent = $db->exec('INSERT INTO agents SET 
-    name="' . $_SESSION['name'] . '",
-    url="' . $_SESSION['url'] . '",
+        $student = $db->exec('INSERT INTO students SET 
     name__kanji="' . $_SESSION['name__kanji'] . '",
     name__kana="' . $_SESSION['name__kana'] . '",
     email="' . $_SESSION['email'] . '",
-    tel="' . $_SESSION['tel'] . '",
     postcode="' . $_SESSION['postcode'] . '",
     address="' . $_SESSION['address'] . '",
+    tel="' . $_SESSION['tel'] . '",
+    birth="' . $_SESSION['birth'] . '",
+    university="' . $_SESSION['university'] . '",
+    faculty="' . $_SESSION['faculty'] . '",
+    course="' . $_SESSION['course'] . '",
+    graduate="' . $_SESSION['graduate'] . '",
     content="' . $_SESSION['content'] . '",
     apply_time= NOW()');
     }
@@ -69,6 +77,74 @@ if (isset($_POST['back']) && $_POST['back']) {
         $_SESSION[$array_forms[$i]] = "";
     }
 }
+// $array_forms = ['name','url','name__kanji', 'name__kana', 'email', 'tel', 'postcode', 'address', 'content'];
+// $forms_length = count($array_forms);
+// $mode = 'input';
+// $errmessage = array();
+// if (isset($_POST['back']) && $_POST['back']) {
+//     // 何もしない
+// } else if (isset($_POST['confirm']) && $_POST['confirm']) {
+//     if (
+        
+//         isset($_POST['name']) &&
+//         isset($_POST['url']) &&
+//         isset($_POST['name__kanji']) &&
+//         isset($_POST['name__kana']) &&
+//         isset($_POST['email']) &&
+//         isset($_POST['tel']) &&
+//         isset($_POST['postcode']) &&
+//         isset($_POST['address']) &&
+//         isset($_POST['content'])
+//     ) {
+//         // 確認画面
+//         if ($errmessage) {
+//             $mode = 'input';
+//         } else {
+//             $mode = 'confirm';
+//         }
+//         for ($i = 0; $i < $forms_length; $i++) {
+//             $_SESSION[$array_forms[$i]] = htmlspecialchars($_POST[$array_forms[$i]], ENT_QUOTES);
+//         }
+//     }
+// } else if (isset($_POST['send']) && $_POST['send']) {
+//     if (
+//         isset($_SESSION['name']) &&
+//         isset($_SESSION['url']) &&
+//         isset($_SESSION['name__kanji']) &&
+//         isset($_SESSION['name__kana']) &&
+//         isset($_SESSION['email']) &&
+//         isset($_SESSION['tel']) &&
+//         isset($_SESSION['postcode']) &&
+//         isset($_SESSION['address']) &&
+//         isset($_SESSION['content'])
+//     ) {
+//         // 送信ボタンを押したとき
+//         $message  = "お問い合わせを受け付けました \r\n"
+//             . "名前: " . $_SESSION['name__kanji'] . "\r\n"
+//             . "email: " . $_SESSION['email'] . "\r\n"
+//             . "お問い合わせ内容:\r\n"
+//             . preg_replace("/\r\n|\r|\n/", "\r\n", $_SESSION['content']);
+//         mail($_SESSION['email'], 'お問い合わせありがとうございます', $message);
+//         mail('fuga@hogehoge.com', 'お問い合わせありがとうございます', $message);
+//         $agent = $db->exec('INSERT INTO agents SET 
+//     name="' . $_SESSION['name'] . '",
+//     url="' . $_SESSION['url'] . '",
+//     name__kanji="' . $_SESSION['name__kanji'] . '",
+//     name__kana="' . $_SESSION['name__kana'] . '",
+//     email="' . $_SESSION['email'] . '",
+//     tel="' . $_SESSION['tel'] . '",
+//     postcode="' . $_SESSION['postcode'] . '",
+//     address="' . $_SESSION['address'] . '",
+//     content="' . $_SESSION['content'] . '",
+//     apply_time= NOW()');
+//     }
+//     $_SESSION = array();
+//     $mode = 'send';
+// } else {
+//     for ($i = 0; $i < $forms_length; $i++) {
+//         $_SESSION[$array_forms[$i]] = "";
+//     }
+// }
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -97,7 +173,7 @@ if (isset($_POST['back']) && $_POST['back']) {
             }
             ?>
 
-    <div class="container inner">
+    <!-- <div class="container inner">
       <main class="main">
         <h2 class="main__title">CRAFT</h2>
         <span class="main__text">
@@ -166,10 +242,91 @@ if (isset($_POST['back']) && $_POST['back']) {
                 </div>
               </dl>
               <div class="apply__form__footer">
-                <button  type="submit" name="confirm" value="確認">確認画面へ</button>
+                <button  type="submit" name="confirm">確認画面へ</button>
               </div>
             </form>
-          </div>
+          </div> -->
+
+
+                            <form action="./apply.php" name="apply__form" class="apply__form" method="post">
+                                <dl class="apply__form__list">
+                                    <div class="apply__form__item">
+                                        <dt><label for="agent">お問い合わせ先<br>エージェント企業</label></dt>
+                                        <dd>
+                                            <div class="apply__form__item__select">
+                                                <select id="agent" name="agent">
+                                                    <option value="選択してください" selected disabled>
+                                                        選択してください
+                                                    </option>
+                                                    <option value="アンチパターン">アンチパターン（株）</option>
+                                                    <option value="POSSE">POSSE（株）</option>
+                                                    <option value="HarborS">HarborS（株）</option>
+                                                    <option value="表参道">表参道（株）</option>
+                                                </select>
+                                            </div>
+                                        </dd>
+                                    </div>
+                                    <div class="apply__form__item">
+                                        <dt><label for="name__kanji">お名前（漢字）</label></dt>
+                                        <dd><input id="name__kanji" type="text" name="name__kanji" value="<?php echo $_SESSION['name__kanji'] ?>" /></dd>
+                                    </div>
+                                    <div class="apply__form__item">
+                                        <dt><label for="name__kana">お名前（フリガナ）</label></dt>
+                                        <dd><input id="name__kana" type="text" name="name__kana" value="<?php echo $_SESSION['name__kana'] ?>" /></dd>
+                                    </div>
+                                    <div class="apply__form__item">
+                                        <dt><label for="email">メールアドレス</label></dt>
+                                        <dd><input id="email" type="email" name="email" value="<?php echo $_SESSION['email'] ?>" /></dd>
+                                    </div>
+                                    <div class="apply__form__item">
+                                        <dt><label for="tel">電話番号</label></dt>
+                                        <dd><input id="tel" type="text" name="tel" value="<?php echo $_SESSION['tel'] ?>" /></dd>
+                                    </div>
+                                    <div class="apply__form__item">
+                                        <dt><label for="postcode">郵便番号</label></dt>
+                                        <dd><input id="postcode" type="text" name="postcode" value="<?php echo $_SESSION['postcode'] ?>" /></dd>
+                                    </div>
+                                    <div class="apply__form__item">
+                                        <dt><label for="address">住所</label></dt>
+                                        <dd><input id="address" type="text" name="address" value="<?php echo $_SESSION['address'] ?>" /></dd>
+                                    </div>
+                                    <div class="apply__form__item">
+                                        <dt><label for="birth">生年月日</label></dt>
+                                        <dd><input id="birth" type="date" name="birth" value="<?php echo $_SESSION['birth'] ?>" /></dd>
+                                    </div>
+                                    <div class="apply__form__item">
+                                        <dt><label for="university">大学</label></dt>
+                                        <dd><input id="university" type="text" name="university" value="<?php echo $_SESSION['university'] ?>" /></dd>
+                                    </div>
+                                    <div class="apply__form__item">
+                                        <dt><label for="faculty">学部</label></dt>
+                                        <dd><input id="faculty" type="text" name="faculty" value="<?php echo $_SESSION['faculty'] ?>" /></dd>
+                                    </div>
+                                    <div class="apply__form__item">
+                                        <dt><label for="course">学科</label></dt>
+                                        <dd><input id="course" type="text" name="course" value="<?php echo $_SESSION['course'] ?>" /></dd>
+                                    </div>
+                                    <div class="apply__form__item">
+                                        <dt>卒業年度</dt>
+                                        <dd>
+                                            <label><input type="radio" name="graduate" value="23" />23卒</label>
+                                            <label><input type="radio" name="graduate" value="24" />24卒</label>
+                                            <label><input type="radio" name="graduate" value="25" />25卒</label>
+                                        </dd>
+                                    </div>
+                                    <div class="apply__form__item">
+                                        <dt><label for="content">その他自由記述欄</label></dt>
+                                        <dd>
+                                            <textarea id="content" type="text" name="content" value="<?php echo $_SESSION['content'] ?>"></textarea>
+                                        </dd>
+                                    </div>
+                                </dl>
+                                <div>
+                                    <button type="submit" name="confirm" value="確認">確認画面へ</button>
+                                </div>
+                            </form>
+                        </div>
+
 
           <?php } else if ($mode == 'confirm') { ?>
             
