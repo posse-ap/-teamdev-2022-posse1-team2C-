@@ -1,6 +1,6 @@
 <footer class="footer">
   <div class="footer__title">
-    <img class="footer__title__img" src="../../assets/img/syukatudotcom_logo_white.png" alt="就活.com">
+    <img class="footer__title__img" src="../../assets/img/logo__site-white.png" alt="就活.com">
     <p class="footer__title__sentence">
       学生に寄り添い、就職活動をサポートする
     </p>

@@ -59,10 +59,10 @@ img {
   margin: 0 auto;
 }
 .header__title {
-  text-align: center;
-  font-size: 30px;
-  color: #ffffff;
-  padding: 20px 0px;
+  margin: 15px 0;
+}
+.header__title img {
+  height: 60px;
 }
 .header__nav__list {
   display: flex;

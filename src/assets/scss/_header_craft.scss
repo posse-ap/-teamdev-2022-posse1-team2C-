@@ -9,10 +9,11 @@
   margin: 0 auto;
 
   &__title {
-    text-align: center;
-    font-size: 30px;
-    color: vb.$color_white;
-    padding: 20px 0px;
+    margin: 15px 0;
+
+    img{
+      height: 60px;
+    }
   }
 
   &__nav__list {
