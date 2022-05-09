@@ -3,27 +3,17 @@ session_start();
 require('../dbconnect.php');
 
 if (!empty($_POST)) {
-
-//   $alert = "<script type='text/javascript'>alert('こちらは侍エンジニアです。');</script>";
-// echo $alert;
-
   $login = $db->prepare('SELECT * FROM CRAFT WHERE log_id=? AND password=?');
   $login->execute(array(
     $_POST['loginID'],
-    $_POST['password']
+    sha1($_POST['password'])
   ));
-  $user = $login->fetch();
-  // echo $user[1];
-
+  $user = $login->fetchAll();
   if ($user) {
-//       $alert = "<script type='text/javascript'>alert('こちらは侍エンジニアです。');</script>";
-// echo $alert;
-
-
     $_SESSION = array();
-    // $_SESSION['user_id'] = $user['id'];
+    $_SESSION['CRAFT'] = $user[0]['id'];
     $_SESSION['time'] = time();
-    header('Location: http://' . $_SERVER['HTTP_HOST'] . '/admin/students.php');
+    header('Location: http://' . $_SERVER['HTTP_HOST'] . '/admin/index.php');
     exit();
   } else {
     $error = 'fail';
@@ -43,16 +33,16 @@ if (!empty($_POST)) {
 </head>
 
 <body>
-<div>
+<!-- <div>
     <h1>管理者ログイン</h1>
-    <form action="/admin/login.php" method="POST">
+    <form  method="POST">
       <input type="text" name="loginID" required>
       <input type="text" required name="password">
       <input type="submit" value="ログイン">
     </form>
     <a href="/index.php">イベント一覧</a>
-  </div>
-  <!-- <div class="content">
+  </div> -->
+  <div class="content">
     <main class="main">
       <div class="login">
         <div class="login__inner">
@@ -74,7 +64,7 @@ if (!empty($_POST)) {
         </div>
       </div>
     </main>
-  </div> -->
+  </div>
   <a href="./students.php">生徒</a>
 </body>
 

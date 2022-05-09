@@ -1,3 +1,6 @@
+<?php
+// require('./capsule/session.php');
+?>
 <!DOCTYPE html>
 <html lang="ja">
 

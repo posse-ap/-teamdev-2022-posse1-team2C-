@@ -200,15 +200,39 @@ INSERT INTO tags_agents_connect VALUES
 (2,2),
 (2,3);
 
+-- DROP TABLE IF EXISTS CRAFT;
+
+-- CREATE TABLE CRAFT (
+--   log_id VARCHAR(255) NOT NULL,
+--   password VARCHAR(255) NOT NULL
+-- );
+
+-- INSERT INTO CRAFT VALUES 
+-- ('boozer','CRAFT');
+
+
 DROP TABLE IF EXISTS CRAFT;
 
 CREATE TABLE CRAFT (
-  log_id VARCHAR(255) NOT NULL,
-  password VARCHAR(255) NOT NULL
+  id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+  log_id VARCHAR(255) UNIQUE NOT NULL,
+  password VARCHAR(255) NOT NULL,
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+  updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
-INSERT INTO CRAFT VALUES 
-('boozer','CRAFT');
+INSERT INTO
+
+  agent_login
+SET
+  log_id = 'test1@posse-ap.com',
+  password =sha1('password1');
+
+INSERT INTO
+  agent_login
+SET
+  log_id = 'test2@posse-ap.com',
+  password =sha1('password2');
 
 
 -- DROP TABLE IF EXISTS agent_login;
@@ -246,97 +270,9 @@ SET
   password =sha1('password2');
 
 
+INSERT INTO
+  agent_login
+SET
+  log_id = 'test2@posse-ap.com',
+  password =sha1('password2');
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
--- CREATE TABLE users (
---   id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
---   email VARCHAR(255) UNIQUE NOT NULL,
---   password VARCHAR(255) NOT NULL,
---   created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
---   updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
--- );
-
--- INSERT INTO
---   users
--- SET
---   email = 'test@posse-ap.com',
---   password = sha1('password');
-
--- DROP TABLE IF EXISTS events;
-
--- CREATE TABLE events (
---   id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
---   title VARCHAR(255) NOT NULL,
---   created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
---   updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
--- );
-
--- INSERT INTO
---   events
--- SET
---   title = 'イベント1';
-
--- INSERT INTO
---   events
--- SET
---   title = 'イベント2';
-
-
--- DROP TABLE IF EXISTS students;
-
--- CREATE TABLE students (
---   id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
---   name VARCHAR(255) UNIQUE NOT NULL,
---   furigana VARCHAR(255) NOT NULL,
---   mail VARCHAR(255) NOT NULL,
---   postal_code VARCHAR(255) NOT NULL,
---   address VARCHAR(255) NOT NULL,
---   telephone_number INT,
---   birthday date,
---   university_id INT,
---   faculty VARCHAR(255) NOT NULL,
---   department VARCHAR(255) NOT NULL,
---   graduate_year INT,
---   free_comment VARCHAR(255),
---   apply_time date
--- )ENGINE = InnoDB;
-
--- INSERT INTO students VALUES
--- (1,'武田龍一','タケダリュウイチ','ryuicih@keio.jp','2011111','東京都',89999,20010902,1,'理工学部','電気譲歩が',24,'あ',20220908);
-
-
--- -- DROP TABLE IF EXISTS students;
-
--- -- CREATE TABLE students (
--- --   id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
--- --   name VARCHAR(255) UNIQUE NOT NULL
--- -- )ENGINE = InnoDB;
--- -- INSERT INTO students VALUES
--- -- (1,'武田龍一');
-
--- DROP TABLE IF EXISTS test;
-
--- CREATE TABLE test (
---   id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
---   postcode TEXT NOT NULL ,
---   address TEXT NOT NULL,
---   day DATETIME NOT NULL 
---   PRIMARY KEY (`id`)) ENGINE = InnoDB;
-
-
-
---   -- CREATE TABLE test ( id INT NOT NULL AUTO_INCREMENT , postcode TEXT NOT NULL , address TEXT NOT NULL,  day DATETIME NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
