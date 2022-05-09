@@ -355,9 +355,6 @@
       <?php require  "./capsule/aside.php"; ?>
     </div>
   </div>
-  <a href="../../admin/login.php">login</a>
-  <a href="../../admin/students.php">in</a>
-
   <?php require  "./capsule/footer.php"; ?>
 </body>
 
