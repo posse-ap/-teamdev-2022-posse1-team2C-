@@ -1,24 +1,51 @@
 <aside class="aside">
   <ul class="aside__list">
     <li class="aside__item">
-      <h4 class="aside__title">サイト内検索</h4>
-      <div class="aside__search">
-        <input type="text" value="🔍ここから検索する" />
+      <div class="aside__contents" id="a">
+        <div class="img">
+          <img src="../../assets/img/backimage.jpg" alt="背景" width="" height="">
+          <img src="../../assets/img/cooltext410154404358427.png" alt="CRAFT" width="234px" height="73px">
+        </div>
+        <p class="information notice">
+          学生に寄り添い、就職活動をサポートする
+        </p>
+        <span class="information">
+          ーーーーーーーーーーーーーー
+        </span>
+        <p class="information">
+          就活を成功させたい！<br>
+          納得できる内定がほしい！<br>
+          でも、<br>
+          何から始めればいいかわからない。。
+        <span class="information">
+          ーーーーーーーーーーーーーー
+        </span>
+        <p class="information">
+          そんなあなたに！<br>
+          新卒向けの<span class="notice">エージェント企業</span>を紹介！
+        </p>
+        <p class="information">
+        </p>
+        <p class="information">
+        </p>
       </div>
     </li>
     <li class="aside__item">
       <h4 class="aside__title">「CRAFT」サービス</h4>
-      <ul class="aside__contents aside__content__list">
-        <li class="aside__content__item"><a href="../../CRAFT/index.php">エージェント企業を探す</a></li>
-        <li><a href="../../CRAFT/apply.php">エージェント企業にお問い合わせをする</a></li>
-        <li><a href="../../CRAFT/q&a.php">よくある質問・Q&A</a></li>
-        <li><a href="../../CRAFT/contact.php">「CRAFT」へのご要望・ご質問</a></li>
-        <li><a href="../../CRAFT/agent/index.php">エージェント企業担当者の方はこちら</a></li>
-      </ul>
+      <div class="aside__contents" id="a">
+        <ul class="aside__content__list">
+          <li class="aside__content__item"><a href="../../CRAFT/index.php">エージェント企業を探す</a></li>
+          <li class="aside__content__item"><a href="#">自分に合うエージェント企業を診断</a></li>
+          <li class="aside__content__item"><a href="../../CRAFT/apply.php">エージェント企業にお問い合わせ</a></li>
+          <li class="aside__content__item"><a href="../../CRAFT/q&a.php">よくある質問・Q&A</a></li>
+          <li class="aside__content__item"><a href="../../CRAFT/contact.php">「CRAFT」へのご要望・ご質問</a></li>
+          <li class="aside__content__item"><a href="../../CRAFT/agent/index.php">エージェント企業担当者の方はこちら</a></li>
+        </ul>
+      </div>
     </li>
     <li class="aside__item">
       <h4 class="aside__title">「CRAFT」とは</h4>
-      <div class="aside__contents"></div>
+      
     </li>
   </ul>
 </aside>

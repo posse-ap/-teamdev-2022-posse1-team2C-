@@ -191,15 +191,32 @@ INSERT INTO tags_agents_connect VALUES
 (2,2),
 (2,3);
 
+-- DROP TABLE IF EXISTS CRAFT;
+
+-- CREATE TABLE CRAFT (
+--   log_id VARCHAR(255) NOT NULL,
+--   password VARCHAR(255) NOT NULL
+-- );
+
+-- INSERT INTO CRAFT VALUES 
+-- ('boozer','CRAFT');
+
 DROP TABLE IF EXISTS CRAFT;
 
 CREATE TABLE CRAFT (
-  log_id VARCHAR(255) NOT NULL,
-  password VARCHAR(255) NOT NULL
+  id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+  log_id VARCHAR(255) UNIQUE NOT NULL,
+  password VARCHAR(255) NOT NULL,
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+  updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
-INSERT INTO CRAFT VALUES 
-('boozer','CRAFT');
+INSERT INTO
+  CRAFT
+SET
+  log_id = 'boozer',
+  password =sha1('CRAFT');
+
 
 
 -- DROP TABLE IF EXISTS agent_login;
@@ -237,49 +254,10 @@ SET
   password =sha1('password2');
 
 
+INSERT INTO
+  agent_login
+SET
+  log_id = 'test2@posse-ap.com',
+  password =sha1('password2');
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
--- INSERT INTO
---   users
--- SET
---   email = 'test@posse-ap.com',
---   password = sha1('password');
-
--- DROP TABLE IF EXISTS events;
-
--- CREATE TABLE events (
---   id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
---   title VARCHAR(255) NOT NULL,
---   created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
---   updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
--- );
-
--- INSERT INTO
---   events
--- SET
---   title = 'イベント1';
-
--- INSERT INTO
---   events
--- SET
---   title = 'イベント2';

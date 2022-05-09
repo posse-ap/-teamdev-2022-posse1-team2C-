@@ -355,9 +355,6 @@
       <?php require  "./capsule/aside.php"; ?>
     </div>
   </div>
-  <a href="../CRAFT/agent/login.php">agent/login</a>
-  <a href="../CRAFT/agent/edit.php">agent/edit</a>
-  <!-- <a href="../../admin/students.php">in</a> -->
 
   <?php require  "./capsule/footer.php"; ?>
 </body>
