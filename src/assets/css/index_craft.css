@@ -14,6 +14,7 @@ img {
 .content {
   background-color: #e0e4eb;
   padding-top: 150px;
+  padding-bottom: 50px;
 }
 .content .container {
   width: calc(100% - 100px);
@@ -131,6 +132,50 @@ img {
 .aside .notice {
   color: #f578f9;
   font-weight: 700;
+}
+
+.footer {
+  background-color: #333;
+  text-align: center;
+  color: white;
+  font-size: 13px;
+}
+.footer__title__img {
+  margin: 20px 0;
+  height: 50px;
+  width: auto;
+}
+.footer__title__sentence {
+  margin: 10px 0;
+  color: #ffcf32;
+  font-size: 16px;
+  font-style: italic;
+  font-weight: lighter;
+}
+.footer__list {
+  margin: 30px 0;
+  display: flex;
+  justify-content: center;
+  gap: 150px;
+}
+.footer__item {
+  text-align: left;
+  width: calc((80% - 300px) / 4);
+}
+.footer__copyright {
+  padding: 20px 0;
+}
+
+.nav__title {
+  margin: 10px 0;
+  font-weight: 800;
+  font-size: 16px;
+}
+.nav__list {
+  margin: 0 auto;
+}
+.nav__item {
+  padding: 10px 20px;
 }
 
 .section {
