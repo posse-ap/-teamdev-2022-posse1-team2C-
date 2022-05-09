@@ -355,6 +355,7 @@
       <?php require  "./capsule/aside.php"; ?>
     </div>
   </div>
+
   <?php require  "./capsule/footer.php"; ?>
 </body>
 

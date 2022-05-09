@@ -1,22 +1,5 @@
 <?php
-// session_start();
-// require('../dbconnect.php');
-// if (isset($_SESSION['user_id']) && $_SESSION['time'] + 60 * 60 * 24 > time()) {
-//   $_SESSION['time'] = time();
-
-//   if (!empty($_POST)) {
-//     $stmt = $db->prepare('INSERT INTO events SET title=?');
-//     $stmt->execute(array(
-//       $_POST['title']
-//     ));
-
-//     header('Location: http://' . $_SERVER['HTTP_HOST'] . '/admin/index.php');
-//     exit();
-//   }
-// } else {
-//   header('Location: http://' . $_SERVER['HTTP_HOST'] . '/admin/login.php');
-//   exit();
-// }
+// require('./capsule/session.php');
 ?>
 
 <!DOCTYPE html>
@@ -43,7 +26,7 @@
   </div> -->
 
   <?php require  "./capsule/header.php"; ?>
-
+<a href="./edit.php">edit</a>
   <main class="main">
     <ul class="main__list">
       <li class="main__item">
@@ -179,6 +162,7 @@
         </div>
       </li>
     </ul>
+    <a href="./edit.php">edit</a>
   </main>
 
   <script src="https://kit.fontawesome.com/65129cd335.js" crossorigin="anonymous"></script>

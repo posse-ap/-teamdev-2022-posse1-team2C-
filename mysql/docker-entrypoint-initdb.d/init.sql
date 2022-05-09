@@ -219,6 +219,18 @@ SET
 
 
 
+-- DROP TABLE IF EXISTS agent_login;
+
+-- CREATE TABLE agent_login (
+--   id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+--   log_id VARCHAR(255) NOT NULL,
+--   password VARCHAR(255) NOT NULL
+-- );
+
+-- INSERT INTO agent_login VALUES 
+-- ('boozer1',sha1('CRAFT')),
+-- ('boozer2',sha1('CRAFT'));
+
 DROP TABLE IF EXISTS agent_login;
 
 CREATE TABLE agent_login (
@@ -234,6 +246,13 @@ INSERT INTO
 SET
   log_id = 'test1@posse-ap.com',
   password =sha1('password1');
+
+INSERT INTO
+  agent_login
+SET
+  log_id = 'test2@posse-ap.com',
+  password =sha1('password2');
+
 
 INSERT INTO
   agent_login
