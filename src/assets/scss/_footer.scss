@@ -1,0 +1,53 @@
+.footer {
+  background-color: #333;
+  text-align: center;
+  color: white;
+  font-size: 13px;
+
+  &__title__img {
+    margin: 20px 0;
+    height: 50px;
+    width: auto;
+  }
+
+  &__title__sentence {
+    margin: 10px 0;
+    color: #ffcf32;
+    font-size: 16px;
+    font-style: italic;
+    font-weight: lighter;
+  }
+
+  &__list {
+    margin: 30px 0;
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+  }
+
+  &__item {
+    text-align: left;
+    min-width: fit-content;
+    width: calc((90% - 240px) / 4);
+  }
+
+  &__copyright {
+    padding: 20px 0;
+  }
+}
+
+.nav {
+  &__title {
+    margin: 10px 0;
+    font-weight: 800;
+    font-size: 16px;
+  }
+
+  &__list {
+    margin: 0 auto;
+  }
+
+  &__item {
+    padding: 10px 20px;
+  }
+}

@@ -3,8 +3,8 @@
     <li class="aside__item">
       <div class="aside__contents" id="a">
         <div class="img">
-          <img src="../../assets/img/backimage.jpg" alt="背景" width="" height="">
-          <img src="../../assets/img/cooltext410154404358427.png" alt="CRAFT" width="234px" height="73px">
+          <img src="../../assets/img/top.jpg" alt="背景" width="288px" height="192px">
+          <img src="../../assets/img/logo__craft-purple.png" alt="CRAFT" width="234px" height="73px">
         </div>
         <p class="information notice">
           学生に寄り添い、就職活動をサポートする
@@ -17,16 +17,13 @@
           納得できる内定がほしい！<br>
           でも、<br>
           何から始めればいいかわからない。。
+        </p>
         <span class="information">
           ーーーーーーーーーーーーーー
         </span>
         <p class="information">
           そんなあなたに！<br>
           新卒向けの<span class="notice">エージェント企業</span>を紹介！
-        </p>
-        <p class="information">
-        </p>
-        <p class="information">
         </p>
       </div>
     </li>
@@ -45,7 +42,7 @@
     </li>
     <li class="aside__item">
       <h4 class="aside__title">「CRAFT」とは</h4>
-      
+
     </li>
   </ul>
 </aside>
