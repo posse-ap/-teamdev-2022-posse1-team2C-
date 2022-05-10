@@ -14,6 +14,11 @@ $agent_info_data = $agent_info_stmt->fetchAll();
 $scores_stmt = $db->prepare("SELECT score from scores WHERE agent_id = 1");
 $scores_stmt->execute();
 $scores_data = $scores_stmt->fetchAll();
+
+
+$tags_stmt = $db->prepare("SELECT tags from agents_tags_mix WHERE agent_id = 1");
+$tags_stmt->execute();
+$tags_data = $tags_stmt->fetchAll();
 ?>
 
 <!DOCTYPE html>
@@ -105,6 +110,12 @@ $scores_data = $scores_stmt->fetchAll();
                   <span class="star5_rating" data-rate="<?php echo $scores_data[0]['score'];?>"></span>
                   <span class="number_rating"><?php echo $scores_data[0]['score'];?></span>
                 </li>
+                <?php for($i=0;$i<=2;$i++){?>
+                  <p><?php echo $tags_data[$i]['tags'] ?></p>
+                  <?php };?>
+                <p></p>
+                <p></p>
+                <p></p>
                 <li class="agent__item">
                   <p class="agent__item__info">
                     <?php echo $agent_info_data[0]['feature'];; ?>

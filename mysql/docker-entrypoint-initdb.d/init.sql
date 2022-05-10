@@ -215,6 +215,16 @@ INSERT INTO tags_agents_connect VALUES
 (2,2),
 (2,3);
 
+DROP TABLE IF EXISTS agents_tags_mix;
+CREATE table agents_tags_mix  AS  
+SELECT 
+agent_id,
+tags
+    FROM  tags_agents_connect join tags on tags.id=tags_id;
+
+
+
+
 -- DROP TABLE IF EXISTS CRAFT;
 
 -- CREATE TABLE CRAFT (
