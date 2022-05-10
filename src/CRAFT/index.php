@@ -2,10 +2,18 @@
 session_start();
 require(dirname(__FILE__) . "../../dbconnect.php");
 
-// $stmt = $db->query('SELECT id, title FROM events');
-// $events = $stmt->fetchAll(PDO::FETCH_ASSOC);
+$agents_stmt = $db->prepare("SELECT name from agents WHERE id = 1");
+$agents_stmt->execute();
+$agents_data = $agents_stmt->fetchAll();
 
+$agent_info_stmt = $db->prepare("SELECT feature from agent_info WHERE agent_id = 1");
+// $agents_stmt->bindValue(1, $user_id);
+$agent_info_stmt->execute();
+$agent_info_data = $agent_info_stmt->fetchAll();
 
+$scores_stmt = $db->prepare("SELECT score from scores WHERE agent_id = 1");
+$scores_stmt->execute();
+$scores_data = $scores_stmt->fetchAll();
 ?>
 
 <!DOCTYPE html>
@@ -90,16 +98,16 @@ require(dirname(__FILE__) . "../../dbconnect.php");
                   <img class="img agent__item__img" src="../assets/img/agent.png" alt="企業名" width="300px" style="display: inline" />
                 </li>
                 <li class="agent__item">
-                  <h3 class="agent__item__name">アンチパターン</h3>
+                  <h3 class="agent__item__name"><?php echo $agents_data[0]['name']; ?></h3>
                 </li>
                 <li class="agent__item">
                   <span class="agent__item__title">総合点</span>
-                  <span class="star5_rating" data-rate="3.8"></span>
-                  <span class="number_rating">3.8</span>
+                  <span class="star5_rating" data-rate="<?php echo $scores_data[0]['score'];?>"></span>
+                  <span class="number_rating"><?php echo $scores_data[0]['score'];?></span>
                 </li>
                 <li class="agent__item">
                   <p class="agent__item__info">
-                    ここにエージェント企業の説明が入ります。ここにエージェント企業の説明が入ります。ここにエージェント企業の説明が入ります。ここにエージェント企業の説明が入ります。ここにエージェント企業の説明が入ります。
+                    <?php echo $agent_info_data[0]['feature'];; ?>
                   </p>
                 </li>
                 <li class="agent__item">

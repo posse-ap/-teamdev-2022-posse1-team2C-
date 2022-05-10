@@ -109,7 +109,7 @@ DROP TABLE IF EXISTS agent_info;
 
 CREATE TABLE agent_info (
   agent_id INT,
-  feautre VARCHAR(255),
+  feature VARCHAR(255),
   strengths VARCHAR(255),
   photo VARCHAR(255),
   employment_rate INT,
@@ -123,6 +123,21 @@ INSERT INTO agent_info  VALUES
 (1,'ちょこが大好きちょこだよ','じゅんにセクハラされたことない','',50,1000,200),
 (2,'あさかだいすこあさかしか勝たんby龍一','あさかに告白したいがためらってる','',100,500,400);
 
+
+
+DROP TABLE IF EXISTS scores;
+
+CREATE TABLE scores (
+  id INT,
+  agent_id INT,
+  score FLOAT
+);
+
+
+
+
+INSERT INTO scores  VALUES
+(1,1,3.1);
 
 DROP TABLE IF EXISTS specialties;
 
