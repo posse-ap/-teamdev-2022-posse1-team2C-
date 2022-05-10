@@ -154,6 +154,7 @@
 
   <script src="../assets/js/jquery-3.6.0.min.js"></script>
   <script src="../assets/js/q&a.js"></script>
+  <script src="../assets/js/pagescroll.js"></script>
 </body>
 
 </html>

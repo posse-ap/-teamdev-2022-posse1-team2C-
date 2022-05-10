@@ -1,4 +1,9 @@
-<footer class="footer">
+<footer class="footer" id="footer">
+  <p class="scroll__top" id="scroll__top">
+    <a href="#">
+      Page<br>Top
+    </a>
+  </p>
   <div class="footer__title">
     <img class="footer__title__img" src="../../assets/img/logo__site-white.png" alt="就活.com">
     <p class="footer__title__sentence">
