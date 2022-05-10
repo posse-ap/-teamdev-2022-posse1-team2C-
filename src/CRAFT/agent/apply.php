@@ -11,7 +11,6 @@
   <title>Document</title>
   <link rel="stylesheet" href="../../assets/css/reset.css">
   <link rel="stylesheet" href="../../assets/css/apply.min.css">
-  <link rel="stylesheet" href="../../assets/css/index_craft.css">
 </head>
 
 <body>
@@ -20,12 +19,13 @@
   <div class="content">
     <div class="container inner">
       <main class="main">
-        <h2 class="main__title">CRAFT</h2>
-        <span class="main__text">
-          あなたに合った企業が見つかる！<br />就活エージェント比較サイト
-        </span>
         <div class="apply" id="apply">
           <div class="apply__input" role="apply">
+            <p class="title">
+              新卒エージェント新規登録
+              <span class="title"> 入力</span>
+            </p>
+
             <ul class="stepbar">
               <li class="stepbar__item">
                 <div class="stepbar__item-inner stepbar__item-inner--current">STEP1</div>
@@ -39,11 +39,6 @@
                 <div class="stepbar__item-inner">STEP3</div>
               </li>
             </ul>
-
-            <p class="apply__title">
-              新卒エージェント新規会員登録
-              <span class="apply__title"> 入力</span>
-            </p>
 
             <form action="/" name="apply__form" class="apply__form">
               <dl class="apply__form__list">
@@ -93,6 +88,11 @@
           </div>
 
           <div class="apply__confirm" role="apply" hidden="true">
+            <p class="title">
+              新卒エージェント新規登録
+              <span class="title"> 確認</span>
+            </p>
+
             <ul class="stepbar">
               <li class="stepbar__item">
                 <div class="stepbar__item-inner">STEP1</div>
@@ -106,11 +106,6 @@
                 <div class="stepbar__item-inner">STEP3</div>
               </li>
             </ul>
-
-            <p class="apply__title">
-              新卒エージェント　お問い合わせ
-              <span class=""> 確認</span>
-            </p>
 
             <form action="/" name="" class="apply__form">
               <table class="apply__table">
@@ -161,6 +156,11 @@
           </div>
 
           <div class="apply__thanks" role="apply" hidden="true">
+            <p class="title">
+              新卒エージェント新規登録
+              <span class="title"> 完了</span>
+            </p>
+
             <ul class="stepbar">
               <li class="stepbar__item">
                 <div class="stepbar__item-inner">STEP1</div>
@@ -174,11 +174,6 @@
                 </div>
               </li>
             </ul>
-
-            <p class="apply__title">
-              新卒エージェント　お問い合わせ
-              <span class="apply__title"> 完了</span>
-            </p>
 
             <div class="apply__thanks__inner">
               <p class="apply__thanks__complete">
@@ -200,6 +195,8 @@
       <?php require  "../capsule/aside.php"; ?>
     </div>
   </div>
+
+  <?php require  "../capsule/footer.php"; ?>
 
   <script src="../../assets/js/apply_agent.js"></script>
 </body>

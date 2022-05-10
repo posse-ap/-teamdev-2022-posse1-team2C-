@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="../assets/css/reset.css">
-  <link rel="stylesheet" href="../assets/css/contact_craft.min.css">
+  <link rel="stylesheet" href="../assets/css/contact.min.css">
 </head>
 
 <body>
@@ -55,9 +55,11 @@
           <p class="contact__thanks__text">
             この度はお問い合わせしていただき、誠にありがとうございます。<br />ご入力いただきました内容を確認後、担当者よりご連絡させていただきます。
           </p>
-          <button class="contact__thanks__button">
-            トップページへ戻る
-          </button>
+          <a href="./index.php">
+            <button class="contact__thanks__button">
+              トップページへ戻る
+            </button>
+          </a>
         </div>
       </main>
 

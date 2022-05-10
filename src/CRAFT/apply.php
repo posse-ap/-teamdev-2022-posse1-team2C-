@@ -87,8 +87,8 @@ if (isset($_POST['back']) && $_POST['back']) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../assets/css/reset.css">
-    <link rel="stylesheet" href="../assets/css/apply.css">
-    <link rel="stylesheet" href="../assets/css/index_craft.min.css">
+    <link rel="stylesheet" href="../assets/css/apply.min.css">
+    <link rel="stylesheet" href="../assets/css/index-user.min.css">
 </head>
 
 <body>
@@ -108,10 +108,6 @@ if (isset($_POST['back']) && $_POST['back']) {
 
             <div class="container inner">
                 <main class="main">
-                    <h2 class="main__title">CRAFT</h2>
-                    <span class="main__text">
-                        あなたに合った企業が見つかる！<br />就活エージェント比較サイト
-                    </span>
                     <div class="apply" id="apply">
                         <div class="apply__input" role="apply">
                             <p class="title">
@@ -298,8 +294,8 @@ if (isset($_POST['back']) && $_POST['back']) {
                                 </div>
                             </form>
                         </div>
-                    <?php } else {
-                    ?>
+
+                    <?php } else { ?>
 
                         <div class="apply__thanks" role="apply">
                             <p class="title">
@@ -489,14 +485,16 @@ if (isset($_POST['back']) && $_POST['back']) {
                                     </li>
                                 </ul>
                             </section>
-                        <?php
-                    } ?>
+                        </div>
+                    <?php } ?>
 
+                    </div>
                 </main>
                 <?php require  "./capsule/aside.php"; ?>
             </div>
     </div>
-    <!-- <script src="../assets/js/apply_user.js"></script> -->
+
+    <?php require  "./capsule/footer.php"; ?>
 </body>
 
 </html>

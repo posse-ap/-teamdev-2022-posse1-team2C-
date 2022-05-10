@@ -30,7 +30,7 @@ if (!empty($_POST)) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>管理者ログイン</title>
   <link rel="stylesheet" href="../../assets/css/reset.css">
-  <link rel="stylesheet" href="../../assets/css/agent_login.css">
+  <link rel="stylesheet" href="../../assets/css/login.min.css">
 </head>
 
 <body>
@@ -51,13 +51,30 @@ if (!empty($_POST)) {
                 <dd><input id="password" type="text" name="password"></dd>
               </div>
               <div class="login__inner__form__footer"></div>
-              <button class="login__inner__form__button" id="submit">ログインする</button>
+              <button class="login__inner__form__button" id="submit">
+                ログインする
+              </button>
             </dl>
           </form>
-          <p class="login__inner__text">ログインID・パスワードを忘れた方は<a href="#" class="login__inner__nav">こちら</a></p>
-          <hr class="login__inner__border"></hr>
-          <p class="login__inner__text">ログインID・パスワードをお持ちでない方は<a href="#" class="login__inner__nav">こちら</a></p>
-          <button class="login__inner__new">エージェント会員に申し込む</button>
+          <p class="login__inner__text">
+            ログインID・パスワードを忘れた方は
+            <a href="#" class="login__inner__nav">
+              こちら
+            </a>
+          </p>
+          <hr class="login__inner__border">
+          </hr>
+          <p class="login__inner__text">
+            ログインID・パスワードをお持ちでない方は
+            <a href="#" class="login__inner__nav">
+              こちら
+            </a>
+          </p>
+          <a href="./apply.php">
+            <button class="login__inner__new">
+              エージェント会員に申し込む
+            </button>
+          </a>
         </div>
       </div>
     </main>

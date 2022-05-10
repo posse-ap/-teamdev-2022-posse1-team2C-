@@ -1,7 +1,8 @@
-@use "./variables" as vb;
+@use "./aside" as aside;
+@use "./footer" as footer;
+@use "./header-user" as header;
 @use "./style" as style;
-@use "./header_craft" as header;
-@use "./aside_craft" as aside;
+@use "./variables" as vb;
 
 /* ==============
 apply__title
