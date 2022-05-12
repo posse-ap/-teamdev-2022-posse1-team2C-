@@ -1,3 +1,32 @@
+<?php
+session_start();
+require(dirname(__FILE__) . "../../dbconnect.php");
+
+// $_SESSION['name__kanji'] = htmlspecialchars($_POST['name__kanji'], ENT_QUOTES);
+// $_SESSION['name__kana'] = htmlspecialchars($_POST['name__kana'], ENT_QUOTES);
+$_SESSION['email'] = htmlspecialchars($_POST['email'], ENT_QUOTES);
+// $_SESSION['tel'] = htmlspecialchars($_POST['tel'], ENT_QUOTES);
+// $_SESSION['postcode'] = htmlspecialchars($_POST['postcode'], ENT_QUOTES);
+// $_SESSION['address'] = htmlspecialchars($_POST['address'], ENT_QUOTES);
+// $_SESSION['birth'] = htmlspecialchars($_POST['birth'], ENT_QUOTES);
+// $_SESSION['university'] = htmlspecialchars($_POST['university'], ENT_QUOTES);
+// $_SESSION['faculty'] = htmlspecialchars($_POST['faculty'], ENT_QUOTES);
+// $_SESSION['course'] = htmlspecialchars($_POST['course'], ENT_QUOTES);
+// $_SESSION['content'] = htmlspecialchars($_POST['content'], ENT_QUOTES);
+
+$from = 'From: craft@example.com';
+$to   = $_SESSION['email'];
+$subject = 'テスト';
+$body = 'メール送信できたあああ';
+
+if(mb_send_mail($to, $subject, $body, $from)){
+  echo "メール送信成功しました";
+}else{
+  echo "メール送信失敗です";
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -43,7 +72,7 @@
             </ul>
 
 
-            <form action="/" name="apply__form" class="apply__form">
+            <form action="./apply.php" name="apply__form" class="apply__form" method="post">
               <dl class="apply__form__list">
                 <div class="apply__form__item">
                   <dt><label for="agent">お問い合わせ先<br>エージェント企業</label></dt>
@@ -63,43 +92,43 @@
                 </div>
                 <div class="apply__form__item">
                   <dt><label for="name__kanji">お名前（漢字）</label></dt>
-                  <dd><input id="name__kanji" type="text" name="name__kanji" /></dd>
+                  <dd><input id="name__kanji" type="text" name="name__kanji" value="<?php echo $_SESSION['name__kanji'] ;?>" /></dd>
                 </div>
                 <div class="apply__form__item">
                   <dt><label for="name__kana">お名前（フリガナ）</label></dt>
-                  <dd><input id="name__kana" type="text" name="name__kana" /></dd>
+                  <dd><input id="name__kana" type="text" name="name__kana" value="<?php echo $_SESSION['name__kana'] ;?>" /></dd>
                 </div>
                 <div class="apply__form__item">
                   <dt><label for="email">メールアドレス</label></dt>
-                  <dd><input id="email" type="email" name="email" /></dd>
+                  <dd><input id="email" type="email" name="email" value="<?php echo $_SESSION['email'] ;?>" /></dd>
                 </div>
                 <div class="apply__form__item">
                   <dt><label for="tel">電話番号</label></dt>
-                  <dd><input id="tel" type="text" name="tel" /></dd>
+                  <dd><input id="tel" type="text" name="tel" value="" /></dd>
                 </div>
                 <div class="apply__form__item">
                   <dt><label for="postcode">郵便番号</label></dt>
-                  <dd><input id="postcode" type="text" name="postcode" /></dd>
+                  <dd><input id="postcode" type="text" name="postcode" value=""  /></dd>
                 </div>
                 <div class="apply__form__item">
                   <dt><label for="address">住所</label></dt>
-                  <dd><input id="address" type="text" name="address" /></dd>
+                  <dd><input id="address" type="text" name="address" value="" /></dd>
                 </div>
                 <div class="apply__form__item">
                   <dt><label for="birth">生年月日</label></dt>
-                  <dd><input id="birth" type="date" name="birth" /></dd>
+                  <dd><input id="birth" type="date" name="birth" value="" /></dd>
                 </div>
                 <div class="apply__form__item">
                   <dt><label for="university">大学</label></dt>
-                  <dd><input id="university" type="text" name="university" /></dd>
+                  <dd><input id="university" type="text" name="university" value="" /></dd>
                 </div>
                 <div class="apply__form__item">
                   <dt><label for="faculty">学部</label></dt>
-                  <dd><input id="faculty" type="text" name="faculty" /></dd>
+                  <dd><input id="faculty" type="text" name="faculty" value="" /></dd>
                 </div>
                 <div class="apply__form__item">
                   <dt><label for="course">学科</label></dt>
-                  <dd><input id="course" type="text" name="course" /></dd>
+                  <dd><input id="course" type="text" name="course" value="" /></dd>
                 </div>
                 <div class="apply__form__item">
                   <dt>卒業年度</dt>
@@ -119,7 +148,7 @@
                 <div class="apply__form__item">
                   <dt><label for="content">その他自由記述欄</label></dt>
                   <dd>
-                    <textarea id="content" type="text" name="content"></textarea>
+                    <textarea id="content" type="text" name="content" value="" ></textarea>
                   </dd>
                 </div>
               </dl>

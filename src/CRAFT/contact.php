@@ -24,19 +24,19 @@
           「CRAFT」へのご要望・ご質問
         </p>
 
-        <form action="/" class="contact__form" role="contact__form">
+        <form method="post" action="/" class="contact__form" role="contact__form">
           <dl class="contact__form__list">
             <div class="contact__form__item">
               <dt><label for="name">氏名</label></dt>
-              <dd><input id="name" type="text" name="name"></dd>
+              <dd><input id="name" type="text" name="name" value="<?php echo $_SESSION['name'] ;?>"></dd>
             </div>
             <div class="contact__form__item">
               <dt><label for="email">メールアドレス</label></dt>
-              <dd><input id="email" type="email" name="email"></dd>
+              <dd><input id="email" type="email" name="email" value="<?php echo $_SESSION['email'] ;?>"></dd>
             </div>
             <div class="contact__form__item">
               <dt><label for="tel">電話番号</label></dt>
-              <dd><input id="tel" type="text" name="tel"></dd>
+              <dd><input id="tel" type="text" name="tel" value="<?php echo $_SESSION['tel'] ;?>"></dd>
             </div>
             <div class="contact__form__item">
               <dt><label for="subject">件名</label></dt>
