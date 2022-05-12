@@ -246,19 +246,6 @@ CREATE TABLE CRAFT (
   updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
 
-INSERT INTO
-
-  agent_login
-SET
-  log_id = 'test1@posse-ap.com',
-  password =sha1('password1');
-
-INSERT INTO
-  agent_login
-SET
-  log_id = 'test2@posse-ap.com',
-  password =sha1('password2');
-
 
 -- DROP TABLE IF EXISTS agent_login;
 
@@ -295,9 +282,5 @@ SET
   password =sha1('password2');
 
 
-INSERT INTO
-  agent_login
-SET
-  log_id = 'test2@posse-ap.com',
-  password =sha1('password2');
+
 
