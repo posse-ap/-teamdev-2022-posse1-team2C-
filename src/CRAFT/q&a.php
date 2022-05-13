@@ -58,44 +58,6 @@
               <p>ここに解答が入ります</p>
             </div>
           </li>
-          
-          <li class="accordion__item">
-            <p class="accordion__title">ここに質問が入ります<span class="accordion__btn"></span></p>
-            <div class="accordion__content">
-              <p>ここに解答が入ります</p>
-            </div>
-          </li>
-
-          <li class="accordion__item">
-            <p class="accordion__title">ここに質問が入ります<span class="accordion__btn"></span></p>
-            <div class="accordion__content">
-              <p>ここに解答が入ります</p>
-              <p>ここに解答が入ります</p>
-            </div>
-          </li>
-
-          <li class="accordion__item">
-            <p class="accordion__title">ここに質問が入ります<span class="accordion__btn"></span></p>
-            <div class="accordion__content">
-              <p>ここに解答が入ります</p>
-              <p>ここに解答が入ります</p>
-              <p>ここに解答が入ります</p>
-            </div>
-          </li>
-          
-          <li class="accordion__item">
-            <p class="accordion__title">ここに質問が入ります<span class="accordion__btn"></span></p>
-            <div class="accordion__content">
-              <p>ここに解答が入ります</p>
-            </div>
-          </li>
-
-          <li class="accordion__item">
-            <p class="accordion__title">ここに質問が入ります<span class="accordion__btn"></span></p>
-            <div class="accordion__content">
-              <p>ここに解答が入ります</p>
-            </div>
-          </li>
 
           <li class="accordion__item">
             <p class="accordion__title">ここに質問が入ります<span class="accordion__btn"></span></p>
@@ -132,6 +94,20 @@
             <p class="accordion__title">ここに質問が入ります<span class="accordion__btn"></span></p>
             <div class="accordion__content">
               <p>ここに解答が入ります</p>
+            </div>
+          </li>
+
+          <li class="accordion__item">
+            <p class="accordion__title">ここに質問が入ります<span class="accordion__btn"></span></p>
+            <div class="accordion__content">
+              <p>ここに解答が入ります</p>
+            </div>
+          </li>
+
+          <li class="accordion__item">
+            <p class="accordion__title">ここに質問が入ります<span class="accordion__btn"></span></p>
+            <div class="accordion__content">
+              <p>ここに解答が入ります</p>
               <p>ここに解答が入ります</p>
             </div>
           </li>
@@ -144,6 +120,31 @@
               <p>ここに解答が入ります</p>
             </div>
           </li>
+
+          <li class="accordion__item">
+            <p class="accordion__title">ここに質問が入ります<span class="accordion__btn"></span></p>
+            <div class="accordion__content">
+              <p>ここに解答が入ります</p>
+            </div>
+          </li>
+
+          <li class="accordion__item">
+            <p class="accordion__title">ここに質問が入ります<span class="accordion__btn"></span></p>
+            <div class="accordion__content">
+              <p>ここに解答が入ります</p>
+              <p>ここに解答が入ります</p>
+            </div>
+          </li>
+
+          <li class="accordion__item">
+            <p class="accordion__title">ここに質問が入ります<span class="accordion__btn"></span></p>
+            <div class="accordion__content">
+              <p>ここに解答が入ります</p>
+              <p>ここに解答が入ります</p>
+              <p>ここに解答が入ります</p>
+            </div>
+          </li>
+        </ul>
       </main>
 
       <?php require  "./capsule/aside.php"; ?>
