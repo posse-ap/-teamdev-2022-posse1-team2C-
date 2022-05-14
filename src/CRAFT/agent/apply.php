@@ -154,6 +154,13 @@ if (isset($_POST['back']) && $_POST['back']) {
                     <dt><label for="address">住所</label></dt>
                     <dd><input id="address" type="text" name="address" value="<?php echo $_SESSION['address'] ?>" /></dd>
                   </div>
+                  <?php
+            if ($errmessage) {
+              echo '<div style="color:red;">';
+              echo implode('<br>', $errmessage);
+              echo '</div>';
+            }
+            ?>
                   <div class="apply__form__item">
                     <dt><label for="content">その他自由記述欄</label></dt>
                     <dd>
