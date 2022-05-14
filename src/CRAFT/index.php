@@ -2,18 +2,35 @@
 session_start();
 require(dirname(__FILE__) . "../../dbconnect.php");
 
-$agents_stmt = $db->prepare("SELECT name from agents WHERE id = 1");
+$agents_stmt = $db->prepare("SELECT name from agents");
 $agents_stmt->execute();
 $agents_data = $agents_stmt->fetchAll();
 
-$agent_info_stmt = $db->prepare("SELECT feature from agent_info WHERE agent_id = 1");
-// $agents_stmt->bindValue(1, $user_id);
+$agents_count_stmt = $db->prepare("SELECT COUNT(*) from agents");
+$agents_count_stmt->execute();
+$agents_count_data = $agents_count_stmt->fetchAll();
+$agents_count = $agents_count_data[0]['COUNT(*)'];
+
+$agent_info_stmt = $db->prepare("SELECT feature from agent_info");
 $agent_info_stmt->execute();
 $agent_info_data = $agent_info_stmt->fetchAll();
 
-$scores_stmt = $db->prepare("SELECT score from scores WHERE agent_id = 1");
+$scores_stmt = $db->prepare("SELECT score from scores");
 $scores_stmt->execute();
 $scores_data = $scores_stmt->fetchAll();
+
+for ($j = 0; $j <= $agents_count - 1; $j++) {
+  $tags_stmt_[$j] = $db->prepare("SELECT * from agents_tags_mix WHERE agent_id = ?");
+  $tags_stmt_[$j]->bindValue(1, $j);
+  $tags_stmt_[$j]->execute();
+  $tags_data_[$j] = $tags_stmt_[$j]->fetchAll();
+
+  $agent_tags_count_stmt_[$j] = $db->prepare("SELECT COUNT(tags) from agents_tags_mix WHERE agent_id = ?");
+  $agent_tags_count_stmt_[$j]->bindValue(1, $j);
+  $agent_tags_count_stmt_[$j]->execute();
+  $agent_tags_count_data_[$j] = $agent_tags_count_stmt_[$j]->fetchAll();
+  $agent_tags_count_[$j] = $agent_tags_count_data_[$j][0]['COUNT(tags)'];
+}
 ?>
 
 <!DOCTYPE html>
@@ -92,32 +109,42 @@ $scores_data = $scores_stmt->fetchAll();
         </section>
         <section class="section">
           <ul class="agents">
-            <li class="agent">
-              <ul class="agent__list">
-                <li class="agent__item">
-                  <img class="img agent__item__img" src="../assets/img/agent.png" alt="企業名" width="300px" style="display: inline" />
-                </li>
-                <li class="agent__item">
-                  <h3 class="agent__item__name"><?php echo $agents_data[0]['name']; ?></h3>
-                </li>
-                <li class="agent__item">
-                  <span class="agent__item__title">総合点</span>
-                  <span class="star5_rating" data-rate="<?php echo $scores_data[0]['score'];?>"></span>
-                  <span class="number_rating"><?php echo $scores_data[0]['score'];?></span>
-                </li>
-                <li class="agent__item">
-                  <p class="agent__item__info">
-                    <?php echo $agent_info_data[0]['feature'];; ?>
-                  </p>
-                </li>
-                <li class="agent__item">
-                  <button class="agent__item__detail">詳細</button>
-                  <button class="agent__item__apply">申し込む</button>
-                </li>
-              </ul>
-            </li>
+            <?php for ($j = 0; $j <= $agents_count - 1; $j++) { ?>
+              <li class="agent">
+                <ul class="agent__list">
+                  <li class="agent__item">
+                    <img class="img agent__item__img" src="../assets/img/agent.png" alt="企業名" width="300px" style="display: inline" />
+                  </li>
+                  <li class="agent__item">
+                    <h3 class="agent__item__name"><?php echo $agents_data[$j]['name']; ?></h3>
+                  </li>
+                  <li class="agent__item">
+                    <span class="agent__item__title">総合点</span>
+                    <span class="star5_rating" data-rate="<?php echo $scores_data[$j]['score']; ?>"></span>
+                    <span class="number_rating"><?php echo $scores_data[$j]['score']; ?></span>
+                  </li>
 
-            <li class="agent">
+
+                  <?php for ($k = 0; $k <= $agent_tags_count_[$j] - 1; $k++) { ?>
+                    <p><?php echo $tags_data_[$j][$k]['tags']; ?></p>
+                  <?php }; ?>
+                  <p></p>
+                  <p></p>
+                  <p></p>
+                  <li class="agent__item">
+                    <p class="agent__item__info">
+                      <?php echo $agent_info_data[$j]['feature'];; ?>
+                    </p>
+                  </li>
+                  <li class="agent__item">
+                    <button class="agent__item__detail">詳細</button>
+                    <button class="agent__item__apply">申し込む</button>
+                  </li>
+                </ul>
+              </li>
+            <?php }; ?>
+
+            <!-- <li class="agent">
               <ul class="agent__list">
                 <li class="agent__item">
                   <img class="img agent__img" src="../assets/img/agent.png" alt="企業名" width="300px" style="display: inline" />
@@ -365,7 +392,7 @@ $scores_data = $scores_stmt->fetchAll();
                   <button class="agent__item__apply">申し込む</button>
                 </li>
               </ul>
-            </li>
+            </li> -->
           </ul>
         </section>
       </main>
