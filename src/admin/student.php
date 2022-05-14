@@ -2,7 +2,6 @@
 // require('./capsule/session.php');
 ?>
 
-
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -34,15 +33,15 @@
         <div class="sidebar-sticky pt-3">
           <ul class="nav flex-column">
             <li class="nav-item">
-              <a class="nav-link active" href="./index.php">
+              <a class="nav-link" href="./index.php">
                 <span data-feather="home"></span>
-                ダッシュボード <span class="sr-only">(現位置)</span>
+                ダッシュボード
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="./student.php">
+              <a class="nav-link active" href="./student.php">
                 <span data-feather="file"></span>
-                学生
+                学生<span class="sr-only">(現位置)</span>
               </a>
             </li>
             <li class="nav-item">
@@ -107,95 +106,7 @@
       </nav>
 
       <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
-        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-          <h1 class="h2">今月の統計</h1>
-          <div class="btn-toolbar mb-2 mb-md-0">
-            <div class="btn-group mr-2">
-              <button type="button" class="btn btn-sm btn-outline-secondary"><a href="./student.php" class="text-secondary">学生</a></button>
-              <button type="button" class="btn btn-sm btn-outline-secondary"><a href="./agent.php" class="text-secondary">企業</a></button>
-              <button type="button" class="btn btn-sm btn-outline-secondary"><a href="./add.php" class="text-secondary">エージェント企業新規追加</a></button>
-            </div>
-            <div class="dropdown mr-5">
-              <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle" data-toggle="dropdown">
-                <span data-feather="calendar"></span>
-                今月
-              </button>
-              <div class="dropdown-menu">
-                <a class="dropdown-item" href="#">2022年6月</a>
-                <a class="dropdown-item" href="#">2022年5月</a>
-                <a class="dropdown-item" href="#">2022年4月</a>
-                <a class="dropdown-item" href="#">2022年3月</a>
-                <a class="dropdown-item" href="#">2022年2月</a>
-                <a class="dropdown-item" href="#">2022年1月</a>
-                <a class="dropdown-item" href="#">2021年12月</a>
-                <a class="dropdown-item" href="#">2021年11月</a>
-                <a class="dropdown-item" href="#">2021年10月</a>
-                <a class="dropdown-item" href="#">2021年9月</a>
-                <a class="dropdown-item" href="#">2021年8月</a>
-                <a class="dropdown-item" href="#">2021年7月</a>
-              </div>
-            </div>
-          </div>
-
-        </div>
-        <h2 class="mt-5">問い合わせが多いエージェント企業</h2>
-        <div class="table-responsive">
-          <table class="table table-striped table-sm">
-            <thead>
-              <tr>
-                <th class="col-xs-2 col-ms-2 col-md-2 col-lg-2">企業名</th>
-                <th class="col-xs-2 col-ms-2 col-md-2 col-lg-2">お問い合わせ数</th>
-                <th class="col-xs-2 col-ms-2 col-md-2 col-lg-2">アクセス数</th>
-                <th class="col-xs-2 col-ms-2 col-md-2 col-lg-2">掲載一時停止</th>
-                <th class="col-xs-1 col-ms-1 col-md-1 col-lg-1">編集</th>
-                <th class="col-xs-1 col-ms-1 col-md-1 col-lg-1">削除</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>マイナビ</td>
-                <td>100</td>
-                <td>1000</td>
-                <td><button class="bg-warning">掲載一時停止</button></td>
-                <td><button class="bg-info">編集</button></td>
-                <td><button class="bg-danger">削除</button></td>
-              </tr>
-              <tr>
-                <td>レバレジーズ</td>
-                <td>100</td>
-                <td>1000</td>
-                <td><button class="bg-warning">掲載一時停止</button></td>
-                <td><button class="bg-info">編集</button></td>
-                <td><button class="bg-danger">削除</button></td>
-              </tr>
-              <tr>
-                <td>irodas</td>
-                <td>100</td>
-                <td>1000</td>
-                <td><button class="bg-warning">掲載一時停止</button></td>
-                <td><button class="bg-info">編集</button></td>
-                <td><button class="bg-danger">削除</button></td>
-              </tr>
-              <tr>
-                <td>パーソル</td>
-                <td>100</td>
-                <td>1000</td>
-                <td><button class="bg-warning">掲載一時停止</button></td>
-                <td><button class="bg-info">編集</button></td>
-                <td><button class="bg-danger">削除</button></td>
-              </tr>
-              <tr>
-                <td>リクルート</td>
-                <td>100</td>
-                <td>1000</td>
-                <td><button class="bg-warning">掲載一時停止</button></td>
-                <td><button class="bg-info">編集</button></td>
-                <td><button class="bg-danger">削除</button></td>
-              </tr>
-            </tbody>
-          </table>
-        </div><!-- /.table-responsive -->
-        <h2 class="mt-5">最近お問い合わせをした学生</h2>
+        <h2 class="mt-3 mb-3">お問い合わせをした学生一覧</h2>
         <div class="table-responsive">
           <table class="table table-striped table-sm">
             <thead>
@@ -236,6 +147,102 @@
               <tr>
                 <td>2022年4月6日 15:45:04</td>
                 <td>福場脩真</td>
+                <td>慶應義塾大学</td>
+                <td>マイナビ</td>
+                <td><button class="bg-secondary">詳細</button></td>
+                <td><button class="bg-danger">削除</button></td>
+              </tr>
+              <tr>
+                <td>2022年4月6日 15:45:04</td>
+                <td>森本健介</td>
+                <td>慶應義塾大学</td>
+                <td>マイナビ</td>
+                <td><button class="bg-secondary">詳細</button></td>
+                <td><button class="bg-danger">削除</button></td>
+              </tr>
+              <tr>
+                <td>2022年4月6日 15:45:04</td>
+                <td>森本健介</td>
+                <td>慶應義塾大学</td>
+                <td>マイナビ</td>
+                <td><button class="bg-secondary">詳細</button></td>
+                <td><button class="bg-danger">削除</button></td>
+              </tr>
+              <tr>
+                <td>2022年4月6日 15:45:04</td>
+                <td>森本健介</td>
+                <td>慶應義塾大学</td>
+                <td>マイナビ</td>
+                <td><button class="bg-secondary">詳細</button></td>
+                <td><button class="bg-danger">削除</button></td>
+              </tr>
+              <tr>
+                <td>2022年4月6日 15:45:04</td>
+                <td>森本健介</td>
+                <td>慶應義塾大学</td>
+                <td>マイナビ</td>
+                <td><button class="bg-secondary">詳細</button></td>
+                <td><button class="bg-danger">削除</button></td>
+              </tr>
+              <tr>
+                <td>2022年4月6日 15:45:04</td>
+                <td>森本健介</td>
+                <td>慶應義塾大学</td>
+                <td>マイナビ</td>
+                <td><button class="bg-secondary">詳細</button></td>
+                <td><button class="bg-danger">削除</button></td>
+              </tr>
+              <tr>
+                <td>2022年4月6日 15:45:04</td>
+                <td>森本健介</td>
+                <td>慶應義塾大学</td>
+                <td>マイナビ</td>
+                <td><button class="bg-secondary">詳細</button></td>
+                <td><button class="bg-danger">削除</button></td>
+              </tr>
+              <tr>
+                <td>2022年4月6日 15:45:04</td>
+                <td>森本健介</td>
+                <td>慶應義塾大学</td>
+                <td>マイナビ</td>
+                <td><button class="bg-secondary">詳細</button></td>
+                <td><button class="bg-danger">削除</button></td>
+              </tr>
+              <tr>
+                <td>2022年4月6日 15:45:04</td>
+                <td>森本健介</td>
+                <td>慶應義塾大学</td>
+                <td>マイナビ</td>
+                <td><button class="bg-secondary">詳細</button></td>
+                <td><button class="bg-danger">削除</button></td>
+              </tr>
+              <tr>
+                <td>2022年4月6日 15:45:04</td>
+                <td>森本健介</td>
+                <td>慶應義塾大学</td>
+                <td>マイナビ</td>
+                <td><button class="bg-secondary">詳細</button></td>
+                <td><button class="bg-danger">削除</button></td>
+              </tr>
+              <tr>
+                <td>2022年4月6日 15:45:04</td>
+                <td>森本健介</td>
+                <td>慶應義塾大学</td>
+                <td>マイナビ</td>
+                <td><button class="bg-secondary">詳細</button></td>
+                <td><button class="bg-danger">削除</button></td>
+              </tr>
+              <tr>
+                <td>2022年4月6日 15:45:04</td>
+                <td>森本健介</td>
+                <td>慶應義塾大学</td>
+                <td>マイナビ</td>
+                <td><button class="bg-secondary">詳細</button></td>
+                <td><button class="bg-danger">削除</button></td>
+              </tr>
+              <tr>
+                <td>2022年4月6日 15:45:04</td>
+                <td>森本健介</td>
                 <td>慶應義塾大学</td>
                 <td>マイナビ</td>
                 <td><button class="bg-secondary">詳細</button></td>
