@@ -6,12 +6,6 @@ USE shukatsu;
 
 
 
--- DROP TABLE IF EXISTS test;
-
--- CREATE TABLE test (
-
---   graduate VARCHAR(255)
--- )ENGINE = InnoDB;
 
 
 DROP TABLE IF EXISTS students;
@@ -30,14 +24,16 @@ CREATE TABLE students (
   course VARCHAR(255) NOT NULL,
   graduate INT,
   content VARCHAR(255),
-  apply_time date
+  apply_time DATETIME
 )ENGINE = InnoDB;
 
 
 INSERT INTO students VALUES
-(1,'高梨彩音','タカナシアヤネ','ayane@posse.com','0010002','2345678','東京都港区赤坂1-1-1','2022-06-01',1,'カルチャー部','誕生日お祝い科',23,'コメント','2022-04-27'),
-(2,'石井麻由奈','イシイマユナ','mayuna@posse.com','1234567','2345679','神奈川県横浜市港区日吉1-2-3','2001-05-01',2,'テック部','キューピー科',30,'POSSE大好き','2022-06-28');
-
+(1,'高梨彩音','タカナシアヤネ','ayane@posse.com','0010002','2345678','東京都港区赤坂1-1-1','2022-06-01',1,'カルチャー部','誕生日お祝い科',23,'コメント','2022-04-27 00:00:12'),
+(2,'石井麻由奈','イシイマユナ','mayuna@posse.com','1234567','2345679','神奈川県横浜市港区日吉1-2-3','2001-05-01',2,'テック部','キューピー科',30,'POSSE大好き','2022-06-28 13:00:00'),
+(3,'遠藤愛期','タカナシアヤネ','manaki@posse.com','0010002','2345678','東京都港区赤坂1-1-1','2022-06-01',1,'カルチャー部','誕生日お祝い科',23,'コメント','2022-04-27 00:00:12'),
+(4,'中澤和貴','イシイマユナ','kazuki@posse.com','1234567','2345679','神奈川県横浜市港区日吉1-2-3','2001-05-01',2,'テック部','キューピー科',30,'POSSE大好き','2022-06-28 13:00:00'),
+(5,'武田龍一','イシイマユナ','ryuichi@posse.com','1234567','2345679','神奈川県横浜市港区日吉1-2-3','2001-05-01',2,'テック部','キューピー科',30,'POSSE大好き','2022-06-28 13:00:00');
 DROP TABLE IF EXISTS universities;
 
 CREATE TABLE universities (
@@ -48,6 +44,26 @@ CREATE TABLE universities (
 INSERT INTO universities VALUES
 (1,'POSSE大学'),
 (2,'立應大学');
+
+
+DROP TABLE IF EXISTS students_universities_mix;
+CREATE table students_universities_mix  AS  
+SELECT 
+  students.id AS id,
+  name__kanji,
+  name__kana,
+  email ,
+  tel,
+  postcode,
+  address,
+  birth ,
+  universities.university AS university,
+  faculty,
+  course ,
+  graduate ,
+  content,
+  apply_time
+    FROM  students join universities on students.university=universities.id;
 
 
 DROP TABLE IF EXISTS students_agent_connect;
@@ -62,8 +78,33 @@ INSERT INTO students_agent_connect VALUES
 (1,1),
 (1,2),
 (2,2),
-(2,3);
+(2,3),
+(3,1),
+(3,2),
+(4,1),
+(5,2);
 
+
+DROP TABLE IF EXISTS students_agents_mix;
+CREATE table students_agents_mix  AS  
+SELECT 
+  students_universities_mix.id AS id,
+  name__kanji,
+  name__kana,
+  email ,
+  tel,
+  postcode,
+  address,
+  birth ,
+  university,
+  faculty,
+  course ,
+  graduate ,
+  content,
+  apply_time,
+  agent_id
+
+    FROM  students_universities_mix join students_agent_connect on id=apply_id;
 
 DROP TABLE IF EXISTS agents;
 
@@ -353,6 +394,3 @@ INSERT INTO
 SET
   log_id = 'test2@posse-ap.com',
   password =sha1('password2');
-
-
-
