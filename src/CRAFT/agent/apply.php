@@ -1,37 +1,57 @@
 <?php
 // require('./capsule/session.php');
 session_start();
+
 require(dirname(__FILE__) . "../../../dbconnect.php");
+// $scores_stmt = $db->prepare("SELECT name from agents WHERE id =3");
+// $scores_stmt->execute();
+// $scores_data = $scores_stmt->fetchAll();
+// echo $scores_data[0][0];
 $array_forms = ['name', 'url', 'name__kanji', 'name__kana', 'email', 'tel', 'postcode', 'address', 'content'];
 $forms_length = count($array_forms);
 $mode = 'input';
+// for ($i = 0; $i < $forms_length; $i++) {
+//   $_SESSION[$array_forms[$i]] = '';
+// }
 $errmessage = array();
 if (isset($_POST['back']) && $_POST['back']) {
   // 何もしない
 } else if (isset($_POST['confirm']) && $_POST['confirm']) {
-  if (
-
-    isset($_POST['name']) &&
-    isset($_POST['url']) &&
-    isset($_POST['name__kanji']) &&
-    isset($_POST['name__kana']) &&
-    isset($_POST['email']) &&
-    isset($_POST['tel']) &&
-    isset($_POST['postcode']) &&
-    isset($_POST['address']) &&
-    isset($_POST['content'])
-  ) {
-    // 確認画面
-    if ($errmessage) {
-      $mode = 'input';
-    } else {
-      $mode = 'confirm';
-    }
-    for ($i = 0; $i < $forms_length; $i++) {
-      $_SESSION[$array_forms[$i]] = htmlspecialchars($_POST[$array_forms[$i]], ENT_QUOTES);
+  for ($i = 0; $i < $forms_length; $i++) {
+    if (!$_POST[$array_forms[$i]]) {
+      $errmessage[] = "名前を入力してください";
     }
   }
+  // if (
+  //   $_POST['name']==!'' &&
+  //   $_POST['url']==!'' &&
+  //   $_POST['name__kanji']==!'' &&
+  //   $_POST['name__kana']==!'' &&
+  //   $_POST['email']==!'' &&
+  //   $_POST['tel']==!'' &&
+  //   $_POST['postcode']==!'' &&
+  //   $_POST['address']==!'' &&
+  //   $_POST['content']==!''
+  // ) {
+  // 確認画面
+  if ($errmessage) {
+    $mode = 'input';
+  } else {
+    $mode = 'confirm';
+    // echo 1;
+    var_dump($_POST['content']);
+  }
+  // var_dump $_SESSION['content']
+  for ($i = 0; $i < $forms_length; $i++) {
+    $_SESSION[$array_forms[$i]] = htmlspecialchars($_POST[$array_forms[$i]], ENT_QUOTES);
+  }
+
+  // }
 } else if (isset($_POST['send']) && $_POST['send']) {
+  // echo 45678;
+  //   for ($i = 0; $i < $forms_length; $i++) {
+  //   var_dump($_SESSION[$array_forms[$i]]);
+  // }
   if (
     isset($_SESSION['name']) &&
     isset($_SESSION['url']) &&
@@ -43,14 +63,6 @@ if (isset($_POST['back']) && $_POST['back']) {
     isset($_SESSION['address']) &&
     isset($_SESSION['content'])
   ) {
-    // 送信ボタンを押したとき
-    $message  = "お問い合わせを受け付けました \r\n"
-      . "名前: " . $_SESSION['name__kanji'] . "\r\n"
-      . "email: " . $_SESSION['email'] . "\r\n"
-      . "お問い合わせ内容:\r\n"
-      . preg_replace("/\r\n|\r|\n/", "\r\n", $_SESSION['content']);
-    mail($_SESSION['email'], 'お問い合わせありがとうございます', $message);
-    mail('fuga@hogehoge.com', 'お問い合わせありがとうございます', $message);
     $agent = $db->exec('INSERT INTO agents SET 
     name="' . $_SESSION['name'] . '",
     url="' . $_SESSION['url'] . '",
@@ -63,6 +75,7 @@ if (isset($_POST['back']) && $_POST['back']) {
     content="' . $_SESSION['content'] . '",
     apply_time= NOW()');
   }
+
   $_SESSION = array();
   $mode = 'send';
 } else {
@@ -116,11 +129,11 @@ if (isset($_POST['back']) && $_POST['back']) {
                   <div class="stepbar__item-inner">STEP3</div>
                 </li>
               </ul>
-
               <p class="apply__title">
                 新卒エージェント新規会員登録
                 <span class="apply__title"> 入力</span>
               </p>
+
               <form action="./apply.php" name="apply__form" class="apply__form" method="post">
                 <dl class="apply__form__list">
                   <div class="apply__form__item">
@@ -163,14 +176,14 @@ if (isset($_POST['back']) && $_POST['back']) {
                   </div>
                 </dl>
                 <div class="apply__form__footer">
-                  <button type="submit" name="confirm" value="a">確認画面へ</button>
+                  <button class="apply__form__button" type="submit" name="confirm" value="確認">確認画面へ</button>
                 </div>
               </form>
             </div>
 
           <?php } else if ($mode == 'confirm') { ?>
 
-            <div action="./apply.php" class="apply__confirm" role="apply" method="post">
+            <div action="./apply.php" name="" class="apply__form" method="post">
               <ul class="stepbar">
                 <li class="stepbar__item">
                   <div class="stepbar__item-inner">STEP1</div>
@@ -188,107 +201,110 @@ if (isset($_POST['back']) && $_POST['back']) {
                 新卒エージェント　お問い合わせ
                 <span class=""> 確認</span>
               </p>
-              <form action="/" name="" class="apply__form">
-                <table class="apply__table">
-                  <tr>
-                    <th class="apply__table__header">企業名</th>
-                    <td class="apply__table__data" id="insert__agent"><?php echo $_SESSION['name'] ?></td>
-                  </tr>
-                  <tr>
-                    <th class="apply__table__header">URL（企業HP）</th>
-                    <td class="apply__table__data" id="insert__url"><?php echo $_SESSION['url'] ?></td>
-                  </tr>
-                  <tr>
-                    <th class="apply__table__header">代表者様（漢字）</th>
-                    <td class="apply__table__data" id="insert__name__kanji"><?php echo $_SESSION['name__kanji'] ?></td>
-                  </tr>
-                  <tr>
-                    <th class="apply__table__header">代表者様（フリガナ）</th>
-                    <td class="apply__table__data" id="insert__name__kana"><?php echo $_SESSION['name__kana'] ?></td>
-                  </tr>
-                  <tr>
-                    <th class="apply__table__header">メールアドレス</th>
-                    <td class="apply__table__data" id="insert__mail"><?php echo $_SESSION['email'] ?></td>
-                  </tr>
-                  <tr>
-                    <th class="apply__table__header">電話番号</th>
-                    <td class="apply__table__data" id="insert__tel"><?php echo $_SESSION['tel'] ?></td>
-                  </tr>
-                  <tr>
-                    <th class="apply__table__header">郵便番号</th>
-                    <td class="apply__table__data" id="insert__postcode"><?php echo $_SESSION['postcode'] ?></td>
-                  </tr>
-                  <tr>
-                    <th class="apply__table__header">住所</th>
-                    <td class="apply__table__data" id="insert__address"><?php echo $_SESSION['name'] ?></td>
-                  </tr>
-                  <tr>
-                    <th class="apply__table__header">その他自由記述欄</th>
-                    <td class="apply__table__data" id="insert__content"><?php echo $_SESSION['content'] ?></td>
-                  </tr>
-                </table>
-                <div class="apply__form__footer">
-                  <button class="apply__form__button" id="back" name="back">戻る</button>
-                </div>
-                <div class="apply__form__footer">
-                  <button class="apply__form__button" id="step2" role="submit" name="send">送信する</button>
-                </div>
-              </form>
             </div>
-
-          <?php } else { ?>
-
-            <div action="./apply.php" class="apply__thanks" role="apply" method="post">
-              <ul class="stepbar">
-                <li class="stepbar__item">
-                  <div class="stepbar__item-inner">STEP1</div>
-                </li>
-                <li class="stepbar__item">
-                  <div class="stepbar__item-inner">STEP2</div>
-                </li>
-                <li class="stepbar__item">
-                  <div class="stepbar__item-inner stepbar__item-inner--current">
-                    STEP3
-                  </div>
-                </li>
-              </ul>
-
-              <p class="apply__title">
-                新卒エージェント　お問い合わせ
-                <span class="apply__title"> 完了</span>
-              </p>
-
-              <div class="apply__thanks__inner">
-                <p class="apply__thanks__complete">
-                  お問い合わせを受け付けました
-                </p>
-                <p class="apply__thanks__text">
-                  この度はお問い合わせしていただき、誠にありがとうございます。<br /><br />ご入力いただきました内容を確認後、担当者よりご連絡させていただきます。<br />お急ぎのご連絡やご不明な点などございましたら
-                  <a href="#" class="apply__thanks__nav">こちら</a>
-                  からご連絡ください。
-                </p>
-                <button class="apply__thanks__button">
-                  トップページへ戻る
-                </button>
+            <form action="./apply.php" name="" class="apply__form" method="post">
+              <table class="apply__table">
+                <tr>
+                  <th class="apply__table__header">企業名</th>
+                  <td class="apply__table__data" id="insert__agent"><?php echo $_SESSION['name'] ?></td>
+                </tr>
+                <tr>
+                  <th class="apply__table__header">URL（企業HP）</th>
+                  <td class="apply__table__data" id="insert__url"><?php echo $_SESSION['url'] ?></td>
+                </tr>
+                <tr>
+                  <th class="apply__table__header">代表者様（漢字）</th>
+                  <td class="apply__table__data" id="insert__name__kanji"><?php echo $_SESSION['name__kanji'] ?></td>
+                </tr>
+                <tr>
+                  <th class="apply__table__header">代表者様（フリガナ）</th>
+                  <td class="apply__table__data" id="insert__name__kana"><?php echo $_SESSION['name__kana'] ?></td>
+                </tr>
+                <tr>
+                  <th class="apply__table__header">メールアドレス</th>
+                  <td class="apply__table__data" id="insert__mail"><?php echo $_SESSION['email'] ?></td>
+                </tr>
+                <tr>
+                  <th class="apply__table__header">電話番号</th>
+                  <td class="apply__table__data" id="insert__tel"><?php echo $_SESSION['tel'] ?></td>
+                </tr>
+                <tr>
+                  <th class="apply__table__header">郵便番号</th>
+                  <td class="apply__table__data" id="insert__postcode"><?php echo $_SESSION['postcode'] ?></td>
+                </tr>
+                <tr>
+                  <th class="apply__table__header">住所</th>
+                  <td class="apply__table__data" id="insert__address"><?php echo $_SESSION['address'] ?></td>
+                </tr>
+                <tr>
+                  <th class="apply__table__header">その他自由記述欄</th>
+                  <td class="apply__table__data" id="insert__content"><?php echo $_SESSION['content'] ?></td>
+                </tr>
+              </table>
+              <div class="apply__form__footer">
+                <button class="apply__form__button" id="back" type="submit" name="back" value="戻る">戻る</button>
               </div>
-            </div>
-
-          <?php } ?>
-
+              <div class="apply__form__footer">
+                <button class="apply__form__button" id="step2" type="submit" name="send" value="送信">送信する</button>
+              </div>
+            </form>
         </div>
-      </main>
 
-      <?php require  "../capsule/aside.php"; ?>
+      <?php } else { ?>
+
+        <div class="apply__thanks" role="apply">
+          <ul class="stepbar">
+            <li class="stepbar__item">
+              <div class="stepbar__item-inner">STEP1</div>
+            </li>
+            <li class="stepbar__item">
+              <div class="stepbar__item-inner">STEP2</div>
+            </li>
+            <li class="stepbar__item">
+              <div class="stepbar__item-inner stepbar__item-inner--current">
+                STEP3
+              </div>
+            </li>
+          </ul>
+
+          <p class="apply__title">
+            新卒エージェント　お問い合わせ
+            <span class="apply__title"> 完了</span>
+          </p>
+
+          <div class="apply__thanks__inner">
+            <p class="apply__thanks__complete">
+              お問い合わせを受け付けました
+            </p>
+            <p class="apply__thanks__text">
+              この度はお問い合わせしていただき、誠にありがとうございます。<br /><br />ご入力いただきました内容を確認後、担当者よりご連絡させていただきます。<br />お急ぎのご連絡やご不明な点などございましたら
+              <a href="#" class="apply__thanks__nav">こちら</a>
+              からご連絡ください。
+            </p>
+            <button class="apply__thanks__button">
+              トップページへ戻る
+            </button>
+          </div>
+        </div>
+
+      <?php } ?>
+
     </div>
+    </main>
+
+    <?php require  "../capsule/aside.php"; ?>
+  </div>
 
   </div>
 
   <?php require  "../capsule/footer.php"; ?>
 
-  <script src="../../assets/js/apply_agent.js"></script>
+
+
+  <!-- <script src="../../assets/js/apply_agent.js"></script>
 
   <script src="../../assets/js/jquery-3.6.0.min.js"></script>
-  <script src="../../assets/js/pagescroll.js"></script>
+  <script src="../../assets/js/pagescroll.js"></script> -->
 </body>
 
 </html>

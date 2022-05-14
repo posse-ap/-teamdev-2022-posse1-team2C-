@@ -17,7 +17,7 @@ CREATE TABLE students (
   tel VARCHAR(255) NOT NULL,
   postcode VARCHAR(255) NOT NULL,
   address VARCHAR(255) NOT NULL,
-  birth date,
+  birth VARCHAR(255),
   university INT,
   faculty VARCHAR(255) NOT NULL,
   course VARCHAR(255) NOT NULL,
