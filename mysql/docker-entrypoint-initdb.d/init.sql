@@ -23,7 +23,7 @@ CREATE TABLE students (
   faculty VARCHAR(255) NOT NULL,
   course VARCHAR(255) NOT NULL,
   graduate INT,
-  content VARCHAR(255),貴
+  content VARCHAR(255),
   apply_time DATETIME
 )ENGINE = InnoDB;
 
@@ -84,6 +84,27 @@ INSERT INTO students_agent_connect VALUES
 (4,1),
 (5,2);
 
+
+DROP TABLE IF EXISTS students_agents_mix;
+CREATE table students_agents_mix  AS  
+SELECT 
+  students_universities_mix.id AS id,
+  name__kanji,
+  name__kana,
+  email ,
+  tel,
+  postcode,
+  address,
+  birth ,
+  university,
+  faculty,
+  course ,
+  graduate ,
+  content,
+  apply_time,
+  agent_id
+
+    FROM  students_universities_mix join students_agent_connect on id=apply_id;
 
 DROP TABLE IF EXISTS agents;
 
