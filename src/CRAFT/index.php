@@ -19,7 +19,7 @@ $scores_stmt = $db->prepare("SELECT score from scores");
 $scores_stmt->execute();
 $scores_data = $scores_stmt->fetchAll();
 
-for ($j = 0; $j <= $agents_count - 1; $j++) {
+for ($j = 1; $j <= $agents_count; $j++) {
   $tags_stmt_[$j] = $db->prepare("SELECT * from agents_tags_mix WHERE agent_id = ?");
   $tags_stmt_[$j]->bindValue(1, $j);
   $tags_stmt_[$j]->execute();
@@ -109,19 +109,19 @@ for ($j = 0; $j <= $agents_count - 1; $j++) {
         </section>
         <section class="section">
           <ul class="agents">
-            <?php for ($j = 0; $j <= $agents_count - 1; $j++) { ?>
+            <?php for ($j = 1; $j <= $agents_count; $j++) { ?>
               <li class="agent">
                 <ul class="agent__list">
                   <li class="agent__item">
                     <img class="img agent__item__img" src="../assets/img/agent.png" alt="企業名" width="300px" style="display: inline" />
                   </li>
                   <li class="agent__item">
-                    <h3 class="agent__item__name"><?php echo $agents_data[$j]['name']; ?></h3>
+                    <h3 class="agent__item__name"><?php echo $agents_data[$j-1]['name']; ?></h3>
                   </li>
                   <li class="agent__item">
                     <span class="agent__item__title">総合点</span>
-                    <span class="star5_rating" data-rate="<?php echo $scores_data[$j]['score']; ?>"></span>
-                    <span class="number_rating"><?php echo $scores_data[$j]['score']; ?></span>
+                    <span class="star5_rating" data-rate="<?php echo $scores_data[$j-1]['score']; ?>"></span>
+                    <span class="number_rating"><?php echo $scores_data[$j-1]['score']; ?></span>
                   </li>
 
 
@@ -133,7 +133,7 @@ for ($j = 0; $j <= $agents_count - 1; $j++) {
                   <p></p>
                   <li class="agent__item">
                     <p class="agent__item__info">
-                      <?php echo $agent_info_data[$j]['feature'];; ?>
+                      <?php echo $agent_info_data[$j-1]['feature'];; ?>
                     </p>
                   </li>
                   <li class="agent__item">
