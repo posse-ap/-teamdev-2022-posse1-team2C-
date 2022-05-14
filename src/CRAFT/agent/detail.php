@@ -1,3 +1,6 @@
+<?php
+// require('./capsule/session.php');
+?>
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -8,7 +11,7 @@
   <title>Document</title>
   <link rel="stylesheet" href="../../assets/css/reset.css">
   <link rel="stylesheet" href="../../assets/css/index-agent.min.css">
-  <link rel="stylesheet" href="../../assets/css/detail-agent.css">
+  <link rel="stylesheet" href="../../assets/css/detail.min.css">
 </head>
 
 <body>

@@ -1,4 +1,5 @@
 <?php
+// require('./capsule/session.php');
 session_start();
 require(dirname(__FILE__) . "../../../dbconnect.php");
 $array_forms = ['name', 'url', 'name__kanji', 'name__kana', 'email', 'tel', 'postcode', 'address', 'content'];
@@ -69,6 +70,7 @@ if (isset($_POST['back']) && $_POST['back']) {
     $_SESSION[$array_forms[$i]] = "";
   }
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -80,7 +82,6 @@ if (isset($_POST['back']) && $_POST['back']) {
   <title>Document</title>
   <link rel="stylesheet" href="../../assets/css/reset.css">
   <link rel="stylesheet" href="../../assets/css/apply.min.css">
-  <link rel="stylesheet" href="../../assets/css/index_craft.css">
 </head>
 
 <body>
@@ -91,10 +92,6 @@ if (isset($_POST['back']) && $_POST['back']) {
 
     <div class="container inner">
       <main class="main">
-        <h2 class="main__title">CRAFT</h2>
-        <span class="main__text">
-          あなたに合った企業が見つかる！<br />就活エージェント比較サイト
-        </span>
         <div class="apply" id="apply">
           <?php if ($mode == 'input') { ?>
             <!-- 入力画面 -->
@@ -286,7 +283,12 @@ if (isset($_POST['back']) && $_POST['back']) {
 
   </div>
 
-  <!-- <script src="../../assets/js/apply_agent.js"></script> -->
+  <?php require  "../capsule/footer.php"; ?>
+
+  <script src="../../assets/js/apply_agent.js"></script>
+
+  <script src="../../assets/js/jquery-3.6.0.min.js"></script>
+  <script src="../../assets/js/pagescroll.js"></script>
 </body>
 
 </html>

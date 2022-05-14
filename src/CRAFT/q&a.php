@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="../assets/css/reset.css">
-  <link rel="stylesheet" href="../assets/css/q&a_craft.min.css">
+  <link rel="stylesheet" href="../assets/css/q&a.min.css">
 </head>
 
 <body>
@@ -150,8 +150,11 @@
     </div>
   </div>
 
+  <?php require  "./capsule/footer.php"; ?>
+
   <script src="../assets/js/jquery-3.6.0.min.js"></script>
   <script src="../assets/js/q&a.js"></script>
+  <script src="../assets/js/pagescroll.js"></script>
 </body>
 
 </html>
