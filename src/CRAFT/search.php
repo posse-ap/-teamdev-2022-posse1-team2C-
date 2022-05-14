@@ -12,7 +12,7 @@
 
 <body>
   <?php require  "./capsule/header.php"; ?>
-
+  
   <div class="content">
     <div class="container inner">
       <main class="main">
@@ -23,6 +23,11 @@
       <?php require  "./capsule/aside.php"; ?>
     </div>
   </div>
+
+  <?php require  "./capsule/footer.php"; ?>
+
+  <script src="../assets/js/jquery-3.6.0.min.js"></script>
+  <script src="../assets/js/pagescroll.js"></script>
 </body>
 
 </html>
