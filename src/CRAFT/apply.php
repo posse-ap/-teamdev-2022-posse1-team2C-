@@ -4,87 +4,70 @@ require(dirname(__FILE__) . "../../dbconnect.php");
 $array_forms = ['name__kanji', 'name__kana', 'email', 'tel', 'postcode', 'address', 'birth', 'university', 'faculty', 'course', 'graduate', 'content'];
 $forms_length = count($array_forms);
 $mode = 'input';
-// for ($i = 0; $i < $forms_length; $i++) {
-//     $_SESSION[$array_forms[$i]] = '';
-// }
-// for ($i = 0; $i < $forms_length; $i++) {
-$_POST['graduate'] = '';
-// }
 $errmessage = array();
+
 if (isset($_POST['back']) && $_POST['back']) {
     // 何もしない
 } else if (isset($_POST['confirm']) && $_POST['confirm']) {
-    //     if (
-    //     $_POST['name__kanji'] =!''&&
-    //     $_POST['name__kana'] =!''&&
-    //     $_POST['email'] =!''&&
-    //     $_POST['tel'] =!''&&
-    //     $_POST['postcode'] =!''&&
-    //     $_POST['address'] =!''&&
-    //     $_POST['birth'] =!''&&
-    //     $_POST['university'] =!''&&
-    //     $_POST['faculty'] =!''&&
-    //     $_POST['course'] =!''&&
-    //     $_POST['graduate'] =!''&&
-    //     $_POST['content']=!''
-    // ) {
-    for ($i = 0; $i < $forms_length; $i++) {
+    for ($i = 0; $i < $forms_length-3; $i++) {
         if (!$_POST[$array_forms[$i]]) {
             $errmessage[] = "名前を入力してください";
         }
     }
-    // }
-    // else if( mb_strlen($_POST['fullname']) > 100 ){
-    //     $errmessage[] = "名前は100文字以内にしてください";
-    // }
+    for ($i = $forms_length-1; $i < $forms_length-1; $i++) {
+        if (!$_POST[$array_forms[$i]]) {
+            $errmessage[] = "名前を入力してください";
+        }
+    }
     // if (
-    //     $_POST['name__kanji'] ==!''&&
-    //     $_POST['name__kana'] ==!''&&
-    //     $_POST['email'] ==!''&&
-    //     $_POST['tel'] ==!''&&
-    //     $_POST['postcode'] ==!''&&
-    //     $_POST['address'] ==!''&&
-    //     $_POST['birth'] ==!''&&
-    //     $_POST['university'] ==!''&&
-    //     $_POST['faculty'] ==!''&&
-    //     $_POST['course'] ==!''&&
-    //     $_POST['graduate'] ==!''&&
-    //     $_POST['content'] ==!''
-    // ) {
-    // 確認画面
-    if ($errmessage) {
-        $mode = 'input';
-        // echo 1;
-    } else {
-        $mode = 'confirm';
-    }
-    for ($i = 0; $i < $forms_length; $i++) {
-        $_SESSION[$array_forms[$i]] = htmlspecialchars($_POST[$array_forms[$i]], ENT_QUOTES);
-    }
+        // isset($_POST['name__kanji']) &&
+        // isset($_POST['name__kana']) &&
+        // isset($_POST['email']) &&
+        // isset($_POST['tel']) &&
+        // isset($_POST['postcode']) &&
+        // isset($_POST['address']) &&
+        // isset($_POST['birth']) &&
+        // isset($_POST['university']) &&
+        // isset($_POST['faculty']) &&
+        // isset($_POST['course']) &&
+        // isset($_POST['graduate'])
+        // isset($_POST['content'])
+    // )
+    //  {
+        // 確認画面
+        if ($errmessage) {
+            $mode = 'input';
+        } else {
+            $mode = 'confirm';
+        }
+        for ($i = 0; $i < $forms_length; $i++) {
+            $_SESSION[$array_forms[$i]] = htmlspecialchars($_POST[$array_forms[$i]], ENT_QUOTES);
+        }
+
     // }
 } else if (isset($_POST['send']) && $_POST['send']) {
     if (
-        $_POST['name__kanji'] ==!''&&
-        $_POST['name__kana'] ==!''&&
-        $_POST['email'] ==!''&&
-        $_POST['tel'] ==!''&&
-        $_POST['postcode'] ==!''&&
-        $_POST['address'] ==!''&&
-        $_POST['birth'] ==!''&&
-        $_POST['university'] ==!''&&
-        $_POST['faculty'] ==!''&&
-        $_POST['course'] ==!''&&
-        $_POST['graduate'] ==!''&&
-        $_POST['content'] ==!''
+        isset($_SESSION['name__kanji']) &&
+        isset($_SESSION['name__kana']) &&
+        isset($_SESSION['email']) &&
+        isset($_SESSION['tel']) &&
+        isset($_SESSION['postcode']) &&
+        isset($_SESSION['address']) &&
+        isset($_SESSION['birth']) &&
+        isset($_SESSION['university']) &&
+        isset($_SESSION['faculty']) &&
+        isset($_SESSION['course']) &&
+        isset($_SESSION['graduate']) &&
+        isset($_SESSION['content'])
     ) {
         // 送信ボタンを押したとき
-        // $message  = "お問い合わせを受け付けました \r\n"
-        //     . "名前: " . $_SESSION['name__kanji'] . "\r\n"
-        //     . "email: " . $_SESSION['email'] . "\r\n"
-        //     . "お問い合わせ内容:\r\n"
-        //     . preg_replace("/\r\n|\r|\n/", "\r\n", $_SESSION['content']);
-        // mail($_SESSION['email'], 'お問い合わせありがとうございます', $message);
-        // mail('fuga@hogehoge.com', 'お問い合わせありがとうございます', $message);
+        $message  = "お問い合わせを受け付けました \r\n"
+            . "名前: " . $_SESSION['name__kanji'] . "\r\n"
+            . "email: " . $_SESSION['email'] . "\r\n"
+            . "お問い合わせ内容:\r\n"
+            . preg_replace("/\r\n|\r|\n/", "\r\n", $_SESSION['content']);
+        mail($_SESSION['email'], 'お問い合わせありがとうございます', $message);
+        mail('fuga@hogehoge.com', 'お問い合わせありがとうございます', $message);
         $student = $db->exec('INSERT INTO students SET 
     name__kanji="' . $_SESSION['name__kanji'] . '",
     name__kana="' . $_SESSION['name__kana'] . '",
@@ -97,7 +80,6 @@ if (isset($_POST['back']) && $_POST['back']) {
     faculty="' . $_SESSION['faculty'] . '",
     course="' . $_SESSION['course'] . '",
     graduate="' . $_SESSION['graduate'] . '",
-    
     content="' . $_SESSION['content'] . '",
     apply_time= NOW()');
     }
@@ -118,30 +100,33 @@ if (isset($_POST['back']) && $_POST['back']) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../assets/css/reset.css">
-    <link rel="stylesheet" href="../assets/css/apply.min.css">
-    <link rel="stylesheet" href="../assets/css/index-user.min.css">
+    <link rel="stylesheet" href="../assets/css/apply.css">
+    <link rel="stylesheet" href="../assets/css/index_craft.min.css">
 </head>
 
 <body>
     <?php require  "./capsule/header.php"; ?>
 
     <div class="content">
+        <?php if ($mode == 'input') { ?>
+            <!-- 入力画面 -->
+            <?php
+            $_POST['graduate'] = '';
+            if ($errmessage) {
+                echo '<div style="color:red;">';
+                echo implode('<br>', $errmessage);
+                echo '</div>';
+            }
+            ?>
 
 
-
-        <div class="container inner">
-            <main class="main">
-
-                <div class="apply" id="apply">
-                    <?php if ($mode == 'input') { ?>
-                        <!-- 入力画面 -->
-                        <?php
-                        if ($errmessage) {
-                            echo '<div style="color:red;">';
-                            echo implode('<br>', $errmessage);
-                            echo '</div>';
-                        }
-                        ?>
+            <div class="container inner">
+                <main class="main">
+                    <h2 class="main__title">CRAFT</h2>
+                    <span class="main__text">
+                        あなたに合った企業が見つかる！<br />就活エージェント比較サイト
+                    </span>
+                    <div class="apply" id="apply">
                         <div class="apply__input" role="apply">
                             <p class="title">
                                 新卒エージェント　お問い合わせ
@@ -225,9 +210,9 @@ if (isset($_POST['back']) && $_POST['back']) {
                                     <div class="apply__form__item">
                                         <dt>卒業年度</dt>
                                         <dd>
-                                            <label><input type="radio" name="graduate" value="<?php echo $_SESSION['graduate'] ?>" />23卒</label>
-                                            <label><input type="radio" name="graduate" value="<?php echo $_SESSION['graduate'] ?>" />24卒</label>
-                                            <label><input type="radio" name="graduate" value="<?php echo $_SESSION['graduate'] ?>" />25卒</label>
+                                            <label><input type="radio" name="graduate" value="23" />23卒</label>
+                                            <label><input type="radio" name="graduate" value="24" />24卒</label>
+                                            <label><input type="radio" name="graduate" value="25" />25卒</label>
                                         </dd>
                                     </div>
                                     <div class="apply__form__item">
@@ -238,17 +223,10 @@ if (isset($_POST['back']) && $_POST['back']) {
                                     </div>
                                 </dl>
                                 <div>
-                                    <button class="apply__form__button" type="submit" name="confirm" value="確認" id="confirm">確認画面へ</button>
+                                    <button class="apply__form__button" type="submit" name="confirm" value="確認">確認画面へ</button>
                                 </div>
                             </form>
                         </div>
-                        <!-- <script>
-                            const button = document.getElementById('confirm');
-const fnc = () => console.log('button clicked !');
-button.addEventListener('click', fnc);
-button.removeEventListener('click', fnc);
-                        </script> -->
-
 
                     <?php } else if ($mode == 'confirm') { ?>
 
@@ -334,8 +312,8 @@ button.removeEventListener('click', fnc);
                                 </div>
                             </form>
                         </div>
-
-                    <?php } else { ?>
+                    <?php } else {
+                    ?>
 
                         <div class="apply__thanks" role="apply">
                             <p class="title">
@@ -525,17 +503,13 @@ button.removeEventListener('click', fnc);
                                     </li>
                                 </ul>
                             </section>
-                        </div>
-                    <?php } ?>
+                        <?php
+                    } ?>
 
-                </div>
-            </main>
-            <?php require  "./capsule/aside.php"; ?>
-        </div>
+                </main>
+                <?php require  "./capsule/aside.php"; ?>
+            </div>
     </div>
-
-    <?php require  "./capsule/footer.php"; ?>
-
     <script src="../assets/js/jquery-3.6.0.min.js"></script>
     <script src="../assets/js/pagescroll.js"></script>
 </body>

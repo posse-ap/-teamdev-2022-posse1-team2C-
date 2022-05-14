@@ -72,15 +72,15 @@ CREATE TABLE agents (
   address VARCHAR(255) NOT NULL,
   content VARCHAR(255) NOT NULL,
   -- remind_mail VARCHAR(255) NOT NULL,
-  apply_time date
+  apply_time DATETIME
 )ENGINE = InnoDB;
 INSERT INTO agents VALUES 
 (1,'POSSE（株）','https://posse-ap.com/','石田大輝','イシダダイキ','posse@mr.com','09012345678','1234567','千葉県ディズニーランド市','コメント'
 -- ,'mr-posse@rikkyo.jp'
-,'2022-04-27'),
+,'2022-04-27 12:15:55'),
 (2,'表参道（株）','https://posse-ap.com/','小堺駿','コザカイシュン','makisyun@gmail.com','08052340011','2345678','千葉県野田市','コメント'
 -- ,'harbors@docomo.ne.jp'
-,'2022-04-27');
+,'2022-04-27 00:00:00');
 
 
 DROP TABLE IF EXISTS managers;

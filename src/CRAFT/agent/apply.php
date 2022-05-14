@@ -3,16 +3,9 @@
 session_start();
 
 require(dirname(__FILE__) . "../../../dbconnect.php");
-// $scores_stmt = $db->prepare("SELECT name from agents WHERE id =3");
-// $scores_stmt->execute();
-// $scores_data = $scores_stmt->fetchAll();
-// echo $scores_data[0][0];
 $array_forms = ['name', 'url', 'name__kanji', 'name__kana', 'email', 'tel', 'postcode', 'address', 'content'];
 $forms_length = count($array_forms);
 $mode = 'input';
-// for ($i = 0; $i < $forms_length; $i++) {
-//   $_SESSION[$array_forms[$i]] = '';
-// }
 $errmessage = array();
 if (isset($_POST['back']) && $_POST['back']) {
   // 何もしない
@@ -38,20 +31,13 @@ if (isset($_POST['back']) && $_POST['back']) {
     $mode = 'input';
   } else {
     $mode = 'confirm';
-    // echo 1;
-    var_dump($_POST['content']);
   }
-  // var_dump $_SESSION['content']
   for ($i = 0; $i < $forms_length; $i++) {
     $_SESSION[$array_forms[$i]] = htmlspecialchars($_POST[$array_forms[$i]], ENT_QUOTES);
   }
 
   // }
 } else if (isset($_POST['send']) && $_POST['send']) {
-  // echo 45678;
-  //   for ($i = 0; $i < $forms_length; $i++) {
-  //   var_dump($_SESSION[$array_forms[$i]]);
-  // }
   if (
     isset($_SESSION['name']) &&
     isset($_SESSION['url']) &&
@@ -171,7 +157,7 @@ if (isset($_POST['back']) && $_POST['back']) {
                   <div class="apply__form__item">
                     <dt><label for="content">その他自由記述欄</label></dt>
                     <dd>
-                      <textarea id="content" type="text" name="content" value="<?php echo $_SESSION['content'] ?>"></textarea>
+                      <input id="content" type="text" name="content" value="<?php echo $_SESSION['content'] ?>"></input>
                     </dd>
                   </div>
                 </dl>
@@ -301,10 +287,10 @@ if (isset($_POST['back']) && $_POST['back']) {
 
 
 
-  <!-- <script src="../../assets/js/apply_agent.js"></script>
+  <script src="../../assets/js/apply_agent.js"></script>
 
   <script src="../../assets/js/jquery-3.6.0.min.js"></script>
-  <script src="../../assets/js/pagescroll.js"></script> -->
+  <script src="../../assets/js/pagescroll.js"></script>
 </body>
 
 </html>
