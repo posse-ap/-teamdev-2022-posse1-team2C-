@@ -1,10 +1,10 @@
 @use "./variables" as vb;
 
-.aside__contents{
+.aside__contents {
   height: auto;
 }
 
-#a{
+#a {
   height: auto;
 }
 
@@ -35,24 +35,27 @@
 
   &__content__item {
     padding: 15px 5px;
-    border-bottom: 1px dotted black;
+
+    & + & {
+      border-top: 1px dotted black;
+    }
   }
 
-  .img{
+  .img {
     text-align: center;
     &:nth-child(2) {
       width: 80%;
     }
   }
 
-  .information{
+  .information {
     text-align: center;
     font-size: 12px;
     display: block;
     padding: 5px 0;
   }
 
-  .notice{
+  .notice {
     color: rgb(245, 120, 249);
     font-weight: 700;
   }

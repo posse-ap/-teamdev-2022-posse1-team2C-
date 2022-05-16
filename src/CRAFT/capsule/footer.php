@@ -14,41 +14,41 @@
     <li class="footer__item">
       <p class="nav__title">SEARCH</p>
       <ul class="nav__list">
-        <li class="nav__item">特化型</li>
-        <li class="nav__item">総合型</li>
-        <li class="nav__item">特別選考</li>
-        <li class="nav__item">ベンチャー企業</li>
-        <li class="nav__item">大手企業</li>
+        <li class="nav__item"><a href="#">ES添削</a></li>
+        <li class="nav__item"><a href="#">セミナー開催</a></li>
+        <li class="nav__item"><a href="#">特別選考</a></li>
+        <li class="nav__item"><a href="#">ベンチャー企業</a></li>
+        <li class="nav__item"><a href="#">大手企業</a></li>
       </ul>
     </li>
     <li class="footer__item">
       <p class="nav__title">CRAFT</p>
       <ul class="nav__list">
-        <li class="nav__item">「CRAFT」とは</li>
-        <li class="nav__item">エージェント企業を探す</li>
-        <li class="nav__item">エージェント企業にお問い合わせ</li>
-        <li class="nav__item">よくある質問</li>
-        <li class="nav__item">ご利用方法</li>
-        <li class="nav__item">エージェント企業の方へ</li>
+        <li class="nav__item"><a href="#">「CRAFT」とは</ a></li>
+        <li class="nav__item"><a href="#">エージェント企業を探す</a></li>
+        <li class="nav__item"><a href="../apply.php">エージェント企業にお問い合わせ</a></li>
+        <li class="nav__item"><a href="../q&a.php">よくある質問</a></li>
+        <li class="nav__item"><a href="#">ご利用方法</a></li>
+        <li class="nav__item"><a href="../agent/login.php">エージェント企業の方へ</a></li>
       </ul>
     </li>
     <li class="footer__item">
       <p class="nav__title">OTHER SERVICE</p>
       <ul class="nav__list">
-        <li class="nav__item">サービス１</li>
-        <li class="nav__item">サービス２</li>
-        <li class="nav__item">サービス３</li>
-        <li class="nav__item">サービス４</li>
+        <li class="nav__item"><a href="#">サービス１</a></li>
+        <li class="nav__item"><a href="#">サービス２</a></li>
+        <li class="nav__item"><a href="#">サービス３</a></li>
+        <li class="nav__item"><a href="#">サービス４</a></li>
       </ul>
     </li>
     <li class="footer__item">
       <p class="nav__title">COMPANY</p>
       <ul class="nav__list">
-        <li class="nav__item">会社概要</li>
-        <li class="nav__item">求人情報</li>
-        <li class="nav__item">プライバシーポリシー</li>
-        <li class="nav__item">利用規約</li>
-        <li class="nav__item">お問い合わせ</li>
+        <li class="nav__item"><a href="#">会社概要</a></li>
+        <li class="nav__item"><a href="#">求人情報</a></li>
+        <li class="nav__item"><a href="#">プライバシーポリシー</a></li>
+        <li class="nav__item"><a href="#">利用規約</a></li>
+        <li class="nav__item"><a href="#">お問い合わせ</a></li>
       </ul>
     </li>
   </ul>
