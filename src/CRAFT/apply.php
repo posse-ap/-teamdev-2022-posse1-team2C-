@@ -5,21 +5,36 @@ $array_forms = ['name__kanji', 'name__kana', 'email', 'tel', 'postcode', 'addres
 $forms_length = count($array_forms);
 $mode = 'input';
 $errmessage = array();
-
+// if ($mode == 'input') {
+   
+ 
+//     $_REQUEST["graduate"]='';
+// }
+// $_REQUEST["graduate"]='';
 if (isset($_POST['back']) && $_POST['back']) {
     // 何もしない
 } else if (isset($_POST['confirm']) && $_POST['confirm']) {
-    for ($i = 0; $i < $forms_length-3; $i++) {
+    $_SESSION["graduate"]=
+    $_REQUEST["graduate"];
+    for ($i = 0; $i <= $forms_length-3; $i++) {
         if (!$_POST[$array_forms[$i]]) {
+            echo $i;
             $errmessage[] = "名前を入力してください";
         }
     }
-    for ($i = $forms_length-1; $i < $forms_length-1; $i++) {
+    if (!$_SESSION['graduate']) {
+        echo 'graduate';
+        $errmessage[] = "を入力してください";
+    }
+
+    for ($i = $forms_length-1; $i <= $forms_length-1; $i++) {
         if (!$_POST[$array_forms[$i]]) {
+            echo $i;
             $errmessage[] = "名前を入力してください";
         }
     }
-    // if (
+
+    if (
         // isset($_POST['name__kanji']) &&
         // isset($_POST['name__kana']) &&
         // isset($_POST['email']) &&
@@ -30,10 +45,10 @@ if (isset($_POST['back']) && $_POST['back']) {
         // isset($_POST['university']) &&
         // isset($_POST['faculty']) &&
         // isset($_POST['course']) &&
-        // isset($_POST['graduate'])
+        isset($_POST['graduate'])
         // isset($_POST['content'])
-    // )
-    //  {
+    )
+     {
         // 確認画面
         if ($errmessage) {
             $mode = 'input';
@@ -41,10 +56,12 @@ if (isset($_POST['back']) && $_POST['back']) {
             $mode = 'confirm';
         }
         for ($i = 0; $i < $forms_length; $i++) {
-            $_SESSION[$array_forms[$i]] = htmlspecialchars($_POST[$array_forms[$i]], ENT_QUOTES);
+            $_SESSION[$array_forms[$i]] =
+            $_POST[$array_forms[$i]];
+            //  htmlspecialchars($_POST[$array_forms[$i]], ENT_QUOTES);
         }
 
-    // }
+    }
 } else if (isset($_POST['send']) && $_POST['send']) {
     if (
         isset($_SESSION['name__kanji']) &&
@@ -111,7 +128,7 @@ if (isset($_POST['back']) && $_POST['back']) {
         <?php if ($mode == 'input') { ?>
             <!-- 入力画面 -->
             <?php
-            $_POST['graduate'] = '';
+            $_REQUEST["graduate"]='';
             if ($errmessage) {
                 echo '<div style="color:red;">';
                 echo implode('<br>', $errmessage);
@@ -210,15 +227,19 @@ if (isset($_POST['back']) && $_POST['back']) {
                                     <div class="apply__form__item">
                                         <dt>卒業年度</dt>
                                         <dd>
-                                            <label><input type="radio" name="graduate" value="23" />23卒</label>
+
+<input type="radio" name="graduate" value="23"<?PHP print $_SESSION["graduate"]=="23"?" checked":"";?>>23卒
+<input type="radio" name="graduate" value="24"<?PHP print $_SESSION["graduate"]=="24"?" checked":"";?>>24卒
+<input type="radio" name="graduate" value="25"<?PHP print $_SESSION["graduate"]=="25"?" checked":"";?>>25卒
+                                            <!-- <label><input type="radio" name="graduate" value="23" />23卒</label>
                                             <label><input type="radio" name="graduate" value="24" />24卒</label>
-                                            <label><input type="radio" name="graduate" value="25" />25卒</label>
+                                            <label><input type="radio" name="graduate" value="25" />25卒</label> -->
                                         </dd>
                                     </div>
                                     <div class="apply__form__item">
                                         <dt><label for="content">その他自由記述欄</label></dt>
                                         <dd>
-                                            <textarea id="content" type="text" name="content" value="<?php echo $_SESSION['content'] ?>"></textarea>
+                                            <input id="content" type="text" name="content" value="<?php echo $_SESSION['content'] ?>"></input>
                                         </dd>
                                     </div>
                                 </dl>
@@ -316,6 +337,25 @@ if (isset($_POST['back']) && $_POST['back']) {
                     ?>
 
                         <div class="apply__thanks" role="apply">
+                            <p class="title">
+                                新卒エージェント　お問い合わせ
+                                <span class="title"> 完了</span>
+                            </p>
+                            <ul class="stepbar">
+                                <li class="stepbar__item">
+                                    <div class="stepbar__item-inner">STEP1</div>
+                                </li>
+                                <li class="stepbar__item">
+                                    <div class="stepbar__item-inner">STEP2</div>
+                                </li>
+                                <li class="stepbar__item">
+                                    <div class="stepbar__item-inner stepbar__item-inner--current">
+                                        STEP3
+                                    </div>
+                                </li>
+                            </ul>
+
+                            <div class="apply__thanks" role="apply">
                             <p class="title">
                                 新卒エージェント　お問い合わせ
                                 <span class="title"> 完了</span>
@@ -503,6 +543,176 @@ if (isset($_POST['back']) && $_POST['back']) {
                                     </li>
                                 </ul>
                             </section>
+
+                            <!-- <div class="apply__thanks__inner">
+                                <p class="apply__thanks__complete">
+                                    お問い合わせを受け付けました
+                                </p>
+                                <p class="apply__thanks__text">
+                                    この度はお問い合わせしていただき、誠にありがとうございます。<br /><br />ご入力いただきました内容を確認後、担当者よりご連絡させていただきます。<br />お急ぎのご連絡やご不明な点などございましたら
+                                    <a href="#" class="apply__thanks__nav">こちら</a>
+                                    からご連絡ください。
+                                </p>
+                                <button class="apply__thanks__button">
+                                    トップページへ戻る
+                                </button>
+                                <p class="apply__thanks__text">
+                                    <span>〇〇〇〇〇〇</span>にお問い合わせをした人にオススメ！
+                                </p>
+                            </div>
+                            <section class="section">
+                                <ul class="agents">
+                                    <li class="agent">
+                                        <ul class="agent__list">
+                                            <li class="agent__item">
+                                                <img class="img agent__item__img" src="../assets/img/article.png" alt="企業名" width="300px" style="display: inline" />
+                                            </li>
+                                            <li class="agent__item">
+                                                <h3 class="agent__item__name">アンチパターン</h3>
+                                            </li>
+                                            <li class="agent__item">
+                                                <span class="agent__item__title">総合点</span>
+                                                <span class="star5_rating" data-rate="3.8"></span>
+                                                <span class="number_rating">3.8</span>
+                                            </li>
+                                            <li class="agent__item">
+                                                <p class="agent__item__info">
+                                                    ここにエージェント企業の説明が入ります。ここにエージェント企業の説明が入ります。ここにエージェント企業の説明が入ります。ここにエージェント企業の説明が入ります。ここにエージェント企業の説明が入ります。
+                                                </p>
+                                            </li>
+                                            <li class="agent__item">
+                                                <button class="agent__item__detail">詳細</button>
+                                                <button class="agent__item__apply">申し込む</button>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="agent">
+                                        <ul class="agent__list">
+                                            <li class="agent__item">
+                                                <img class="img agent__img" src="../assets/img/article.png" alt="企業名" width="300px" style="display: inline" />
+                                            </li>
+                                            <li class="agent__item">
+                                                <h3 class="agent__item__name">アンチパターン</h3>
+                                            </li>
+                                            <li class="agent__item">
+                                                <span class="agent__item__title">総合点</span>
+                                                <span class="star5_rating" data-rate="3.8"></span>
+                                                <span class="number_rating">3.8</span>
+                                            </li>
+                                            <li class="agent__item">
+                                                <p class="agent__item__info">
+                                                    ここにエージェント企業の説明が入ります。ここにエージェント企業の説明が入ります。ここにエージェント企業の説明が入ります。ここにエージェント企業の説明が入ります。ここにエージェント企業の説明が入ります。
+                                                </p>
+                                            </li>
+                                            <li class="agent__item">
+                                                <button class="agent__item__detail">詳細</button>
+                                                <button class="agent__item__apply">申し込む</button>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="agent">
+                                        <ul class="agent__list">
+                                            <li class="agent__item">
+                                                <img class="img agent__img" src="../assets/img/article.png" alt="企業名" width="300px" style="display: inline" />
+                                            </li>
+                                            <li class="agent__item">
+                                                <h3 class="agent__item__name">アンチパターン</h3>
+                                            </li>
+                                            <li class="agent__item">
+                                                <span class="agent__item__title">総合点</span>
+                                                <span class="star5_rating" data-rate="3.8"></span>
+                                                <span class="number_rating">3.8</span>
+                                            </li>
+                                            <li class="agent__item">
+                                                <p class="agent__item__info">
+                                                    ここにエージェント企業の説明が入ります。ここにエージェント企業の説明が入ります。ここにエージェント企業の説明が入ります。ここにエージェント企業の説明が入ります。ここにエージェント企業の説明が入ります。
+                                                </p>
+                                            </li>
+                                            <li class="agent__item">
+                                                <button class="agent__item__detail">詳細</button>
+                                                <button class="agent__item__apply">申し込む</button>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="agent">
+                                        <ul class="agent__list">
+                                            <li class="agent__item">
+                                                <img class="img agent__img" src="../assets/img/article.png" alt="企業名" width="300px" style="display: inline" />
+                                            </li>
+                                            <li class="agent__item">
+                                                <h3 class="agent__item__name">アンチパターン</h3>
+                                            </li>
+                                            <li class="agent__item">
+                                                <span class="agent__item__title">総合点</span>
+                                                <span class="star5_rating" data-rate="3.8"></span>
+                                                <span class="number_rating">3.8</span>
+                                            </li>
+                                            <li class="agent__item">
+                                                <p class="agent__item__info">
+                                                    ここにエージェント企業の説明が入ります。ここにエージェント企業の説明が入ります。ここにエージェント企業の説明が入ります。ここにエージェント企業の説明が入ります。ここにエージェント企業の説明が入ります。
+                                                </p>
+                                            </li>
+                                            <li class="agent__item">
+                                                <button class="agent__item__detail">詳細</button>
+                                                <button class="agent__item__apply">申し込む</button>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="agent">
+                                        <ul class="agent__list">
+                                            <li class="agent__item">
+                                                <img class="img agent__img" src="../assets/img/article.png" alt="企業名" width="300px" style="display: inline" />
+                                            </li>
+                                            <li class="agent__item">
+                                                <h3 class="agent__item__name">アンチパターン</h3>
+                                            </li>
+                                            <li class="agent__item">
+                                                <span class="agent__item__title">総合点</span>
+                                                <span class="star5_rating" data-rate="3.8"></span>
+                                                <span class="number_rating">3.8</span>
+                                            </li>
+                                            <li class="agent__item">
+                                                <p class="agent__item__info">
+                                                    ここにエージェント企業の説明が入ります。ここにエージェント企業の説明が入ります。ここにエージェント企業の説明が入ります。ここにエージェント企業の説明が入ります。ここにエージェント企業の説明が入ります。
+                                                </p>
+                                            </li>
+                                            <li class="agent__item">
+                                                <button class="agent__item__detail">詳細</button>
+                                                <button class="agent__item__apply">申し込む</button>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="agent">
+                                        <ul class="agent__list">
+                                            <li class="agent__item">
+                                                <img class="img agent__img" src="../assets/img/article.png" alt="企業名" width="300px" style="display: inline" />
+                                            </li>
+                                            <li class="agent__item">
+                                                <h3 class="agent__item__name">アンチパターン</h3>
+                                            </li>
+                                            <li class="agent__item">
+                                                <span class="agent__item__title">総合点</span>
+                                                <span class="star5_rating" data-rate="3.8"></span>
+                                                <span class="number_rating">3.8</span>
+                                            </li>
+                                            <li class="agent__item">
+                                                <p class="agent__item__info">
+                                                    ここにエージェント企業の説明が入ります。ここにエージェント企業の説明が入ります。ここにエージェント企業の説明が入ります。ここにエージェント企業の説明が入ります。ここにエージェント企業の説明が入ります。
+                                                </p>
+                                            </li>
+                                            <li class="agent__item">
+                                                <button class="agent__item__detail">詳細</button>
+                                                <button class="agent__item__apply">申し込む</button>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </section> -->
                         <?php
                     } ?>
 
