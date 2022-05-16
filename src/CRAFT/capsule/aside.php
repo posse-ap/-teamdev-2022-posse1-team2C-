@@ -42,7 +42,12 @@
     </li>
     <li class="aside__item">
       <h4 class="aside__title">「CRAFT」とは</h4>
-
+    </li>
+    <li class="aside__item">
+      <h4 class="aside__title">「CRAFT」の使い方</h4>
+    </li>
+    <li class="aside__item">
+      <h4 class="aside__title">「CRAFT」の仕組み</h4>
     </li>
   </ul>
 </aside>
