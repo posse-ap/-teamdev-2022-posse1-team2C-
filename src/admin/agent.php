@@ -29,39 +29,141 @@
         <h2 class="mt-3 mb-3">エージェント企業一覧</h2>
         <ul class="nav nav-tabs" id="myTab" role="tablist">
           <li class="nav-item">
-            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Home</a>
+            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#agent1" role="tab" aria-controls="home" aria-selected="true">エージェント企業1</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Profile</a>
+            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#agent2" role="tab" aria-controls="profile" aria-selected="false">エージェント企業2</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Contact</a>
+            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#agent3" role="tab" aria-controls="contact" aria-selected="false">エージェント企業3</a>
           </li>
         </ul>
         <div class="tab-content border border-top-0 p-5 mb-3" id="myTabContent">
           <div class="tab-pane fade show active" id="agent1" role="tabpanel">
-            <div class="agent__title">担当者紹介</div>
+            <div class="agent__title">サービス詳細</div>
             <div class="agent__staff">
               <div class="agent__staff__img">
                 <img src="../assets/img/mynavi.jpg" alt="担当者">
               </div>
-              <div class="agent__staff__info">
-                <p class="agent__staff__info__name">ななみん</p>
-                <p class="agent__staff__info__text">
-                  ここに担当者の紹介メッセージが入ります。ここに担当者の紹介メッセージが入ります。ここに担当者の紹介メッセージが入ります。ここに担当者の紹介メッセージが入ります。ここに担当者の紹介メッセージが入ります。ここに担当者の紹介メッセージが入ります。ここに担当者の紹介メッセージが入ります。
-                </p>
+              <dl class="agent__staff__info">
+                <div class="agent__info__contents">
+                  <dt>サービス名</dt>
+                  <dd>マイナビ新卒エージェント</dd>
+                </div>
+                <div class="agent__info__contents">
+                  <dt>サービスの特徴</dt>
+                  <dd>ここに担当者の紹介文が入ります。ここに担当者の紹介文が入ります。ここに担当者の紹介文が入ります。ここに担当者の紹介文が入ります。ここに担当者の紹介文が入ります。ここに担当者の紹介文が入ります。ここに担当者の紹介文が入ります。ここに担当者の紹介文が入ります。ここに担当者の紹介文が入ります。</dd>
+                </div>
+                <div class="agent__info__contents">
+                  <dt>サポート内容</dt>
+                  <dd>ES添削・特別選考</dd>
+                </div>
+                <div class="agent__info__contents">
+                  <dt>得意分野</dt>
+                  <dd>IT系・コンサル</dd>
+                </div>
+                <div class="agent__info__contents">
+                  <dt>エージェント企業の規模</dt>
+                  <dd>ベンチャー企業</dd>
+                </div>
+                <div class="agent__info__contents">
+                  <dt>取引先企業の規模</dt>
+                  <dd>ベンチャー企業</dd>
+                </div>
+                <div class="agent__info__contents">
+                  <dt>公開求人数</dt>
+                  <dd>10000</dd>
+                </div>
+                <div class="agent__info__contents">
+                  <dt>非公開求人数</dt>
+                  <dd>20000</dd>
+                </div>
+                <div class="agent__info__contents">
+                  <dt>総合評価</dt>
+                  <dd>4</dd>
+                </div>
+                <div class="agent__info__contents">
+                  <dt>求人の質</dt>
+                  <dd>4</dd>
+                </div>
+                <div class="agent__info__contents">
+                  <dt>使いやすさ</dt>
+                  <dd>3</dd>
+                </div>
+                <div class="agent__info__contents">
+                  <dt>対応の良さ</dt>
+                  <dd>4</dd>
+                </div>
+                <div class="agent__info__contents">
+                  <dt>サポート力</dt>
+                  <dd>2</dd>
+                </div>
+              </dl>
+            </div>
+            <div class="agent__title">担当者</div>
+            <div class="agent__staff">
+              <div class="agent__staff__img">
+                <img src="../assets/img/mynavi.jpg" alt="担当者">
               </div>
+              <dl class="agent__staff__info">
+                <div class="agent__info__contents">
+                  <dt>担当者氏名</dt>
+                  <dd>湯山トモハル</dd>
+                </div>
+                <div class="agent__info__contents">
+                  <dt>担当者氏名フリガナ</dt>
+                  <dd>ユヤマトモハル</dd>
+                </div>
+                <div class="agent__info__contents">
+                  <dt>電話番号</dt>
+                  <dd>09011111111</dd>
+                </div>
+                <div class="agent__info__contents">
+                  <dt>連絡先メールアドレス</dt>
+                  <dd>posse@keio.com</dd>
+                </div>
+                <div class="agent__info__contents">
+                  <dt>部署</dt>
+                  <dd>広報</dd>
+                </div>
+                <div class="agent__info__contents">
+                  <dt>担当者紹介文</dt>
+                  <dd>ここに担当者の紹介文が入ります。ここに担当者の紹介文が入ります。ここに担当者の紹介文が入ります。ここに担当者の紹介文が入ります。ここに担当者の紹介文が入ります。ここに担当者の紹介文が入ります。ここに担当者の紹介文が入ります。ここに担当者の紹介文が入ります。ここに担当者の紹介文が入ります。</dd>
+                </div>
+              </dl>
             </div>
             <div class="agent__staff">
               <div class="agent__staff__img">
                 <img src="../assets/img/mynavi.jpg" alt="担当者">
               </div>
-              <div class="agent__staff__info">
-                <p class="agent__staff__info__name">ななみん</p>
-                <p class="agent__staff__info__text">
-                  ここに担当者の紹介メッセージが入ります。ここに担当者の紹介メッセージが入ります。ここに担当者の紹介メッセージが入ります。ここに担当者の紹介メッセージが入ります。ここに担当者の紹介メッセージが入ります。ここに担当者の紹介メッセージが入ります。ここに担当者の紹介メッセージが入ります。
-                </p>
-              </div>
+              <dl class="agent__staff__info">
+                <div class="agent__info__contents">
+                  <dt>担当者氏名</dt>
+                  <dd>湯山トモハル</dd>
+                </div>
+                <div class="agent__info__contents">
+                  <dt>担当者氏名フリガナ</dt>
+                  <dd>ユヤマトモハル</dd>
+                </div>
+                <div class="agent__info__contents">
+                  <dt>電話番号</dt>
+                  <dd>09011111111</dd>
+                </div>
+                <div class="agent__info__contents">
+                  <dt>連絡先メールアドレス</dt>
+                  <dd>posse@keio.com</dd>
+                </div>
+                <div class="agent__info__contents">
+                  <dt>部署</dt>
+                  <dd>広報</dd>
+                </div>
+                <div class="agent__info__contents">
+                  <dt>担当者紹介文</dt>
+                  <dd>ここに担当者の紹介文が入ります。ここに担当者の紹介文が入ります。ここに担当者の紹介文が入ります。ここに担当者の紹介文が入ります。ここに担当者の紹介文が入ります。ここに担当者の紹介文が入ります。ここに担当者の紹介文が入ります。ここに担当者の紹介文が入ります。ここに担当者の紹介文が入ります。</dd>
+                </div>
+                <div class="agent__info__contents">
+                </div>
+              </dl>
             </div>
             <div class="agent__title mt-3">企業情報</div>
             <dl class="agent__info">
@@ -76,6 +178,10 @@
               <div class="agent__info__contents">
                 <dt>代表者氏名</dt>
                 <dd>湯山トモハル</dd>
+              </div>
+              <div class="agent__info__contents">
+                <dt>代表者氏名フリガナ</dt>
+                <dd>ユヤマトモハル</dd>
               </div>
               <div class="agent__info__contents">
                 <dt>郵便番号</dt>
@@ -98,7 +204,8 @@
                 <dd>posse@keio.com</dd>
               </div>
               <div class="agent__info__contents">
-                ここに企業の紹介が入ります。ここに企業の紹介が入ります。ここに企業の紹介が入ります。ここに企業の紹介が入ります。ここに企業の紹介が入ります。ここに企業の紹介が入ります。ここに企業の紹介が入ります。ここに企業の紹介が入ります。ここに企業の紹介が入ります。ここに企業の紹介が入ります。ここに企業の紹介が入ります。ここに企業の紹介が入ります。ここに企業の紹介が入ります。
+                <dt>企業紹介</dt>
+                <dd>ここに企業の紹介が入ります。ここに企業の紹介が入ります。ここに企業の紹介が入ります。ここに企業の紹介が入ります。ここに企業の紹介が入ります。ここに企業の紹介が入ります。ここに企業の紹介が入ります。ここに企業の紹介が入ります。ここに企業の紹介が入ります。ここに企業の紹介が入ります。ここに企業の紹介が入ります。ここに企業の紹介が入ります。ここに企業の紹介が入ります。</dd>
               </div>
             </dl>
           </div>
