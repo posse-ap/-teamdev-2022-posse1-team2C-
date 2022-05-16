@@ -95,7 +95,13 @@ if (isset($_POST['back']) && $_POST['back']) {
     <?php require  "./capsule/header.php"; ?>
 
     <div class="content">
-        <?php if ($mode == 'input') { ?>
+
+
+
+            <div class="container inner">
+                <main class="main">
+                    <div class="apply" id="apply">
+                    <?php if ($mode == 'input') { ?>
             <!-- 入力画面 -->
             <?php
             if ($errmessage) {
@@ -104,11 +110,6 @@ if (isset($_POST['back']) && $_POST['back']) {
                 echo '</div>';
             }
             ?>
-
-
-            <div class="container inner">
-                <main class="main">
-                    <div class="apply" id="apply">
                         <div class="apply__input" role="apply">
                             <p class="title">
                                 新卒エージェント　お問い合わせ
