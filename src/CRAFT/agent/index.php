@@ -1,24 +1,37 @@
 <?php
 require('./capsule/session.php');
 require(dirname(__FILE__) . "../../../dbconnect.php");
-$user_id =  $_SESSION['agent_id'];
+
+$agent_id =  $_SESSION['agent_id'];
 
 $agents_stmt = $db->prepare("SELECT * from agents WHERE id = ?");
-$agents_stmt->bindValue(1, $user_id);
+$agents_stmt->bindValue(1, $agent_id);
 $agents_stmt->execute();
 $agents_data = $agents_stmt->fetchAll();
 
 
 $students_stmt = $db->prepare("SELECT * from students_agents_mix WHERE agent_id = ?");
-$students_stmt->bindValue(1, $user_id);
+$students_stmt->bindValue(1, $agent_id);
 $students_stmt->execute();
 $students_data = $students_stmt->fetchAll();
 
 $students_count_stmt = $db->prepare("SELECT COUNT(*) from students_agents_mix WHERE agent_id=?");
-$students_count_stmt->bindValue(1, $user_id);
+$students_count_stmt->bindValue(1, $agent_id);
 $students_count_stmt->execute();
 $students_count_data = $students_count_stmt->fetchAll();
 $students_count = $students_count_data[0]['COUNT(*)'];
+// $_SESSION[]=1;
+if (isset($_POST['student_number'])) {
+$_SESSION['student_number']=$_POST['student_number'];
+//   // $_SESSION = array();
+//   // $_SESSION['agent_id'] = $user[0]['id'];
+//   // $_SESSION['time'] = time();
+// echo 1;
+  header('Location: http://' . $_SERVER['HTTP_HOST'] . '/CRAFT/agent/detail.php');
+  exit();
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -115,8 +128,10 @@ $students_count = $students_count_data[0]['COUNT(*)'];
           <div class="student__panel">
             <div id="panel1" role="tabpanel" class="student__panel__item">
               <h3 class="student__panel__item__title">未対応の学生一覧</h3>
+              <form action="./index.php" method="POST">
               <dl class="student__panel__item__content">
                 <div class="student__panel__item__content__piece">
+                  
                   <dt>氏名</dt>
                   <?php for ($i = 1; $i <= $students_count; $i++) { ?>
                     <dd><?php echo $students_data[$i - 1]['name__kanji'] ?></dd>
@@ -166,7 +181,7 @@ $students_count = $students_count_data[0]['COUNT(*)'];
                 <div class="student__panel__item__content__piece">
                   <dt>詳細</dt>
                   <?php for ($i = 1; $i <= $students_count; $i++) { ?>
-                    <dd><button>詳細</button></dd>
+                    <dd><button type="submit" name="student_number" value="<?php echo $i;?>">詳細</button></dd>
                   <?php }; ?>
                 </div>
 
@@ -174,13 +189,14 @@ $students_count = $students_count_data[0]['COUNT(*)'];
                 <div class="student__panel__item__content__piece">
                   <dt>申請時刻</dt>
                   <?php for ($i = 1; $i <= $students_count; $i++) { ?>
-                    <dd><?php echo $students_data[$i - 1]['apply_time'] ?></dd>
+                    <dd><?php echo $students_data[$i - 1]['apply_time'];?></dd>
                   <?php }; ?>
                   <!-- <dd><span>4</span>月<span>1</span>日<span>23:41:28</span></dd>
                   <dd><span>1</span>月<span>3</span>日<span>06:22:19</span></dd>
                   <dd><span>12</span>月<span>30</span>日<span>09:59:54</span></dd> -->
                 </div>
               </dl>
+              </form>
             </div>
             <div id="panel2" role="tabpanel" class="student__panel__item" hidden>
               <h3 class="student__panel__item__title">対応済みの学生一覧</h3>

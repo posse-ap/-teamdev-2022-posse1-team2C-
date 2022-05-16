@@ -192,8 +192,8 @@ if (isset($_POST['back']) && $_POST['back']) {
                                     <div class="apply__form__item">
                                         <dt>卒業年度</dt>
                                         <dd>
-                                            <label><input type="radio" name="graduate" value="23" />23卒</label>
-                                            <label><input type="radio" name="graduate" value="24" />24卒</label>
+                                            <label><input type="radio" name="graduate" value="<?php echo $_SESSION['graduate'] ?>" />23卒</label>
+                                            <label><input type="radio" name="graduate" value="<?php echo $_SESSION['graduate'] ?>" />24卒</label>
                                             <label><input type="radio" name="graduate" value="25" />25卒</label>
                                         </dd>
                                     </div>

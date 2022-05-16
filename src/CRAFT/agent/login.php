@@ -2,7 +2,7 @@
 session_start();
 require('../../dbconnect.php');
 
-if (!empty($_POST)) {
+if (!empty($_POST["login"])) {
   $login = $db->prepare('SELECT * FROM agent_login WHERE log_id=? AND password=?');
   $login->execute(array(
     $_POST['loginID'],
@@ -51,7 +51,7 @@ if (!empty($_POST)) {
                 <dd><input id="password" type="text" name="password"></dd>
               </div>
               <div class="login__inner__form__footer"></div>
-              <button class="login__inner__form__button" id="submit">
+              <button class="login__inner__form__button" name="login" id="submit" value="login">
                 ログインする
               </button>
             </dl>

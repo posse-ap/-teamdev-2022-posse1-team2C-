@@ -1,6 +1,39 @@
 <?php
 // require('./capsule/session.php');
+//↑2行目のコメントアウト外すなら下のsession_startいらない
+session_start();
+require(dirname(__FILE__) . "../../../dbconnect.php");
+$student_number=$_SESSION['student_number'];
+$agent_id=$_SESSION['agent_id'];
+
+$students_stmt = $db->prepare("SELECT * from students_agents_mix WHERE agent_id = ?");
+$students_stmt->bindValue(1, $agent_id);
+$students_stmt->execute();
+$students_data = $students_stmt->fetchAll();
+
+$students_info=[
+'学生氏名',
+'フリガナ',
+'メールアドレス',
+'電話番号',
+'郵便番号',
+'住所',
+'生年月日',
+'大学',
+'学部',
+'学科',
+'卒業年度',
+'その他自由記述欄',
+'申請時刻'
+];
+$students_data_length = count($students_info);
+
+$agents_stmt = $db->prepare("SELECT * from agents WHERE id = ?");
+$agents_stmt->bindValue(1, $agent_id);
+$agents_stmt->execute();
+$agents_data = $agents_stmt->fetchAll();
 ?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -22,7 +55,7 @@
       <li class="main__item">
         <div class="main__item__account">
           <img src="../../assets/img/icon_avatar.svg" alt="icon">
-          <input type="text" value="manaki">
+          <input type="text" value="<?php echo $agents_data[0]['name'];?>">
         </div>
         <hr>
         <ul class="score__list">
@@ -90,7 +123,13 @@
           <div class="student__detail">
             <p class="student__detail__title">【学生詳細情報】</p>
             <dl class="student__detail__list">
-              <div class="student__detail__item">
+              <?php for($i=1;$i<=$students_data_length;$i++){ ?>
+                <div class="student__detail__item">
+                <dt><?php echo $students_info[$i-1]; ?></dt>
+                <dd><?php echo $students_data[$student_number-1][$i];?></dd>
+              </div>
+                <?php }; ?>
+              <!-- <div class="student__detail__item">
                 <dt>学生氏名</dt>
                 <dd>遠藤愛期</dd>
               </div>
@@ -141,7 +180,7 @@
               <div class="student__detail__item">
                 <dt>申請時刻</dt>
                 <dd>01月13日09:15:11</dd>
-              </div>
+              </div> -->
             </dl>
           </div>
           <div class="student__operation">
