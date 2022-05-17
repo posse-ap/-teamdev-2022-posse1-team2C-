@@ -9,6 +9,17 @@ body {
   vertical-align: text-bottom;
 }
 
+.subtitle {
+  font-weight: bold;
+  padding-left: 0.5em;
+  padding-top: 0.3em;
+  padding-bottom: 0.3em;
+  margin-bottom: 2em;
+  border-left: 5px solid #989a2a;
+  color: #929415;
+  font-size: 20px;
+}
+
 /*
  * サイドバー
  */

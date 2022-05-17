@@ -15,14 +15,14 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" id="agent" href="./agent.php">
-          <span data-feather="clipboard"></span>
+          <span data-feather="file"></span>
           エージェント企業
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">
-          <span data-feather="users"></span>
-          顧客
+        <a class="nav-link" id="add" href="./add.php">
+          <span data-feather="file-plus"></span>
+          新規追加
         </a>
       </li>
       <li class="nav-item">
