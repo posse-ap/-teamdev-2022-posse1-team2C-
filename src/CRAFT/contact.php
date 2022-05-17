@@ -21,22 +21,22 @@
         </p>
 
         <div class="attention">
-          <p class="attention__title">お問い合わせ前の注意事項</p>
+          <p class="attention__title">注意事項</p>
           <div class="attention__inner">
             <ul class="attention__inner__list">
               <li class="attention__inner__item">
-                お問い合わせ前に、<a href="./q&a.php">よくある質問</a>をご確認ください。
+                ご要望・ご質問の前に、<a href="./q&a.php">よくある質問</a>をご確認ください。
               </li>
               <li class="attention__inner__item">
-                お問い合わせの内容によりましては、お時間を頂戴する場合がございます。
+                内容によりましては、お時間を頂戴する場合がございます。
               </li>
               <li class="attention__inner__item">
-                皆様からいただいたご意見・ご感想・お問い合わせは、必ず目を通しておりますが、個別に返信・対応をお約束するものではございません。あらかじめご了承ください。
+                皆様からいただいたご要望・ご質問は、必ず目を通しておりますが、個別に返信・対応をお約束するものではございません。あらかじめご了承ください。
               </li>
               <li class="attention__inner__item">
-                本お問い合わせフォームは、エージェント企業へのお問い合わせをお受けする窓口ではございません。エージェント企業へのお問い合わせをご希望の方は<a href="./apply.php">こちら</a>からよろしくお願いいたします。
+                本フォームは、エージェント企業へのお問い合わせをお受けする窓口ではございません。エージェント企業へのお問い合わせをご希望の方は<a href="./apply.php">こちら</a>からよろしくお願いいたします。
               <li class="attention__inner__item">
-                いただいた個人情報は、お問合わせ内容の確認・返信以外には使用いたしません。同意いただいた上で、お問い合わせください。本サービスの個人情報保護方針および、個人情報のお取り扱いについては、<a href="#">こちら</a>よりご確認いただけます。
+                いただいた個人情報は、ご要望・ご質問の内容の確認・返信以外には使用いたしません。同意いただいた上のご利用をお願いします。本サービスの個人情報保護方針および、個人情報のお取り扱いについては、<a href="#">こちら</a>よりご確認いただけます。
               </li>
               <li class="attention__inner__item">
                 返信内容の二次使用は固くお断りいたします。
@@ -60,7 +60,7 @@
               <dd><input id="tel" type="text" name="tel"></dd>
             </div>
             <div class="contact__form__item">
-              <dt><label for="content">お問い合わせ内容</label></dt>
+              <dt><label for="content">ご要望・ご質問の内容</label></dt>
               <dd><textarea id="content" type="text" name="content"></textarea></dd>
             </div>
             <div class="contact__form__footer">
