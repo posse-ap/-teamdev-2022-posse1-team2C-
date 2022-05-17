@@ -47,18 +47,18 @@
                     <dd>大手企業</dd>
                   </div>
                   <div class="agent__service__inner__item__graph__child">
-                    <dt>公開求人数</dt>
-                    <dd>10000件</dd>
+                    <dt>独自のサービス</dt>
+                    <dd></dd>
                   </div>
                   <div class="agent__service__inner__item__graph__child">
-                    <dt>非公開求人数</dt>
-                    <dd>20000件</dd>
+                    <dt>対応エリア</dt>
+                    <dd></dd>
                   </div>
                 </dl>
               </div>
               <div class="agent__service__inner__analysis">
                 <div class="agent__service__inner__analysis__question">
-                  <p>？</p>
+                  <button>？</button>
                 </div>
                 <div class="agent__service__inner__analysis__contents"></div>
               </div>
