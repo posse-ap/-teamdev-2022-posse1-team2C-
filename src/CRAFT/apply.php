@@ -95,20 +95,21 @@ if (isset($_POST['back']) && $_POST['back']) {
     <?php require  "./capsule/header.php"; ?>
 
     <div class="content">
-        <?php if ($mode == 'input') { ?>
-            <!-- 入力画面 -->
-            <?php
-            if ($errmessage) {
-                echo '<div style="color:red;">';
-                echo implode('<br>', $errmessage);
-                echo '</div>';
-            }
-            ?>
 
 
-            <div class="container inner">
-                <main class="main">
-                    <div class="apply" id="apply">
+        <div class="container inner">
+            <main class="main">
+                <div class="apply" id="apply">
+                    <?php if ($mode == 'input') { ?>
+                        <!-- 入力画面 -->
+                        <?php
+                        if ($errmessage) {
+                            echo '<div style="color:red;">';
+                            echo implode('<br>', $errmessage);
+                            echo '</div>';
+                        }
+                        ?>
+
                         <div class="apply__input" role="apply">
                             <p class="title">
                                 新卒エージェント　お問い合わせ
@@ -488,10 +489,10 @@ if (isset($_POST['back']) && $_POST['back']) {
                         </div>
                     <?php } ?>
 
-                    </div>
-                </main>
-                <?php require  "./capsule/aside.php"; ?>
-            </div>
+                </div>
+            </main>
+            <?php require  "./capsule/aside.php"; ?>
+        </div>
     </div>
 
     <?php require  "./capsule/footer.php"; ?>
