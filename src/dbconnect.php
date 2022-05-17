@@ -3,7 +3,6 @@ $dsn = 'mysql:host=db;dbname=shukatsu;charset=utf8;';
 $user = 'root';
 $password = 'password';
 
-mysql_query('SET NAMES utf8', $sql );
 
 
 try {
