@@ -36,7 +36,7 @@ stepBar
   box-sizing: border-box;
   position: relative;
   width: calc((100% - 20px) / 3);
-  height: 80px;
+  height: 60px;
   margin: 0 5px;
   padding: 1px;
   background: #299100;
@@ -69,10 +69,10 @@ stepBar
   left: 1px;
   width: 0;
   height: 0;
-  border-top: 40px solid transparent;
+  border-top: 30px solid transparent;
   border-right: 0;
-  border-bottom: 40px solid transparent;
-  border-left: 20px solid #299100;
+  border-bottom: 30px solid transparent;
+  border-left: 15px solid #299100;
 }
 
 .stepbar__item:not(:first-child)::after {
@@ -82,10 +82,10 @@ stepBar
   left: 0;
   width: 0;
   height: 0;
-  border-top: 40px solid transparent;
+  border-top: 30px solid transparent;
   border-right: 0;
-  border-bottom: 40px solid transparent;
-  border-left: 20px solid #ffffff;
+  border-bottom: 30px solid transparent;
+  border-left: 15px solid #ffffff;
 }
 
 .stepbar__item-inner {
@@ -111,10 +111,10 @@ stepBar
   left: 100%;
   width: 0;
   height: 0;
-  border-top: 40px solid transparent;
+  border-top: 30px solid transparent;
   border-right: 0;
-  border-bottom: 40px solid transparent;
-  border-left: 20px solid #299100;
+  border-bottom: 30px solid transparent;
+  border-left: 15px solid #299100;
 }
 
 .stepbar__item:not(:last-child) .stepbar__item-inner::after {
@@ -124,10 +124,10 @@ stepBar
   left: calc(100% - 1px);
   width: 0;
   height: 0;
-  border-top: 40px solid transparent;
+  border-top: 30px solid transparent;
   border-right: 0;
-  border-bottom: 40px solid transparent;
-  border-left: 20px solid #ffffff;
+  border-bottom: 30px solid transparent;
+  border-left: 15px solid #ffffff;
 }
 
 .stepbar__item:not(:last-child) .stepbar__item-inner--current::after {
@@ -226,6 +226,7 @@ apply__form
   }
 
   &__form__button {
+    margin-top: 20px;
     font-size: 18px;
     font-weight: bold;
     background: vb.$color_accent;
@@ -248,8 +249,8 @@ apply__table
   &__header {
     border: 1px solid black;
     width: 35%;
-    padding: 10px 0;
-    background-color: vb.$color_keynote;
+    padding: 10px 0 10px 5px;
+    background-color: #c0f0bd;
   }
 
   &__data {
