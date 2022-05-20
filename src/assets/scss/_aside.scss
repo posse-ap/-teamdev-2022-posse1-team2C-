@@ -4,12 +4,8 @@
   height: auto;
 }
 
-#a {
-  height: auto;
-}
-
 .aside {
-  width: 100%;
+  width: calc(25%);
 
   &__list {
     width: 100%;

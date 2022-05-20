@@ -1,7 +1,7 @@
 <aside class="aside">
   <ul class="aside__list">
     <li class="aside__item">
-      <div class="aside__contents" id="a">
+      <div class="aside__contents">
         <div class="img">
           <img src="../../assets/img/top.jpg" alt="背景" width="288px" height="192px">
           <img src="../../assets/img/logo__craft-purple.png" alt="CRAFT" width="234px" height="73px">
