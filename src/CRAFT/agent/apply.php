@@ -12,7 +12,7 @@ if (isset($_POST['back']) && $_POST['back']) {
 } else if (isset($_POST['confirm']) && $_POST['confirm']) {
   for ($i = 0; $i < $forms_length; $i++) {
     if (!$_POST[$array_forms[$i]]) {
-      $errmessage[] = "名前を入力してください";
+      $errmessage[] = $i;
     }
   }
   // if (
@@ -96,9 +96,10 @@ if (isset($_POST['back']) && $_POST['back']) {
             <!-- 入力画面 -->
             <?php
             if ($errmessage) {
-              echo '<div style="color:red;">';
-              echo implode('<br>', $errmessage);
-              echo '</div>';
+              // echo '<div style="color:red;">';
+              // echo implode('<br>', $errmessage);
+              // echo '</div>';
+              echo $errmessage[0];
             }
             ?>
             <div class="apply__input" role="apply">
@@ -142,6 +143,14 @@ if (isset($_POST['back']) && $_POST['back']) {
                     <dt><label for="email">メールアドレス</label></dt>
                     <dd><input id="email" type="email" name="email" value="<?php echo $_SESSION['email'] ?>" /></dd>
                   </div>
+                  <?php
+            if ($errmessage) {
+              // echo '<div style="color:red;">';
+              // echo implode('<br>', $errmessage);
+              // echo '</div>';
+              echo $errmessage[1];
+            }
+            ?>
                   <div class="apply__form__item">
                     <dt><label for="tel">電話番号</label></dt>
                     <dd><input id="tel" type="text" name="tel" value="<?php echo $_SESSION['tel'] ?>" /></dd>
@@ -154,13 +163,6 @@ if (isset($_POST['back']) && $_POST['back']) {
                     <dt><label for="address">住所</label></dt>
                     <dd><input id="address" type="text" name="address" value="<?php echo $_SESSION['address'] ?>" /></dd>
                   </div>
-                  <?php
-            if ($errmessage) {
-              echo '<div style="color:red;">';
-              echo implode('<br>', $errmessage);
-              echo '</div>';
-            }
-            ?>
                   <div class="apply__form__item">
                     <dt><label for="content">その他自由記述欄</label></dt>
                     <dd>
