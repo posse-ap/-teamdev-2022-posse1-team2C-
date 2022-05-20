@@ -3,12 +3,8 @@
   height: auto;
 }
 
-#a {
-  height: auto;
-}
-
 .aside {
-  width: 100%;
+  width: 25%;
 }
 .aside__list {
   width: 100%;
@@ -232,9 +228,7 @@ img {
 .content .container {
   width: calc(100% - 100px);
   margin: 0 auto;
-  display: grid;
-  justify-items: center;
-  grid-template-columns: 3fr 1fr;
+  display: flex;
   gap: 50px;
 }
 
@@ -242,7 +236,7 @@ img {
   background-color: #ffffff;
   text-align: center;
   padding: 0 20px 50px 20px;
-  width: 100%;
+  width: calc(75% - 50px);
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
@@ -307,19 +301,27 @@ img {
 .agent__service__inner {
   width: 100%;
   display: flex;
+  gap: 20px;
   justify-content: space-between;
+}
+.agent__service__inner__item {
+  width: 400px;
 }
 .agent__service__inner__item__kinds {
   margin: 40px 0;
+  display: flex;
+  flex-wrap: wrap;
 }
 .agent__service__inner__item__kind {
+  margin-top: 5px;
+  margin-right: 5px;
   padding: 5px 10px;
   background-color: #3bf89d;
   border-radius: 20px;
   font-size: 13px;
 }
 .agent__service__inner__item__graph {
-  width: 500px;
+  width: 400px;
   border: 1px solid black;
   display: flex;
   flex-wrap: wrap;
@@ -348,13 +350,14 @@ img {
   padding: 10px 0;
 }
 .agent__service__inner__analysis {
-  width: 240px;
   position: relative;
+  width: calc(100% - 420px);
 }
 .agent__service__inner__analysis__question {
   width: 25px;
   height: 25px;
   position: absolute;
+  top: 30px;
   right: 0px;
   border: 1px solid black;
   border-radius: 50%;
@@ -363,9 +366,7 @@ img {
   justify-content: center;
 }
 .agent__service__inner__analysis__contents {
-  border: 2px solid blue;
   margin-top: 30px;
-  height: calc(100% - 25px);
 }
 
 .agent__staff {
