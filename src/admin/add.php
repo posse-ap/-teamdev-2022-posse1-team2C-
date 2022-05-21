@@ -28,7 +28,7 @@
         <h2 class="mt-3 mb-3">エージェント企業新規追加</h2>
         <div class="apply mb-5 mt-5" id="apply">
           <div class="apply__input" role="apply">
-            <form action="/" name="apply__form" class="apply__form">
+            <form  name="apply__form" class="apply__form" method="post">
               <p class="subtitle">エージェント企業様基本情報</p>
               <dl class="apply__form__list">
                 <div class="apply__form__item">
