@@ -1,5 +1,14 @@
 <?php
 // require('./capsule/session.php');
+require(dirname(__FILE__) . "../../dbconnect.php");
+
+$array_forms = ['agent','name__kanji','name__kana','url','postcode','address','tel','email','staff__email'];
+if (isset($_POST['send']) && $_POST['send']) {
+  $test = $db->exec('INSERT INTO test SET
+  test=1');
+$alert = "<script type='text/javascript'>alert('こちらは侍エンジニアです。');</script>";
+echo $alert;
+}
 ?>
 
 <!DOCTYPE html>
@@ -28,7 +37,7 @@
         <h2 class="mt-3 mb-3">エージェント企業新規追加</h2>
         <div class="apply mb-5 mt-5" id="apply">
           <div class="apply__input" role="apply">
-            <form  name="apply__form" class="apply__form" method="post">
+            <form name="apply__form" class="apply__form" method="post">
               <p class="subtitle">エージェント企業様基本情報</p>
               <dl class="apply__form__list">
                 <div class="apply__form__item">
@@ -463,7 +472,7 @@
                 </div>
               </dl>
               <div class="apply__form__footer">
-                <button class="apply__form__button border-0" role="submit">追加</button>
+                <button class="apply__form__button border-0" role="submit" type="submit" name="send" value="追加">追加</button>
               </div>
             </form>
           </div>
