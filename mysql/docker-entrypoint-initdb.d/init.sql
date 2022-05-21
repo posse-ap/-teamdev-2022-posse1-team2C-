@@ -22,40 +22,52 @@ CREATE TABLE students (
   faculty VARCHAR(255) NOT NULL,
   course VARCHAR(255) NOT NULL,
   graduate INT,
-  content VARCHAR(255),
-  apply_time date
+  content VARCHAR(255) NOT NULL,
+  apply_time DATETIME
 )ENGINE = InnoDB;
 
 
 INSERT INTO students VALUES
-(1,'高梨彩音','タカナシアヤネ','ayane@posse.com','0010002','2345678','東京都港区赤坂1-1-1','2022-06-01',1,'カルチャー部','誕生日お祝い科',23,'コメント','2022-04-27'),
-(2,'石井麻由奈','イシイマユナ','mayuna@posse.com','1234567','2345679','神奈川県横浜市港区日吉1-2-3','2001-05-01',2,'テック部','キューピー科',30,'POSSE大好き','2022-06-28');
-
+(1,'高梨彩音','タカナシアヤネ','ayane@posse.com','0010002','2345678','東京都港区赤坂1-1-1','2022-06-01','慶應義塾大学','カルチャー部','誕生日お祝い科',23,'コメント','2022-04-27 00:00:12'),
+(2,'石井麻由奈','イシイマユナ','mayuna@posse.com','1234567','2345679','神奈川県横浜市港区日吉1-2-3','2001-05-01','慶應義塾大学','テック部','キューピー科',30,'POSSE大好き','2022-06-28 13:00:00'),
+(3,'遠藤愛期','タカナシアヤネ','manaki@posse.com','0010002','2345678','東京都港区赤坂1-1-1','2022-06-01','慶應義塾大学','カルチャー部','誕生日お祝い科',23,'コメント','2022-04-27 00:00:12'),
+(4,'中澤和貴','イシイマユナ','kazuki@posse.com','1234567','2345679','神奈川県横浜市港区日吉1-2-3','2001-05-01','慶應義塾大学','テック部','キューピー科',30,'POSSE大好き','2022-06-28 13:00:00'),
+(5,'武田龍一','イシイマユナ','ryuichi@posse.com','1234567','2345679','神奈川県横浜市港区日吉1-2-3','2001-05-01','慶應義塾大学','テック部','キューピー科',30,'POSSE大好き','2022-06-28 13:00:00');
 DROP TABLE IF EXISTS universities;
 
-CREATE TABLE universities (
-  id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
-  university VARCHAR(255)
-);
+-- CREATE TABLE universities (
+--   id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+--   university VARCHAR(255)
+-- );
 
-INSERT INTO universities VALUES
-(1,'POSSE大学'),
-(2,'立應大学');
+-- INSERT INTO universities VALUES
+-- (1,'POSSE大学'),
+-- (2,'立應大学');
 
 
-DROP TABLE IF EXISTS students_agent_connect;
+-- DROP TABLE IF EXISTS students_universities_mix;
+-- CREATE table students_universities_mix  AS  
+-- SELECT 
+--   students.id AS id,
+--   name__kanji,
+--   name__kana,
+--   email ,
+--   tel,
+--   postcode,
+--   address,
+--   birth ,
+--   universities.university AS university,
+--   faculty,
+--   course ,
+--   graduate ,
+--   content,
+--   apply_time
+--     FROM  students join universities on students.university=universities.id;
 
-CREATE TABLE students_agent_connect (
-  -- id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
-  apply_id INT,
-  agent_id INT
-);
 
-INSERT INTO students_agent_connect VALUES 
-(1,1),
-(1,2),
-(2,2),
-(2,3);
+
+
+
 
 
 DROP TABLE IF EXISTS agents;
@@ -82,6 +94,44 @@ INSERT INTO agents VALUES
 -- ,'harbors@docomo.ne.jp'
 ,'2022-04-27 00:00:00');
 
+DROP TABLE IF EXISTS students_agent_connect;
+
+CREATE TABLE students_agent_connect (
+  -- id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
+  apply_id INT,
+  agent_id INT
+);
+
+INSERT INTO students_agent_connect VALUES 
+(1,1),
+(1,2),
+(2,2),
+(2,3),
+(3,1),
+(3,2),
+(4,1),
+(5,2);
+
+DROP TABLE IF EXISTS students_agents_mix;
+CREATE table students_agents_mix  AS  
+SELECT 
+  students.id AS id,
+  name__kanji,
+  name__kana,
+  email ,
+  tel,
+  postcode,
+  address,
+  birth ,
+  university,
+  faculty,
+  course ,
+  graduate,
+  content,
+  apply_time,
+  agent_id
+
+    FROM  students join students_agent_connect on id=apply_id;
 
 DROP TABLE IF EXISTS managers;
 
@@ -100,7 +150,17 @@ CREATE TABLE managers (
 
 INSERT INTO managers  VALUES
 (1,'石川朝香','イシキワアサカ','09068757384','asaka@keio.jp','Asaka',1,'本部'),
-(2,'武田龍一','タケダリュウイチ','08011330789','ryuuichi@keio.jp','Ryuichi',2,'日吉支部');
+(2,'武田龍一','タケダリュウイチ','08011330789','ryuuichi@keio.jp','Ryuichi',2,'日吉支部'),
+(3,'石川朝香','イシキワアサカ','09068757384','asaka@keio.jp','Asaka',1,'本部'),
+(4,'武田龍一','タケダリュウイチ','08011330789','ryuuichi@keio.jp','Ryuichi',2,'日吉支部'),
+(5,'石川朝香','イシキワアサカ','09068757384','asaka@keio.jp','Asaka',1,'本部'),
+(6,'武田龍一','タケダリュウイチ','08011330789','ryuuichi@keio.jp','Ryuichi',2,'日吉支部'),
+(7,'石川朝香','イシキワアサカ','09068757384','asaka@keio.jp','Asaka',1,'本部'),
+(8,'武田龍一','タケダリュウイチ','08011330789','ryuuichi@keio.jp','Ryuichi',2,'日吉支部'),
+(9,'石川朝香','イシキワアサカ','09068757384','asaka@keio.jp','Asaka',1,'本部'),
+(10,'武田龍一','タケダリュウイチ','08011330789','ryuuichi@keio.jp','Ryuichi',2,'日吉支部'),
+(11,'石川朝香','イシキワアサカ','09068757384','asaka@keio.jp','Asaka',1,'本部'),
+(12,'武田龍一','タケダリュウイチ','08011330789','ryuuichi@keio.jp','Ryuichi',2,'日吉支部');
 
 
 DROP TABLE IF EXISTS agent_info;
@@ -119,7 +179,17 @@ CREATE TABLE agent_info (
 
 INSERT INTO agent_info  VALUES
 (1,'ちょこが大好きちょこだよ','じゅんにセクハラされたことない','',50,1000,200),
-(2,'あさかだいすこあさかしか勝たんby龍一','あさかに告白したいがためらってる','',100,500,400);
+(2,'あさかだいすこあさかしか勝たん','あさか','',100,500,400),
+(3,'ちょこが大好きちょこだよ','じゅんにセクハラされたことない','',50,1000,200),
+(4,'あさかだいすこあさかしか勝たん','あさか','',100,500,400),
+(5,'ちょこが大好きちょこだよ','じゅんにセクハラされたことない','',50,1000,200),
+(6,'あさかだいすこあさかしか勝たん','あさか','',100,500,400),
+(7,'ちょこが大好きちょこだよ','じゅんにセクハラされたことない','',50,1000,200),
+(8,'あさかだいすこあさかしか勝たん','あさか','',100,500,400),
+(9,'ちょこが大好きちょこだよ','じゅんにセクハラされたことない','',50,1000,200),
+(10,'あさかだいすこあさかしか勝たん','あさか','',100,500,400),
+(11,'ちょこが大好きちょこだよ','じゅんにセクハラされたことない','',50,1000,200),
+(12,'あさかだいすこあさかしか勝たん','あさか','',100,500,400);
 
 
 
@@ -135,7 +205,18 @@ CREATE TABLE scores (
 
 
 INSERT INTO scores  VALUES
-(1,1,3.1);
+(1,1,3.1),
+(2,2,4.1),
+(3,3,4.4),
+(4,4,3.7),
+(5,5,1.1),
+(6,6,2.1),
+(7,7,3.9),
+(8,8,3.0),
+(9,9,2.0),
+(10,10,1.5),
+(11,11,2.7),
+(12,12,3.1);
 
 DROP TABLE IF EXISTS specialties;
 
@@ -156,7 +237,23 @@ CREATE TABLE specialties_agents_connect (
 );
 
 INSERT INTO specialties_agents_connect  VALUES
-(1,1),(1,3),(2,3);
+(1,1),
+(1,3),
+(2,3),
+(3,1),
+(4,3),
+(5,1),
+(5,2),
+(5,3),
+(6,3),
+(7,1),
+(8,3),
+(9,2),
+(10,1),
+(10,2),
+(11,3),
+(12,1),
+(12,3);
 
 
 DROP TABLE IF EXISTS recommendations;
@@ -180,7 +277,23 @@ CREATE TABLE recommendations_agents_connect (
 );
 
 INSERT INTO recommendations_agents_connect  VALUES
-(1,3),(2,1),(2,2);
+(1,3),
+(2,1),
+(2,2),
+(3,3),
+(4,1),
+(4,2),
+(5,3),
+(6,1),
+(6,2),
+(6,3),
+(7,1),
+(8,2),
+(9,3),
+(10,1),
+(11,2),
+(11,3),
+(12,3);
 
 
 DROP TABLE IF EXISTS tags;
@@ -224,7 +337,6 @@ CREATE TABLE CRAFT (
   created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
   updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
-
 
 
 

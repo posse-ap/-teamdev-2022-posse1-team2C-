@@ -8,31 +8,14 @@
   &__item {
     max-width: 1024px;
     margin: 0 auto 10px auto;
-
-    &:nth-of-type(2) .accordion__title {
-      background-color: vb.$color_accent;
-    }
-    &:nth-of-type(3) .accordion__title {
-      background-color: vb.$color_accent;
-    }
-    &:nth-of-type(2) .accordion__content {
-      border-left: 2px solid vb.$color_accent;
-      border-right: 2px solid vb.$color_accent;
-      border-bottom: 2px solid vb.$color_accent;
-    }
-
-    &:nth-of-type(3) .accordion__content {
-      border-left: 2px solid vb.$color_accent;
-      border-right: 2px solid vb.$color_accent;
-      border-bottom: 2px solid vb.$color_accent;
-    }
   }
 
   &__title {
     position: relative;
-    background-color: vb.$color_accent;
+    background-color: rgb(117, 147, 117);
+
     color: #fff;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: bold;
     padding: 15px 60px 15px 15px;
     text-align: left;
@@ -85,22 +68,9 @@
   &__content {
     display: none;
     padding: 30px 30px;
-    border-left: 2px solid vb.$color_accent;
-    border-right: 2px solid vb.$color_accent;
-    border-bottom: 2px solid vb.$color_accent;
+    border-left: 2px solid green;
+    border-right: 2px solid green;
+    border-bottom: 2px solid green;
     box-sizing: border-box;
-  }
-}
-
-@media screen and (max-width: 1024px) {
-  .accordion_list .accordion_item .accordion__title {
-    font-size: 24px;
-  }
-}
-
-@media screen and (max-width: 767px) {
-  .accordion_list .accordion_item .accordion__title {
-    font-size: 16px;
-    text-align: left;
   }
 }
