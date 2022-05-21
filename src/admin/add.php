@@ -31,9 +31,9 @@ for ($i = 0; $i < $staff_forms_length; $i++) {
   $_SESSION[$array_staff_forms[$i]] = '';
 }
 
-$errmessage_service= array();
+$errmessage_service = array();
 $array_service_forms = [
-  'service__name','service__aria', 'service__detail'
+  'service__name', 'service__aria', 'service__detail'
 ];
 $array_service_message = [
   'サービス名', '対応エリア', 'サービス紹介'
@@ -43,12 +43,12 @@ for ($i = 0; $i < $service_forms_length; $i++) {
   $_SESSION[$array_service_forms[$i]] = '';
 }
 
-$errmessage_service2= array();
+$errmessage_service2 = array();
 $array_service2_forms = [
-  'support','service__agent__scale','service__client__scale','service__total','service__offer', 'service__useful','service__reaction','service__support'
+  'support', 'service__agent__scale', 'service__client__scale', 'service__total', 'service__offer', 'service__useful', 'service__reaction', 'service__support'
 ];
 $array_service2_message = [
-  'サポート内容', 'エージェント企業の規模', '取引先企業の規模','総合評価','求人の質','使いやすさ','対応するの良さ','サポート力'
+  'サポート内容', 'エージェント企業の規模', '取引先企業の規模', '総合評価', '求人の質', '使いやすさ', '対応するの良さ', 'サポート力'
 ];
 $service2_forms_length = count($array_service2_forms);
 for ($i = 0; $i < $service2_forms_length; $i++) {
@@ -106,97 +106,100 @@ if (isset($_POST['send']) && $_POST['send']) {
 
 
   if (
-    // $_SESSION['agent'] == !'' &&
-    // $_SESSION['name__kanji'] == !'' &&
-    // $_SESSION['name__kana'] == !'' &&
-    // $_SESSION['url'] == !'' &&
-    // $_SESSION['postcode'] == !'' &&
-    // $_SESSION['address'] == !'' &&
-    // $_SESSION['tel'] == !'' &&
-    // $_SESSION['email'] == !'' &&
-    // $_SESSION['contact__email'] == !'' &&
-    // $_SESSION['agent__detail'] == !'' &&
-    // $_SESSION['staff__name__kanji'] == !'' &&
-    // $_SESSION['staff__name__kana'] == !'' &&
-    // $_SESSION['staff__tel'] == !'' &&
-    // $_SESSION['staff__email'] == !'' &&
-    // $_SESSION['staff__detail'] == !''&&
-    // $_SESSION['service__name'] == !'' &&
-    // $_SESSION['service__aria'] == !'' &&
-    // $_SESSION['service__detail'] == !'' &&
-    isset($_POST['support']) == !'' 
+    $_SESSION['agent'] == !'' &&
+    $_SESSION['name__kanji'] == !'' &&
+    $_SESSION['name__kana'] == !'' &&
+    $_SESSION['url'] == !'' &&
+    $_SESSION['postcode'] == !'' &&
+    $_SESSION['address'] == !'' &&
+    $_SESSION['tel'] == !'' &&
+    $_SESSION['email'] == !'' &&
+    $_SESSION['contact__email'] == !'' &&
+    $_SESSION['agent__detail'] == !'' &&
+    $_SESSION['staff__name__kanji'] == !'' &&
+    $_SESSION['staff__name__kana'] == !'' &&
+    $_SESSION['staff__tel'] == !'' &&
+    $_SESSION['staff__email'] == !'' &&
+    $_SESSION['staff__detail'] == !''&&
+    $_SESSION['service__name'] == !'' &&
+    $_SESSION['service__aria'] == !'' &&
+    $_SESSION['service__detail'] == !'' &&
+    isset($_POST['support']) == !''
     &&
-    // isset($_POST['service__agent__scale']) == !''
-    //  &&
-    isset($_POST['service__client__scale']) == !'' 
-    // &&
-    // isset($_POST['service__total']) == !''&&
-    // isset($_POST['service__offer']) == !'' &&
-    // isset($_POST['service__useful']) == !'' &&
-    // isset($_POST['service__reaction']) == !'' &&
-    // isset($_POST['service__support']) == !'' 
+    isset($_POST['service__agent__scale']) == !''
+     &&
+    isset($_POST['service__client__scale']) == !''
+    &&
+    isset($_POST['service__total']) == !''&&
+    isset($_POST['service__offer']) == !'' &&
+    isset($_POST['service__useful']) == !'' &&
+    isset($_POST['service__reaction']) == !'' &&
+    isset($_POST['service__support']) == !'' 
 
 
 
 
   ) {
-    // for ($i = 0; $i < $service2_forms_length; $i++) {
-    //   $_SESSION[$array_service2_forms[$i]] =
-    //    $_POST[$array_service2_forms[$i]];
-    // }
-    // for ($i = 0; $i < $agent_forms_length; $i++) {
-    //   $_SESSION[$array_agent_forms[$i]] = $_POST[$array_agent_forms[$i]];
-    // }
+    for ($i = 0; $i < $service2_forms_length; $i++) {
+      $_SESSION[$array_service2_forms[$i]] =
+        $_POST[$array_service2_forms[$i]];
+    }
+    for ($i = 0; $i < $agent_forms_length; $i++) {
+      $_SESSION[$array_agent_forms[$i]] = $_POST[$array_agent_forms[$i]];
+    }
 
-    //   $agent = $db->exec('INSERT INTO agents SET
-    // agent="' . $_SESSION['agent'] . '",
-    // name__kanji="' . $_SESSION['name__kanji'] . '",
-    // name__kana="' . $_SESSION['name__kana'] . '",
-    // url="' . $_SESSION['url'] . '",
-    // postcode="' . $_SESSION['postcode'] . '",
-    // address="' . $_SESSION['address'] . '",
-    // tel="' . $_SESSION['tel'] . '",
-    // email="' . $_SESSION['email'] . '",
-    // contact__email="' . $_SESSION['contact__email'] . '",
-    // agent__detail="' . $_SESSION['agent__detail'] . '",
-    // service__name="' . $_SESSION['service__name'] . '",
-    // service__total="' . $_SESSION['service__total'] . '",
-    // service__offer="' . $_SESSION['service__offer'] . '",
-    // service__useful="' . $_SESSION['service__useful'] . '",
-    // service__reaction="' . $_SESSION['service__reaction'] . '",
-    // service__support="' . $_SESSION['service__support'] . '"
-    // ');
-    // for ($i = 0; $i < $staff_forms_length; $i++) {
-    //   $_SESSION[$array_staff_forms[$i]] = $_POST[$array_staff_forms[$i]];
-    // }
-  //   $staff = $db->exec('INSERT INTO staffs SET
-  // staff__name__kanji="' . $_SESSION['staff__name__kanji'] . '",
-  // staff__name__kana="' . $_SESSION['staff__name__kana'] . '",
-  // staff__tel="' . $_SESSION['staff__tel'] . '",
-  // staff__email="' . $_SESSION['staff__email'] . '",
-  // staff__detail="' . $_SESSION['staff__detail'] . '"
-  // ');
-      // $_SESSION['support'] =
-      //  $_POST['support'];
-$service_length = count($_POST['support']);
-$agents_count_stmt = $db->prepare("SELECT COUNT(*) from agents");
-$agents_count_stmt->execute();
-$agents_count_data = $agents_count_stmt->fetchAll();
-$agents_count = $agents_count_data[0]['COUNT(*)'];
-for ($j = 0; $j < $service_length; $j++) {
-  $agents_supports_connect = $db->exec('INSERT INTO agents_supports_connect SET
+    $agent = $db->exec('INSERT INTO agents SET
+    agent="' . $_SESSION['agent'] . '",
+    name__kanji="' . $_SESSION['name__kanji'] . '",
+    name__kana="' . $_SESSION['name__kana'] . '",
+    url="' . $_SESSION['url'] . '",
+    postcode="' . $_SESSION['postcode'] . '",
+    address="' . $_SESSION['address'] . '",
+    tel="' . $_SESSION['tel'] . '",
+    email="' . $_SESSION['email'] . '",
+    contact__email="' . $_SESSION['contact__email'] . '",
+    agent__detail="' . $_SESSION['agent__detail'] . '",
+    service__agent__scale="' . $_SESSION['service__agent__scale'] . '",
+    service__aria="' . $_SESSION['service__aria'] . '",
+
+    service__name="' . $_SESSION['service__name'] . '",
+    service__total="' . $_SESSION['service__total'] . '",
+    service__offer="' . $_SESSION['service__offer'] . '",
+    service__useful="' . $_SESSION['service__useful'] . '",
+    service__reaction="' . $_SESSION['service__reaction'] . '",
+    service__support="' . $_SESSION['service__support'] . '"
+    ');
+    for ($i = 0; $i < $staff_forms_length; $i++) {
+      $_SESSION[$array_staff_forms[$i]] = $_POST[$array_staff_forms[$i]];
+    }
+    $staff = $db->exec('INSERT INTO staffs SET
+  staff__name__kanji="' . $_SESSION['staff__name__kanji'] . '",
+  staff__name__kana="' . $_SESSION['staff__name__kana'] . '",
+  staff__tel="' . $_SESSION['staff__tel'] . '",
+  staff__email="' . $_SESSION['staff__email'] . '",
+  staff__detail="' . $_SESSION['staff__detail'] . '"
+  ');
+    // $_SESSION['support'] =
+    //  $_POST['support'];
+    $service_length = count($_POST['support']);
+    $agents_count_stmt = $db->prepare("SELECT COUNT(*) from agents");
+    $agents_count_stmt->execute();
+    $agents_count_data = $agents_count_stmt->fetchAll();
+    $agents_count = $agents_count_data[0]['COUNT(*)'];
+    for ($j = 0; $j < $service_length; $j++) {
+      $agents_supports_connect = $db->exec('INSERT INTO agents_supports_connect SET
 agent_id="' . $agents_count . '",
 support_id="' . $_POST['support'][$j] . '"
 ');
-}
+    }
 
-$client__scale_length = count($_POST['service__client__scale']);
-for ($j = 0; $j < $client__scale_length; $j++) {
-  $agents_supports_connect = $db->exec('INSERT INTO agents_clientscales_connect SET
+    $client__scale_length = count($_POST['service__client__scale']);
+    for ($j = 0; $j < $client__scale_length; $j++) {
+      $agents_supports_connect = $db->exec('INSERT INTO agents_clientscales_connect SET
 agent_id="' . $agents_count . '",
 clientscales_id="' . $_POST['service__client__scale'][$j] . '"
 ');
-}
+    }
 
 
     $_SESSION = array();
@@ -449,7 +452,7 @@ clientscales_id="' . $_POST['service__client__scale'][$j] . '"
                 ?>
                 <div class="apply__form__item">
                   <dt><label for="staff__tel">電話番号</label></dt>
-                  <dd><input id="staff__tel" type="text" name="staff__tel" /></dd>
+                  <dd><input id="staff__tel" type="text" name="staff__tel"  value="<?php echo $_SESSION['staff__tel']; ?>"/></dd>
                 </div>
                 <?php
                 if ($errmessage_staff) {
@@ -461,7 +464,7 @@ clientscales_id="' . $_POST['service__client__scale'][$j] . '"
                 ?>
                 <div class="apply__form__item">
                   <dt><label for="staff__email">メールアドレス</label></dt>
-                  <dd><input id="staff__email" type="email" name="staff__email" /></dd>
+                  <dd><input id="staff__email" type="email" name="staff__email"  value="<?php echo $_SESSION['staff__email']; ?>"/></dd>
                 </div>
                 <?php
                 if ($errmessage_staff) {
@@ -473,12 +476,12 @@ clientscales_id="' . $_POST['service__client__scale'][$j] . '"
                 ?>
                 <div class="apply__form__item">
                   <dt><label for="staff__detail">担当者紹介文</label></dt>
-                  <dd><textarea name="staff__detail" id="staff__detail"></textarea></dd>
+                  <dd><textarea name="staff__detail" id="staff__detail"><?php echo $_SESSION['staff__detail']; ?></textarea></dd>
                 </div>
               </dl>
               <p class="subtitle">サービス詳細</p>
               <dl class="apply__form__list">
-              <?php
+                <?php
                 if ($errmessage_service) {
                   echo '<div style="color:red;">';
                   // echo implode('<br>', $errmessage);
@@ -488,7 +491,7 @@ clientscales_id="' . $_POST['service__client__scale'][$j] . '"
                 ?>
                 <div class="apply__form__item">
                   <dt><label for="service__name">サービス名</label></dt>
-                  <dd><input id="service__name" type="text" name="service__name" value="<?php echo $_SESSION['service__name']; ?>"/></dd>
+                  <dd><input id="service__name" type="text" name="service__name" value="<?php echo $_SESSION['service__name']; ?>" /></dd>
                 </div>
                 <?php
                 if ($errmessage_service2) {
@@ -501,24 +504,13 @@ clientscales_id="' . $_POST['service__client__scale'][$j] . '"
                   <dt>サポート内容</dt>
                   <dd>
                     <?php
-                    $array_support=[
-                      '面接対策','セミナー/イベント開催"','選考対策','企業紹介','ES添削','内定後のサポート','選考後のフォロー','個別面談','自己分析','特別選考','インターンシップ紹介','業界研究'
+                    $array_support = [
+                      '面接対策', 'セミナー/イベント開催"', '選考対策', '企業紹介', 'ES添削', '内定後のサポート', '選考後のフォロー', '個別面談', '自己分析', '特別選考', 'インターンシップ紹介', '業界研究'
                     ];
                     count($array_support);
                     ?>
-                    <?php for ($j = 0; $j <count($array_support); $j++) { ?>
-                      <label><input type="checkbox" name="support[]" value="<?php echo $j; ?>" /><?php echo $array_support[$j];?></label>
-                      <!-- <label><input type="checkbox" name="service__support" value="セミナー/イベント開催" />セミナー/イベント開催</label>
-                    <label><input type="checkbox" name="service__support" value="選考対策" />選考対策</label>
-                    <label><input type="checkbox" name="service__support" value="企業紹介" />企業紹介</label>
-                    <label><input type="checkbox" name="service__support" value="ES添削" />ES添削</label>
-                    <label><input type="checkbox" name="service__support" value="内定後のサポート" />内定後のサポート</label>
-                    <label><input type="checkbox" name="service__support" value="選考後のフォロー" />選考後のフォロー</label>
-                    <label><input type="checkbox" name="service__support" value="個別面談" />個別面談</label>
-                    <label><input type="checkbox" name="service__support" value="自己分析" />自己分析</label>
-                    <label><input type="checkbox" name="service__support" value="特別選考" />特別選考</label>
-                    <label><input type="checkbox" name="service__support" value="インターンシップ紹介" />インターンシップ紹介</label>
-                    <label><input type="checkbox" name="service__support" value="業界研究" />業界研究</label> -->
+                    <?php for ($j = 0; $j < count($array_support); $j++) { ?>
+                      <label><input type="checkbox" name="support[]" value="<?php echo $j; ?>" /><?php echo $array_support[$j]; ?></label>
                     <?php }; ?>
                   </dd>
                 </div>
@@ -549,15 +541,15 @@ clientscales_id="' . $_POST['service__client__scale'][$j] . '"
                 <div class="apply__form__item">
                   <dt>取引先企業の規模</dt>
                   <dd>
-                  <?php
-                    $array_client=[
-                      'ベンチャー企業','中小企業','大企業'
+                    <?php
+                    $array_client = [
+                      'ベンチャー企業', '中小企業', '大企業'
                     ];
                     count($array_client);
                     ?>
-                  <?php for ($j = 0; $j <count($array_client); $j++) { ?>
-                    <label><input type="checkbox" name="service__client__scale[]" value="<?php echo $j; ?>" /><?php echo $array_client[$j];?></label>
-                    <!-- <label><input type="radio" name="service__agent__scale[]" value="中小企業" />中小企業</label>
+                    <?php for ($j = 0; $j < count($array_client); $j++) { ?>
+                      <label><input type="checkbox" name="service__client__scale[]" value="<?php echo $j; ?>" /><?php echo $array_client[$j]; ?></label>
+                      <!-- <label><input type="radio" name="service__agent__scale[]" value="中小企業" />中小企業</label>
                     <label><input type="radio" name="service__agent__scale[]" value="大企業" />大企業</label> -->
                     <?php }; ?>
                   </dd>
@@ -571,7 +563,7 @@ clientscales_id="' . $_POST['service__client__scale'][$j] . '"
                 ?>
                 <div class="apply__form__item">
                   <dt><label for="service__aria">対応エリア</label></dt>
-                  <dd><input id="service__aria" type="text" name="service__aria" value="<?php echo $_SESSION['service__aria']; ?>"/></dd>
+                  <dd><input id="service__aria" type="text" name="service__aria" value="<?php echo $_SESSION['service__aria']; ?>" /></dd>
                 </div>
                 <?php
                 if ($errmessage_service2) {
