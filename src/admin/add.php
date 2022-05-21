@@ -125,10 +125,11 @@ if (isset($_POST['send']) && $_POST['send']) {
     // $_SESSION['service__aria'] == !'' &&
     // $_SESSION['service__detail'] == !'' &&
     isset($_POST['support']) == !'' 
-    // &&
+    &&
     // isset($_POST['service__agent__scale']) == !''
     //  &&
-    // isset($_POST['service__client__scale']) == !'' &&
+    isset($_POST['service__client__scale']) == !'' 
+    // &&
     // isset($_POST['service__total']) == !''&&
     // isset($_POST['service__offer']) == !'' &&
     // isset($_POST['service__useful']) == !'' &&
@@ -183,13 +184,19 @@ $agents_count_stmt->execute();
 $agents_count_data = $agents_count_stmt->fetchAll();
 $agents_count = $agents_count_data[0]['COUNT(*)'];
 for ($j = 0; $j < $service_length; $j++) {
-  $_SESSION['support'][$j] = $_POST['support'][$j];
-  // $_SESSION['support'][$j] = $_POST['support'][$j];
-}
   $agents_supports_connect = $db->exec('INSERT INTO agents_supports_connect SET
 agent_id="' . $agents_count . '",
-support_id="' . $_SESSION['support'][$j] . '"
+support_id="' . $_POST['support'][$j] . '"
 ');
+}
+
+$client__scale_length = count($_POST['service__client__scale']);
+for ($j = 0; $j < $client__scale_length; $j++) {
+  $agents_supports_connect = $db->exec('INSERT INTO agents_clientscales_connect SET
+agent_id="' . $agents_count . '",
+clientscales_id="' . $_POST['service__client__scale'][$j] . '"
+');
+}
 
 
     $_SESSION = array();
@@ -230,7 +237,7 @@ support_id="' . $_SESSION['support'][$j] . '"
 
 // $alert = "<script type='text/javascript'>alert('こちらは侍エンジニアです。');</script>";
 // echo $alert;
-// }
+
 
 
 // }
@@ -493,8 +500,14 @@ support_id="' . $_SESSION['support'][$j] . '"
                 <div class="apply__form__item">
                   <dt>サポート内容</dt>
                   <dd>
-                    <?php for ($j = 0; $j <= 11; $j++) { ?>
-                      <label><input type="checkbox" name="support[]" value="<?php echo $j; ?>" />面接対策</label>
+                    <?php
+                    $array_support=[
+                      '面接対策','セミナー/イベント開催"','選考対策','企業紹介','ES添削','内定後のサポート','選考後のフォロー','個別面談','自己分析','特別選考','インターンシップ紹介','業界研究'
+                    ];
+                    count($array_support);
+                    ?>
+                    <?php for ($j = 0; $j <count($array_support); $j++) { ?>
+                      <label><input type="checkbox" name="support[]" value="<?php echo $j; ?>" /><?php echo $array_support[$j];?></label>
                       <!-- <label><input type="checkbox" name="service__support" value="セミナー/イベント開催" />セミナー/イベント開催</label>
                     <label><input type="checkbox" name="service__support" value="選考対策" />選考対策</label>
                     <label><input type="checkbox" name="service__support" value="企業紹介" />企業紹介</label>
@@ -532,12 +545,21 @@ support_id="' . $_SESSION['support'][$j] . '"
                   echo '</div>';
                 }
                 ?>
+
                 <div class="apply__form__item">
                   <dt>取引先企業の規模</dt>
                   <dd>
-                    <label><input type="checkbox" name="service__client__scale[]" value="ベンチャー企業" />ベンチャー企業</label>
-                    <label><input type="checkbox" name="service__client__scale[]" value="中小企業" />中小企業</label>
-                    <label><input type="checkbox" name="service__client__scale[]" value="大手企業" />大手企業</label>
+                  <?php
+                    $array_client=[
+                      'ベンチャー企業','中小企業','大企業'
+                    ];
+                    count($array_client);
+                    ?>
+                  <?php for ($j = 0; $j <count($array_client); $j++) { ?>
+                    <label><input type="checkbox" name="service__client__scale[]" value="<?php echo $j; ?>" /><?php echo $array_client[$j];?></label>
+                    <!-- <label><input type="radio" name="service__agent__scale[]" value="中小企業" />中小企業</label>
+                    <label><input type="radio" name="service__agent__scale[]" value="大企業" />大企業</label> -->
+                    <?php }; ?>
                   </dd>
                 </div>
                 <?php
