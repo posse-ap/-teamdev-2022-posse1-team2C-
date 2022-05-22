@@ -37,4 +37,3 @@ services:
       - "1025:1025"
     volumes:
       - ./php/php.ini:/usr/local/etc/php/php.ini
-      - ./php/mailhog.ini:/usr/local/etc/php/conf.d/mailhog.ini
