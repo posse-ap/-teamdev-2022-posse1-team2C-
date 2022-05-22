@@ -135,6 +135,9 @@ if (isset($_POST['back']) && $_POST['back']) {
                             <form action="./apply.php" name="apply__form" class="apply__form" method="post">
                                 <dl class="apply__form__list">
                                     <div class="apply__form__item">
+                                        <div class="apply__label">
+                                            <div class="apply__label__require">必須</div>
+                                        </div>
                                         <dt><label for="agent">お問い合わせ先<br>エージェント企業</label></dt>
                                         <dd>
                                             <div class="apply__form__item__select">
@@ -151,46 +154,79 @@ if (isset($_POST['back']) && $_POST['back']) {
                                         </dd>
                                     </div>
                                     <div class="apply__form__item">
+                                        <div class="apply__label">
+                                            <div class="apply__label__require">必須</div>
+                                        </div>
                                         <dt><label for="name__kanji">お名前（漢字）</label></dt>
                                         <dd><input id="name__kanji" type="text" name="name__kanji" value="<?php echo $_SESSION['name__kanji'] ?>" /></dd>
                                     </div>
                                     <div class="apply__form__item">
+                                        <div class="apply__label">
+                                            <div class="apply__label__require">必須</div>
+                                        </div>
                                         <dt><label for="name__kana">お名前（フリガナ）</label></dt>
                                         <dd><input id="name__kana" type="text" name="name__kana" value="<?php echo $_SESSION['name__kana'] ?>" /></dd>
                                     </div>
                                     <div class="apply__form__item">
+                                        <div class="apply__label">
+                                            <div class="apply__label__require">必須</div>
+                                        </div>
                                         <dt><label for="email">メールアドレス</label></dt>
                                         <dd><input id="email" type="email" name="email" value="<?php echo $_SESSION['email'] ?>" /></dd>
                                     </div>
                                     <div class="apply__form__item">
+                                        <div class="apply__label">
+                                            <div class="apply__label__require">必須</div>
+                                        </div>
                                         <dt><label for="tel">電話番号</label></dt>
                                         <dd><input id="tel" type="text" name="tel" value="<?php echo $_SESSION['tel'] ?>" /></dd>
                                     </div>
                                     <div class="apply__form__item">
+                                        <div class="apply__label">
+                                            <div class="apply__label__require">必須</div>
+                                        </div>
                                         <dt><label for="postcode">郵便番号</label></dt>
                                         <dd><input id="postcode" type="text" name="postcode" value="<?php echo $_SESSION['postcode'] ?>" /></dd>
                                     </div>
                                     <div class="apply__form__item">
+                                        <div class="apply__label">
+                                            <div class="apply__label__require">必須</div>
+                                        </div>
                                         <dt><label for="address">住所</label></dt>
                                         <dd><input id="address" type="text" name="address" value="<?php echo $_SESSION['address'] ?>" /></dd>
                                     </div>
                                     <div class="apply__form__item">
+                                        <div class="apply__label">
+                                            <div class="apply__label__require">必須</div>
+                                        </div>
                                         <dt><label for="birth">生年月日</label></dt>
                                         <dd><input id="birth" type="date" name="birth" value="<?php echo $_SESSION['birth'] ?>" /></dd>
                                     </div>
                                     <div class="apply__form__item">
+                                        <div class="apply__label">
+                                            <div class="apply__label__require">必須</div>
+                                        </div>
                                         <dt><label for="university">大学</label></dt>
                                         <dd><input id="university" type="text" name="university" value="<?php echo $_SESSION['university'] ?>" /></dd>
                                     </div>
                                     <div class="apply__form__item">
+                                        <div class="apply__label">
+                                            <div class="apply__label__require">必須</div>
+                                        </div>
                                         <dt><label for="faculty">学部</label></dt>
                                         <dd><input id="faculty" type="text" name="faculty" value="<?php echo $_SESSION['faculty'] ?>" /></dd>
                                     </div>
                                     <div class="apply__form__item">
+                                        <div class="apply__label">
+                                            <div class="apply__label__require">必須</div>
+                                        </div>
                                         <dt><label for="course">学科</label></dt>
                                         <dd><input id="course" type="text" name="course" value="<?php echo $_SESSION['course'] ?>" /></dd>
                                     </div>
                                     <div class="apply__form__item">
+                                        <div class="apply__label">
+                                            <div class="apply__label__require">必須</div>
+                                        </div>
                                         <dt>卒業年度</dt>
                                         <dd>
                                             <label><input type="radio" name="graduate" value="23" />23卒</label>
@@ -199,6 +235,9 @@ if (isset($_POST['back']) && $_POST['back']) {
                                         </dd>
                                     </div>
                                     <div class="apply__form__item">
+                                        <div class="apply__label">
+                                            <div class="apply__label__option">任意</div>
+                                        </div>
                                         <dt><label for="content">その他自由記述欄</label></dt>
                                         <dd>
                                             <textarea id="content" type="text" name="content" value="<?php echo $_SESSION['content'] ?>"></textarea>

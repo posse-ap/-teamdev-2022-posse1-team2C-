@@ -22,7 +22,7 @@
         <div class="apply" id="apply">
           <div class="apply__input" role="apply">
             <p class="title">
-              新卒エージェント新規登録
+              新卒エージェント新規掲載申請
               <span class="title"> 入力</span>
             </p>
 
@@ -43,38 +43,65 @@
             <form action="/" name="apply__form" class="apply__form">
               <dl class="apply__form__list">
                 <div class="apply__form__item">
+                  <div class="apply__label">
+                    <div class="apply__label__require">必須</div>
+                  </div>
                   <dt><label for="name">企業名</label></dt>
                   <dd><input id="name" type="text" name="name" /></dd>
                 </div>
                 <div class="apply__form__item">
+                  <div class="apply__label">
+                    <div class="apply__label__require">必須</div>
+                  </div>
                   <dt><label for="url">URL（企業HP）</label></dt>
                   <dd><input id="url" type="text" name="url" /></dd>
                 </div>
                 <div class="apply__form__item">
+                  <div class="apply__label">
+                    <div class="apply__label__require">必須</div>
+                  </div>
                   <dt><label for="name__kanji">代表者様（漢字）</label></dt>
                   <dd><input id="name__kanji" type="text" name="name__kanji" /></dd>
                 </div>
                 <div class="apply__form__item">
+                  <div class="apply__label">
+                    <div class="apply__label__require">必須</div>
+                  </div>
                   <dt><label for="name__kana">代表者様（フリガナ）</label></dt>
                   <dd><input id="name__kana" type="text" name="name__kana" /></dd>
                 </div>
                 <div class="apply__form__item">
+                  <div class="apply__label">
+                    <div class="apply__label__require">必須</div>
+                  </div>
                   <dt><label for="email">メールアドレス</label></dt>
                   <dd><input id="email" type="email" name="email" /></dd>
                 </div>
                 <div class="apply__form__item">
+                  <div class="apply__label">
+                    <div class="apply__label__require">必須</div>
+                  </div>
                   <dt><label for="tel">電話番号</label></dt>
                   <dd><input id="tel" type="text" name="tel" /></dd>
                 </div>
                 <div class="apply__form__item">
+                  <div class="apply__label">
+                    <div class="apply__label__require">必須</div>
+                  </div>
                   <dt><label for="postcode">郵便番号</label></dt>
                   <dd><input id="postcode" type="text" name="postcode" /></dd>
                 </div>
                 <div class="apply__form__item">
+                  <div class="apply__label">
+                    <div class="apply__label__require">必須</div>
+                  </div>
                   <dt><label for="address">住所</label></dt>
                   <dd><input id="address" type="text" name="address" /></dd>
                 </div>
                 <div class="apply__form__item">
+                  <div class="apply__label">
+                    <div class="apply__label__option">任意</div>
+                  </div>
                   <dt><label for="content">その他自由記述欄</label></dt>
                   <dd>
                     <textarea id="content" type="text" name="content"></textarea>
@@ -89,7 +116,7 @@
 
           <div class="apply__confirm" role="apply" hidden="true">
             <p class="title">
-              新卒エージェント新規登録
+              新卒エージェント新規掲載申請
               <span class="title"> 確認</span>
             </p>
 
