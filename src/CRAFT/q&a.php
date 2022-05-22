@@ -17,7 +17,7 @@
     <div class="container inner">
       <main class="main">
         <p class="title">
-          よくある質問一覧
+          よくある質問
         </p>
         <ul class="accordion_list">
 

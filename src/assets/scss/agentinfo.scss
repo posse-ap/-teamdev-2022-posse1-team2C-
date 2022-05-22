@@ -55,22 +55,31 @@
   &__inner {
     width: 100%;
     display: flex;
+    gap: 20px;
     justify-content: space-between;
-    margin-top: 20px;
+  }
+
+  &__inner__item {
+    width: 400px;
   }
 
   &__inner__item__kinds {
-    margin-bottom: 10px;
+    margin: 40px 0;
+    display: flex;
+    flex-wrap: wrap;
   }
 
   &__inner__item__kind {
+    margin-top: 5px;
+    margin-right: 5px;
     padding: 5px 10px;
     background-color: rgb(59, 248, 157);
     border-radius: 20px;
+    font-size: 13px;
   }
 
   &__inner__item__graph {
-    width: 500px;
+    width: 400px;
     border: 1px solid black;
     display: flex;
     flex-wrap: wrap;
@@ -96,6 +105,14 @@
       background-color: rgb(210, 255, 225);
     }
 
+    dd {
+      &:empty {
+        &:before {
+          content: "-";
+        }
+      }
+    }
+
     dt,
     dd {
       height: 50%;
@@ -104,14 +121,15 @@
   }
 
   &__inner__analysis {
-    width: 200px;
     position: relative;
+    width: calc(100% - 420px);
   }
 
   &__inner__analysis__question {
     width: 25px;
     height: 25px;
     position: absolute;
+    top: 30px;
     right: 0px;
     border: 1px solid black;
     border-radius: 50%;
@@ -121,9 +139,7 @@
   }
 
   &__inner__analysis__contents {
-    border: 2px solid blue;
     margin-top: 30px;
-    height: calc(100% - 25px);
   }
 }
 

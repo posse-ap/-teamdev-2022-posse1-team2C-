@@ -47,20 +47,22 @@
                     <dd>大手企業</dd>
                   </div>
                   <div class="agent__service__inner__item__graph__child">
-                    <dt>公開求人数</dt>
-                    <dd>10000件</dd>
+                    <dt>独自のサービス</dt>
+                    <dd></dd>
                   </div>
                   <div class="agent__service__inner__item__graph__child">
-                    <dt>非公開求人数</dt>
-                    <dd>20000件</dd>
+                    <dt>対応エリア</dt>
+                    <dd></dd>
                   </div>
                 </dl>
               </div>
               <div class="agent__service__inner__analysis">
                 <div class="agent__service__inner__analysis__question">
-                  <p>？</p>
+                  <button>？</button>
                 </div>
-                <div class="agent__service__inner__analysis__contents"></div>
+                <div class="agent__service__inner__analysis__contents">
+                  <canvas id="myRaderChart" width="100%" height="100%"></canvas>
+                </div>
               </div>
             </div>
           </div>
@@ -116,6 +118,8 @@
 
   <script src="../assets/js/jquery-3.6.0.min.js"></script>
   <script src="../assets/js/pagescroll.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+  <script src="../assets/js/chart.js"></script>
 </body>
 
 </html>

@@ -12,24 +12,21 @@ img {
 
 .content {
   background-color: #e0e4eb;
-  padding-top: 150px;
+  padding-top: 130px;
   padding-bottom: 50px;
 }
 .content .container {
   width: calc(100% - 100px);
   margin: 0 auto;
-  display: grid;
-  justify-items: center;
-  grid-template-columns: 3fr 1fr;
+  display: flex;
   gap: 50px;
 }
 
 .main {
   background-color: #ffffff;
-  border-top: 3px solid #26a69a;
   text-align: center;
   padding: 0 20px 50px 20px;
-  width: 100%;
+  width: calc(75% - 50px);
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
@@ -42,7 +39,7 @@ img {
 
 .title {
   padding: 20px 0 20px 20px;
-  margin: 40px 0;
+  margin: 30px 0;
   border-top: 3px solid #26a69a;
   border-bottom: 3px solid #26a69a;
   font-size: 20px;
@@ -52,7 +49,7 @@ img {
 
 .content {
   margin: 0 auto;
-  height: 100vh;
+  min-height: 100vh;
   padding-top: 80px;
 }
 
@@ -117,7 +114,7 @@ img {
 .login__inner__form__button {
   font-size: 18px;
   font-weight: bold;
-  background: rgba(26, 114, 182, 0.234);
+  background: linear-gradient(110.59deg, #1cbcbb 1.51%, #74d18e 124.9%);
   border-radius: 4px;
   min-width: 350px;
   color: #ffffff;
@@ -133,8 +130,8 @@ img {
   margin: 0 auto;
 }
 .login__inner__nav {
-  color: rgba(26, 114, 182, 0.234);
-  border-bottom: 1px solid rgba(26, 114, 182, 0.234);
+  color: blue;
+  border-bottom: 1px solid blue;
 }
 .login__inner__new {
   font-size: 18px;

@@ -4,6 +4,32 @@
 @use "./style" as style;
 @use "./variables" as vb;
 
+.attention {
+  padding: 0 30px;
+  
+  &__title {
+    font-size: 20px;
+    padding: 10px 0;
+  }
+
+  &__inner {
+    background-color: rgb(235, 234, 234);
+    border-radius: 10px;
+    text-align: left;
+    padding: 20px 40px;
+    margin-bottom: 30px;
+  }
+
+  &__inner__item {
+    padding: 10px 0;
+    list-style: circle;
+  }
+
+  a {
+    color: blue;
+  }
+}
+
 .contact {
   &__form {
     margin: 10px 30px 0px 30px;
@@ -20,8 +46,9 @@
 
     dt {
       flex: 0 0 160px;
-      font-size: 12px;
+      font-size: 14px;
       line-height: 30px;
+      text-align: right;
     }
 
     dd {

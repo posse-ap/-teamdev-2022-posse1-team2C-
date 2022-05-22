@@ -2,7 +2,7 @@
 session_start();
 require(dirname(__FILE__) . "../../dbconnect.php");
 
-$agents_stmt = $db->prepare("SELECT name from agents");
+$agents_stmt = $db->prepare("SELECT * from agents");
 $agents_stmt->execute();
 $agents_data = $agents_stmt->fetchAll();
 
@@ -11,25 +11,18 @@ $agents_count_stmt->execute();
 $agents_count_data = $agents_count_stmt->fetchAll();
 $agents_count = $agents_count_data[0]['COUNT(*)'];
 
-$agent_info_stmt = $db->prepare("SELECT feature from agent_info");
-$agent_info_stmt->execute();
-$agent_info_data = $agent_info_stmt->fetchAll();
-
-$scores_stmt = $db->prepare("SELECT score from scores");
-$scores_stmt->execute();
-$scores_data = $scores_stmt->fetchAll();
 
 for ($j = 1; $j <= $agents_count; $j++) {
-  $tags_stmt_[$j] = $db->prepare("SELECT * from agents_tags_mix WHERE agent_id = ?");
-  $tags_stmt_[$j]->bindValue(1, $j);
-  $tags_stmt_[$j]->execute();
-  $tags_data_[$j] = $tags_stmt_[$j]->fetchAll();
+  $agent_supports_stmt_[$j] = $db->prepare("SELECT * from agents_supports_mix WHERE agent_id = ?");
+  $agent_supports_stmt_[$j]->bindValue(1, $j);
+  $agent_supports_stmt_[$j]->execute();
+  $agent_supports_data_[$j] = $agent_supports_stmt_[$j]->fetchAll();
 
-  $agent_tags_count_stmt_[$j] = $db->prepare("SELECT COUNT(tags) from agents_tags_mix WHERE agent_id = ?");
-  $agent_tags_count_stmt_[$j]->bindValue(1, $j);
-  $agent_tags_count_stmt_[$j]->execute();
-  $agent_tags_count_data_[$j] = $agent_tags_count_stmt_[$j]->fetchAll();
-  $agent_tags_count_[$j] = $agent_tags_count_data_[$j][0]['COUNT(tags)'];
+  $agent_supports_count_stmt_[$j] = $db->prepare("SELECT COUNT(support) from agents_supports_mix WHERE agent_id = ?");
+  $agent_supports_count_stmt_[$j]->bindValue(1, $j);
+  $agent_supports_count_stmt_[$j]->execute();
+  $agent_supports_count_data_[$j] = $agent_supports_count_stmt_[$j]->fetchAll();
+  $agent_supports_count_[$j] = $agent_supports_count_data_[$j][0]['COUNT(support)'];
 }
 ?>
 
@@ -116,24 +109,23 @@ for ($j = 1; $j <= $agents_count; $j++) {
                     <img class="img agent__item__img" src="../assets/img/agent.png" alt="企業名" width="300px" style="display: inline" />
                   </li>
                   <li class="agent__item">
-                    <h3 class="agent__item__name"><?php echo $agents_data[$j-1]['name']; ?></h3>
+                    <h3 class="agent__item__name"><?php echo $agents_data[$j - 1]['agent']; ?></h3>
                   </li>
                   <li class="agent__item">
                     <span class="agent__item__title">総合点</span>
-                    <span class="star5_rating" data-rate="<?php echo $scores_data[$j-1]['score']; ?>"></span>
-                    <span class="number_rating"><?php echo $scores_data[$j-1]['score']; ?></span>
+                    <span class="star5_rating" data-rate="<?php echo $agents_data[$j - 1]['service__total']; ?>"></span>
+                    <span class="number_rating"><?php echo $agents_data[$j - 1]['service__total']; ?></span>
                   </li>
 
-
-                  <?php for ($k = 0; $k <= $agent_tags_count_[$j] - 1; $k++) { ?>
-                    <p><?php echo $tags_data_[$j][$k]['tags']; ?></p>
+                  <?php for ($k = 0; $k <= $agent_supports_count_[$j] - 1; $k++) { ?>
+                    <p><?php echo $agent_supports_data_[$j][$k]['support']; ?></p>
                   <?php }; ?>
                   <p></p>
                   <p></p>
                   <p></p>
                   <li class="agent__item">
                     <p class="agent__item__info">
-                      <?php echo $agent_info_data[$j-1]['feature'];; ?>
+                      <?php echo $agents_data[$j - 1]['service__detail'];; ?>
                     </p>
                   </li>
                   <li class="agent__item">
@@ -143,256 +135,6 @@ for ($j = 1; $j <= $agents_count; $j++) {
                 </ul>
               </li>
             <?php }; ?>
-
-            <!-- <li class="agent">
-              <ul class="agent__list">
-                <li class="agent__item">
-                  <img class="img agent__img" src="../assets/img/agent.png" alt="企業名" width="300px" style="display: inline" />
-                </li>
-                <li class="agent__item">
-                  <h3 class="agent__item__name">アンチパターン</h3>
-                </li>
-                <li class="agent__item">
-                  <span class="agent__item__title">総合点</span>
-                  <span class="star5_rating" data-rate="3.8"></span>
-                  <span class="number_rating">3.8</span>
-                </li>
-                <li class="agent__item">
-                  <p class="agent__item__info">
-                    ここにエージェント企業の説明が入ります。ここにエージェント企業の説明が入ります。ここにエージェント企業の説明が入ります。ここにエージェント企業の説明が入ります。ここにエージェント企業の説明が入ります。
-                  </p>
-                </li>
-                <li class="agent__item">
-                  <button class="agent__item__detail">詳細</button>
-                  <button class="agent__item__apply">申し込む</button>
-                </li>
-              </ul>
-            </li>
-
-            <li class="agent">
-              <ul class="agent__list">
-                <li class="agent__item">
-                  <img class="img agent__img" src="../assets/img/agent.png" alt="企業名" width="300px" style="display: inline" />
-                </li>
-                <li class="agent__item">
-                  <h3 class="agent__item__name">アンチパターン</h3>
-                </li>
-                <li class="agent__item">
-                  <span class="agent__item__title">総合点</span>
-                  <span class="star5_rating" data-rate="3.8"></span>
-                  <span class="number_rating">3.8</span>
-                </li>
-                <li class="agent__item">
-                  <p class="agent__item__info">
-                    ここにエージェント企業の説明が入ります。ここにエージェント企業の説明が入ります。ここにエージェント企業の説明が入ります。ここにエージェント企業の説明が入ります。ここにエージェント企業の説明が入ります。
-                  </p>
-                </li>
-                <li class="agent__item">
-                  <button class="agent__item__detail">詳細</button>
-                  <button class="agent__item__apply">申し込む</button>
-                </li>
-              </ul>
-            </li>
-
-            <li class="agent">
-              <ul class="agent__list">
-                <li class="agent__item">
-                  <img class="img agent__img" src="../assets/img/agent.png" alt="企業名" width="300px" style="display: inline" />
-                </li>
-                <li class="agent__item">
-                  <h3 class="agent__item__name">アンチパターン</h3>
-                </li>
-                <li class="agent__item">
-                  <span class="agent__item__title">総合点</span>
-                  <span class="star5_rating" data-rate="3.8"></span>
-                  <span class="number_rating">3.8</span>
-                </li>
-                <li class="agent__item">
-                  <p class="agent__item__info">
-                    ここにエージェント企業の説明が入ります。ここにエージェント企業の説明が入ります。ここにエージェント企業の説明が入ります。ここにエージェント企業の説明が入ります。ここにエージェント企業の説明が入ります。
-                  </p>
-                </li>
-                <li class="agent__item">
-                  <button class="agent__item__detail">詳細</button>
-                  <button class="agent__item__apply">申し込む</button>
-                </li>
-              </ul>
-            </li>
-
-            <li class="agent">
-              <ul class="agent__list">
-                <li class="agent__item">
-                  <img class="img agent__img" src="../assets/img/agent.png" alt="企業名" width="300px" style="display: inline" />
-                </li>
-                <li class="agent__item">
-                  <h3 class="agent__item__name">アンチパターン</h3>
-                </li>
-                <li class="agent__item">
-                  <span class="agent__item__title">総合点</span>
-                  <span class="star5_rating" data-rate="3.8"></span>
-                  <span class="number_rating">3.8</span>
-                </li>
-                <li class="agent__item">
-                  <p class="agent__item__info">
-                    ここにエージェント企業の説明が入ります。ここにエージェント企業の説明が入ります。ここにエージェント企業の説明が入ります。ここにエージェント企業の説明が入ります。ここにエージェント企業の説明が入ります。
-                  </p>
-                </li>
-                <li class="agent__item">
-                  <button class="agent__item__detail">詳細</button>
-                  <button class="agent__item__apply">申し込む</button>
-                </li>
-              </ul>
-            </li>
-
-            <li class="agent">
-              <ul class="agent__list">
-                <li class="agent__item">
-                  <img class="img agent__img" src="../assets/img/agent.png" alt="企業名" width="300px" style="display: inline" />
-                </li>
-                <li class="agent__item">
-                  <h3 class="agent__item__name">アンチパターン</h3>
-                </li>
-                <li class="agent__item">
-                  <span class="agent__item__title">総合点</span>
-                  <span class="star5_rating" data-rate="3.8"></span>
-                  <span class="number_rating">3.8</span>
-                </li>
-                <li class="agent__item">
-                  <p class="agent__item__info">
-                    ここにエージェント企業の説明が入ります。ここにエージェント企業の説明が入ります。ここにエージェント企業の説明が入ります。ここにエージェント企業の説明が入ります。ここにエージェント企業の説明が入ります。
-                  </p>
-                </li>
-                <li class="agent__item">
-                  <button class="agent__item__detail">詳細</button>
-                  <button class="agent__item__apply">申し込む</button>
-                </li>
-              </ul>
-            </li>
-
-            <li class="agent">
-              <ul class="agent__list">
-                <li class="agent__item">
-                  <img class="img agent__img" src="../assets/img/agent.png" alt="企業名" width="300px" style="display: inline" />
-                </li>
-                <li class="agent__item">
-                  <h3 class="agent__item__name">アンチパターン</h3>
-                </li>
-                <li class="agent__item">
-                  <span class="agent__item__title">総合点</span>
-                  <span class="star5_rating" data-rate="3.8"></span>
-                  <span class="number_rating">3.8</span>
-                </li>
-                <li class="agent__item">
-                  <p class="agent__item__info">
-                    ここにエージェント企業の説明が入ります。ここにエージェント企業の説明が入ります。ここにエージェント企業の説明が入ります。ここにエージェント企業の説明が入ります。ここにエージェント企業の説明が入ります。
-                  </p>
-                </li>
-                <li class="agent__item">
-                  <button class="agent__item__detail">詳細</button>
-                  <button class="agent__item__apply">申し込む</button>
-                </li>
-              </ul>
-            </li>
-
-            <li class="agent">
-              <ul class="agent__list">
-                <li class="agent__item">
-                  <img class="img agent__img" src="../assets/img/agent.png" alt="企業名" width="300px" style="display: inline" />
-                </li>
-                <li class="agent__item">
-                  <h3 class="agent__item__name">アンチパターン</h3>
-                </li>
-                <li class="agent__item">
-                  <span class="agent__item__title">総合点</span>
-                  <span class="star5_rating" data-rate="3.8"></span>
-                  <span class="number_rating">3.8</span>
-                </li>
-                <li class="agent__item">
-                  <p class="agent__item__info">
-                    ここにエージェント企業の説明が入ります。ここにエージェント企業の説明が入ります。ここにエージェント企業の説明が入ります。ここにエージェント企業の説明が入ります。ここにエージェント企業の説明が入ります。
-                  </p>
-                </li>
-                <li class="agent__item">
-                  <button class="agent__item__detail">詳細</button>
-                  <button class="agent__item__apply">申し込む</button>
-                </li>
-              </ul>
-            </li>
-
-            <li class="agent">
-              <ul class="agent__list">
-                <li class="agent__item">
-                  <img class="img agent__img" src="../assets/img/agent.png" alt="企業名" width="300px" style="display: inline" />
-                </li>
-                <li class="agent__item">
-                  <h3 class="agent__item__name">アンチパターン</h3>
-                </li>
-                <li class="agent__item">
-                  <span class="agent__item__title">総合点</span>
-                  <span class="star5_rating" data-rate="3.8"></span>
-                  <span class="number_rating">3.8</span>
-                </li>
-                <li class="agent__item">
-                  <p class="agent__item__info">
-                    ここにエージェント企業の説明が入ります。ここにエージェント企業の説明が入ります。ここにエージェント企業の説明が入ります。ここにエージェント企業の説明が入ります。ここにエージェント企業の説明が入ります。
-                  </p>
-                </li>
-                <li class="agent__item">
-                  <button class="agent__item__detail">詳細</button>
-                  <button class="agent__item__apply">申し込む</button>
-                </li>
-              </ul>
-            </li>
-
-            <li class="agent">
-              <ul class="agent__list">
-                <li class="agent__item">
-                  <img class="img agent__img" src="../assets/img/agent.png" alt="企業名" width="300px" style="display: inline" />
-                </li>
-                <li class="agent__item">
-                  <h3 class="agent__item__name">アンチパターン</h3>
-                </li>
-                <li class="agent__item">
-                  <span class="agent__item__title">総合点</span>
-                  <span class="star5_rating" data-rate="3.8"></span>
-                  <span class="number_rating">3.8</span>
-                </li>
-                <li class="agent__item">
-                  <p class="agent__item__info">
-                    ここにエージェント企業の説明が入ります。ここにエージェント企業の説明が入ります。ここにエージェント企業の説明が入ります。ここにエージェント企業の説明が入ります。ここにエージェント企業の説明が入ります。
-                  </p>
-                </li>
-                <li class="agent__item">
-                  <button class="agent__item__detail">詳細</button>
-                  <button class="agent__item__apply">申し込む</button>
-                </li>
-              </ul>
-            </li>
-
-            <li class="agent">
-              <ul class="agent__list">
-                <li class="agent__item">
-                  <img class="img agent__img" src="../assets/img/agent.png" alt="企業名" width="300px" style="display: inline" />
-                </li>
-                <li class="agent__item">
-                  <h3 class="agent__item__name">アンチパターン</h3>
-                </li>
-                <li class="agent__item">
-                  <span class="agent__item__title">総合点</span>
-                  <span class="star5_rating" data-rate="3.8"></span>
-                  <span class="number_rating">3.8</span>
-                </li>
-                <li class="agent__item">
-                  <p class="agent__item__info">
-                    ここにエージェント企業の説明が入ります。ここにエージェント企業の説明が入ります。ここにエージェント企業の説明が入ります。ここにエージェント企業の説明が入ります。ここにエージェント企業の説明が入ります。
-                  </p>
-                </li>
-                <li class="agent__item">
-                  <button class="agent__item__detail">詳細</button>
-                  <button class="agent__item__apply">申し込む</button>
-                </li>
-              </ul>
-            </li> -->
           </ul>
         </section>
       </main>

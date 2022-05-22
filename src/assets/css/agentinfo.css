@@ -3,12 +3,8 @@
   height: auto;
 }
 
-#a {
-  height: auto;
-}
-
 .aside {
-  width: 100%;
+  width: 25%;
 }
 .aside__list {
   width: 100%;
@@ -32,7 +28,9 @@
 }
 .aside__content__item {
   padding: 15px 5px;
-  border-bottom: 1px dotted black;
+}
+.aside__content__item + .aside__content__item {
+  border-top: 1px dotted black;
 }
 .aside .img {
   text-align: center;
@@ -202,7 +200,7 @@
   color: #ffffff;
   margin: 0 auto;
   font-size: 15px;
-  padding: 15px 0;
+  padding-bottom: 10px;
 }
 @media screen and (max-width: 1000px) {
   .header__nav__item {
@@ -224,24 +222,21 @@ img {
 
 .content {
   background-color: #e0e4eb;
-  padding-top: 150px;
+  padding-top: 130px;
   padding-bottom: 50px;
 }
 .content .container {
   width: calc(100% - 100px);
   margin: 0 auto;
-  display: grid;
-  justify-items: center;
-  grid-template-columns: 3fr 1fr;
+  display: flex;
   gap: 50px;
 }
 
 .main {
   background-color: #ffffff;
-  border-top: 3px solid #26a69a;
   text-align: center;
   padding: 0 20px 50px 20px;
-  width: 100%;
+  width: calc(75% - 50px);
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
@@ -254,7 +249,7 @@ img {
 
 .title {
   padding: 20px 0 20px 20px;
-  margin: 40px 0;
+  margin: 30px 0;
   border-top: 3px solid #26a69a;
   border-bottom: 3px solid #26a69a;
   font-size: 20px;
@@ -306,19 +301,27 @@ img {
 .agent__service__inner {
   width: 100%;
   display: flex;
+  gap: 20px;
   justify-content: space-between;
-  margin-top: 20px;
+}
+.agent__service__inner__item {
+  width: 400px;
 }
 .agent__service__inner__item__kinds {
-  margin-bottom: 10px;
+  margin: 40px 0;
+  display: flex;
+  flex-wrap: wrap;
 }
 .agent__service__inner__item__kind {
+  margin-top: 5px;
+  margin-right: 5px;
   padding: 5px 10px;
   background-color: #3bf89d;
   border-radius: 20px;
+  font-size: 13px;
 }
 .agent__service__inner__item__graph {
-  width: 500px;
+  width: 400px;
   border: 1px solid black;
   display: flex;
   flex-wrap: wrap;
@@ -338,19 +341,23 @@ img {
   border-bottom: 1px solid black;
   background-color: #d2ffe1;
 }
+.agent__service__inner__item__graph__child dd:empty:before {
+  content: "-";
+}
 .agent__service__inner__item__graph__child dt,
 .agent__service__inner__item__graph__child dd {
   height: 50%;
   padding: 10px 0;
 }
 .agent__service__inner__analysis {
-  width: 200px;
   position: relative;
+  width: calc(100% - 420px);
 }
 .agent__service__inner__analysis__question {
   width: 25px;
   height: 25px;
   position: absolute;
+  top: 30px;
   right: 0px;
   border: 1px solid black;
   border-radius: 50%;
@@ -359,9 +366,7 @@ img {
   justify-content: center;
 }
 .agent__service__inner__analysis__contents {
-  border: 2px solid blue;
   margin-top: 30px;
-  height: calc(100% - 25px);
 }
 
 .agent__staff {

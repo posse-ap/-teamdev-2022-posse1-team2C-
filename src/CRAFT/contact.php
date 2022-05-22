@@ -20,10 +20,35 @@
           「CRAFT」へのご要望・ご質問
         </p>
 
+        <div class="attention">
+          <p class="attention__title">注意事項</p>
+          <div class="attention__inner">
+            <ul class="attention__inner__list">
+              <li class="attention__inner__item">
+                ご要望・ご質問の前に、<a href="./q&a.php">よくある質問</a>をご確認ください。
+              </li>
+              <li class="attention__inner__item">
+                内容によりましては、お時間を頂戴する場合がございます。
+              </li>
+              <li class="attention__inner__item">
+                皆様からいただいたご要望・ご質問は、必ず目を通しておりますが、個別に返信・対応をお約束するものではございません。あらかじめご了承ください。
+              </li>
+              <li class="attention__inner__item">
+                本フォームは、エージェント企業へのお問い合わせをお受けする窓口ではございません。エージェント企業へのお問い合わせをご希望の方は<a href="./apply.php">こちら</a>からよろしくお願いいたします。
+              <li class="attention__inner__item">
+                いただいた個人情報は、ご要望・ご質問の内容の確認・返信以外には使用いたしません。同意いただいた上のご利用をお願いします。本サービスの個人情報保護方針および、個人情報のお取り扱いについては、<a href="#">こちら</a>よりご確認いただけます。
+              </li>
+              <li class="attention__inner__item">
+                返信内容の二次使用は固くお断りいたします。
+              </li>
+            </ul>
+          </div>
+        </div>
+
         <form action="/" class="contact__form" role="contact__form">
           <dl class="contact__form__list">
             <div class="contact__form__item">
-              <dt><label for="name">氏名</label></dt>
+              <dt><label for="name">お名前</label></dt>
               <dd><input id="name" type="text" name="name"></dd>
             </div>
             <div class="contact__form__item">
@@ -35,11 +60,7 @@
               <dd><input id="tel" type="text" name="tel"></dd>
             </div>
             <div class="contact__form__item">
-              <dt><label for="subject">件名</label></dt>
-              <dd><input id="subject" type="text" name="subject"></dd>
-            </div>
-            <div class="contact__form__item">
-              <dt><label for="content">内容</label></dt>
+              <dt><label for="content">ご要望・ご質問の内容</label></dt>
               <dd><textarea id="content" type="text" name="content"></textarea></dd>
             </div>
             <div class="contact__form__footer">
@@ -68,7 +89,7 @@
   </div>
 
   <?php require  "./capsule/footer.php"; ?>
-  
+
   <script src="../assets/js/contact.js"></script>
 
   <script src="../assets/js/jquery-3.6.0.min.js"></script>
