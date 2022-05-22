@@ -2,8 +2,6 @@
 session_start();
 require('../../dbconnect.php');
 
-
-
 if (!empty($_POST)) {
   $login = $db->prepare('SELECT * FROM agent_login WHERE log_id=? AND password=?');
   $login->execute(array(
