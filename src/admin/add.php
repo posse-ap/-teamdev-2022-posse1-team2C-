@@ -22,7 +22,7 @@ $array_staff_forms = [
 ];
 
 $array_staff_message = [
-  '担当者様氏名(漢字)', '担当者様氏名(フリガナ)', '電話番号', 'メールアドレス','部署', '担当者紹介文'
+  '担当者様氏名(漢字)', '担当者様氏名(フリガナ)', '電話番号', 'メールアドレス', '部署', '担当者紹介文'
 ];
 $staff_forms_length = count($array_staff_forms);
 for ($i = 0; $i < $staff_forms_length; $i++) {
@@ -34,7 +34,7 @@ $array_service_forms = [
   'service__name', 'service__aria', 'service__unique', 'service__detail'
 ];
 $array_service_message = [
-  'サービス名', '対応エリア','独自のサービス', 'サービス紹介'
+  'サービス名', '対応エリア', '独自のサービス', 'サービス紹介'
 ];
 $service_forms_length = count($array_service_forms);
 for ($i = 0; $i < $service_forms_length; $i++) {
@@ -203,8 +203,6 @@ clientscales_id="' . $_POST['service__client__scale'][$j] . '"
     }
     header('Location: http://localhost/admin/add.php');
     exit;
-
-    
   }
 }
 ?>
