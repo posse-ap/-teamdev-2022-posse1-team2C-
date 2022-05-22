@@ -256,7 +256,7 @@ clientscales_id="' . $_POST['service__client__scale'][$j] . '"
                 }
                 ?>
                 <div class="apply__form__item">
-                  <dt><label for="name__kanji">代表者様（漢字）</label></dt>
+                  <dt><label for="name__kanji">代表者様氏名</label></dt>
                   <dd><input id="name__kanji" type="text" name="name__kanji" value="<?php echo $_SESSION['name__kanji']; ?>" /></dd>
                 </div>
                 <?php
@@ -267,7 +267,7 @@ clientscales_id="' . $_POST['service__client__scale'][$j] . '"
                 }
                 ?>
                 <div class="apply__form__item">
-                  <dt><label for="name__kana">代表者様（フリガナ）</label></dt>
+                  <dt><label for="name__kana">代表者様氏名（フリガナ）</label></dt>
                   <dd><input id="name__kana" type="text" name="name__kana" value="<?php echo $_SESSION['name__kana']; ?>" /></dd>
                 </div>
                 <?php
@@ -590,7 +590,7 @@ clientscales_id="' . $_POST['service__client__scale'][$j] . '"
                 }
                 ?>
                 <div class="apply__form__item">
-                  <dt><label for="service__reaction">対応するの良さ</label></dt>
+                  <dt><label for="service__reaction">対応の良さ</label></dt>
                   <dd>
                     <div class="apply__form__item__select">
                       <select id="service__reaction" name="service__reaction">

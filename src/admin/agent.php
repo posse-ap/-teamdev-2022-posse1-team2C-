@@ -59,10 +59,6 @@
                   <dd>ES添削・特別選考</dd>
                 </div>
                 <div class="agent__info__contents">
-                  <dt>得意分野</dt>
-                  <dd>IT系・コンサル</dd>
-                </div>
-                <div class="agent__info__contents">
                   <dt>エージェント企業の規模</dt>
                   <dd>ベンチャー企業</dd>
                 </div>
@@ -71,12 +67,12 @@
                   <dd>ベンチャー企業</dd>
                 </div>
                 <div class="agent__info__contents">
-                  <dt>公開求人数</dt>
-                  <dd>10000</dd>
+                  <dt>対応エリア</dt>
+                  <dd>全国</dd>
                 </div>
                 <div class="agent__info__contents">
-                  <dt>非公開求人数</dt>
-                  <dd>20000</dd>
+                  <dt>独自のサービス</dt>
+                  <dd>ああああああああああああ</dd>
                 </div>
                 <div class="agent__info__contents">
                   <dt>総合評価</dt>
@@ -111,7 +107,7 @@
                   <dd>湯山トモハル</dd>
                 </div>
                 <div class="agent__info__contents">
-                  <dt>担当者氏名フリガナ</dt>
+                  <dt>担当者氏名（フリガナ）</dt>
                   <dd>ユヤマトモハル</dd>
                 </div>
                 <div class="agent__info__contents">
@@ -119,7 +115,7 @@
                   <dd>09011111111</dd>
                 </div>
                 <div class="agent__info__contents">
-                  <dt>連絡先メールアドレス</dt>
+                  <dt>メールアドレス</dt>
                   <dd>posse@keio.com</dd>
                 </div>
                 <div class="agent__info__contents">
@@ -142,7 +138,7 @@
                   <dd>湯山トモハル</dd>
                 </div>
                 <div class="agent__info__contents">
-                  <dt>担当者氏名フリガナ</dt>
+                  <dt>担当者氏名（カタカナ）</dt>
                   <dd>ユヤマトモハル</dd>
                 </div>
                 <div class="agent__info__contents">
@@ -150,7 +146,7 @@
                   <dd>09011111111</dd>
                 </div>
                 <div class="agent__info__contents">
-                  <dt>連絡先メールアドレス</dt>
+                  <dt>メールアドレス</dt>
                   <dd>posse@keio.com</dd>
                 </div>
                 <div class="agent__info__contents">
@@ -172,16 +168,16 @@
                 <dd>マイナビ</dd>
               </div>
               <div class="agent__info__contents">
-                <dt>企業HP（URL）</dt>
-                <dd><a href="#">マイナビのHPへ</a></dd>
-              </div>
-              <div class="agent__info__contents">
                 <dt>代表者氏名</dt>
                 <dd>湯山トモハル</dd>
               </div>
               <div class="agent__info__contents">
-                <dt>代表者氏名フリガナ</dt>
+                <dt>代表者氏名（フリガナ））</dt>
                 <dd>ユヤマトモハル</dd>
+              </div>
+              <div class="agent__info__contents">
+                <dt>URL（企業HP）</dt>
+                <dd><a href="#">マイナビのHPへ</a></dd>
               </div>
               <div class="agent__info__contents">
                 <dt>郵便番号</dt>
