@@ -1,36 +1,37 @@
 <?php
-session_start();
-require(dirname(__FILE__) . "../../dbconnect.php");
+phpinfo();
+// session_start();
+// require(dirname(__FILE__) . "../../dbconnect.php");
 
-$agents_stmt = $db->prepare("SELECT name from agents");
-$agents_stmt->execute();
-$agents_data = $agents_stmt->fetchAll();
+// $agents_stmt = $db->prepare("SELECT name from agents");
+// $agents_stmt->execute();
+// $agents_data = $agents_stmt->fetchAll();
 
-$agents_count_stmt = $db->prepare("SELECT COUNT(*) from agents");
-$agents_count_stmt->execute();
-$agents_count_data = $agents_count_stmt->fetchAll();
-$agents_count = $agents_count_data[0]['COUNT(*)'];
+// $agents_count_stmt = $db->prepare("SELECT COUNT(*) from agents");
+// $agents_count_stmt->execute();
+// $agents_count_data = $agents_count_stmt->fetchAll();
+// $agents_count = $agents_count_data[0]['COUNT(*)'];
 
-$agent_info_stmt = $db->prepare("SELECT feature from agent_info");
-$agent_info_stmt->execute();
-$agent_info_data = $agent_info_stmt->fetchAll();
+// $agent_info_stmt = $db->prepare("SELECT feature from agent_info");
+// $agent_info_stmt->execute();
+// $agent_info_data = $agent_info_stmt->fetchAll();
 
-$scores_stmt = $db->prepare("SELECT score from scores");
-$scores_stmt->execute();
-$scores_data = $scores_stmt->fetchAll();
+// $scores_stmt = $db->prepare("SELECT score from scores");
+// $scores_stmt->execute();
+// $scores_data = $scores_stmt->fetchAll();
 
-for ($j = 1; $j <= $agents_count; $j++) {
-  $tags_stmt_[$j] = $db->prepare("SELECT * from agents_tags_mix WHERE agent_id = ?");
-  $tags_stmt_[$j]->bindValue(1, $j);
-  $tags_stmt_[$j]->execute();
-  $tags_data_[$j] = $tags_stmt_[$j]->fetchAll();
+// for ($j = 1; $j <= $agents_count; $j++) {
+//   $tags_stmt_[$j] = $db->prepare("SELECT * from agents_tags_mix WHERE agent_id = ?");
+//   $tags_stmt_[$j]->bindValue(1, $j);
+//   $tags_stmt_[$j]->execute();
+//   $tags_data_[$j] = $tags_stmt_[$j]->fetchAll();
 
-  $agent_tags_count_stmt_[$j] = $db->prepare("SELECT COUNT(tags) from agents_tags_mix WHERE agent_id = ?");
-  $agent_tags_count_stmt_[$j]->bindValue(1, $j);
-  $agent_tags_count_stmt_[$j]->execute();
-  $agent_tags_count_data_[$j] = $agent_tags_count_stmt_[$j]->fetchAll();
-  $agent_tags_count_[$j] = $agent_tags_count_data_[$j][0]['COUNT(tags)'];
-}
+//   $agent_tags_count_stmt_[$j] = $db->prepare("SELECT COUNT(tags) from agents_tags_mix WHERE agent_id = ?");
+//   $agent_tags_count_stmt_[$j]->bindValue(1, $j);
+//   $agent_tags_count_stmt_[$j]->execute();
+//   $agent_tags_count_data_[$j] = $agent_tags_count_stmt_[$j]->fetchAll();
+//   $agent_tags_count_[$j] = $agent_tags_count_data_[$j][0]['COUNT(tags)'];
+// }
 ?>
 
 <!DOCTYPE html>

@@ -77,6 +77,7 @@ if (isset($_POST['back']) && $_POST['back']) {
         $_SESSION[$array_forms[$i]] = "";
     }
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="ja">
