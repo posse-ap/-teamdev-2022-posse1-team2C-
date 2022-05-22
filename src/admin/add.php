@@ -400,7 +400,7 @@ clientscales_id="' . $_POST['service__client__scale'][$j] . '"
 
                 <div class="apply__form__item">
                   <dt><label for="email">連絡先メールアドレス</label></dt>
-                  <dd><input id="email" type="email" name="contact__email" value="<?php echo $_SESSION['contact__email']; ?>" /></dd>
+                  <dd><input id="contact__email" type="email" name="contact__email" value="<?php echo $_SESSION['contact__email']; ?>" /></dd>
                 </div>
                 <?php
                 if ($errmessage_agent) {
@@ -684,7 +684,7 @@ clientscales_id="' . $_POST['service__client__scale'][$j] . '"
                 }
                 ?>
                 <div class="apply__form__item">
-                  <dt><label for="service__detail">サービス紹介</label></dt>
+                  <dt><label for="service__detail">サービスの特徴</label></dt>
                   <dd><textarea name="service__detail" id="service__detail"><?php echo $_SESSION['service__detail']; ?></textarea></dd>
                 </div>
               </dl>
