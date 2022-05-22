@@ -1,0 +1,122 @@
+@use "./aside" as aside;
+@use "./footer" as footer;
+@use "./header-user" as header;
+@use "./variables" as vb;
+@use "./style" as style;
+
+.diagnosis__category {
+  &__title {
+    font-weight: bold;
+    padding: 5px 0 5px 30px;
+    margin: 30px 0;
+    border-left: 5px solid rgb(254, 42, 254);
+    color: rgb(254, 42, 254);
+    font-size: 20px;
+    text-align: left;
+  }
+
+  &__first {
+    width: 95%;
+    margin: 0 auto;
+  }
+
+  &__first__item {
+    display: flex;
+    width: 100%;
+    font-size: 13px;
+    height: 50px;
+
+    dt {
+      width: 35%;
+      display: flex;
+      align-items: center;
+      padding: 0 5px;
+      text-align: left;
+    }
+
+    dd {
+      width: 65%;
+      display: flex;
+
+      label {
+        width: 25%;
+        text-align: left;
+        display: flex;
+        align-items: center;
+      }
+    }
+  }
+
+  &__list {
+    border: 1px solid black;
+    width: 95%;
+    margin: 0 auto;
+  }
+
+  &__item {
+    display: flex;
+    width: 100%;
+    font-size: 13px;
+    height: 70px;
+
+    &:not(:first-child):nth-of-type(2n + 1) {
+      background-color: rgb(200, 200, 200);
+    }
+
+    &:first-child {
+      border-bottom: 1px solid black;
+    }
+
+    dt {
+      width: 35%;
+      display: flex;
+      align-items: center;
+      border-right: 1px solid black;
+      padding: 0 5px;
+      text-align: left;
+    }
+
+    dd {
+      width: 65%;
+      display: flex;
+
+      label {
+        width: 20%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        & + label {
+          border-left: 1px solid black;
+        }
+      }
+    }
+  }
+
+  &__item__title {
+    width: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 3px;
+
+    & + & {
+      border-left: 1px solid black;
+    }
+  }
+}
+
+.button{
+  background-color: rgb(254, 42, 254);
+  width: 200px;
+  border-radius: 10px;
+  padding: 20px 0;
+  margin: 50px auto;
+  
+  button {
+    color: white;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+}
