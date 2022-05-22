@@ -65,7 +65,7 @@
                 </div>
                 <div class="apply__form__item">
                   <dt><label for="email">連絡先メールアドレス</label></dt>
-                  <dd><input id="email" type="email" name="email" /></dd>
+                  <dd><input id="contact__email" type="email" name="contact__email" /></dd>
                 </div>
                 <div class="apply__form__item">
                   <dt><label for="agent__detail">企業紹介</label></dt>
@@ -100,10 +100,6 @@
                 <div class="apply__form__item">
                   <dt><label for="service__name">サービス名</label></dt>
                   <dd><input id="service__name" type="text" name="service__name" /></dd>
-                </div>
-                <div class="apply__form__item">
-                  <dt><label for="service__intro">サービス紹介</label></dt>
-                  <dd><input class="textbox" id="service__intro" type="text" name="service__intro" /></dd>
                 </div>
                 <div class="apply__form__item">
                   <dt>サポート内容</dt>
@@ -458,7 +454,7 @@
                   </dd>
                 </div>
                 <div class="apply__form__item">
-                  <dt><label for="service__detail">サービス紹介</label></dt>
+                  <dt><label for="service__detail">サービスの特徴</label></dt>
                   <dd><textarea name="service__detail" id="service__detail"></textarea></dd>
                 </div>
               </dl>
