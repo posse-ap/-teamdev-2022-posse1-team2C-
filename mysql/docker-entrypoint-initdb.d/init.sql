@@ -413,21 +413,60 @@ VALUES
     'キャリアチケットは、紹介企業を平均5社としています。何十件も受けるのではなく、本当に自分に合った企業とだけ選考を進めてくれるので、余計な労力と時間を省けます。そして、厳選された優良求人だけを扱っています。独自の基準で紹介企業を絞っているため、ホワイトな職場を求めている人におすすめです。'
   );
 
-DROP TABLE IF EXISTS students_agent_connect;
+DROP TABLE IF EXISTS students_agents_connect;
 
-CREATE TABLE students_agent_connect (apply_id INT, agent_id INT);
+CREATE TABLE students_agents_connect (apply_id INT, agent_id INT);
 
 INSERT INTO
-  students_agent_connect
+  students_agents_connect
 VALUES
-  (1, 1),
-  (1, 2),
-  (2, 2),
-  (2, 3),
-  (3, 1),
-  (3, 2),
-  (4, 1),
-  (5, 2);
+  (1,1),
+  (1,2),
+  (1,3),
+  (1,4),
+  (1,5),
+  (1,6),
+  (1,7),
+  (1,8),
+  (1,9),
+  (1,10),
+  (2,2),
+  (2,3),
+  (2,5),
+  (2,7),
+  (2,9),
+  (2,10),
+  (2,11),
+  (2,12),
+  (3,1),
+  (3,2),
+  (3,4),
+  (3,6),
+  (3,7),
+  (3,8),
+  (3,11),
+  (3,12),
+  (4,1),
+  (4,2),
+  (4,3),
+  (4,4),
+  (4,5),
+  (4,6),
+  (4,7),
+  (4,8),
+  (4,9),
+  (4,10),
+  (4,11),
+  (5,1),
+  (5,2),
+  (5,3),
+  (5,4),
+  (5,7),
+  (5,8),
+  (5,9),
+  (5,10),
+  (5,11),
+  (5,12);
 
 DROP TABLE IF EXISTS students_agents_mix;
 
@@ -450,7 +489,7 @@ SELECT
   agent_id
 FROM
   students
-  join students_agent_connect on id = apply_id;
+  join students_agents_connect on id = apply_id;
 
 DROP TABLE IF EXISTS supports;
 
@@ -752,3 +791,63 @@ INSERT INTO
 SET
   log_id = 'test2@posse-ap.com',
   password = sha1('password2');
+
+INSERT INTO
+  agent_login
+SET
+  log_id = 'test3@posse-ap.com',
+  password = sha1('password3');
+
+INSERT INTO
+  agent_login
+SET
+  log_id = 'test4@posse-ap.com',
+  password = sha1('password4');
+
+INSERT INTO
+  agent_login
+SET
+  log_id = 'test5@posse-ap.com',
+  password = sha1('password5');
+
+INSERT INTO
+  agent_login
+SET
+  log_id = 'test6@posse-ap.com',
+  password = sha1('password6');
+
+INSERT INTO
+  agent_login
+SET
+  log_id = 'test7@posse-ap.com',
+  password = sha1('password7');
+
+INSERT INTO
+  agent_login
+SET
+  log_id = 'test8@posse-ap.com',
+  password = sha1('password8');
+
+INSERT INTO
+  agent_login
+SET
+  log_id = 'test9@posse-ap.com',
+  password = sha1('password9');
+
+INSERT INTO
+  agent_login
+SET
+  log_id = 'test10@posse-ap.com',
+  password = sha1('password10');
+
+INSERT INTO
+  agent_login
+SET
+  log_id = 'test11@posse-ap.com',
+  password = sha1('password11');
+
+INSERT INTO
+  agent_login
+SET
+  log_id = 'test12@posse-ap.com',
+  password = sha1('password12');
