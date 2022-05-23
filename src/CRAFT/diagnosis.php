@@ -17,9 +17,23 @@
     <div class="container inner">
       <main class="main">
         <p class="title">
-          あなたにオススメのエージェント企業は？
+          エージェント企業診断 TEST
         </p>
         <div class="main__inner">
+          <div class="start">
+            <div class="start__inner">
+              <span class="start__inner__balloon">1分でできる！</span>
+              <div class="start__inner__text">
+                自分に合ったエージェント企業を<br>無料診断
+              </div>
+              <div class="start__inner__button">
+                <button>さっそく始める</button>
+              </div>
+            </div>
+            <div class="start__img">
+              <img src="../assets/img/diagnosis.png" alt="メイン画面" width="950px" height="600px">
+            </div>
+          </div>
           <ul class="diagnosis">
             <li class="diagnosis__category">
               <p class="diagnosis__category__title">現在の状況</p>
@@ -228,7 +242,7 @@
                 </div>
               </dl>
             </li>
-            <li class="button">
+            <li class="diagnosis__button">
               <button>診断結果を見る</button>
             </li>
           </ul>

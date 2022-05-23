@@ -257,6 +257,51 @@ img {
   text-align: left;
 }
 
+.start {
+  display: flex;
+}
+.start__inner {
+  background: linear-gradient(110.59deg, #1cbcbb 1.51%, #74d18e 124.9%);
+  width: 300px;
+}
+.start__inner__balloon {
+  margin-top: 30px;
+  display: inline-block;
+  position: relative;
+  left: -20px;
+  margin-bottom: 18px;
+  padding: 10px 20px;
+  color: white;
+  font-size: 15px;
+  text-align: left;
+  border-radius: 15px;
+  background-color: #f27be6;
+}
+.start__inner__balloon::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 40px;
+  height: 0;
+  width: 0;
+  border: 10px solid transparent;
+  border-top: 15px solid #f27be6;
+}
+.start__inner__text {
+  color: #FAF9D0;
+}
+.start__inner__button button {
+  margin: 30px 20px 0 20px;
+  padding: 10px 20px;
+  color: white;
+  font-size: 20px;
+  border: 1px solid;
+  border-radius: 30px;
+}
+.start__img {
+  width: calc(100% - 300px);
+}
+
 .diagnosis__category__title {
   font-weight: bold;
   padding: 5px 0 5px 30px;
@@ -342,14 +387,12 @@ img {
   border-left: 1px solid black;
 }
 
-.button {
+.diagnosis__button button {
   background-color: #fe2afe;
   width: 200px;
   border-radius: 10px;
   padding: 20px 0;
   margin: 50px auto;
-}
-.button button {
   color: white;
   font-size: 16px;
   font-weight: 600;
