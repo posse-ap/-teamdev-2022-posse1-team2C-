@@ -41,33 +41,33 @@
                 <div class="diagnosis__category__first__item">
                   <dt>卒業年度</dt>
                   <dd>
-                    <label><input type="radio" name="graduation" value="23卒">23卒</label>
-                    <label><input type="radio" name="graduation" value="24卒">24卒</label>
-                    <label><input type="radio" name="graduation" value="25卒">25卒</label>
-                    <label><input type="radio" name="graduation" value="26卒">26卒</label>
+                    <label><input type="radio" name="basic_1" value="23卒">23卒</label>
+                    <label><input type="radio" name="basic_1" value="24卒">24卒</label>
+                    <label><input type="radio" name="basic_1" value="25卒">25卒</label>
+                    <label><input type="radio" name="basic_1" value="26卒">26卒</label>
                   </dd>
                 </div>
                 <div class="diagnosis__category__first__item">
                   <dt>居住地</dt>
                   <dd>
-                    <label><input type="radio" name="address" value="関東">関東</label>
-                    <label><input type="radio" name="address" value="それ以外">それ以外</label>
+                    <label><input type="radio" name="basic_2" value="関東">関東</label>
+                    <label><input type="radio" name="basic_2" value="それ以外">それ以外</label>
                   </dd>
                 </div>
                 <div class="diagnosis__category__first__item">
                   <dt>既に得た内定</dt>
                   <dd>
-                    <label><input type="radio" name="obtain" value="1つ">1つ</label>
-                    <label><input type="radio" name="obtain" value="2つ以上">2つ以上</label>
-                    <label><input type="radio" name="obtain" value="なし">なし</label>
+                    <label><input type="radio" name="basic_3" value="1つ">1つ</label>
+                    <label><input type="radio" name="basic_3" value="2つ以上">2つ以上</label>
+                    <label><input type="radio" name="basic_3" value="なし">なし</label>
                   </dd>
                 </div>
                 <div class="diagnosis__category__first__item">
                   <dt>インターンシップについて</dt>
                   <dd>
-                    <label><input type="radio" name="intern" value="現在経験中">現在経験中</label>
-                    <label><input type="radio" name="intern" value="過去に経験あり">過去に経験あり</label>
-                    <label><input type="radio" name="intern" value="経験なし">経験なし</label>
+                    <label><input type="radio" name="basic_4" value="現在経験中">現在経験中</label>
+                    <label><input type="radio" name="basic_4" value="過去に経験あり">過去に経験あり</label>
+                    <label><input type="radio" name="basic_4" value="経験なし">経験なし</label>
                   </dd>
                 </div>
               </dl>
@@ -242,7 +242,7 @@
                 </div>
               </dl>
             </li>
-            <li class="diagnosis__button">
+            <li class="diagnosis__button" id="submit__button">
               <button>診断結果を見る</button>
             </li>
           </ul>
@@ -256,7 +256,7 @@
   <?php require  "./capsule/footer.php"; ?>
 
   <script src="../assets/js/jquery-3.6.0.min.js"></script>
-  <script src="../assets/js/q&a.js"></script>
+  <script src="../assets/js/diagnosis.js"></script>
   <script src="../assets/js/pagescroll.js"></script>
 </body>
 
