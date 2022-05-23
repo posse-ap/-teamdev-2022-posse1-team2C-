@@ -65,10 +65,7 @@ if (!empty($_POST)) {
           <hr class="login__inner__border">
           </hr>
           <p class="login__inner__text">
-            ログインID・パスワードをお持ちでない方は
-            <a href="#" class="login__inner__nav">
-              こちら
-            </a>
+            ↓ログインID・パスワードをお持ちでない方はこちら↓
           </p>
           <a href="./apply.php">
             <button class="login__inner__new">

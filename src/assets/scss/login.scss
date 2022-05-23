@@ -3,7 +3,7 @@
 
 .content {
   margin: 0 auto;
-  height: 100vh;
+  min-height: 100vh;
   padding-top: 80px;
 }
 
@@ -80,7 +80,11 @@
   &__form__button {
     font-size: 18px;
     font-weight: bold;
-    background: vb.$color_accent;
+    background: linear-gradient(
+      110.59deg,
+      rgb(28, 188, 187) 1.51%,
+      rgb(116, 209, 142) 124.9%
+    );
     border-radius: 4px;
     min-width: 350px;
     color: vb.$color_white;
@@ -99,8 +103,8 @@
   }
 
   &__nav {
-    color: vb.$color_accent;
-    border-bottom: 1px solid vb.$color_accent;
+    color: blue;
+    border-bottom: 1px solid blue;
   }
 
   &__new {

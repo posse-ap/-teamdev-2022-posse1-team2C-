@@ -276,7 +276,7 @@ stepBar
 .stepbar {
   display: flex;
   width: 100%;
-  margin: 0 auto;
+  margin: 0 auto 40px auto;
   padding: 0;
   list-style: none;
 }
@@ -386,6 +386,24 @@ stepBar
 /* ==============
 apply__form
 =============== */
+.apply__label {
+  flex: 0 0 10%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.apply__label div {
+  border-radius: 20px;
+  padding: 5px 10px;
+  color: white;
+  border-radius: 10px;
+}
+.apply__label__option {
+  background-color: blue;
+}
+.apply__label__require {
+  background-color: red;
+}
 .apply__form {
   margin: 10px 30px 0px 30px;
 }
@@ -396,9 +414,12 @@ apply__form
   margin-top: 18px;
 }
 .apply__form__item dt {
-  flex: 0 0 160px;
+  flex: 0 0 140px;
   font-size: 12px;
-  line-height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  text-align: left;
 }
 .apply__form__item dd {
   flex: 0 1 100%;
@@ -464,7 +485,7 @@ apply__form
   margin-top: 20px;
   font-size: 18px;
   font-weight: bold;
-  background: rgba(26, 114, 182, 0.234);
+  background: linear-gradient(110.59deg, #1cbcbb 1.51%, #74d18e 124.9%);
   border-radius: 4px;
   min-width: 350px;
   color: #ffffff;
