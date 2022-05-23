@@ -43,7 +43,7 @@
                     <dd>ベンチャー企業</dd>
                   </div>
                   <div class="agent__service__inner__item__graph__child">
-                    <dt>取引先企業の規模</dt>
+                    <dt>紹介先企業の規模</dt>
                     <dd>大手企業</dd>
                   </div>
                   <div class="agent__service__inner__item__graph__child">
