@@ -316,8 +316,9 @@ img {
   margin-top: 5px;
   margin-right: 5px;
   padding: 5px 10px;
-  background-color: #3bf89d;
+  background-color: #11b767;
   border-radius: 20px;
+  color: white;
   font-size: 13px;
 }
 .agent__service__inner__item__graph {
@@ -364,6 +365,7 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #f6bdf6;
 }
 .agent__service__inner__analysis__contents {
   margin-top: 30px;
