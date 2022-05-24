@@ -63,7 +63,7 @@
                   <dd>ベンチャー企業</dd>
                 </div>
                 <div class="agent__info__contents">
-                  <dt>取引先企業の規模</dt>
+                  <dt>紹介先企業の規模</dt>
                   <dd>ベンチャー企業</dd>
                 </div>
                 <div class="agent__info__contents">
