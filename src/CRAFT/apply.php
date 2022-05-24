@@ -93,6 +93,9 @@ if (isset($_POST['back']) && $_POST['back']) {
 
 <body>
     <?php require  "./capsule/header.php"; ?>
+    <script>
+        document.getElementById("apply").classList.add("active")
+    </script>
 
     <div class="content">
 

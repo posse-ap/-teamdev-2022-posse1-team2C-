@@ -12,6 +12,9 @@
 
 <body>
   <?php require  "./capsule/header.php"; ?>
+  <script>
+    document.getElementById("q&a").classList.add("active")
+  </script>
 
   <div class="content">
     <div class="container inner">
