@@ -198,14 +198,19 @@
 }
 .header__nav__item {
   color: #ffffff;
-  margin: 0 auto;
   font-size: 15px;
-  padding-bottom: 10px;
+  font-weight: bold;
+  padding: 0 10px 10px 10px;
+  margin-bottom: 10px;
 }
 @media screen and (max-width: 1000px) {
   .header__nav__item {
     font-size: 12px;
   }
+}
+
+.active {
+  border-bottom: white 3px solid;
 }
 
 body {

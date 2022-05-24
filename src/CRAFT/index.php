@@ -40,6 +40,9 @@ for ($j = 1; $j <= $agents_count; $j++) {
 
 <body>
   <?php require  "./capsule/header.php"; ?>
+  <script>
+    document.getElementById("index").classList.add("active")
+  </script>
 
   <div class="content">
     <div class="container inner">

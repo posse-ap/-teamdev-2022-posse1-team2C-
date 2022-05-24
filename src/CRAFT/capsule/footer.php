@@ -24,12 +24,10 @@
     <li class="footer__item">
       <p class="nav__title">CRAFT</p>
       <ul class="nav__list">
-        <li class="nav__item"><a href="#">「CRAFT」とは</ a></li>
-        <li class="nav__item"><a href="#">エージェント企業を探す</a></li>
-        <li class="nav__item"><a href="../apply.php">エージェント企業にお問い合わせ</a></li>
-        <li class="nav__item"><a href="../q&a.php">よくある質問</a></li>
-        <li class="nav__item"><a href="#">ご利用方法</a></li>
-        <li class="nav__item"><a href="../agent/login.php">エージェント企業の方へ</a></li>
+        <li class="nav__item"><a href="/CRAFT/index.php">エージェント企業を探す</a></li>
+        <li class="nav__item"><a href="/CRAFT/apply.php">エージェント企業にお問い合わせ</a></li>
+        <li class="nav__item"><a href="/CRAFT/q&a.php">よくある質問</a></li>
+        <li class="nav__item"><a href="/CRAFT/agent/index.php">エージェント企業の方はこちら</a></li>
       </ul>
     </li>
     <li class="footer__item">

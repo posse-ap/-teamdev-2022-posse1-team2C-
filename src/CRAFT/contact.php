@@ -12,6 +12,9 @@
 
 <body>
   <?php require  "./capsule/header.php"; ?>
+  <script>
+    document.getElementById("contact").classList.add("active")
+  </script>
 
   <div class="content">
     <div class="container inner">
