@@ -75,9 +75,6 @@
 }
 .footer__item {
   text-align: left;
-  min-width: -webkit-fit-content;
-  min-width: -moz-fit-content;
-  min-width: fit-content;
   width: calc((90% - 240px) / 4);
 }
 .footer__copyright {
