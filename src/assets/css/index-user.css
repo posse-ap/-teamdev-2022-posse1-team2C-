@@ -192,6 +192,7 @@
   display: flex;
   justify-content: space-between;
   max-width: 1200px;
+  padding: 0 20px;
 }
 .header__nav__item {
   color: #ffffff;
@@ -304,21 +305,60 @@ agent
   margin: 0 20px;
 }
 
+#img__height {
+  height: 100%;
+  width: auto;
+}
+
 .agent {
   width: calc((100% - 24px) / 3);
   text-align: left;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  position: relative;
+  padding-bottom: 45px;
 }
 .agent__item {
   padding: 0 10px;
+  font-size: 12px;
 }
 .agent__item:first-child {
   padding: 0;
+}
+.agent__item:last-child {
+  display: flex;
+  justify-content: space-between;
+  margin: 0px 5px 10px 5px;
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+  display: flex;
+  justify-content: space-between;
+}
+.agent__item__img {
+  height: 150px;
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .agent__item__name {
   font-weight: 800;
   font-size: 20px;
   padding: 10px 0 10px 4px;
+}
+.agent__item__support {
+  display: flex;
+  flex-wrap: wrap;
+}
+.agent__item__support__content {
+  font-weight: bolder;
+  margin: 2px;
+  padding: 3px 6px;
+  border-radius: 20px;
+  border: 1px solid black;
+  cursor: pointer;
+  color: cadetblue;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 1px 2px 10px 1px;
 }
 .agent__item__info {
   font-size: 10px;
@@ -331,11 +371,6 @@ agent
   font-size: 12px;
   width: 45%;
   text-align: center;
-}
-.agent__item:last-child {
-  display: flex;
-  justify-content: space-between;
-  margin: 0px 5px 10px 5px;
 }
 .agent__item__apply {
   background-color: rgba(26, 114, 182, 0.234);
