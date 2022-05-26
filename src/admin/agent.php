@@ -31,6 +31,14 @@
           <li class="nav-item">
             <a class="nav-link active" id="home-tab" data-toggle="tab" href="#agent1" role="tab" aria-controls="home" aria-selected="true">エージェント企業1</a>
           </li>
+          <!-- 31~33agent企業１の上のタブに対応 -->
+          <!-- 一番最初の32のクラスのactiveをつける -->
+          <!-- data-toggle,roleは全部一緒 -->
+          <!-- idは無 -->
+          <!-- idは無 -->
+          <!-- aria-controlsはをherf(#無し)と一致させる今だとagent1 -->
+          <!-- 1番最初の aria-selectedがtrueで他はfalse-->
+          <!-- aタグの中に企業名-->
           <li class="nav-item">
             <a class="nav-link" id="profile-tab" data-toggle="tab" href="#agent2" role="tab" aria-controls="profile" aria-selected="false">エージェント企業2</a>
           </li>
@@ -40,6 +48,8 @@
         </ul>
         <div class="tab-content border border-top-0 p-5 mb-3" id="myTabContent">
           <div class="tab-pane fade show active" id="agent1" role="tabpanel">
+            <!-- roleは全てtabpanel -->
+            <!-- classはtab-pane fadeを全てに着けて、show activeを1番最初にだけつける -->
             <div class="agent__title">サービス詳細</div>
             <div class="agent__staff">
               <div class="agent__staff__img">
@@ -205,6 +215,7 @@
               </div>
             </dl>
           </div>
+          <!-- tab-content border border-top-0 p-5 mb-3のidと31行目hrefを一致させる(今だとagent1) -->
           <div class="tab-pane fade" id="agent2" role="tabpanel"></div>
           <div class="tab-pane fade" id="agent3" role="tabpanel"></div>
         </div>
