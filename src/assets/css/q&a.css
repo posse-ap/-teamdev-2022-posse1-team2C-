@@ -210,6 +210,10 @@
   border-bottom: white 3px solid;
 }
 
+.hamburger__nav {
+  display: none;
+}
+
 body {
   font-size: 14px;
   line-height: 1.5;
@@ -259,6 +263,9 @@ img {
   text-align: left;
 }
 
+.accordion__list {
+  padding: 0 20px;
+}
 .accordion__item {
   max-width: 1024px;
   margin: 0 auto 10px auto;
