@@ -44,14 +44,14 @@
     }
 
     dt {
-      flex: 0 0 160px;
+      width: 160px;
       font-size: 14px;
       line-height: 30px;
       text-align: right;
     }
 
     dd {
-      flex: 0 1 100%;
+      width: calc(100% - 280px);
       margin-left: 60px;
       font-size: 11px;
       display: flex;
@@ -81,6 +81,28 @@
     }
   }
 
+  &__label {
+    width: 60px;
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+
+    div {
+      border-radius: 20px;
+      padding: 5px 10px;
+      color: white;
+      border-radius: 10px;
+    }
+  }
+
+  &__label__option {
+    background-color: blue;
+  }
+
+  &__label__require {
+    background-color: rgba(255, 0, 0, 1);
+  }
+
   &__form__footer {
     text-align: center;
     margin-top: 40px;
@@ -107,6 +129,7 @@
 
   &__thanks__text {
     text-align: left;
+    padding: 0 20px;
   }
 
   &__thanks__nav {

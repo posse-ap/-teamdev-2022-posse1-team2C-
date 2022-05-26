@@ -36,6 +36,7 @@ for ($j = 1; $j <= $agents_count; $j++) {
   <title>Document</title>
   <link rel="stylesheet" href="../assets/css/reset.css">
   <link rel="stylesheet" href="../assets/css/index-user.min.css">
+  <link rel="stylesheet" href="../assets/css/sp.min.css">
 </head>
 
 <body>
@@ -145,6 +146,7 @@ for ($j = 1; $j <= $agents_count; $j++) {
 
   <script src="../assets/js/jquery-3.6.0.min.js"></script>
   <script src="../assets/js/pagescroll.js"></script>
+  <script src="../assets/js/sp.js"></script>
 </body>
 
 </html>

@@ -11,4 +11,20 @@
       <li class="header__nav__item" id="contact"><a href="/CRAFT/contact.php">ご要望・ご質問</a></li>
     </ul>
   </nav>
+  <div class="hamburger">
+    <div class="hamburger__button">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+  <nav class="hamburger__nav">
+    <ul class="hamburger__nav__list">
+      <li class="hamburger__nav__item"><a href="">エージェント企業を探す</a></li>
+      <li class="hamburger__nav__item"><a href="">オススメ診断</a></li>
+      <li class="hamburger__nav__item"><a href="">お問い合わせ</a></li>
+      <li class="hamburger__nav__item"><a href="">よくある質問</a></li>
+      <li class="hamburger__nav__item"><a href="">ご要望・ご質問</a></li>
+    </ul>
+  </nav>
 </header>

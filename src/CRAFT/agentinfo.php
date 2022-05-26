@@ -8,6 +8,8 @@
   <title>Document</title>
   <link rel="stylesheet" href="../assets/css/reset.css">
   <link rel="stylesheet" href="../assets/css/agentinfo.min.css">
+  <link rel="stylesheet" href="../assets/css/sp.min.css">
+  <script src="https://kit.fontawesome.com/d806b8b8d2.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -25,7 +27,12 @@
               <img src="../assets/img/mynavi.jpg" alt="マイナビ">
             </div>
             <div class="agent__service__main">
-              <h3 class="agent__service__main__name">マイナビ</h3>
+              <div class="agent__service__main__name">
+                <h3 class="">
+                  <i class="far fa-lightbulb"></i>
+                  <span>マイナビ</span>
+                </h3>
+              </div>
               <p class="agent__service__main__info">ここにサービスの特徴が入ります。ここにサービスの特徴が入ります。ここにサービスの特徴が入ります。ここにサービスの特徴が入ります。ここにサービスの特徴が入ります。ここにサービスの特徴が入ります。ここにサービスの特徴が入ります。ここにサービスの特徴が入ります。ここにサービスの特徴が入ります。ここにサービスの特徴が入ります。ここにサービスの特徴が入ります。</p>
             </div>
             <div class="agent__service__inner">
@@ -57,12 +64,47 @@
                 </dl>
               </div>
               <div class="agent__service__inner__analysis">
-                <div class="agent__service__inner__analysis__question">
-                  <button>？</button>
-                </div>
-                <div class="agent__service__inner__analysis__contents">
-                  <canvas id="myRaderChart" width="100%" height="100%"></canvas>
-                </div>
+                <canvas id="myRaderChart" width="100%" height="100%"></canvas>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+                <script>
+                  var ctx = document.getElementById("myRaderChart");
+                  var myRadarChart = new Chart(ctx, {
+                    type: "radar",
+                    data: {
+                      labels: ["総合評価", "求人の質", "使いやすさ", "対応の良さ", "サポート力"],
+                      datasets: [{
+                        data: [2.9, 3.7, 4.5, 3.2, 4.1],
+                        backgroundColor: "RGBA(225,95,150, 0.5)",
+                        borderColor: "RGBA(225,95,150, 1)",
+                        borderWidth: 1,
+                        pointStyle: "line",
+                      }, ],
+                    },
+                    options: {
+                      legend: {
+                        display: false,
+                      },
+                      responsive: true,
+                      tooltips: {
+                        enabled: false,
+                      },
+                      title: {
+                        display: false,
+                        text: "5段階評価",
+                      },
+                      scale: {
+                        ticks: {
+                          suggestedMin: 0,
+                          suggestedMax: 5,
+                          stepSize: 1,
+                          callback: function(value) {
+                            return value;
+                          },
+                        },
+                      },
+                    },
+                  });
+                </script>
               </div>
             </div>
           </div>
@@ -118,8 +160,7 @@
 
   <script src="../assets/js/jquery-3.6.0.min.js"></script>
   <script src="../assets/js/pagescroll.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
-  <script src="../assets/js/chart.js"></script>
+  <script src="../assets/js/sp.js"></script>
 </body>
 
 </html>
