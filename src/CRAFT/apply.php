@@ -89,10 +89,14 @@ if (isset($_POST['back']) && $_POST['back']) {
     <link rel="stylesheet" href="../assets/css/reset.css">
     <link rel="stylesheet" href="../assets/css/apply.min.css">
     <link rel="stylesheet" href="../assets/css/index-user.min.css">
+    <link rel="stylesheet" href="../assets/css/sp.min.css">
 </head>
 
 <body>
     <?php require  "./capsule/header.php"; ?>
+    <script>
+        document.getElementById("apply").classList.add("active")
+    </script>
 
     <div class="content">
 
@@ -538,6 +542,7 @@ if (isset($_POST['back']) && $_POST['back']) {
 
     <script src="../assets/js/jquery-3.6.0.min.js"></script>
     <script src="../assets/js/pagescroll.js"></script>
+    <script src="../assets/js/sp.js"></script>
 </body>
 
 </html>

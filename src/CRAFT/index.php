@@ -36,10 +36,14 @@ for ($j = 1; $j <= $agents_count; $j++) {
   <title>Document</title>
   <link rel="stylesheet" href="../assets/css/reset.css">
   <link rel="stylesheet" href="../assets/css/index-user.min.css">
+  <link rel="stylesheet" href="../assets/css/sp.min.css">
 </head>
 
 <body>
   <?php require  "./capsule/header.php"; ?>
+  <script>
+    document.getElementById("index").classList.add("active")
+  </script>
 
   <div class="content">
     <div class="container inner">
@@ -49,55 +53,37 @@ for ($j = 1; $j <= $agents_count; $j++) {
         </p>
         <section class="section">
           <div class="search">
-            <div class="search__box">
-              <dl class="search__list">
-                <div class="search__item">
-                  <dt>サポート体制</dt>
-                  <dd>就職セミナー</dd>
-                  <dd>じっくり面接対策</dd>
-                  <dd>ES添削</dd>
-                </div>
-                <div class="search__item">
-                  <dt>得意な業種・業界</dt>
-                  <dd>総合コンサル</dd>
-                  <dd>IT系</dd>
-                  <dd>エンタメ</dd>
-                  <dd>教育</dd>
-                  <dd>金融</dd>
-                </div>
-                <div class="search__item">
-                  <dt>公開求人数</dt>
-                  <dd class="select__wrapper">
-                    <select name="" id="">
-                      <option value="選択してください" selected disabled>
-                        選択してください
-                      </option>
-                      <option value="～3万">～3万</option>
-                      <option value="3万～5万">3万～5万</option>
-                      <option value="5万～10万">5万～10万</option>
-                      <option value="10万～">10万～</option>
-                    </select>
-                  </dd>
-                </div>
-                <div class="search__item">
-                  <dt>公開求人数</dt>
-                  <dd class="select__wrapper">
-                    <select name="" id="">
-                      <option value="選択してください" selected disabled>
-                        選択してください
-                      </option>
-                      <option value="～3万">～3万</option>
-                      <option value="3万～5万">3万～5万</option>
-                      <option value="5万～10万">5万～10万</option>
-                      <option value="10万～">10万～</option>
-                    </select>
-                  </dd>
-                </div>
-                <div class="search__item">
-                  <button>検索する</button>
-                </div>
-              </dl>
-            </div>
+            <dl class="search__list">
+              <div class="search__item">
+                <dt>面接対策</dt>
+                <dd>セミナー/イベント開催</dd>
+                <dd>選考対策</dd>
+                <dd>企業紹介</dd>
+                <dd>ES添削</dd>
+                <dd>内定後のサポート</dd>
+                <dd>個別面談</dd>
+                <dd>自己分析</dd>
+                <dd>特別選考</dd>
+                <dd>選考後のフォロー</dd>
+                <dd>インターンシップ紹介</dd>
+                <dd>業界研究</dd>
+              </div>
+              <div class="search__item">
+                <dt>対応エリアから探す</dt>
+                <dd>首都圏</dd>
+                <dd>全国</dd>
+              </div>
+              <div class="search__item">
+                <dt>紹介先企業の規模</dt>
+                <dd>大企業</dd>
+                <dd>ベンチャー企業</dd>
+              </div>
+              <div class="search__item">
+                <dt>総合評価から探す</dt>
+                <dd>4.0~</dd>
+                <dd>3.0~</dd>
+              </div>
+            </dl>
           </div>
         </section>
         <section class="section">
@@ -147,6 +133,7 @@ for ($j = 1; $j <= $agents_count; $j++) {
 
   <script src="../assets/js/jquery-3.6.0.min.js"></script>
   <script src="../assets/js/pagescroll.js"></script>
+  <script src="../assets/js/sp.js"></script>
 </body>
 
 </html>

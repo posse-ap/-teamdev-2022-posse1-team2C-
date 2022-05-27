@@ -46,7 +46,7 @@ $array_service2_forms = [
   'support', 'service__agent__scale', 'service__client__scale', 'service__total', 'service__offer', 'service__useful', 'service__reaction', 'service__support'
 ];
 $array_service2_message = [
-  'サポート内容', 'エージェント企業の規模', '取引先企業の規模', '総合評価', '求人の質', '使いやすさ', '対応するの良さ', 'サポート力'
+  'サポート内容', 'エージェント企業の規模', '紹介先企業の規模', '総合評価', '求人の質', '使いやすさ', '対応するの良さ', 'サポート力'
 ];
 $service2_forms_length = count($array_service2_forms);
 for ($i = 0; $i < $service2_forms_length; $i++) {
@@ -481,7 +481,7 @@ clientscales_id="' . $_POST['service__client__scale'][$j] . '"
                 ?>
 
                 <div class="apply__form__item">
-                  <dt>取引先企業の規模</dt>
+                  <dt>紹介先企業の規模</dt>
                   <dd>
                     <?php
                     $array_client = [
