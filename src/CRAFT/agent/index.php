@@ -50,7 +50,7 @@ if (isset($_POST['student_number'])) {
       <li class="main__item">
         <div class="main__item__account">
           <img src="../../assets/img/icon_avatar.svg" alt="icon">
-          <input type="text" value="<?php echo $agents_data[0]['agent']; ?>">
+          <p class="main__item__account__name"><?php echo $agents_data[0]['agent']; ?></p>
         </div>
         <hr>
         <ul class="score__list">

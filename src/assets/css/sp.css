@@ -55,12 +55,11 @@
     margin-left: 5px;
   }
 
-  .footer__list {
-    display: block;
-  }
   .footer__item {
-    width: 80%;
-    margin: 0 auto;
+    width: calc((80% - 80px) / 2);
+  }
+  .footer__item:nth-child(2n+1) {
+    display: none;
   }
 
   .agent__service h3 {
@@ -89,10 +88,6 @@
     width: fit-content;
     margin: 100px auto 0 auto;
   }
-  .aside__contents img {
-    display: flex;
-    flex-direction: column;
-  }
 
   .contact__form__item dt {
     font-size: 12px;
@@ -118,6 +113,10 @@
     display: none;
   }
 
+  .footer__list {
+    display: none;
+  }
+
   .content {
     padding-top: 80px;
   }
@@ -128,6 +127,10 @@
 
   .main {
     padding: 0 0 50px 0;
+  }
+
+  .header__active {
+    display: block;
   }
 
   .hamburger__nav {
@@ -145,11 +148,24 @@
   }
   .hamburger__nav__item {
     display: block;
-    padding: 20px 28px;
+    padding: 10px 28px;
+    text-align: left;
+    font-size: 20px;
+    font-weight: bold;
   }
   .hamburger__nav__item a {
     text-decoration: none;
     color: #ddd;
+  }
+  .hamburger__nav__item__child {
+    font-size: 13px;
+    padding: 10px 0 10px 10px;
+    visibility: visible;
+    opacity: 1;
+    display: none;
+  }
+  .hamburger__nav__item__child li {
+    padding: 5px 0;
   }
   .hamburger__button {
     text-align: left;
@@ -295,7 +311,8 @@
     padding: 20px 10px 20px 20px;
   }
 
-  .agent__info__contents dt, .agent__info__contents dd {
+  .agent__info__contents dt,
+.agent__info__contents dd {
     font-size: 12px;
   }
 }
