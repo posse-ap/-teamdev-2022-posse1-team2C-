@@ -11,6 +11,7 @@
   <title>Document</title>
   <link rel="stylesheet" href="../../assets/css/reset.css">
   <link rel="stylesheet" href="../../assets/css/apply.min.css">
+  <link rel="stylesheet" href="../../assets/css/sp.min.css">
 </head>
 
 <body>
@@ -227,6 +228,7 @@
 
   <script src="../../assets/js/jquery-3.6.0.min.js"></script>
   <script src="../../assets/js/pagescroll.js"></script>
+  <script src="../../assets/js/sp.js"></script>
 </body>
 
 </html>

@@ -5,6 +5,10 @@
 @use "./style" as style;
 
 .accordion {
+  &__list {
+    padding: 0 20px;
+  }
+
   &__item {
     max-width: 1024px;
     margin: 0 auto 10px auto;

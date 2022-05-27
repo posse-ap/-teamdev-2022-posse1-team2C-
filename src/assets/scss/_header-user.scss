@@ -20,15 +20,25 @@
     display: flex;
     justify-content: space-between;
     max-width: 1200px;
+    padding: 0 20px;
   }
 
   &__nav__item {
     color: vb.$color_white;
-    margin: 0 auto;
     font-size: 15px;
+    font-weight: bold;
+    padding: 0 10px 10px 10px;
+    margin-bottom: 10px;
     @media screen and (max-width: 1000px) {
       font-size: 12px;
     }
-    padding-bottom: 10px;
   }
+}
+
+.active {
+  border-bottom: white 3px solid;
+}
+
+.hamburger__nav {
+  display: none;
 }

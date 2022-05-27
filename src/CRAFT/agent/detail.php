@@ -1,6 +1,42 @@
 <?php
-// require('./capsule/session.php');
+require('./capsule/session.php');
+if (!isset($_SESSION['student_number'])) {
+  header('Location: http://' . $_SERVER['HTTP_HOST'] . '/CRAFT/agent/index.php');
+  exit();
+}
+
+require(dirname(__FILE__) . "../../../dbconnect.php");
+$student_number = $_SESSION['student_number'];
+$agent_id = $_SESSION['agent_id'];
+
+$students_stmt = $db->prepare("SELECT * from students_agents_mix WHERE agent_id = ?");
+$students_stmt->bindValue(1, $agent_id);
+$students_stmt->execute();
+$students_data = $students_stmt->fetchAll();
+
+$students_info = [
+  '学生氏名',
+  'フリガナ',
+  'メールアドレス',
+  '電話番号',
+  '郵便番号',
+  '住所',
+  '生年月日',
+  '大学',
+  '学部',
+  '学科',
+  '卒業年度',
+  'その他自由記述欄',
+  '申請時刻'
+];
+$students_data_length = count($students_info);
+
+$agents_stmt = $db->prepare("SELECT * from agents WHERE id = ?");
+$agents_stmt->bindValue(1, $agent_id);
+$agents_stmt->execute();
+$agents_data = $agents_stmt->fetchAll();
 ?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -22,7 +58,7 @@
       <li class="main__item">
         <div class="main__item__account">
           <img src="../../assets/img/icon_avatar.svg" alt="icon">
-          <input type="text" value="manaki">
+          <input type="text" value="<?php echo $agents_data[0]['agent']; ?>">
         </div>
         <hr>
         <ul class="score__list">
@@ -90,58 +126,12 @@
           <div class="student__detail">
             <p class="student__detail__title">【学生詳細情報】</p>
             <dl class="student__detail__list">
-              <div class="student__detail__item">
-                <dt>学生氏名</dt>
-                <dd>遠藤愛期</dd>
-              </div>
-              <div class="student__detail__item">
-                <dt>フリガナ</dt>
-                <dd>エンドウマナキ</dd>
-              </div>
-              <div class="student__detail__item">
-                <dt>メールアドレス</dt>
-                <dd>48690114s@gmail.com</dd>
-              </div>
-              <div class="student__detail__item">
-                <dt>電話番号</dt>
-                <dd>09058522963</dd>
-              </div>
-              <div class="student__detail__item">
-                <dt>郵便番号</dt>
-                <dd>0001111</dd>
-              </div>
-              <div class="student__detail__item">
-                <dt>住所</dt>
-                <dd>神奈川県横浜市港北区赤坂1-1-22</dd>
-              </div>
-              <div class="student__detail__item">
-                <dt>生年月日</dt>
-                <dd>2003/09/11</dd>
-              </div>
-              <div class="student__detail__item">
-                <dt>大学</dt>
-                <dd>慶應義塾大学</dd>
-              </div>
-              <div class="student__detail__item">
-                <dt>学部</dt>
-                <dd>理工学部</dd>
-              </div>
-              <div class="student__detail__item">
-                <dt>学科</dt>
-                <dd>管理工学科</dd>
-              </div>
-              <div class="student__detail__item">
-                <dt>卒業年度</dt>
-                <dd>25卒</dd>
-              </div>
-              <div class="student__detail__item">
-                <dt>その他自由記述欄</dt>
-                <dd>よろしくお願いします！</dd>
-              </div>
-              <div class="student__detail__item">
-                <dt>申請時刻</dt>
-                <dd>01月13日09:15:11</dd>
-              </div>
+              <?php for ($i = 1; $i <= $students_data_length; $i++) { ?>
+                <div class="student__detail__item">
+                  <dt><?php echo $students_info[$i - 1]; ?></dt>
+                  <dd><?php echo $students_data[$student_number - 1][$i]; ?></dd>
+                </div>
+              <?php }; ?>
             </dl>
           </div>
           <div class="student__operation">
