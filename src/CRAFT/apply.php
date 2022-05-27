@@ -1,7 +1,20 @@
 <?php
 session_start();
 require(dirname(__FILE__) . "../../dbconnect.php");
-$array_forms = ['name__kanji', 'name__kana', 'email', 'tel', 'postcode', 'address', 'birth', 'university', 'faculty', 'course', 'graduate', 'content'];
+
+$agents_stmt = $db->prepare("SELECT * from agents");
+$agents_stmt->execute();
+$agents_data = $agents_stmt->fetchAll();
+
+
+$agents_count_stmt = $db->prepare("SELECT COUNT(*) from agents");
+$agents_count_stmt->execute();
+$agents_count_data = $agents_count_stmt->fetchAll();
+$agents_count = $agents_count_data[0]['COUNT(*)'];
+
+$array_forms = ['name__kanji', 'name__kana', 'email', 'tel', 'postcode', 'address', 'university', 'faculty', 'course', 'content'];
+$forms_length = count($array_forms);
+
 $forms_length = count($array_forms);
 $mode = 'input';
 $errmessage = array();
@@ -9,6 +22,7 @@ if (isset($_POST['back']) && $_POST['back']) {
     // 何もしない
 } else if (isset($_POST['confirm']) && $_POST['confirm']) {
     if (
+        isset($_POST['agent']) &&
         isset($_POST['name__kanji']) &&
         isset($_POST['name__kana']) &&
         isset($_POST['email']) &&
@@ -28,12 +42,17 @@ if (isset($_POST['back']) && $_POST['back']) {
         } else {
             $mode = 'confirm';
         }
+        $_SESSION['agent'] = $_POST['agent'];
+        $_SESSION['birth'] = $_POST['birth'];
+        $_SESSION['graduate'] = $_POST['graduate'];
         for ($i = 0; $i < $forms_length; $i++) {
-            $_SESSION[$array_forms[$i]] = htmlspecialchars($_POST[$array_forms[$i]], ENT_QUOTES);
+            $_SESSION[$array_forms[$i]] = $_POST[$array_forms[$i]];
         }
     }
 } else if (isset($_POST['send']) && $_POST['send']) {
     if (
+
+        isset($_SESSION['agent']) &&
         isset($_SESSION['name__kanji']) &&
         isset($_SESSION['name__kana']) &&
         isset($_SESSION['email']) &&
@@ -47,14 +66,6 @@ if (isset($_POST['back']) && $_POST['back']) {
         isset($_SESSION['graduate']) &&
         isset($_SESSION['content'])
     ) {
-        // 送信ボタンを押したとき
-        $message  = "お問い合わせを受け付けました \r\n"
-            . "名前: " . $_SESSION['name__kanji'] . "\r\n"
-            . "email: " . $_SESSION['email'] . "\r\n"
-            . "お問い合わせ内容:\r\n"
-            . preg_replace("/\r\n|\r|\n/", "\r\n", $_SESSION['content']);
-        mail($_SESSION['email'], 'お問い合わせありがとうございます', $message);
-        mail('fuga@hogehoge.com', 'お問い合わせありがとうございます', $message);
         $student = $db->exec('INSERT INTO students SET 
     name__kanji="' . $_SESSION['name__kanji'] . '",
     name__kana="' . $_SESSION['name__kana'] . '",
@@ -69,8 +80,19 @@ if (isset($_POST['back']) && $_POST['back']) {
     graduate="' . $_SESSION['graduate'] . '",
     content="' . $_SESSION['content'] . '",
     apply_time= NOW()');
+        $students_count_stmt = $db->prepare("SELECT COUNT(*) from students");
+        $students_count_stmt->execute();
+        $students_count_data = $students_count_stmt->fetchAll();
+        $students_count = $students_count_data[0]['COUNT(*)'];
+        $students_agents_connect = $db->exec('INSERT INTO students_agents_connect SET 
+    apply_id="' . $students_count . '",
+    agent_id="' . $_SESSION['agent'] . '"
+    ');
     }
     $_SESSION = array();
+    for ($i = 0; $i < $forms_length; $i++) {
+        $_SESSION[$array_forms[$i]] = '';
+    }
     $mode = 'send';
 } else {
     for ($i = 0; $i < $forms_length; $i++) {
@@ -104,7 +126,10 @@ if (isset($_POST['back']) && $_POST['back']) {
         <div class="container inner">
             <main class="main">
                 <div class="apply" id="apply">
-                    <?php if ($mode == 'input') { ?>
+                    <?php if ($mode == 'input') {
+                        for ($i = 0; $i < $forms_length; $i++) {
+                            $_SESSION[$array_forms[$i]] = '';
+                        } ?>
                         <!-- 入力画面 -->
                         <?php
                         if ($errmessage) {
@@ -145,14 +170,13 @@ if (isset($_POST['back']) && $_POST['back']) {
                                         <dt><label for="agent">お問い合わせ先<br>エージェント企業</label></dt>
                                         <dd>
                                             <div class="apply__form__item__select">
-                                                <select id="agent" name="agent">
-                                                    <option value="選択してください" selected disabled>
+                                                <select name="agent" id="agent">
+                                                    <option selected disabled>
                                                         選択してください
                                                     </option>
-                                                    <option value="アンチパターン">アンチパターン（株）</option>
-                                                    <option value="POSSE">POSSE（株）</option>
-                                                    <option value="HarborS">HarborS（株）</option>
-                                                    <option value="表参道">表参道（株）</option>
+                                                    <?php for ($i = 0; $i < $agents_count; $i++) { ?>
+                                                        <option value="<?php echo $agents_data[$i]['id']; ?>"><?php echo $agents_data[$i]['agent']; ?></option>
+                                                    <?php }; ?>
                                                 </select>
                                             </div>
                                         </dd>
@@ -204,7 +228,7 @@ if (isset($_POST['back']) && $_POST['back']) {
                                             <div class="apply__label__require">必須</div>
                                         </div>
                                         <dt><label for="birth">生年月日</label></dt>
-                                        <dd><input id="birth" type="date" name="birth" value="<?php echo $_SESSION['birth'] ?>" /></dd>
+                                        <dd><input id="birth" type="date" name="birth" /></dd>
                                     </div>
                                     <div class="apply__form__item">
                                         <div class="apply__label">
@@ -279,7 +303,7 @@ if (isset($_POST['back']) && $_POST['back']) {
                                 <table class="apply__table">
                                     <tr>
                                         <th class="apply__table__header">お問い合わせ先エージェント企業</th>
-                                        <td class="apply__table__data" id="insert__agent"></td>
+                                        <td class="apply__table__data" id="insert__agent"><?php echo $agents_data[$_SESSION['agent'] - 1]['agent']; ?></td>
                                     </tr>
                                     <tr>
                                         <th class="apply__table__header">お名前（漢字）</th>
