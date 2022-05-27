@@ -2,6 +2,9 @@
 
 .aside__contents {
   height: auto;
+  &__img {
+    width: 100%;
+  }
 }
 
 .aside {

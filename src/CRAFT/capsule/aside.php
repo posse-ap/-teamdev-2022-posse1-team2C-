@@ -3,7 +3,7 @@
     <li class="aside__item">
       <div class="aside__contents">
         <div class="img">
-          <img src="../../assets/img/top.jpg" alt="背景" width="288px" height="192px">
+          <img src="../../assets/img/top.jpg" class="aside__contents__img" alt="背景" width="288px" height="192px">
           <img src="../../assets/img/logo__craft-purple.png" alt="CRAFT" width="234px" height="73px">
         </div>
         <p class="information notice">
