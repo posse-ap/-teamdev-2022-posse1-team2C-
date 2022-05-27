@@ -117,7 +117,7 @@ if (isset($_POST['back']) && $_POST['back']) {
                         <div class="apply__input" role="apply">
                             <p class="title">
                                 新卒エージェント　お問い合わせ
-                                <span class="title"> 入力</span>
+                                <span> 入力</span>
                             </p>
 
                             <ul class="stepbar">
@@ -259,7 +259,7 @@ if (isset($_POST['back']) && $_POST['back']) {
                         <div class="apply__confirm" role="apply">
                             <p class="title">
                                 新卒エージェント　お問い合わせ
-                                <span class="title"> 確認</span>
+                                <span> 確認</span>
                             </p>
                             <ul class="stepbar">
                                 <li class="stepbar__item">
