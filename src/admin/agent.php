@@ -59,7 +59,7 @@ for ($j = 1; $j <= $agents_count; $j++) {
           </li>
           <?php for ($i = 1; $i < $agents_count; $i++) { ?>
             <li class="nav-item">
-              <a class="nav-link" id="profile-tab" data-toggle="tab" href="#agent<? echo $i; ?>" role="tab" aria-controls="profile" aria-selected="false"><?php echo $agents_data[$i]['agent']; ?></a>
+              <a class="nav-link" id="profile-tab" data-toggle="tab" href="#agent<? echo $i+1; ?>" role="tab" aria-controls="profile" aria-selected="false"><?php echo $agents_data[$i]['agent']; ?></a>
             </li>
           <?php }; ?>
 
@@ -84,10 +84,11 @@ for ($j = 1; $j <= $agents_count; $j++) {
                 <div class="agent__info__contents">
                   <dt>サポート内容</dt>
                   <dd>
-                    <?php for ($j = 0; $j < $agent_supports_count_[1]; $j++) { ?>
-                      @
-                    <?php echo $agent_supports_data_[1][$j]['support'];
-                    } ?>
+                    <?php for ($j = 0; $j < $agent_supports_count_[1]-1; $j++) { ?>
+                      <?php echo $agent_supports_data_[1][$j]['support'];?>
+                      ・
+                      <?php }?>
+                      <?php echo $agent_supports_data_[1][$agent_supports_count_[1]-1]['support']; ?>
                   </dd>
                 </div>
                 <div class="agent__info__contents">
@@ -205,7 +206,7 @@ for ($j = 1; $j <= $agents_count; $j++) {
             </dl>
           </div>
           <?php for ($i = 1; $i < $agents_count; $i++) { ?>
-            <div class="tab-pane fade" id="agent<?php echo $i; ?>" role="tabpanel">
+            <div class="tab-pane fade" id="agent<?php echo $i+1; ?>" role="tabpanel">
               <div class="agent__title">サービス詳細</div>
               <div class="agent__staff">
                 <div class="agent__staff__img">
@@ -222,10 +223,13 @@ for ($j = 1; $j <= $agents_count; $j++) {
                   </div>
                   <div class="agent__info__contents">
                     <dt>サポート内容</dt>
-                    <dd>                    <?php for ($j = 0; $j < $agent_supports_count_[$i]; $j++) { ?>
-                      @
-                    <?php echo $agent_supports_data_[$i][$j]['support'];
-                    } ?></dd>
+                    <dd>  
+                    <?php for ($j = 0; $j < $agent_supports_count_[$i]-1; $j++) { ?>
+                      <?php echo $agent_supports_data_[$i][$j]['support'];?>
+                      ・
+                      <?php }?>
+                      <?php echo $agent_supports_data_[$i][$agent_supports_count_[1]-1]['support']; ?>
+                    </dd>
                   </div>
                   <div class="agent__info__contents">
                     <dt>エージェント企業の規模</dt>
