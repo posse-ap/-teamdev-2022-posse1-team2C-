@@ -29,7 +29,7 @@
         <h2 class="mt-3 mb-3">エージェント企業一覧</h2>
         <ul class="nav nav-tabs" id="myTab" role="tablist">
           <li class="nav-item">
-            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#agent1" role="tab" aria-controls="home" aria-selected="true">エージェント企業1</a>
+            <a class="nav-link active" data-toggle="tab" href="#agent1" role="tab" aria-controls="home" aria-selected="true">エージェント企業1</a>
           </li>
           <!-- 31~33agent企業１の上のタブに対応 -->
           <!-- 一番最初の32のクラスのactiveをつける -->
@@ -39,15 +39,17 @@
           <!-- aria-controlsはをherf(#無し)と一致させる今だとagent1 -->
           <!-- 1番最初の aria-selectedがtrueで他はfalse-->
           <!-- aタグの中に企業名-->
+          <?php for($i=0;$i<=1;$i++){ ?>
           <li class="nav-item">
-            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#agent2" role="tab" aria-controls="profile" aria-selected="false">エージェント企業2</a>
+            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#agent<?php echo $i; ?>" role="tab" aria-controls="profile" aria-selected="false">エージェント企業2</a>
           </li>
+          <?php };?>
           <li class="nav-item">
             <a class="nav-link" id="contact-tab" data-toggle="tab" href="#agent3" role="tab" aria-controls="contact" aria-selected="false">エージェント企業3</a>
           </li>
         </ul>
         <div class="tab-content border border-top-0 p-5 mb-3" id="myTabContent">
-          <div class="tab-pane fade show active" id="agent1" role="tabpanel">
+          <div class="tab-pane fade show active" id="agent<?php echo $i;?>" role="tabpanel">
             <!-- roleは全てtabpanel -->
             <!-- classはtab-pane fadeを全てに着けて、show activeを1番最初にだけつける -->
             <div class="agent__title">サービス詳細</div>
