@@ -13,11 +13,38 @@ $agents_count_data = $agents_count_stmt->fetchAll();
 $agents_count = $agents_count_data[0]['COUNT(*)'];
 
 $array_forms = ['name__kanji', 'name__kana', 'email', 'tel', 'postcode', 'address', 'university', 'faculty', 'course', 'content'];
+$array2_forms = ['agent', 'birth', 'graduate'];
 $forms_length = count($array_forms);
-
-$forms_length = count($array_forms);
+$forms2_length = count($array2_forms);
+$array_errmessage = [
+    'お名前(漢字)', 'お名前(フリガナ)', 'メールアドレス', '電話番号', '郵便番号', '住所', '大学', '学部', '学科'
+];
+$array2_errmessage = [
+    'お問い合わせ先エージェント企業', '生年月日', '卒業年度'
+];
 $mode = 'input';
 $errmessage = array();
+$errmessage2 = array();
+
+for ($i = 0; $i < $forms_length - 1; $i++) {
+    if (!$_POST[$array_forms[$i]] && !$_SESSION[$array_forms[$i]]) {
+        $errmessage[] = "{$array_errmessage[$i]}を入力してください";
+    } else {
+        $errmessage[] = '';
+    }
+}
+
+$_POST[$array2_forms[1]]='';
+$_POST[$array2_forms[2]]='';
+for ($i = 1; $i < $forms2_length; $i++) {
+    if (!$_POST[$array2_forms[$i]] || !$_SESSION[$array2_forms[$i]]) {
+        $errmessage2[] = "{$array2_errmessage[$i]}を入力してください";
+    } else {
+        $errmessage2[] = '';
+    }
+}
+
+
 if (isset($_POST['back']) && $_POST['back']) {
     // 何もしない
 } else if (isset($_POST['confirm']) && $_POST['confirm']) {
@@ -84,7 +111,7 @@ if (isset($_POST['back']) && $_POST['back']) {
         $students_count_stmt->execute();
         $students_count_data = $students_count_stmt->fetchAll();
         $students_count = $students_count_data[0]['COUNT(*)'];
-        $students_agents_connect = $db->exec('INSERT INTO students_agents_connect SET 
+        $students_agents_connect = $db->exec('INSERT INTO students_agent_connect SET 
     apply_id="' . $students_count . '",
     agent_id="' . $_SESSION['agent'] . '"
     ');
@@ -130,14 +157,6 @@ if (isset($_POST['back']) && $_POST['back']) {
                         for ($i = 0; $i < $forms_length; $i++) {
                             $_SESSION[$array_forms[$i]] = '';
                         } ?>
-                        <!-- 入力画面 -->
-                        <?php
-                        if ($errmessage) {
-                            echo '<div style="color:red;">';
-                            echo implode('<br>', $errmessage);
-                            echo '</div>';
-                        }
-                        ?>
 
                         <div class="apply__input" role="apply">
                             <p class="title">
@@ -164,6 +183,21 @@ if (isset($_POST['back']) && $_POST['back']) {
                             <form action="./apply.php" name="apply__form" class="apply__form" method="post">
                                 <dl class="apply__form__list">
                                     <div class="apply__form__item">
+
+                                    <?php
+                                    if ($errmessage) {
+                                        echo '<div style="color:red;">';
+                                        echo $errmessage2[1];
+                                        echo '</div>';
+                                    }
+                                    ?>
+                                    <?php
+                                    if ($errmessage) {
+                                        echo '<div style="color:red;">';
+                                        echo $errmessage2[2];
+                                        echo '</div>';
+                                    }
+                                    ?>
                                         <div class="apply__label">
                                             <div class="apply__label__require">必須</div>
                                         </div>
@@ -181,6 +215,13 @@ if (isset($_POST['back']) && $_POST['back']) {
                                             </div>
                                         </dd>
                                     </div>
+                                    <?php
+                                    if ($errmessage) {
+                                        echo '<div style="color:red;">';
+                                        echo $errmessage[0];
+                                        echo '</div>';
+                                    }
+                                    ?>
                                     <div class="apply__form__item">
                                         <div class="apply__label">
                                             <div class="apply__label__require">必須</div>
@@ -188,6 +229,13 @@ if (isset($_POST['back']) && $_POST['back']) {
                                         <dt><label for="name__kanji">お名前（漢字）</label></dt>
                                         <dd><input id="name__kanji" type="text" name="name__kanji" value="<?php echo $_SESSION['name__kanji'] ?>" /></dd>
                                     </div>
+                                    <?php
+                                    if ($errmessage) {
+                                        echo '<div style="color:red;">';
+                                        echo $errmessage[1];
+                                        echo '</div>';
+                                    }
+                                    ?>
                                     <div class="apply__form__item">
                                         <div class="apply__label">
                                             <div class="apply__label__require">必須</div>
@@ -195,6 +243,13 @@ if (isset($_POST['back']) && $_POST['back']) {
                                         <dt><label for="name__kana">お名前（フリガナ）</label></dt>
                                         <dd><input id="name__kana" type="text" name="name__kana" value="<?php echo $_SESSION['name__kana'] ?>" /></dd>
                                     </div>
+                                    <?php
+                                    if ($errmessage) {
+                                        echo '<div style="color:red;">';
+                                        echo $errmessage[2];
+                                        echo '</div>';
+                                    }
+                                    ?>
                                     <div class="apply__form__item">
                                         <div class="apply__label">
                                             <div class="apply__label__require">必須</div>
@@ -202,6 +257,13 @@ if (isset($_POST['back']) && $_POST['back']) {
                                         <dt><label for="email">メールアドレス</label></dt>
                                         <dd><input id="email" type="email" name="email" value="<?php echo $_SESSION['email'] ?>" /></dd>
                                     </div>
+                                    <?php
+                                    if ($errmessage) {
+                                        echo '<div style="color:red;">';
+                                        echo $errmessage[3];
+                                        echo '</div>';
+                                    }
+                                    ?>
                                     <div class="apply__form__item">
                                         <div class="apply__label">
                                             <div class="apply__label__require">必須</div>
@@ -209,6 +271,13 @@ if (isset($_POST['back']) && $_POST['back']) {
                                         <dt><label for="tel">電話番号</label></dt>
                                         <dd><input id="tel" type="text" name="tel" value="<?php echo $_SESSION['tel'] ?>" /></dd>
                                     </div>
+                                    <?php
+                                    if ($errmessage) {
+                                        echo '<div style="color:red;">';
+                                        echo $errmessage[4];
+                                        echo '</div>';
+                                    }
+                                    ?>
                                     <div class="apply__form__item">
                                         <div class="apply__label">
                                             <div class="apply__label__require">必須</div>
@@ -216,6 +285,13 @@ if (isset($_POST['back']) && $_POST['back']) {
                                         <dt><label for="postcode">郵便番号</label></dt>
                                         <dd><input id="postcode" type="text" name="postcode" value="<?php echo $_SESSION['postcode'] ?>" /></dd>
                                     </div>
+                                    <?php
+                                    if ($errmessage) {
+                                        echo '<div style="color:red;">';
+                                        echo $errmessage[5];
+                                        echo '</div>';
+                                    }
+                                    ?>
                                     <div class="apply__form__item">
                                         <div class="apply__label">
                                             <div class="apply__label__require">必須</div>
@@ -223,13 +299,28 @@ if (isset($_POST['back']) && $_POST['back']) {
                                         <dt><label for="address">住所</label></dt>
                                         <dd><input id="address" type="text" name="address" value="<?php echo $_SESSION['address'] ?>" /></dd>
                                     </div>
+                                    <?php
+                                    if ($errmessage2) {
+                                        echo '<div style="color:red;">';
+                                        echo $errmessage2[1];
+                                        echo '</div>';
+                                    }
+                                    ?>
                                     <div class="apply__form__item">
                                         <div class="apply__label">
                                             <div class="apply__label__require">必須</div>
                                         </div>
+         
                                         <dt><label for="birth">生年月日</label></dt>
                                         <dd><input id="birth" type="date" name="birth" /></dd>
                                     </div>
+                                    <?php
+                                    if ($errmessage) {
+                                        echo '<div style="color:red;">';
+                                        echo $errmessage[6];
+                                        echo '</div>';
+                                    }
+                                    ?>
                                     <div class="apply__form__item">
                                         <div class="apply__label">
                                             <div class="apply__label__require">必須</div>
@@ -237,6 +328,13 @@ if (isset($_POST['back']) && $_POST['back']) {
                                         <dt><label for="university">大学</label></dt>
                                         <dd><input id="university" type="text" name="university" value="<?php echo $_SESSION['university'] ?>" /></dd>
                                     </div>
+                                    <?php
+                                    if ($errmessage) {
+                                        echo '<div style="color:red;">';
+                                        echo $errmessage[7];
+                                        echo '</div>';
+                                    }
+                                    ?>
                                     <div class="apply__form__item">
                                         <div class="apply__label">
                                             <div class="apply__label__require">必須</div>
@@ -244,6 +342,13 @@ if (isset($_POST['back']) && $_POST['back']) {
                                         <dt><label for="faculty">学部</label></dt>
                                         <dd><input id="faculty" type="text" name="faculty" value="<?php echo $_SESSION['faculty'] ?>" /></dd>
                                     </div>
+                                    <?php
+                                    if ($errmessage) {
+                                        echo '<div style="color:red;">';
+                                        echo $errmessage[8];
+                                        echo '</div>';
+                                    }
+                                    ?>
                                     <div class="apply__form__item">
                                         <div class="apply__label">
                                             <div class="apply__label__require">必須</div>
@@ -251,6 +356,12 @@ if (isset($_POST['back']) && $_POST['back']) {
                                         <dt><label for="course">学科</label></dt>
                                         <dd><input id="course" type="text" name="course" value="<?php echo $_SESSION['course'] ?>" /></dd>
                                     </div>
+                                    if ($errmessage) {
+                                        echo '<div style="color:red;">';
+                                        echo $errmessage2[2];
+                                        echo '</div>';
+                                    }
+                                    ?>
                                     <div class="apply__form__item">
                                         <div class="apply__label">
                                             <div class="apply__label__require">必須</div>
