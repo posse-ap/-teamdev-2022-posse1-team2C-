@@ -1,5 +1,31 @@
 <?php
 // require('./capsule/session.php');
+require('../dbconnect.php');
+$agents_stmt = $db->prepare("SELECT * from agents");
+$agents_stmt->execute();
+$agents_data = $agents_stmt->fetchAll();
+
+$agents_count_stmt = $db->prepare("SELECT COUNT(*) from agents");
+$agents_count_stmt->execute();
+$agents_count_data = $agents_count_stmt->fetchAll();
+$agents_count = $agents_count_data[0]['COUNT(*)'];
+
+$staffs_stmt = $db->prepare("SELECT * from staffs");
+$staffs_stmt->execute();
+$staffs_data = $staffs_stmt->fetchAll();
+
+for ($j = 1; $j <= $agents_count; $j++) {
+  $agent_supports_stmt_[$j] = $db->prepare("SELECT * from agents_supports_mix WHERE agent_id = ?");
+  $agent_supports_stmt_[$j]->bindValue(1, $j);
+  $agent_supports_stmt_[$j]->execute();
+  $agent_supports_data_[$j] = $agent_supports_stmt_[$j]->fetchAll();
+
+  $agent_supports_count_stmt_[$j] = $db->prepare("SELECT COUNT(support) from agents_supports_mix WHERE agent_id = ?");
+  $agent_supports_count_stmt_[$j]->bindValue(1, $j);
+  $agent_supports_count_stmt_[$j]->execute();
+  $agent_supports_count_data_[$j] = $agent_supports_count_stmt_[$j]->fetchAll();
+  $agent_supports_count_[$j] = $agent_supports_count_data_[$j][0]['COUNT(support)'];
+}
 ?>
 
 <!DOCTYPE html>
@@ -29,29 +55,18 @@
         <h2 class="mt-3 mb-3">エージェント企業一覧</h2>
         <ul class="nav nav-tabs" id="myTab" role="tablist">
           <li class="nav-item">
-            <a class="nav-link active" data-toggle="tab" href="#agent1" role="tab" aria-controls="home" aria-selected="true">エージェント企業1</a>
+            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#agent1" role="tab" aria-controls="home" aria-selected="true"><?php echo $agents_data[0]['agent']; ?></a>
           </li>
-          <!-- 31~33agent企業１の上のタブに対応 -->
-          <!-- 一番最初の32のクラスのactiveをつける -->
-          <!-- data-toggle,roleは全部一緒 -->
-          <!-- idは無 -->
-          <!-- idは無 -->
-          <!-- aria-controlsはをherf(#無し)と一致させる今だとagent1 -->
-          <!-- 1番最初の aria-selectedがtrueで他はfalse-->
-          <!-- aタグの中に企業名-->
-          <?php for($i=0;$i<=1;$i++){ ?>
-          <li class="nav-item">
-            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#agent<?php echo $i; ?>" role="tab" aria-controls="profile" aria-selected="false">エージェント企業2</a>
-          </li>
-          <?php };?>
-          <li class="nav-item">
-            <a class="nav-link" id="contact-tab" data-toggle="tab" href="#agent3" role="tab" aria-controls="contact" aria-selected="false">エージェント企業3</a>
-          </li>
+          <?php for ($i = 1; $i < $agents_count; $i++) { ?>
+            <li class="nav-item">
+              <a class="nav-link" id="profile-tab" data-toggle="tab" href="#agent<? echo $i; ?>" role="tab" aria-controls="profile" aria-selected="false"><?php echo $agents_data[$i]['agent']; ?></a>
+            </li>
+          <?php }; ?>
+
+
         </ul>
         <div class="tab-content border border-top-0 p-5 mb-3" id="myTabContent">
-          <div class="tab-pane fade show active" id="agent<?php echo $i;?>" role="tabpanel">
-            <!-- roleは全てtabpanel -->
-            <!-- classはtab-pane fadeを全てに着けて、show activeを1番最初にだけつける -->
+          <div class="tab-pane fade show active" id="agent1" role="tabpanel">
             <div class="agent__title">サービス詳細</div>
             <div class="agent__staff">
               <div class="agent__staff__img">
@@ -60,51 +75,56 @@
               <dl class="agent__staff__info">
                 <div class="agent__info__contents">
                   <dt>サービス名</dt>
-                  <dd>マイナビ新卒エージェント</dd>
+                  <dd><?php echo $agents_data[0]['service__name'] ?></dd>
                 </div>
                 <div class="agent__info__contents">
                   <dt>サービスの特徴</dt>
-                  <dd>ここに担当者の紹介文が入ります。ここに担当者の紹介文が入ります。ここに担当者の紹介文が入ります。ここに担当者の紹介文が入ります。ここに担当者の紹介文が入ります。ここに担当者の紹介文が入ります。ここに担当者の紹介文が入ります。ここに担当者の紹介文が入ります。ここに担当者の紹介文が入ります。</dd>
+                  <dd><?php echo $agents_data[0]['service__detail'] ?></dd>
                 </div>
                 <div class="agent__info__contents">
                   <dt>サポート内容</dt>
-                  <dd>ES添削・特別選考</dd>
+                  <dd>
+                    <?php for ($j = 0; $j < $agent_supports_count_[1]; $j++) { ?>
+                      @
+                    <?php echo $agent_supports_data_[1][$j]['support'];
+                    } ?>
+                  </dd>
                 </div>
                 <div class="agent__info__contents">
                   <dt>エージェント企業の規模</dt>
-                  <dd>ベンチャー企業</dd>
+                  <dd><?php echo $agents_data[0]['service__detail'] ?></dd>
                 </div>
                 <div class="agent__info__contents">
                   <dt>取引先企業の規模</dt>
-                  <dd>ベンチャー企業</dd>
+                  <dd><?php echo $agents_data[0]['service__agent__scale'] ?></dd>
                 </div>
                 <div class="agent__info__contents">
                   <dt>対応エリア</dt>
-                  <dd>全国</dd>
+                  <dd><?php echo $agents_data[0]['service__aria'] ?></dd>
                 </div>
                 <div class="agent__info__contents">
                   <dt>独自のサービス</dt>
-                  <dd>ああああああああああああ</dd>
+                  <dd><?php echo $agents_data[0]['service__unique'] ?></dd>
                 </div>
                 <div class="agent__info__contents">
                   <dt>総合評価</dt>
-                  <dd>4</dd>
+                  <dd><?php echo $agents_data[0]['service__total'] ?></dd>
                 </div>
                 <div class="agent__info__contents">
                   <dt>求人の質</dt>
-                  <dd>4</dd>
+                  <dd><?php echo $agents_data[0]['service__offer'] ?></dd>
                 </div>
                 <div class="agent__info__contents">
                   <dt>使いやすさ</dt>
-                  <dd>3</dd>
+                  <dd><?php echo $agents_data[0]['service__useful'] ?></dd>
                 </div>
                 <div class="agent__info__contents">
                   <dt>対応の良さ</dt>
-                  <dd>4</dd>
+                  <dd><?php echo $agents_data[0]['service__reaction'] ?></dd>
                 </div>
                 <div class="agent__info__contents">
                   <dt>サポート力</dt>
-                  <dd>2</dd>
+                  <dd><?php echo $agents_data[0]['service__support'] ?></dd>
                 </div>
               </dl>
             </div>
@@ -116,60 +136,27 @@
               <dl class="agent__staff__info">
                 <div class="agent__info__contents">
                   <dt>担当者氏名</dt>
-                  <dd>湯山トモハル</dd>
+                  <dd><?php echo $staffs_data[0]['staff__name__kanji'] ?></dd>
                 </div>
                 <div class="agent__info__contents">
                   <dt>担当者氏名（フリガナ）</dt>
-                  <dd>ユヤマトモハル</dd>
+                  <dd><?php echo $staffs_data[0]['staff__name__kana'] ?></dd>
                 </div>
                 <div class="agent__info__contents">
                   <dt>電話番号</dt>
-                  <dd>09011111111</dd>
+                  <dd><?php echo $staffs_data[0]['staff__tel'] ?></dd>
                 </div>
                 <div class="agent__info__contents">
                   <dt>メールアドレス</dt>
-                  <dd>posse@keio.com</dd>
+                  <dd><?php echo $staffs_data[0]['staff__email'] ?></dd>
                 </div>
                 <div class="agent__info__contents">
                   <dt>部署</dt>
-                  <dd>広報</dd>
+                  <dd><?php echo $staffs_data[0]['staff__dept'] ?></dd>
                 </div>
                 <div class="agent__info__contents">
                   <dt>担当者紹介文</dt>
-                  <dd>ここに担当者の紹介文が入ります。ここに担当者の紹介文が入ります。ここに担当者の紹介文が入ります。ここに担当者の紹介文が入ります。ここに担当者の紹介文が入ります。ここに担当者の紹介文が入ります。ここに担当者の紹介文が入ります。ここに担当者の紹介文が入ります。ここに担当者の紹介文が入ります。</dd>
-                </div>
-              </dl>
-            </div>
-            <div class="agent__staff">
-              <div class="agent__staff__img">
-                <img src="../assets/img/mynavi.jpg" alt="担当者">
-              </div>
-              <dl class="agent__staff__info">
-                <div class="agent__info__contents">
-                  <dt>担当者氏名</dt>
-                  <dd>湯山トモハル</dd>
-                </div>
-                <div class="agent__info__contents">
-                  <dt>担当者氏名（カタカナ）</dt>
-                  <dd>ユヤマトモハル</dd>
-                </div>
-                <div class="agent__info__contents">
-                  <dt>電話番号</dt>
-                  <dd>09011111111</dd>
-                </div>
-                <div class="agent__info__contents">
-                  <dt>メールアドレス</dt>
-                  <dd>posse@keio.com</dd>
-                </div>
-                <div class="agent__info__contents">
-                  <dt>部署</dt>
-                  <dd>広報</dd>
-                </div>
-                <div class="agent__info__contents">
-                  <dt>担当者紹介文</dt>
-                  <dd>ここに担当者の紹介文が入ります。ここに担当者の紹介文が入ります。ここに担当者の紹介文が入ります。ここに担当者の紹介文が入ります。ここに担当者の紹介文が入ります。ここに担当者の紹介文が入ります。ここに担当者の紹介文が入ります。ここに担当者の紹介文が入ります。ここに担当者の紹介文が入ります。</dd>
-                </div>
-                <div class="agent__info__contents">
+                  <dd><?php echo $staffs_data[0]['staff__detail'] ?></dd>
                 </div>
               </dl>
             </div>
@@ -177,49 +164,186 @@
             <dl class="agent__info">
               <div class="agent__info__contents">
                 <dt>企業名</dt>
-                <dd>マイナビ</dd>
+                <dd><?php echo $agents_data[0]['agent'] ?></dd>
               </div>
               <div class="agent__info__contents">
                 <dt>代表者氏名</dt>
-                <dd>湯山トモハル</dd>
+                <dd><?php echo $agents_data[0]['name__kanji'] ?></dd>
               </div>
               <div class="agent__info__contents">
                 <dt>代表者氏名（フリガナ））</dt>
-                <dd>ユヤマトモハル</dd>
+                <dd><?php echo $agents_data[0]['name__kana'] ?></dd>
               </div>
               <div class="agent__info__contents">
                 <dt>URL（企業HP）</dt>
-                <dd><a href="#">マイナビのHPへ</a></dd>
+                <dd><a href="#"><?php echo $agents_data[0]['url'] ?></a></dd>
               </div>
               <div class="agent__info__contents">
                 <dt>郵便番号</dt>
-                <dd>112-0001</dd>
+                <dd><?php echo $agents_data[0]['postcode'] ?></dd>
               </div>
               <div class="agent__info__contents">
                 <dt>住所</dt>
-                <dd>静岡県御殿場市小山町</dd>
+                <dd><?php echo $agents_data[0]['address'] ?></dd>
               </div>
               <div class="agent__info__contents">
                 <dt>電話番号</dt>
-                <dd>09011111111</dd>
+                <dd><?php echo $agents_data[0]['tel'] ?></dd>
               </div>
               <div class="agent__info__contents">
                 <dt>メールアドレス</dt>
-                <dd>posse@keio.com</dd>
+                <dd><?php echo $agents_data[0]['email'] ?></dd>
               </div>
               <div class="agent__info__contents">
                 <dt>連絡先メールアドレス</dt>
-                <dd>posse@keio.com</dd>
+                <dd><?php echo $agents_data[0]['contact__email'] ?></dd>
               </div>
               <div class="agent__info__contents">
                 <dt>企業紹介</dt>
-                <dd>ここに企業の紹介が入ります。ここに企業の紹介が入ります。ここに企業の紹介が入ります。ここに企業の紹介が入ります。ここに企業の紹介が入ります。ここに企業の紹介が入ります。ここに企業の紹介が入ります。ここに企業の紹介が入ります。ここに企業の紹介が入ります。ここに企業の紹介が入ります。ここに企業の紹介が入ります。ここに企業の紹介が入ります。ここに企業の紹介が入ります。</dd>
+                <dd><?php echo $agents_data[0]['agent__detail'] ?></dd>
               </div>
             </dl>
           </div>
-          <!-- tab-content border border-top-0 p-5 mb-3のidと31行目hrefを一致させる(今だとagent1) -->
-          <div class="tab-pane fade" id="agent2" role="tabpanel"></div>
-          <div class="tab-pane fade" id="agent3" role="tabpanel"></div>
+          <?php for ($i = 1; $i < $agents_count; $i++) { ?>
+            <div class="tab-pane fade" id="agent<?php echo $i; ?>" role="tabpanel">
+              <div class="agent__title">サービス詳細</div>
+              <div class="agent__staff">
+                <div class="agent__staff__img">
+                  <img src="../assets/img/mynavi.jpg" alt="担当者">
+                </div>
+                <dl class="agent__staff__info">
+                  <div class="agent__info__contents">
+                    <dt>サービス名</dt>
+                    <dd><?php echo $agents_data[$i]['service__name'] ?></dd>
+                  </div>
+                  <div class="agent__info__contents">
+                    <dt>サービスの特徴</dt>
+                    <dd><?php echo $agents_data[$i]['service__detail'] ?></dd>
+                  </div>
+                  <div class="agent__info__contents">
+                    <dt>サポート内容</dt>
+                    <dd>                    <?php for ($j = 0; $j < $agent_supports_count_[$i]; $j++) { ?>
+                      @
+                    <?php echo $agent_supports_data_[$i][$j]['support'];
+                    } ?></dd>
+                  </div>
+                  <div class="agent__info__contents">
+                    <dt>エージェント企業の規模</dt>
+                    <dd><?php echo $agents_data[$i]['service__detail'] ?></dd>
+                  </div>
+                  <div class="agent__info__contents">
+                    <dt>取引先企業の規模</dt>
+                    <dd><?php echo $agents_data[$i]['service__agent__scale'] ?></dd>
+                  </div>
+                  <div class="agent__info__contents">
+                    <dt>対応エリア</dt>
+                    <dd><?php echo $agents_data[$i]['service__aria'] ?></dd>
+                  </div>
+                  <div class="agent__info__contents">
+                    <dt>独自のサービス</dt>
+                    <dd><?php echo $agents_data[$i]['service__unique'] ?></dd>
+                  </div>
+                  <div class="agent__info__contents">
+                    <dt>総合評価</dt>
+                    <dd><?php echo $agents_data[$i]['service__total'] ?></dd>
+                  </div>
+                  <div class="agent__info__contents">
+                    <dt>求人の質</dt>
+                    <dd><?php echo $agents_data[$i]['service__offer'] ?></dd>
+                  </div>
+                  <div class="agent__info__contents">
+                    <dt>使いやすさ</dt>
+                    <dd><?php echo $agents_data[$i]['service__useful'] ?></dd>
+                  </div>
+                  <div class="agent__info__contents">
+                    <dt>対応の良さ</dt>
+                    <dd><?php echo $agents_data[$i]['service__reaction'] ?></dd>
+                  </div>
+                  <div class="agent__info__contents">
+                    <dt>サポート力</dt>
+                    <dd><?php echo $agents_data[$i]['service__support'] ?></dd>
+                  </div>
+                </dl>
+              </div>
+              <div class="agent__title">担当者</div>
+              <div class="agent__staff">
+                <div class="agent__staff__img">
+                  <img src="../assets/img/mynavi.jpg" alt="担当者">
+                </div>
+                <dl class="agent__staff__info">
+                  <div class="agent__info__contents">
+                    <dt>担当者氏名</dt>
+                    <dd><?php echo $staffs_data[$i]['staff__name__kanji'] ?></dd>
+                  </div>
+                  <div class="agent__info__contents">
+                    <dt>担当者氏名（フリガナ）</dt>
+                    <dd><?php echo $staffs_data[$i]['staff__name__kana'] ?></dd>
+                  </div>
+                  <div class="agent__info__contents">
+                    <dt>電話番号</dt>
+                    <dd><?php echo $staffs_data[$i]['staff__tel'] ?></dd>
+                  </div>
+                  <div class="agent__info__contents">
+                    <dt>メールアドレス</dt>
+                    <dd><?php echo $staffs_data[$i]['staff__email'] ?></dd>
+                  </div>
+                  <div class="agent__info__contents">
+                    <dt>部署</dt>
+                    <dd><?php echo $staffs_data[$i]['staff__dept'] ?></dd>
+                  </div>
+                  <div class="agent__info__contents">
+                    <dt>担当者紹介文</dt>
+                    <dd><?php echo $staffs_data[$i]['staff__detail'] ?></dd>
+                  </div>
+                </dl>
+              </div>
+              <div class="agent__title mt-3">企業情報</div>
+              <dl class="agent__info">
+                <div class="agent__info__contents">
+                  <dt>企業名</dt>
+                  <dd><?php echo $agents_data[$i]['agent'] ?></dd>
+                </div>
+                <div class="agent__info__contents">
+                  <dt>代表者氏名</dt>
+                  <dd><?php echo $agents_data[$i]['name__kanji'] ?></dd>
+                </div>
+                <div class="agent__info__contents">
+                  <dt>代表者氏名（フリガナ））</dt>
+                  <dd><?php echo $agents_data[$i]['name__kana'] ?></dd>
+                </div>
+                <div class="agent__info__contents">
+                  <dt>URL（企業HP）</dt>
+                  <dd><a href="#"><?php echo $agents_data[$i]['url'] ?></a></dd>
+                </div>
+                <div class="agent__info__contents">
+                  <dt>郵便番号</dt>
+                  <dd><?php echo $agents_data[$i]['postcode'] ?></dd>
+                </div>
+                <div class="agent__info__contents">
+                  <dt>住所</dt>
+                  <dd><?php echo $agents_data[$i]['address'] ?></dd>
+                </div>
+                <div class="agent__info__contents">
+                  <dt>電話番号</dt>
+                  <dd><?php echo $agents_data[$i]['tel'] ?></dd>
+                </div>
+                <div class="agent__info__contents">
+                  <dt>メールアドレス</dt>
+                  <dd><?php echo $agents_data[$i]['email'] ?></dd>
+                </div>
+                <div class="agent__info__contents">
+                  <dt>連絡先メールアドレス</dt>
+                  <dd><?php echo $agents_data[$i]['contact__email'] ?></dd>
+                </div>
+                <div class="agent__info__contents">
+                  <dt>企業紹介</dt>
+                  <dd><?php echo $agents_data[$i]['agent__detail'] ?></dd>
+                </div>
+              </dl>
+
+            </div>
+          <?php }; ?>
+
         </div>
       </main>
     </div>
