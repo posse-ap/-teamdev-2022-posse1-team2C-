@@ -1,7 +1,10 @@
 <?php
-// require('./capsule/session.php');
-//↑2行目のコメントアウト外すなら下のsession_startいらない
-session_start();
+require('./capsule/session.php');
+if (!isset($_SESSION['student_number'])) {
+  header('Location: http://' . $_SERVER['HTTP_HOST'] . '/CRAFT/agent/index.php');
+  exit();
+}
+
 require(dirname(__FILE__) . "../../../dbconnect.php");
 $student_number = $_SESSION['student_number'];
 $agent_id = $_SESSION['agent_id'];
