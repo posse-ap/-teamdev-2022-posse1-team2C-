@@ -95,12 +95,12 @@ for ($j = 1; $j <= $agents_count; $j++) {
                     <img class="agent__item__img" src="../assets/img/career+.jpg" alt="企業名" width="300px" style="display: inline" />
                   </li>
                   <li class="agent__item">
-                    <h3 class="agent__item__name"><?php echo $agents_data[$j - 1]['agent']; ?></h3>
-                  </li>
-                  <li class="agent__item">
                     <span class="agent__item__title">総合点</span>
                     <span class="agent__item__star star5_rating" data-rate="<?php echo $agents_data[$j - 1]['service__total']; ?>"></span>
                     <span class="number_rating"><?php echo $agents_data[$j - 1]['service__total']; ?></span>
+                  </li>
+                  <li class="agent__item">
+                    <h3 class="agent__item__name"><?php echo $agents_data[$j - 1]['agent']; ?></h3>
                   </li>
                   <li class="agent__item">
                     <div class="agent__item__support">

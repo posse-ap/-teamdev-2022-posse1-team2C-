@@ -2,6 +2,9 @@
 .aside__contents {
   height: auto;
 }
+.aside__contents__img {
+  width: 100%;
+}
 
 .aside {
   width: 25%;
@@ -75,7 +78,7 @@
 }
 .footer__item {
   text-align: left;
-  width: calc((90% - 240px) / 4);
+  width: calc((90% - 160px) / 3);
 }
 .footer__copyright {
   padding: 20px 0;
@@ -192,6 +195,7 @@
   display: flex;
   justify-content: space-between;
   max-width: 1200px;
+  padding: 0 20px;
 }
 .header__nav__item {
   color: #ffffff;

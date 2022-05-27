@@ -69,11 +69,10 @@ $agents_data = $agents_stmt->fetchAll();
               <path d="M26 14v6h6M28 25h-8M28 29h-8M22 21h-2" stroke="#44A3EA" stroke-linecap="round" stroke-linejoin="round"></path>
             </svg>
             <div class="score__item__content">
-              <small class="score__item__title">今月のお問い合わせ数</small>
+              <small class="score__item__title">お問い合わせ数<br>【今月】</small>
               <br>
               <div class="score__item__value">
                 <span class="score__item__number">112</span>
-                <div class="score__item__rank">ランク<span>D</span></div>
               </div>
             </div>
           </li>
@@ -83,11 +82,10 @@ $agents_data = $agents_stmt->fetchAll();
               <path d="M30.7 17.5H17.3c-.9 0-1.6.7-1.6 1.7v8.3c0 1 .7 1.7 1.6 1.7h13.4c.9 0 1.6-.8 1.6-1.7v-8.3c0-1-.7-1.7-1.6-1.7zM20.7 32.5h6.6M24 29.2v3.3" stroke="#E8AE06" stroke-linecap="round" stroke-linejoin="round"></path>
             </svg>
             <div class="score__item__content">
-              <small class="score__item__title">先月のお問い合わせ数</small>
+              <small class="score__item__title">お問い合わせ数<br>【先月】</small>
               <br>
               <div class="score__item__value">
                 <span class="score__item__number">112</span>
-                <div class="score__item__rank">ランク<span>A</span></div>
               </div>
             </div>
           </li>
@@ -100,11 +98,10 @@ $agents_data = $agents_stmt->fetchAll();
               </g>
             </svg>
             <div class="score__item__content">
-              <small class="score__item__title">累計お問い合わせ数</small>
+              <small class="score__item__title">お問い合わせ数<br>【累計】</small>
               <br>
               <div class="score__item__value">
                 <span class="score__item__number">112</span>
-                <div class="score__item__rank">ランク<span>C</span></div>
               </div>
             </div>
           </li>
