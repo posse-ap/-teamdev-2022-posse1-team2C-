@@ -61,7 +61,7 @@ VALUES
   (
     3,
     '遠藤愛期',
-    'タカナシアヤネ',
+    'エンドウマナキ',
     'manaki@posse.com',
     '0010002',
     '2345678',
@@ -77,7 +77,7 @@ VALUES
   (
     4,
     '中澤和貴',
-    'イシイマユナ',
+    'ナカザワカズキ',
     'kazuki@posse.com',
     '1234567',
     '2345679',
@@ -93,7 +93,7 @@ VALUES
   (
     5,
     '武田龍一',
-    'イシイマユナ',
+    'タケダリュウイチ',
     'ryuichi@posse.com',
     '1234567',
     '2345679',
@@ -216,7 +216,7 @@ VALUES
     '東京都港区赤坂3-21-20赤坂ロングビーチビル',
     '050-2018-2521',
     'careerdesign@gmail.com',
-    'careerdesigcontact@gmail.com',
+    'careerdesigncontact@gmail.com',
     '',
     '大手企業',
     '首都圏',
@@ -413,21 +413,60 @@ VALUES
     'キャリアチケットは、紹介企業を平均5社としています。何十件も受けるのではなく、本当に自分に合った企業とだけ選考を進めてくれるので、余計な労力と時間を省けます。そして、厳選された優良求人だけを扱っています。独自の基準で紹介企業を絞っているため、ホワイトな職場を求めている人におすすめです。'
   );
 
-DROP TABLE IF EXISTS students_agent_connect;
+DROP TABLE IF EXISTS students_agents_connect;
 
-CREATE TABLE students_agent_connect (apply_id INT, agent_id INT);
+CREATE TABLE students_agents_connect (apply_id INT, agent_id INT,contact_id INT);
 
 INSERT INTO
-  students_agent_connect
+  students_agents_connect
 VALUES
-  (1, 1),
-  (1, 2),
-  (2, 2),
-  (2, 3),
-  (3, 1),
-  (3, 2),
-  (4, 1),
-  (5, 2);
+  (1,1,0),
+  (1,2,0),
+  (1,3,1),
+  (1,4,1),
+  (1,5,1),
+  (1,6,2),
+  (1,7,2),
+  (1,8,2),
+  (1,9,2),
+  (1,10,2),
+  (2,2,1),
+  (2,3,1),
+  (2,5,1),
+  (2,7,1),
+  (2,9,1),
+  (2,10,2),
+  (2,11,2),
+  (2,12,2),
+  (3,1,0),
+  (3,2,1),
+  (3,4,2),
+  (3,6,0),
+  (3,7,1),
+  (3,8,2),
+  (3,11,1),
+  (3,12,2),
+  (4,1,2),
+  (4,2,2),
+  (4,3,3),
+  (4,4,1),
+  (4,5,1),
+  (4,6,0),
+  (4,7,0),
+  (4,8,0),
+  (4,9,2),
+  (4,10,1),
+  (4,11,1),
+  (5,1,1),
+  (5,2,2),
+  (5,3,0),
+  (5,4,1),
+  (5,7,2),
+  (5,8,0),
+  (5,9,1),
+  (5,10,0),
+  (5,11,1),
+  (5,12,2);
 
 DROP TABLE IF EXISTS students_agents_mix;
 
@@ -450,7 +489,7 @@ SELECT
   agent_id
 FROM
   students
-  join students_agent_connect on id = apply_id;
+  join students_agents_connect on id = apply_id;
 
 DROP TABLE IF EXISTS supports;
 
@@ -606,6 +645,7 @@ CREATE TABLE staffs (
   staff__tel VARCHAR(255),
   staff__email VARCHAR(255),
   staff__dept VARCHAR(255),
+  staff__pass VARCHAR(255) NOT NULL,
   staff__detail VARCHAR(255)
 );
 
@@ -617,8 +657,9 @@ VALUES
     '石川朝香',
     'イシキワアサカ',
     '09068757384',
-    'asaka@keio.jp',
+    'asaka@recruit.jp',
     '人事部',
+    sha1('password1'),
     'Asakaだよ'
   ),
   (
@@ -626,8 +667,9 @@ VALUES
     '武田龍一',
     'タケダリュウイチ',
     '08011330789',
-    'ryuuichi@keio.jp',
+    'ryuuichi@benesse.jp',
     '総務部',
+    sha1('password2'),
     'こんにちは'
   ),
   (
@@ -635,8 +677,9 @@ VALUES
     '石川朝香',
     'イシキワアサカ',
     '09068757384',
-    'asaka@keio.jp',
+    'asaka@mynavi.jp',
     '人事部',
+    sha1('password3'),
     'Asakaだよ'
   ),
   (
@@ -644,8 +687,9 @@ VALUES
     '武田龍一',
     'タケダリュウイチ',
     '08011330789',
-    'ryuuichi@keio.jp',
+    'ryuuichi@careerdesign.jp',
     '総務部',
+    sha1('password4'),
     'こんにちは'
   ),
   (
@@ -653,8 +697,9 @@ VALUES
     '石川朝香',
     'イシキワアサカ',
     '09068757384',
-    'asaka@keio.jp',
+    'asaka@disco.jp',
     '人事部',
+    sha1('password5'),
     'Asakaだよ'
   ),
   (
@@ -662,8 +707,9 @@ VALUES
     '武田龍一',
     'タケダリュウイチ',
     '08011330789',
-    'ryuuichi@keio.jp',
+    'ryuuichi@port.jp',
     '総務部',
+    sha1('password6'),
     'こんにちは'
   ),
   (
@@ -671,8 +717,9 @@ VALUES
     '石川朝香',
     'イシキワアサカ',
     '09068757384',
-    'asaka@keio.jp',
+    'asaka@nas.jp',
     '人事部',
+    sha1('password7'),
     'Asakaだよ'
   ),
   (
@@ -680,8 +727,9 @@ VALUES
     '武田龍一',
     'タケダリュウイチ',
     '08011330789',
-    'ryuuichi@keio.jp',
+    'ryuuichi@thinktwice.jp',
     '総務部',
+    sha1('password8'),
     'こんにちは'
   ),
   (
@@ -689,8 +737,9 @@ VALUES
     '石川朝香',
     'イシキワアサカ',
     '09068757384',
-    'asaka@keio.jp',
+    'asaka@dym.jp',
     '人事部',
+    sha1('password9'),
     'Asakaだよ'
   ),
   (
@@ -698,8 +747,9 @@ VALUES
     '武田龍一',
     'タケダリュウイチ',
     '08011330789',
-    'ryuuichi@keio.jp',
+    'ryuuichi@neocareer.jp',
     '総務部',
+    sha1('password10'),
     'こんにちは'
   ),
   (
@@ -707,8 +757,9 @@ VALUES
     '石川朝香',
     'イシキワアサカ',
     '09068757384',
-    'asaka@keio.jp',
+    'asaka@hrcloud.jp',
     '人事部',
+    sha1('password11'),
     'Asakaだよ'
   ),
   (
@@ -716,8 +767,9 @@ VALUES
     '武田龍一',
     'タケダリュウイチ',
     '08011330789',
-    'ryuuichi@keio.jp',
+    'ryuuichi@leverages.jp',
     '総務部',
+    sha1('password12'),
     'こんにちは'
   );
 
@@ -730,25 +782,3 @@ CREATE TABLE CRAFT (
   created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
   updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );
-
-DROP TABLE IF EXISTS agent_login;
-
-CREATE TABLE agent_login (
-  id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
-  log_id VARCHAR(255) UNIQUE NOT NULL,
-  password VARCHAR(255) NOT NULL,
-  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-  updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-);
-
-INSERT INTO
-  agent_login
-SET
-  log_id = 'test1@posse-ap.com',
-  password = sha1('password1');
-
-INSERT INTO
-  agent_login
-SET
-  log_id = 'test2@posse-ap.com',
-  password = sha1('password2');
