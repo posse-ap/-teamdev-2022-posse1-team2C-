@@ -38,8 +38,9 @@ $agents_data = $agents_stmt->fetchAll();
 
 $contact = "";
 if (isset($_POST['done'])) {
-  $contact = "連絡済みにしました";
-  echo $contact;
+  $done = "連絡済みにしました";
+  $alert = "<script type='text/javascript'>alert('" . $done . "');</script>";
+  echo $alert;
   $contacts_connect_stmt = $db->exec('
 UPDATE students_agents_connect SET contact_id = 1
 WHERE agent_id = "' . $_SESSION['agent_id'] . '" and
@@ -69,7 +70,9 @@ apply_id = "' . $_SESSION['student_number'] . '"');
   $_POST = array();
 }
 if (isset($_POST['yet'])) {
-
+  $yet = "未連絡にしました";
+  $alert = "<script type='text/javascript'>alert('" . $yet . "');</script>";
+  echo $alert;
   $contacts_connect_stmt = $db->exec('
         UPDATE students_agents_connect SET contact_id = 0
         WHERE agent_id = "' . $_SESSION['agent_id'] . '" and
