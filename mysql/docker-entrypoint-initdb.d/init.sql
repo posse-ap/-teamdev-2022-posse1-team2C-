@@ -486,7 +486,8 @@ SELECT
   graduate,
   content,
   apply_time,
-  agent_id
+  agent_id,
+  contact_id
 FROM
   students
   join students_agents_connect on id = apply_id;
