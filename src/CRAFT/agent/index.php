@@ -1,24 +1,32 @@
 <?php
 require('./capsule/session.php');
 require(dirname(__FILE__) . "../../../dbconnect.php");
-$user_id =  $_SESSION['agent_id'];
+
+$agent_id =  $_SESSION['agent_id'];
 
 $agents_stmt = $db->prepare("SELECT * from agents WHERE id = ?");
-$agents_stmt->bindValue(1, $user_id);
+$agents_stmt->bindValue(1, $agent_id);
 $agents_stmt->execute();
 $agents_data = $agents_stmt->fetchAll();
 
 
 $students_stmt = $db->prepare("SELECT * from students_agents_mix WHERE agent_id = ?");
-$students_stmt->bindValue(1, $user_id);
+$students_stmt->bindValue(1, $agent_id);
 $students_stmt->execute();
 $students_data = $students_stmt->fetchAll();
 
 $students_count_stmt = $db->prepare("SELECT COUNT(*) from students_agents_mix WHERE agent_id=?");
-$students_count_stmt->bindValue(1, $user_id);
+$students_count_stmt->bindValue(1, $agent_id);
 $students_count_stmt->execute();
 $students_count_data = $students_count_stmt->fetchAll();
 $students_count = $students_count_data[0]['COUNT(*)'];
+if (isset($_POST['student_number'])) {
+  $_SESSION['student_number'] = $_POST['student_number'];
+  header('Location: http://' . $_SERVER['HTTP_HOST'] . '/CRAFT/agent/detail.php');
+  exit();
+}
+
+
 ?>
 
 <!DOCTYPE html>
@@ -42,7 +50,7 @@ $students_count = $students_count_data[0]['COUNT(*)'];
       <li class="main__item">
         <div class="main__item__account">
           <img src="../../assets/img/icon_avatar.svg" alt="icon">
-          <p class="main__item__account__name"><?php echo $agents_data[0]['name']; ?></p>
+          <p class="main__item__account__name"><?php echo $agents_data[0]['agent']; ?></p>
         </div>
         <hr>
         <ul class="score__list">
@@ -112,72 +120,54 @@ $students_count = $students_count_data[0]['COUNT(*)'];
           <div class="student__panel">
             <div id="panel1" role="tabpanel" class="student__panel__item">
               <h3 class="student__panel__item__title">未対応の学生一覧</h3>
-              <dl class="student__panel__item__content">
-                <div class="student__panel__item__content__piece">
-                  <dt>氏名</dt>
-                  <?php for ($i = 1; $i <= $students_count; $i++) { ?>
-                    <dd><?php echo $students_data[$i - 1]['name__kanji'] ?></dd>
-                  <?php }; ?>
-
-                  <!-- <dd>シュート</dd>
-                  <dd>チョコ</dd>
-                  <dd>mrp</dd> -->
-                </div>
-                <div class="student__panel__item__content__piece">
-                  <dt>メールアドレス</dt>
-                  <?php for ($i = 1; $i <= $students_count; $i++) { ?>
-                    <dd><?php echo $students_data[$i - 1]['email'] ?></dd>
-                  <?php }; ?>
-                  <!-- <dd>syuuto@yosioka.com</dd>
-                  <dd>chiyoko@hayashi.com</dd>
-                  <dd>mrp@posse.com</dd> -->
-                </div>
-                <div class="student__panel__item__content__piece">
-                  <dt>大学</dt>
-                  <?php for ($i = 1; $i <= $students_count; $i++) { ?>
-                    <dd><?php echo $students_data[$i - 1]['university']; ?></dd>
-                  <?php }; ?>
-
-                  <!-- <dd>慶應義塾大学</dd>
-                  <dd>早稲田大学</dd>
-                  <dd>青山学院大学</dd> -->
-                </div>
-                <div class="student__panel__item__content__piece">
-                  <dt>卒業年度</dt>
-                  <?php for ($i = 1; $i <= $students_count; $i++) { ?>
-                    <dd><?php echo $students_data[$i - 1]['graduate'] ?></dd>
-                  <?php }; ?>
-                  <!-- <dd>23卒</dd>
-                  <dd>24卒</dd>
-                  <dd>25卒</dd> -->
-                </div>
-                <div class="student__panel__item__content__piece">
-                  <dt>自由記述</dt>
-                  <?php for ($i = 1; $i <= $students_count; $i++) { ?>
-                    <dd><?php echo $students_data[$i - 1]['content'] ?></dd>
-                  <?php }; ?>
-                  <!-- <dd>よろしくお願いします！</dd>
-                  <dd></dd>
-                  <dd>まだ何も始めていませんが大丈夫でしょうか？</dd> -->
-                </div>
-                <div class="student__panel__item__content__piece">
-                  <dt>詳細</dt>
-                  <?php for ($i = 1; $i <= $students_count; $i++) { ?>
-                    <dd><button>詳細</button></dd>
-                  <?php }; ?>
-                </div>
+              <form action="./index.php" method="POST">
+                <dl class="student__panel__item__content">
+                  <div class="student__panel__item__content__piece">
+                    <dt>氏名</dt>
+                    <?php for ($i = 1; $i <= $students_count; $i++) { ?>
+                      <dd><?php echo $students_data[$i - 1]['name__kanji'] ?></dd>
+                    <?php }; ?>
+                  </div>
+                  <div class="student__panel__item__content__piece">
+                    <dt>メールアドレス</dt>
+                    <?php for ($i = 1; $i <= $students_count; $i++) { ?>
+                      <dd><?php echo $students_data[$i - 1]['email'] ?></dd>
+                    <?php }; ?>
+                  </div>
+                  <div class="student__panel__item__content__piece">
+                    <dt>大学</dt>
+                    <?php for ($i = 1; $i <= $students_count; $i++) { ?>
+                      <dd><?php echo $students_data[$i - 1]['university']; ?></dd>
+                    <?php }; ?>
+                  </div>
+                  <div class="student__panel__item__content__piece">
+                    <dt>卒業年度</dt>
+                    <?php for ($i = 1; $i <= $students_count; $i++) { ?>
+                      <dd><?php echo $students_data[$i - 1]['graduate'] ?></dd>
+                    <?php }; ?>
+                  </div>
+                  <div class="student__panel__item__content__piece">
+                    <dt>自由記述</dt>
+                    <?php for ($i = 1; $i <= $students_count; $i++) { ?>
+                      <dd><?php echo $students_data[$i - 1]['content'] ?></dd>
+                    <?php }; ?>
+                  </div>
+                  <div class="student__panel__item__content__piece">
+                    <dt>詳細</dt>
+                    <?php for ($i = 1; $i <= $students_count; $i++) { ?>
+                      <dd><button type="submit" name="student_number" value="<?php echo $i; ?>">詳細</button></dd>
+                    <?php }; ?>
+                  </div>
 
 
-                <div class="student__panel__item__content__piece">
-                  <dt>申請時刻</dt>
-                  <?php for ($i = 1; $i <= $students_count; $i++) { ?>
-                    <dd><?php echo $students_data[$i - 1]['apply_time'] ?></dd>
-                  <?php }; ?>
-                  <!-- <dd><span>4</span>月<span>1</span>日<span>23:41:28</span></dd>
-                  <dd><span>1</span>月<span>3</span>日<span>06:22:19</span></dd>
-                  <dd><span>12</span>月<span>30</span>日<span>09:59:54</span></dd> -->
-                </div>
-              </dl>
+                  <div class="student__panel__item__content__piece">
+                    <dt>申請時刻</dt>
+                    <?php for ($i = 1; $i <= $students_count; $i++) { ?>
+                      <dd><?php echo $students_data[$i - 1]['apply_time']; ?></dd>
+                    <?php }; ?>
+                  </div>
+                </dl>
+              </form>
             </div>
             <div id="panel2" role="tabpanel" class="student__panel__item" hidden>
               <h3 class="student__panel__item__title">対応済みの学生一覧</h3>
@@ -188,46 +178,30 @@ $students_count = $students_count_data[0]['COUNT(*)'];
                     <dd><?php echo $students_data[$i - 1]['name__kanji'] ?></dd>
                   <?php }; ?>
 
-                  <!-- <dd>シュート</dd>
-                  <dd>チョコ</dd>
-                  <dd>mrp</dd> -->
                 </div>
                 <div class="student__panel__item__content__piece">
                   <dt>メールアドレス</dt>
                   <?php for ($i = 1; $i <= $students_count; $i++) { ?>
                     <dd><?php echo $students_data[$i - 1]['email'] ?></dd>
                   <?php }; ?>
-                  <!-- <dd>syuuto@yosioka.com</dd>
-                  <dd>chiyoko@hayashi.com</dd>
-                  <dd>mrp@posse.com</dd> -->
                 </div>
                 <div class="student__panel__item__content__piece">
                   <dt>大学</dt>
                   <?php for ($i = 1; $i <= $students_count; $i++) { ?>
                     <dd><?php echo $students_data[$i - 1]['university']; ?></dd>
                   <?php }; ?>
-
-                  <!-- <dd>慶應義塾大学</dd>
-                  <dd>早稲田大学</dd>
-                  <dd>青山学院大学</dd> -->
                 </div>
                 <div class="student__panel__item__content__piece">
                   <dt>卒業年度</dt>
                   <?php for ($i = 1; $i <= $students_count; $i++) { ?>
                     <dd><?php echo $students_data[$i - 1]['graduate'] ?></dd>
                   <?php }; ?>
-                  <!-- <dd>23卒</dd>
-                  <dd>24卒</dd>
-                  <dd>25卒</dd> -->
                 </div>
                 <div class="student__panel__item__content__piece">
                   <dt>自由記述</dt>
                   <?php for ($i = 1; $i <= $students_count; $i++) { ?>
                     <dd><?php echo $students_data[$i - 1]['content'] ?></dd>
                   <?php }; ?>
-                  <!-- <dd>よろしくお願いします！</dd>
-                  <dd></dd>
-                  <dd>まだ何も始めていませんが大丈夫でしょうか？</dd> -->
                 </div>
                 <div class="student__panel__item__content__piece">
                   <dt>詳細</dt>
@@ -242,9 +216,6 @@ $students_count = $students_count_data[0]['COUNT(*)'];
                   <?php for ($i = 1; $i <= $students_count; $i++) { ?>
                     <dd><?php echo $students_data[$i - 1]['apply_time'] ?></dd>
                   <?php }; ?>
-                  <!-- <dd><span>4</span>月<span>1</span>日<span>23:41:28</span></dd>
-                  <dd><span>1</span>月<span>3</span>日<span>06:22:19</span></dd>
-                  <dd><span>12</span>月<span>30</span>日<span>09:59:54</span></dd> -->
                 </div>
               </dl>
             </div>
@@ -256,47 +227,30 @@ $students_count = $students_count_data[0]['COUNT(*)'];
                   <?php for ($i = 1; $i <= $students_count; $i++) { ?>
                     <dd><?php echo $students_data[$i - 1]['name__kanji'] ?></dd>
                   <?php }; ?>
-
-                  <!-- <dd>シュート</dd>
-                  <dd>チョコ</dd>
-                  <dd>mrp</dd> -->
                 </div>
                 <div class="student__panel__item__content__piece">
                   <dt>メールアドレス</dt>
                   <?php for ($i = 1; $i <= $students_count; $i++) { ?>
                     <dd><?php echo $students_data[$i - 1]['email'] ?></dd>
                   <?php }; ?>
-                  <!-- <dd>syuuto@yosioka.com</dd>
-                  <dd>chiyoko@hayashi.com</dd>
-                  <dd>mrp@posse.com</dd> -->
                 </div>
                 <div class="student__panel__item__content__piece">
                   <dt>大学</dt>
                   <?php for ($i = 1; $i <= $students_count; $i++) { ?>
                     <dd><?php echo $students_data[$i - 1]['university']; ?></dd>
                   <?php }; ?>
-
-                  <!-- <dd>慶應義塾大学</dd>
-                  <dd>早稲田大学</dd>
-                  <dd>青山学院大学</dd> -->
                 </div>
                 <div class="student__panel__item__content__piece">
                   <dt>卒業年度</dt>
                   <?php for ($i = 1; $i <= $students_count; $i++) { ?>
                     <dd><?php echo $students_data[$i - 1]['graduate'] ?></dd>
                   <?php }; ?>
-                  <!-- <dd>23卒</dd>
-                  <dd>24卒</dd>
-                  <dd>25卒</dd> -->
                 </div>
                 <div class="student__panel__item__content__piece">
                   <dt>自由記述</dt>
                   <?php for ($i = 1; $i <= $students_count; $i++) { ?>
                     <dd><?php echo $students_data[$i - 1]['content'] ?></dd>
                   <?php }; ?>
-                  <!-- <dd>よろしくお願いします！</dd>
-                  <dd></dd>
-                  <dd>まだ何も始めていませんが大丈夫でしょうか？</dd> -->
                 </div>
                 <div class="student__panel__item__content__piece">
                   <dt>詳細</dt>
@@ -311,9 +265,6 @@ $students_count = $students_count_data[0]['COUNT(*)'];
                   <?php for ($i = 1; $i <= $students_count; $i++) { ?>
                     <dd><?php echo $students_data[$i - 1]['apply_time'] ?></dd>
                   <?php }; ?>
-                  <!-- <dd><span>4</span>月<span>1</span>日<span>23:41:28</span></dd>
-                  <dd><span>1</span>月<span>3</span>日<span>06:22:19</span></dd>
-                  <dd><span>12</span>月<span>30</span>日<span>09:59:54</span></dd> -->
                 </div>
               </dl>
             </div>

@@ -328,3 +328,18 @@ apply__thanks
     color: vb.$color_white;
   }
 }
+
+// #birth {
+//   &::before {
+//     content: attr(placeholder);
+//     color: rgb(117, 117, 117);
+//   }
+  
+//   &::-webkit-datetime-edit-fields-wrapper {
+//     display: none;
+//   }
+
+//   &::-webkit-calendar-picker-indicator {
+//     display: none;
+//   }
+// }

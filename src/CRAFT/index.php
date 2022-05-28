@@ -92,23 +92,23 @@ for ($j = 1; $j <= $agents_count; $j++) {
               <li class="agent">
                 <ul class="agent__list">
                   <li class="agent__item">
-                    <img class="img agent__item__img" src="../assets/img/agent.png" alt="企業名" width="300px" style="display: inline" />
+                    <img class="agent__item__img" src="../assets/img/career+.jpg" alt="企業名" width="300px" style="display: inline" />
+                  </li>
+                  <li class="agent__item">
+                    <span class="agent__item__title">総合点</span>
+                    <span class="agent__item__star star5_rating" data-rate="<?php echo $agents_data[$j - 1]['service__total']; ?>"></span>
+                    <span class="number_rating"><?php echo $agents_data[$j - 1]['service__total']; ?></span>
                   </li>
                   <li class="agent__item">
                     <h3 class="agent__item__name"><?php echo $agents_data[$j - 1]['agent']; ?></h3>
                   </li>
                   <li class="agent__item">
-                    <span class="agent__item__title">総合点</span>
-                    <span class="star5_rating" data-rate="<?php echo $agents_data[$j - 1]['service__total']; ?>"></span>
-                    <span class="number_rating"><?php echo $agents_data[$j - 1]['service__total']; ?></span>
+                    <div class="agent__item__support">
+                      <?php for ($k = 0; $k <= $agent_supports_count_[$j] - 1; $k++) { ?>
+                        <span class="agent__item__support__content"><?php echo $agent_supports_data_[$j][$k]['support']; ?></span>
+                      <?php }; ?>
+                    </div>
                   </li>
-
-                  <?php for ($k = 0; $k <= $agent_supports_count_[$j] - 1; $k++) { ?>
-                    <p><?php echo $agent_supports_data_[$j][$k]['support']; ?></p>
-                  <?php }; ?>
-                  <p></p>
-                  <p></p>
-                  <p></p>
                   <li class="agent__item">
                     <p class="agent__item__info">
                       <?php echo $agents_data[$j - 1]['service__detail'];; ?>
@@ -134,6 +134,7 @@ for ($j = 1; $j <= $agents_count; $j++) {
   <script src="../assets/js/jquery-3.6.0.min.js"></script>
   <script src="../assets/js/pagescroll.js"></script>
   <script src="../assets/js/sp.js"></script>
+  <script src="../assets/js/header.js"></script>
 </body>
 
 </html>
