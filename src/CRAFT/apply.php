@@ -26,7 +26,7 @@ $errmessage2 = array();
 for ($i = 0; $i < $forms_length - 1; $i++) {
     $errmessage[$i] = '';
 }
-for ($i = 0; $i < $forms2_length - 1; $i++) {
+for ($i = 0; $i < $forms2_length; $i++) {
     $errmessage2[$i] = '';
 }
 $mode = 'input';
