@@ -1,6 +1,109 @@
 <?php
-// require('./capsule/session.php');
+require('./capsule/session.php');
+if (!isset($_SESSION['student_number'])) {
+  header('Location: http://' . $_SERVER['HTTP_HOST'] . '/CRAFT/agent/index.php');
+  exit();
+}
+
+require(dirname(__FILE__) . "../../../dbconnect.php");
+$student_number = $_SESSION['student_number'];
+$agent_id = $_SESSION['agent_id'];
+
+$students_stmt = $db->prepare("SELECT * from students_agents_mix WHERE agent_id = ?");
+$students_stmt->bindValue(1, $agent_id);
+$students_stmt->execute();
+$students_data = $students_stmt->fetchAll();
+
+$students_info = [
+  '学生氏名',
+  'フリガナ',
+  'メールアドレス',
+  '電話番号',
+  '郵便番号',
+  '住所',
+  '生年月日',
+  '大学',
+  '学部',
+  '学科',
+  '卒業年度',
+  'その他自由記述欄',
+  '申請時刻'
+];
+$students_data_length = count($students_info);
+
+$agents_stmt = $db->prepare("SELECT * from agents WHERE id = ?");
+$agents_stmt->bindValue(1, $agent_id);
+$agents_stmt->execute();
+$agents_data = $agents_stmt->fetchAll();
+
+$contact = "";
+if (isset($_POST['done'])) {
+    $contact = "連絡済みにしました";
+    echo $contact;
+    $contacts_connect_stmt = $db->exec('
+UPDATE students_agents_connect SET contact_id = 1
+WHERE agent_id = "' . $_SESSION['agent_id'] . '" and
+apply_id = "' . $_SESSION['student_number'] . '"');
+    $contacts_mix_stmt = $db->exec('DROP TABLE IF EXISTS students_agents_mix;
+    CREATE table students_agents_mix AS
+    SELECT
+      students.id AS id,
+      name__kanji,
+      name__kana,
+      email,
+      tel,
+      postcode,
+      address,
+      birth,
+      university,
+      faculty,
+      course,
+      graduate,
+      content,
+      apply_time,
+      agent_id,
+      contact_id
+    FROM
+      students
+      join students_agents_connect on id = apply_id;');
+      $_POST = array();
+}
+      if (isset($_POST['yet'])) {
+
+        $contacts_connect_stmt = $db->exec('
+        UPDATE students_agents_connect SET contact_id = 0
+        WHERE agent_id = "' . $_SESSION['agent_id'] . '" and
+        apply_id = "' . $_SESSION['student_number'] . '"');
+        $contacts_mix_stmt = $db->exec('DROP TABLE IF EXISTS students_agents_mix;
+        CREATE table students_agents_mix AS
+        SELECT
+          students.id AS id,
+          name__kanji,
+          name__kana,
+          email,
+          tel,
+          postcode,
+          address,
+          birth,
+          university,
+          faculty,
+          course,
+          graduate,
+          content,
+          apply_time,
+          agent_id,
+          contact_id
+        FROM
+          students
+          join students_agents_connect on id = apply_id;');
+          $_POST = array();
+          $contact = "未連絡にしました";
+          echo $contact;
+
+}
+
 ?>
+
 <!DOCTYPE html>
 <html lang="ja">
 
@@ -22,7 +125,7 @@
       <li class="main__item">
         <div class="main__item__account">
           <img src="../../assets/img/icon_avatar.svg" alt="icon">
-          <input type="text" value="manaki">
+          <p class="main__item__account__name"><?php echo $agents_data[0]['agent']; ?></p>
         </div>
         <hr>
         <ul class="score__list">
@@ -33,11 +136,10 @@
               <path d="M26 14v6h6M28 25h-8M28 29h-8M22 21h-2" stroke="#44A3EA" stroke-linecap="round" stroke-linejoin="round"></path>
             </svg>
             <div class="score__item__content">
-              <small class="score__item__title">今月のお問い合わせ数</small>
+              <small class="score__item__title">お問い合わせ数<br>【今月】</small>
               <br>
               <div class="score__item__value">
                 <span class="score__item__number">112</span>
-                <div class="score__item__rank">ランク<span>D</span></div>
               </div>
             </div>
           </li>
@@ -47,11 +149,10 @@
               <path d="M30.7 17.5H17.3c-.9 0-1.6.7-1.6 1.7v8.3c0 1 .7 1.7 1.6 1.7h13.4c.9 0 1.6-.8 1.6-1.7v-8.3c0-1-.7-1.7-1.6-1.7zM20.7 32.5h6.6M24 29.2v3.3" stroke="#E8AE06" stroke-linecap="round" stroke-linejoin="round"></path>
             </svg>
             <div class="score__item__content">
-              <small class="score__item__title">先月のお問い合わせ数</small>
+              <small class="score__item__title">お問い合わせ数<br>【先月】</small>
               <br>
               <div class="score__item__value">
                 <span class="score__item__number">112</span>
-                <div class="score__item__rank">ランク<span>A</span></div>
               </div>
             </div>
           </li>
@@ -64,11 +165,10 @@
               </g>
             </svg>
             <div class="score__item__content">
-              <small class="score__item__title">累計お問い合わせ数</small>
+              <small class="score__item__title">お問い合わせ数<br>【累計】</small>
               <br>
               <div class="score__item__value">
                 <span class="score__item__number">112</span>
-                <div class="score__item__rank">ランク<span>C</span></div>
               </div>
             </div>
           </li>
@@ -79,7 +179,7 @@
 
       <li class="main__item">
         <div class="myCard">
-          <p class="myCard__title"><span class="myCard__title__agent">POSSE</span>様への新規お問い合わせ数</p>
+          <p class="myCard__title"><span class="myCard__title__agent"><?php echo $agents_data[0]['agent']; ?></span>様への新規お問い合わせ数</p>
           <span class="myCard__number">10</span>
           <p class="myCard__text">対応してない学生に返信をしましょう<br>お問い合わせをいただいた学生の詳細は下記をご覧ください</p>
         </div>
@@ -90,62 +190,19 @@
           <div class="student__detail">
             <p class="student__detail__title">【学生詳細情報】</p>
             <dl class="student__detail__list">
-              <div class="student__detail__item">
-                <dt>学生氏名</dt>
-                <dd>遠藤愛期</dd>
-              </div>
-              <div class="student__detail__item">
-                <dt>フリガナ</dt>
-                <dd>エンドウマナキ</dd>
-              </div>
-              <div class="student__detail__item">
-                <dt>メールアドレス</dt>
-                <dd>48690114s@gmail.com</dd>
-              </div>
-              <div class="student__detail__item">
-                <dt>電話番号</dt>
-                <dd>09058522963</dd>
-              </div>
-              <div class="student__detail__item">
-                <dt>郵便番号</dt>
-                <dd>0001111</dd>
-              </div>
-              <div class="student__detail__item">
-                <dt>住所</dt>
-                <dd>神奈川県横浜市港北区赤坂1-1-22</dd>
-              </div>
-              <div class="student__detail__item">
-                <dt>生年月日</dt>
-                <dd>2003/09/11</dd>
-              </div>
-              <div class="student__detail__item">
-                <dt>大学</dt>
-                <dd>慶應義塾大学</dd>
-              </div>
-              <div class="student__detail__item">
-                <dt>学部</dt>
-                <dd>理工学部</dd>
-              </div>
-              <div class="student__detail__item">
-                <dt>学科</dt>
-                <dd>管理工学科</dd>
-              </div>
-              <div class="student__detail__item">
-                <dt>卒業年度</dt>
-                <dd>25卒</dd>
-              </div>
-              <div class="student__detail__item">
-                <dt>その他自由記述欄</dt>
-                <dd>よろしくお願いします！</dd>
-              </div>
-              <div class="student__detail__item">
-                <dt>申請時刻</dt>
-                <dd>01月13日09:15:11</dd>
-              </div>
+              <?php for ($i = 1; $i <= $students_data_length; $i++) { ?>
+                <div class="student__detail__item">
+                  <dt><?php echo $students_info[$i - 1]; ?></dt>
+                  <dd><?php echo $students_data[$student_number - 1][$i]; ?></dd>
+                </div>
+              <?php }; ?>
             </dl>
           </div>
+          
           <div class="student__operation">
-            <ul class="student__operation__list">
+          <!-- <form method="post"> -->
+            <form method="POST" class="student__operation__list">
+            
               <li class="student__operation__item">
                 <button>取消申請</button>
               </li>
@@ -153,13 +210,16 @@
                 <button>メールを送信</button>
               </li>
               <li class="student__operation__item">
-                <button>連絡済にする</button>
+                <button name="done">連絡済にする</button>
               </li>
               <li class="student__operation__item">
-                <button>未連絡に戻す</button>
+                <button name="yet">未連絡に戻す</button>
               </li>
-            </ul>
+              
+            </form>
+            <!-- </form> -->
           </div>
+          
         </div>
       </li>
     </ul>

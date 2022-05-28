@@ -26,8 +26,7 @@ $students_yet_count_stmt->bindValue(1, $agent_id);
 $students_yet_count_stmt->execute();
 $students_yet_count_data = $students_yet_count_stmt->fetchAll();
 $students_yet_count = $students_yet_count_data[0]['COUNT(*)'];
-echo $students_yet_count;
-
+// echo $students_yet_count;
 
 if (isset($_POST['student_number'])) {
   $_SESSION['student_number'] = $_POST['student_number'];

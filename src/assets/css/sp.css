@@ -5,8 +5,19 @@
   .agent__service__inner__analysis {
     width: calc(100% - 400px);
   }
+
+  .agent__item__star {
+    font-size: 30px;
+  }
 }
 @media (max-width: 1100px) {
+  .agent {
+    width: calc((100% - 12px) / 2);
+  }
+  .agent__item__star {
+    font-size: 25px;
+  }
+
   .agent__service__inner {
     display: block;
   }
@@ -27,7 +38,16 @@
     margin: 0 50px;
   }
 }
+@media (max-width: 1000px) {
+  .agent__item__star {
+    font-size: 27px;
+  }
+}
 @media (max-width: 900px) {
+  .agent__item__star {
+    font-size: 20px;
+  }
+
   .contact__form__item dd {
     margin-left: 30px;
     width: calc(100% - 250px);
@@ -55,16 +75,23 @@
     margin-left: 5px;
   }
 
-  .footer__list {
-    display: block;
-  }
   .footer__item {
-    width: 80%;
-    margin: 0 auto;
+    width: calc((80% - 80px) / 2);
+  }
+  .footer__item:nth-child(2n+1) {
+    display: none;
   }
 
   .agent__service h3 {
     margin: 0 20px;
+  }
+}
+@media (max-width: 800px) {
+  .agent {
+    width: 100%;
+  }
+  .agent__item__star {
+    font-size: 50px;
   }
 }
 @media (max-width: 700px) {
@@ -88,10 +115,6 @@
     width: -moz-fit-content;
     width: fit-content;
     margin: 100px auto 0 auto;
-  }
-  .aside__contents img {
-    display: flex;
-    flex-direction: column;
   }
 
   .contact__form__item dt {
@@ -118,6 +141,10 @@
     display: none;
   }
 
+  .footer__list {
+    display: none;
+  }
+
   .content {
     padding-top: 80px;
   }
@@ -128,6 +155,10 @@
 
   .main {
     padding: 0 0 50px 0;
+  }
+
+  .header__active {
+    display: block;
   }
 
   .hamburger__nav {
@@ -145,11 +176,24 @@
   }
   .hamburger__nav__item {
     display: block;
-    padding: 20px 28px;
+    padding: 10px 28px;
+    text-align: left;
+    font-size: 20px;
+    font-weight: bold;
   }
   .hamburger__nav__item a {
     text-decoration: none;
     color: #ddd;
+  }
+  .hamburger__nav__item__child {
+    font-size: 13px;
+    padding: 10px 0 10px 10px;
+    visibility: visible;
+    opacity: 1;
+    display: none;
+  }
+  .hamburger__nav__item__child li {
+    padding: 5px 0;
   }
   .hamburger__button {
     text-align: left;
@@ -240,10 +284,6 @@
     width: 100%;
   }
 
-  .agent {
-    padding: 0 20px;
-  }
-
   .agent__service {
     display: block;
   }
@@ -287,6 +327,14 @@
     width: calc(100% - 50px);
   }
 
+  .agents {
+    width: calc(100% - 40px);
+  }
+
+  .agent__item__star {
+    font-size: 35px;
+  }
+
   .attention {
     padding: 0 15px;
   }
@@ -295,7 +343,8 @@
     padding: 20px 10px 20px 20px;
   }
 
-  .agent__info__contents dt, .agent__info__contents dd {
+  .agent__info__contents dt,
+.agent__info__contents dd {
     font-size: 12px;
   }
 }
