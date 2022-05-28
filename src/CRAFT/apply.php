@@ -120,7 +120,8 @@ if (isset($_POST['back']) && $_POST['back']) {
         $students_count = $students_count_data[0]['COUNT(*)'];
         $students_agents_connect = $db->exec('INSERT INTO students_agents_connect SET 
     apply_id="' . $students_count . '",
-    agent_id="' . $_SESSION['agent'] . '"
+    agent_id="' . $_SESSION['agent'] . '",
+    contact_id=0
     ');
         $agents_supports_mix = $db->exec('
     DROP TABLE IF EXISTS students_agents_mix;
