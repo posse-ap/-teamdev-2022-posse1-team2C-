@@ -9,11 +9,12 @@ require(dirname(__FILE__) . "../../../dbconnect.php");
 $student_number = $_SESSION['student_number'];
 $agent_id = $_SESSION['agent_id'];
 
-$students_stmt = $db->prepare("SELECT * from students_agents_mix WHERE agent_id = ?");
+
+$students_stmt = $db->prepare("SELECT * from students_agents_mix WHERE agent_id = ? and id=?");
 $students_stmt->bindValue(1, $agent_id);
+$students_stmt->bindValue(2, $student_number);
 $students_stmt->execute();
 $students_data = $students_stmt->fetchAll();
-
 $students_info = [
   '学生氏名',
   'フリガナ',
@@ -100,8 +101,6 @@ if (isset($_POST['yet'])) {
           students
           join students_agents_connect on id = apply_id;');
   $_POST = array();
-  $contact = "未連絡にしました";
-  echo $contact;
 }
 
 $students_count_stmt = $db->prepare("SELECT COUNT(*) from students_agents_mix WHERE agent_id=?");
@@ -115,6 +114,9 @@ $students_yet_count_stmt->bindValue(1, $agent_id);
 $students_yet_count_stmt->execute();
 $students_yet_count_data = $students_yet_count_stmt->fetchAll();
 $students_yet_count = $students_yet_count_data[0]['COUNT(*)'];
+// echo $students_yet_count;
+
+
 
 $students_this_month_count_stmt = $db->prepare("SELECT COUNT(*) FROM students_agents_mix WHERE 
 DATE_FORMAT(apply_time, '%Y%m') = DATE_FORMAT(now(), '%Y%m')  and agent_id=?");
@@ -122,6 +124,7 @@ $students_this_month_count_stmt->bindValue(1, $agent_id);
 $students_this_month_count_stmt->execute();
 $students_this_month_count_data = $students_this_month_count_stmt->fetchAll();
 $students_this_month_count = $students_this_month_count_data[0]['COUNT(*)'];
+// echo $students_this_month_count;
 
 $students_last_month_count_stmt = $db->prepare("SELECT COUNT(*) FROM students_agents_mix WHERE 
 DATE_FORMAT(apply_time, '%Y%m') = DATE_FORMAT(CURDATE() - INTERVAL 1 MONTH, '%Y%m')
@@ -223,13 +226,16 @@ $students_last_month_count = $students_last_month_count_data[0]['COUNT(*)'];
               <?php for ($i = 1; $i <= $students_data_length; $i++) { ?>
                 <div class="student__detail__item">
                   <dt><?php echo $students_info[$i - 1]; ?></dt>
-                  <dd><?php echo $students_data[$student_number - 1][$i]; ?></dd>
+                  <dd><?php echo $students_data[0][$i]; ?></dd>
                 </div>
               <?php }; ?>
             </dl>
           </div>
+
           <div class="student__operation">
+            <!-- <form method="post"> -->
             <form method="POST" class="student__operation__list">
+
       <li class="student__operation__item">
         <button>取消申請</button>
       </li>
@@ -242,8 +248,10 @@ $students_last_month_count = $students_last_month_count_data[0]['COUNT(*)'];
       <li class="student__operation__item">
         <button name="yet">未連絡に戻す</button>
       </li>
+
       </form>
       </div>
+
       </div>
       </li>
     </ul>
