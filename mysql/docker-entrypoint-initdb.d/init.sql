@@ -40,7 +40,7 @@ VALUES
     '誕生日お祝い科',
     23,
     'コメント',
-    '2022-04-27 00:00:12'
+    '2022-05-27 00:00:12'
   ),
   (
     2,
@@ -56,7 +56,7 @@ VALUES
     'キューピー科',
     30,
     'POSSE大好き',
-    '2022-06-28 13:00:00'
+    '2022-04-28 13:00:00'
   ),
   (
     3,
@@ -88,7 +88,7 @@ VALUES
     'キューピー科',
     30,
     'POSSE大好き',
-    '2022-06-28 13:00:00'
+    '2022-04-28 13:00:00'
   ),
   (
     5,
@@ -486,7 +486,8 @@ SELECT
   graduate,
   content,
   apply_time,
-  agent_id
+  agent_id,
+  contact_id
 FROM
   students
   join students_agents_connect on id = apply_id;

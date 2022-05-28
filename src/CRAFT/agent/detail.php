@@ -35,6 +35,103 @@ $agents_stmt = $db->prepare("SELECT * from agents WHERE id = ?");
 $agents_stmt->bindValue(1, $agent_id);
 $agents_stmt->execute();
 $agents_data = $agents_stmt->fetchAll();
+
+$contact = "";
+if (isset($_POST['done'])) {
+  $done = "連絡済みにしました";
+  $alert = "<script type='text/javascript'>alert('" . $done . "');</script>";
+  echo $alert;
+  $contacts_connect_stmt = $db->exec('
+UPDATE students_agents_connect SET contact_id = 1
+WHERE agent_id = "' . $_SESSION['agent_id'] . '" and
+apply_id = "' . $_SESSION['student_number'] . '"');
+  $contacts_mix_stmt = $db->exec('DROP TABLE IF EXISTS students_agents_mix;
+    CREATE table students_agents_mix AS
+    SELECT
+      students.id AS id,
+      name__kanji,
+      name__kana,
+      email,
+      tel,
+      postcode,
+      address,
+      birth,
+      university,
+      faculty,
+      course,
+      graduate,
+      content,
+      apply_time,
+      agent_id,
+      contact_id
+    FROM
+      students
+      join students_agents_connect on id = apply_id;');
+  $_POST = array();
+}
+if (isset($_POST['yet'])) {
+  $yet = "未連絡にしました";
+  $alert = "<script type='text/javascript'>alert('" . $yet . "');</script>";
+  echo $alert;
+  $contacts_connect_stmt = $db->exec('
+        UPDATE students_agents_connect SET contact_id = 0
+        WHERE agent_id = "' . $_SESSION['agent_id'] . '" and
+        apply_id = "' . $_SESSION['student_number'] . '"');
+  $contacts_mix_stmt = $db->exec('DROP TABLE IF EXISTS students_agents_mix;
+        CREATE table students_agents_mix AS
+        SELECT
+          students.id AS id,
+          name__kanji,
+          name__kana,
+          email,
+          tel,
+          postcode,
+          address,
+          birth,
+          university,
+          faculty,
+          course,
+          graduate,
+          content,
+          apply_time,
+          agent_id,
+          contact_id
+        FROM
+          students
+          join students_agents_connect on id = apply_id;');
+  $_POST = array();
+  $contact = "未連絡にしました";
+  echo $contact;
+}
+
+$students_count_stmt = $db->prepare("SELECT COUNT(*) from students_agents_mix WHERE agent_id=?");
+$students_count_stmt->bindValue(1, $agent_id);
+$students_count_stmt->execute();
+$students_count_data = $students_count_stmt->fetchAll();
+$students_count = $students_count_data[0]['COUNT(*)'];
+
+$students_yet_count_stmt = $db->prepare("SELECT COUNT(*) from students_agents_mix WHERE agent_id=? and contact_id = 0");
+$students_yet_count_stmt->bindValue(1, $agent_id);
+$students_yet_count_stmt->execute();
+$students_yet_count_data = $students_yet_count_stmt->fetchAll();
+$students_yet_count = $students_yet_count_data[0]['COUNT(*)'];
+
+$students_this_month_count_stmt = $db->prepare("SELECT COUNT(*) FROM students_agents_mix WHERE 
+DATE_FORMAT(apply_time, '%Y%m') = DATE_FORMAT(now(), '%Y%m')  and agent_id=?");
+$students_this_month_count_stmt->bindValue(1, $agent_id);
+$students_this_month_count_stmt->execute();
+$students_this_month_count_data = $students_this_month_count_stmt->fetchAll();
+$students_this_month_count = $students_this_month_count_data[0]['COUNT(*)'];
+
+$students_last_month_count_stmt = $db->prepare("SELECT COUNT(*) FROM students_agents_mix WHERE 
+DATE_FORMAT(apply_time, '%Y%m') = DATE_FORMAT(CURDATE() - INTERVAL 1 MONTH, '%Y%m')
+and agent_id=?");
+$students_last_month_count_stmt->bindValue(1, $agent_id);
+$students_last_month_count_stmt->execute();
+$students_last_month_count_data = $students_last_month_count_stmt->fetchAll();
+$students_last_month_count = $students_last_month_count_data[0]['COUNT(*)'];
+
+
 ?>
 
 <!DOCTYPE html>
@@ -58,7 +155,7 @@ $agents_data = $agents_stmt->fetchAll();
       <li class="main__item">
         <div class="main__item__account">
           <img src="../../assets/img/icon_avatar.svg" alt="icon">
-          <input type="text" value="<?php echo $agents_data[0]['agent']; ?>">
+          <p class="main__item__account__name"><?php echo $agents_data[0]['agent']; ?></p>
         </div>
         <hr>
         <ul class="score__list">
@@ -72,7 +169,7 @@ $agents_data = $agents_stmt->fetchAll();
               <small class="score__item__title">お問い合わせ数<br>【今月】</small>
               <br>
               <div class="score__item__value">
-                <span class="score__item__number">112</span>
+                <span class="score__item__number"><?php echo $students_this_month_count; ?></span>
               </div>
             </div>
           </li>
@@ -85,7 +182,7 @@ $agents_data = $agents_stmt->fetchAll();
               <small class="score__item__title">お問い合わせ数<br>【先月】</small>
               <br>
               <div class="score__item__value">
-                <span class="score__item__number">112</span>
+                <span class="score__item__number"><?php echo $students_last_month_count; ?></span>
               </div>
             </div>
           </li>
@@ -101,7 +198,7 @@ $agents_data = $agents_stmt->fetchAll();
               <small class="score__item__title">お問い合わせ数<br>【累計】</small>
               <br>
               <div class="score__item__value">
-                <span class="score__item__number">112</span>
+                <span class="score__item__number"><?php echo $students_count; ?></span>
               </div>
             </div>
           </li>
@@ -112,8 +209,8 @@ $agents_data = $agents_stmt->fetchAll();
 
       <li class="main__item">
         <div class="myCard">
-          <p class="myCard__title"><span class="myCard__title__agent">POSSE</span>様への新規お問い合わせ数</p>
-          <span class="myCard__number">10</span>
+          <p class="myCard__title"><span class="myCard__title__agent"><?php echo $agents_data[0]['agent']; ?></span>様への新規お問い合わせ数</p>
+          <span class="myCard__number"><?php echo $students_yet_count; ?></span>
           <p class="myCard__text">対応してない学生に返信をしましょう<br>お問い合わせをいただいた学生の詳細は下記をご覧ください</p>
         </div>
       </li>
@@ -132,22 +229,22 @@ $agents_data = $agents_stmt->fetchAll();
             </dl>
           </div>
           <div class="student__operation">
-            <ul class="student__operation__list">
-              <li class="student__operation__item">
-                <button>取消申請</button>
-              </li>
-              <li class="student__operation__item">
-                <button>メールを送信</button>
-              </li>
-              <li class="student__operation__item">
-                <button>連絡済にする</button>
-              </li>
-              <li class="student__operation__item">
-                <button>未連絡に戻す</button>
-              </li>
-            </ul>
-          </div>
-        </div>
+            <form method="POST" class="student__operation__list">
+      <li class="student__operation__item">
+        <button>取消申請</button>
+      </li>
+      <li class="student__operation__item">
+        <button>メールを送信</button>
+      </li>
+      <li class="student__operation__item">
+        <button name="done">連絡済にする</button>
+      </li>
+      <li class="student__operation__item">
+        <button name="yet">未連絡に戻す</button>
+      </li>
+      </form>
+      </div>
+      </div>
       </li>
     </ul>
   </main>

@@ -3,7 +3,7 @@ session_start();
 require('../../dbconnect.php');
 
 if (!empty($_POST["login"])) {
-  $login = $db->prepare('SELECT * FROM agents WHERE email=? AND password=?');
+  $login = $db->prepare('SELECT * FROM staffs WHERE staff__email=? AND staff__pass=?');
   $login->execute(array(
     $_POST['loginID'],
     sha1($_POST['password'])
