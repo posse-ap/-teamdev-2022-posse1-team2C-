@@ -148,7 +148,7 @@ if (isset($_POST['student_number'])) {
           <div class="student__panel">
             <div id="panel1" role="tabpanel" class="student__panel__item">
               <h3 class="student__panel__item__title">未対応の学生一覧</h3>
-              <form action="./index.php" method="POST">
+              <form method="POST">
                 <dl class="student__panel__item__content">
                   <div class="student__panel__item__content__piece">
                     <dt>氏名</dt>
@@ -197,16 +197,19 @@ if (isset($_POST['student_number'])) {
                 </dl>
               </form>
             </div>
+
             <div id="panel2" role="tabpanel" class="student__panel__item" hidden>
               <h3 class="student__panel__item__title">対応済みの学生一覧</h3>
+              <form method="POST">
               <dl class="student__panel__item__content">
                 <div class="student__panel__item__content__piece">
                   <dt>氏名</dt>
                   <?php for ($i = 1; $i <= $students_count; $i++) { ?>
                     <dd><?php echo $students_data[$i - 1]['name__kanji'] ?></dd>
                   <?php }; ?>
-
                 </div>
+
+
                 <div class="student__panel__item__content__piece">
                   <dt>メールアドレス</dt>
                   <?php for ($i = 1; $i <= $students_count; $i++) { ?>
@@ -234,8 +237,9 @@ if (isset($_POST['student_number'])) {
                 <div class="student__panel__item__content__piece">
                   <dt>詳細</dt>
                   <?php for ($i = 1; $i <= $students_count; $i++) { ?>
-                    <dd><button>詳細</button></dd>
+                    <dd><button type="submit" name="student_number" value="<?php echo $i; ?>">詳細</button></dd>
                   <?php }; ?>
+                  <form method="POST">
                 </div>
 
 
@@ -246,9 +250,12 @@ if (isset($_POST['student_number'])) {
                   <?php }; ?>
                 </div>
               </dl>
+              </form>
             </div>
+
             <div id="panel3" role="tabpanel" class="student__panel__item" hidden>
               <h3 class="student__panel__item__title">お問い合わせを断った学生一覧</h3>
+              <form method="POST">
               <dl class="student__panel__item__content">
                 <div class="student__panel__item__content__piece">
                   <dt>氏名</dt>
@@ -283,7 +290,7 @@ if (isset($_POST['student_number'])) {
                 <div class="student__panel__item__content__piece">
                   <dt>詳細</dt>
                   <?php for ($i = 1; $i <= $students_count; $i++) { ?>
-                    <dd><button>詳細</button></dd>
+                    <dd><button type="submit" name="student_number" value="<?php echo $i; ?>">詳細</button></dd>
                   <?php }; ?>
                 </div>
 
@@ -295,6 +302,7 @@ if (isset($_POST['student_number'])) {
                   <?php }; ?>
                 </div>
               </dl>
+              <form method="POST">
             </div>
           </div>
         </div>
