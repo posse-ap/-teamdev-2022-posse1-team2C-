@@ -28,6 +28,24 @@ $students_yet_count_data = $students_yet_count_stmt->fetchAll();
 $students_yet_count = $students_yet_count_data[0]['COUNT(*)'];
 // echo $students_yet_count;
 
+
+$students_this_month_count_stmt = $db->prepare("SELECT COUNT(*) FROM students_agents_mix WHERE 
+DATE_FORMAT(apply_time, '%Y%m') = DATE_FORMAT(now(), '%Y%m')  and agent_id=?");
+$students_this_month_count_stmt->bindValue(1, $agent_id);
+$students_this_month_count_stmt->execute();
+$students_this_month_count_data = $students_this_month_count_stmt->fetchAll();
+$students_this_month_count = $students_this_month_count_data[0]['COUNT(*)'];
+// echo $students_this_month_count;
+
+$students_last_month_count_stmt = $db->prepare("SELECT COUNT(*) FROM students_agents_mix WHERE 
+DATE_FORMAT(apply_time, '%Y%m') = DATE_FORMAT(CURDATE() - INTERVAL 1 MONTH, '%Y%m')
+and agent_id=?");
+$students_last_month_count_stmt->bindValue(1, $agent_id);
+$students_last_month_count_stmt->execute();
+$students_last_month_count_data = $students_last_month_count_stmt->fetchAll();
+$students_last_month_count = $students_last_month_count_data[0]['COUNT(*)'];
+
+
 if (isset($_POST['student_number'])) {
   $_SESSION['student_number'] = $_POST['student_number'];
   header('Location: http://' . $_SERVER['HTTP_HOST'] . '/CRAFT/agent/detail.php');
@@ -74,7 +92,7 @@ if (isset($_POST['student_number'])) {
               <small class="score__item__title">お問い合わせ数<br>【今月】</small>
               <br>
               <div class="score__item__value">
-                <span class="score__item__number">112</span>
+                <span class="score__item__number"><?php echo $students_this_month_count;?></span>
               </div>
             </div>
           </li>
@@ -87,7 +105,7 @@ if (isset($_POST['student_number'])) {
               <small class="score__item__title">お問い合わせ数<br>【先月】</small>
               <br>
               <div class="score__item__value">
-                <span class="score__item__number">112</span>
+                <span class="score__item__number"><? echo $students_last_month_count;?></span>
               </div>
             </div>
           </li>
@@ -103,7 +121,7 @@ if (isset($_POST['student_number'])) {
               <small class="score__item__title">お問い合わせ数<br>【累計】</small>
               <br>
               <div class="score__item__value">
-                <span class="score__item__number">112</span>
+                <span class="score__item__number"><?php echo $students_count;?></span>
               </div>
             </div>
           </li>
