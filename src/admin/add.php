@@ -1,7 +1,6 @@
 <?php
-// require('./capsule/session.php');
+require('./capsule/session.php');
 require(dirname(__FILE__) . "../../dbconnect.php");
-session_start();
 
 $errmessage_agent = array();
 $array_agent_forms = [

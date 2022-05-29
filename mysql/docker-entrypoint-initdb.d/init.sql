@@ -415,58 +415,58 @@ VALUES
 
 DROP TABLE IF EXISTS students_agents_connect;
 
-CREATE TABLE students_agents_connect (apply_id INT, agent_id INT,contact_id INT);
+CREATE TABLE students_agents_connect (apply_id INT, agent_id INT, contact_id INT);
 
 INSERT INTO
   students_agents_connect
 VALUES
-  (1,1,0),
-  (1,2,0),
-  (1,3,1),
-  (1,4,1),
-  (1,5,1),
-  (1,6,2),
-  (1,7,2),
-  (1,8,2),
-  (1,9,2),
-  (1,10,2),
-  (2,2,1),
-  (2,3,1),
-  (2,5,1),
-  (2,7,1),
-  (2,9,1),
-  (2,10,2),
-  (2,11,2),
-  (2,12,2),
-  (3,1,0),
-  (3,2,1),
-  (3,4,2),
-  (3,6,0),
-  (3,7,1),
-  (3,8,2),
-  (3,11,1),
-  (3,12,2),
-  (4,1,2),
-  (4,2,2),
-  (4,3,3),
-  (4,4,1),
-  (4,5,1),
-  (4,6,0),
-  (4,7,0),
-  (4,8,0),
-  (4,9,2),
-  (4,10,1),
-  (4,11,1),
-  (5,1,1),
-  (5,2,2),
-  (5,3,0),
-  (5,4,1),
-  (5,7,2),
-  (5,8,0),
-  (5,9,1),
-  (5,10,0),
-  (5,11,1),
-  (5,12,2);
+  (1, 1, 0),
+  (1, 2, 0),
+  (1, 3, 1),
+  (1, 4, 1),
+  (1, 5, 1),
+  (1, 6, 2),
+  (1, 7, 2),
+  (1, 8, 2),
+  (1, 9, 2),
+  (1, 10, 2),
+  (2, 2, 1),
+  (2, 3, 1),
+  (2, 5, 1),
+  (2, 7, 1),
+  (2, 9, 1),
+  (2, 10, 2),
+  (2, 11, 2),
+  (2, 12, 2),
+  (3, 1, 0),
+  (3, 2, 1),
+  (3, 4, 2),
+  (3, 6, 0),
+  (3, 7, 1),
+  (3, 8, 2),
+  (3, 11, 1),
+  (3, 12, 2),
+  (4, 1, 2),
+  (4, 2, 2),
+  (4, 3, 3),
+  (4, 4, 1),
+  (4, 5, 1),
+  (4, 6, 0),
+  (4, 7, 0),
+  (4, 8, 0),
+  (4, 9, 2),
+  (4, 10, 1),
+  (4, 11, 1),
+  (5, 1, 1),
+  (5, 2, 2),
+  (5, 3, 0),
+  (5, 4, 1),
+  (5, 7, 2),
+  (5, 8, 0),
+  (5, 9, 1),
+  (5, 10, 0),
+  (5, 11, 1),
+  (5, 12, 2);
 
 DROP TABLE IF EXISTS students_agents_mix;
 
@@ -777,9 +777,11 @@ VALUES
 DROP TABLE IF EXISTS CRAFT;
 
 CREATE TABLE CRAFT (
-  id INT AUTO_INCREMENT NOT NULL PRIMARY KEY,
   log_id VARCHAR(255) UNIQUE NOT NULL,
-  password VARCHAR(255) NOT NULL,
-  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-  updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  password VARCHAR(255) NOT NULL
 );
+
+INSERT INTO
+  CRAFT
+VALUES
+  ('craft@craft.com', sha1('craft'));
