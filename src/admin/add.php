@@ -1,6 +1,7 @@
 <?php
-// require('./capsule/session.php');
+session_start();
 require(dirname(__FILE__) . "../../dbconnect.php");
+
 
 $errmessage_agent = array();
 $array_agent_forms = [
@@ -670,6 +671,8 @@ clientscales_id="' . $_POST['service__client__scale'][$j] . '"
       </main>
     </div>
   </div>
+
+
 
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js" integrity="sha384-Qg00WFl9r0Xr6rUqNLv1ffTSSKEFFCDCKVyHZ+sVt8KuvG99nWw5RNvbhuKgif9z" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
