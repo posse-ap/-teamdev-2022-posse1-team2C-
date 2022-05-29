@@ -2,6 +2,9 @@
 .aside__contents {
   height: auto;
 }
+.aside__contents__img {
+  width: 100%;
+}
 
 .aside {
   width: 25%;
@@ -75,10 +78,7 @@
 }
 .footer__item {
   text-align: left;
-  min-width: -webkit-fit-content;
-  min-width: -moz-fit-content;
-  min-width: fit-content;
-  width: calc((90% - 240px) / 4);
+  width: calc((90% - 160px) / 3);
 }
 .footer__copyright {
   padding: 20px 0;
@@ -195,17 +195,27 @@
   display: flex;
   justify-content: space-between;
   max-width: 1200px;
+  padding: 0 20px;
 }
 .header__nav__item {
   color: #ffffff;
-  margin: 0 auto;
   font-size: 15px;
-  padding-bottom: 10px;
+  font-weight: bold;
+  padding: 0 10px 10px 10px;
+  margin-bottom: 10px;
 }
 @media screen and (max-width: 1000px) {
   .header__nav__item {
     font-size: 12px;
   }
+}
+
+.active {
+  border-bottom: white 3px solid;
+}
+
+.hamburger__nav {
+  display: none;
 }
 
 body {
@@ -222,7 +232,7 @@ img {
 
 .content {
   background-color: #e0e4eb;
-  padding-top: 130px;
+  padding-top: 150px;
   padding-bottom: 50px;
 }
 .content .container {
@@ -252,7 +262,7 @@ img {
   margin: 30px 0;
   border-top: 3px solid #26a69a;
   border-bottom: 3px solid #26a69a;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 700;
   text-align: left;
 }
@@ -387,7 +397,7 @@ stepBar
 apply__form
 =============== */
 .apply__label {
-  flex: 0 0 10%;
+  width: 60px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -414,7 +424,7 @@ apply__form
   margin-top: 18px;
 }
 .apply__form__item dt {
-  flex: 0 0 140px;
+  width: 125px;
   font-size: 12px;
   display: flex;
   align-items: center;
@@ -422,10 +432,10 @@ apply__form
   text-align: left;
 }
 .apply__form__item dd {
-  flex: 0 1 100%;
+  width: calc(100% - 245px);
   flex-wrap: wrap;
   margin-left: 60px;
-  font-size: 11px;
+  font-size: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -453,6 +463,7 @@ apply__form
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
+  text-align: left;
 }
 .apply__form__item textarea {
   height: 210px;

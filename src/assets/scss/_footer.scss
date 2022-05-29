@@ -27,8 +27,7 @@
 
   &__item {
     text-align: left;
-    min-width: fit-content;
-    width: calc((90% - 240px) / 4);
+    width: calc((90% - 160px) / 3);
   }
 
   &__copyright {
@@ -110,12 +109,3 @@
     transform: translateY(100px);
   }
 }
-
-// /*検証のためのCSS*/
-// section {
-//   padding: 500px 0;
-// }
-
-// #footer {
-//   background: #333;
-// }

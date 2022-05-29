@@ -4,13 +4,51 @@
   </div>
   <nav class="header__nav inner">
     <ul class="header__nav__list">
-      <li class="header__nav__item"><a href="https://reashu.com/category/%e5%b0%b1%e6%b4%bb%e3%82%b5%e3%82%a4%e3%83%88/">就活サイト</a></li>
-      <li class="header__nav__item"><a href="https://reashu.com/category/%e5%b0%b1%e6%b4%bb%e6%94%af%e6%8f%b4%e3%82%b5%e3%83%bc%e3%83%93%e3%82%b9/">就活支援サービス</a></li>
-      <li class="header__nav__item"><a href="https://reashu.com/category/%e8%87%aa%e5%b7%b1%e5%88%86%e6%9e%90_%e8%a8%ba%e6%96%ad%e3%83%84%e3%83%bc%e3%83%ab/">自己分析ツール</a></li>
-      <li class="header__nav__item"><a href="https://reashu.com/category/es%e5%af%be%e7%ad%96/es%e6%b7%bb%e5%89%8a/">ES添削サービス</a></li>
-      <li class="header__nav__item"><a href="https://reashu.com/category/%e5%b0%b1%e6%b4%bb%e3%82%a8%e3%83%bc%e3%82%b8%e3%82%a7%e3%83%b3%e3%83%88/">就活エージェント</a></li>
-      <li class="header__nav__item"><a href="https://reashu.com/what-is-reashu/">就活の教科書とは</a></li>
-      <li class="header__nav__item"><a href="https://reashu.com/contact/">お問い合わせ</a></li>
+      <li class="header__nav__item" id="index"><a href="./index.php">エージェント企業を探す</a></li>
+      <li class="header__nav__item" id="diagnosis"><a href="/CRAFT/diagnosis.php">オススメ診断</a></li>
+      <li class="header__nav__item" id="apply"><a href="/CRAFT/apply.php">お問い合わせ</a></li>
+      <li class="header__nav__item" id="q&a"><a href="/CRAFT/q&a.php">よくある質問</a></li>
+      <li class="header__nav__item" id="contact"><a href="/CRAFT/contact.php">ご要望・ご質問</a></li>
+    </ul>
+  </nav>
+  <div class="hamburger">
+    <div class="hamburger__button">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+  <nav class="hamburger__nav">
+    <ul class="hamburger__nav__list">
+      <li class="hamburger__nav__item">
+        <a href="#">SEARCH</a>
+        <ul class="hamburger__nav__item__child">
+          <li><a href="#">ES添削</a></li>
+          <li><a href="#">セミナー開催</a></li>
+          <li><a href="#">特別選考</a></li>
+          <li><a href="#">ベンチャー企業</a></li>
+          <li><a href="#">大手企業</a></li>
+        </ul>
+      </li>
+      <li class="hamburger__nav__item">
+        <a href="">CRAFT</a>
+        <ul class="hamburger__nav__item__child">
+          <li><a href="/CRAFT/index.php">エージェント企業を探す</a></li>
+          <li><a href="/CRAFT/apply.php">エージェント企業にお問い合わせ</a></li>
+          <li><a href="/CRAFT/q&a.php">よくある質問</a></li>
+          <li><a href="/CRAFT/agent/index.php">エージェント企業の方はこちら</a></li>
+        </ul>
+      </li>
+      <li class="hamburger__nav__item">
+        <a href="">COMPANY</a>
+        <ul class="hamburger__nav__item__child">
+          <li><a href="#">会社概要</a></li>
+          <li><a href="#">求人情報</a></li>
+          <li><a href="#">プライバシーポリシー</a></li>
+          <li><a href="#">利用規約</a></li>
+          <li><a href="#">お問い合わせ</a></li>
+        </ul>
+      </li>
     </ul>
   </nav>
 </header>

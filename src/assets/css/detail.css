@@ -3,7 +3,7 @@
   width: 100%;
   text-align: center;
   position: fixed;
-  background-color: #26a69a;
+  background-color: #c3c7f8;
   margin: 0 auto;
   display: flex;
   padding-left: 50px;
@@ -30,6 +30,7 @@
   margin-right: 30px;
   line-height: 65px;
   font-size: 15px;
+  font-weight: 700;
 }
 @media screen and (max-width: 1000px) {
   .header__nav__item {
@@ -38,7 +39,7 @@
 }
 
 .selected {
-  border-bottom: 2px solid blue;
+  color: #c90cf8;
 }
 
 .student {
