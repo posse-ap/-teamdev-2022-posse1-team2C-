@@ -9,9 +9,11 @@ if (!empty($_POST)) {
     sha1($_POST['password'])
   ));
   $user = $login->fetchAll();
+  // print_r($user);
   if ($user) {
+    // echo 1;
     $_SESSION = array();
-    $_SESSION['CRAFT'] = $user[0]['id'];
+    $_SESSION['CRAFT'] = $user[0]['log_id'];
     $_SESSION['time'] = time();
     header('Location: http://' . $_SERVER['HTTP_HOST'] . '/admin/index.php');
     exit();
@@ -33,15 +35,6 @@ if (!empty($_POST)) {
 </head>
 
 <body>
-<!-- <div>
-    <h1>管理者ログイン</h1>
-    <form  method="POST">
-      <input type="text" name="loginID" required>
-      <input type="text" required name="password">
-      <input type="submit" value="ログイン">
-    </form>
-    <a href="/index.php">イベント一覧</a>
-  </div> -->
   <div class="content">
     <main class="main">
       <div class="login">
@@ -65,7 +58,6 @@ if (!empty($_POST)) {
       </div>
     </main>
   </div>
-  <a href="./students.php">生徒</a>
 </body>
 
 </html>

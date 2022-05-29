@@ -1,5 +1,5 @@
 <?php
-// require('./capsule/session.php');
+require('./capsule/session.php');
 require('../dbconnect.php');
 $agents_stmt = $db->prepare("SELECT * from agents");
 $agents_stmt->execute();
