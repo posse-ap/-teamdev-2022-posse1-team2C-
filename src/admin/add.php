@@ -375,7 +375,7 @@ clientscales_id="' . $_POST['service__client__scale'][$j] . '"
                 <div class="apply__form__item">
 
                   <dt><label for="staff__name__kanji">お名前</label></dt>
-                  <dd><input id="staff__name__kanji" type="text" name="staff__name__kanji" value="<?php echo $_SESSION['staff__name__kanji1']; ?>" /></dd>
+                  <dd><input id="staff__name__kanji" type="text" name="staff__name__kanji" value="<?php echo $_SESSION['staff__name__kanji']; ?>" /></dd>
                 </div>
                 <?php
                 if ($errmessage_staff) {
