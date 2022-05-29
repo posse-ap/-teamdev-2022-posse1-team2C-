@@ -7,7 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CRAFT【エージェント企業診断】</title>
   <link rel="stylesheet" href="../assets/css/reset.css">
-  <link rel="stylesheet" href="../assets/css/diagnosis.min.css">
+  <link rel="stylesheet" href="../assets/css/diagnosis.css">
+  <link rel="stylesheet" href="../assets/css/sp.css">
 </head>
 
 <body>
@@ -258,6 +259,7 @@
   <script src="../assets/js/jquery-3.6.0.min.js"></script>
   <script src="../assets/js/diagnosis.js"></script>
   <script src="../assets/js/pagescroll.js"></script>
+  <script src="../assets/js/sp.js"></script>
 </body>
 
 </html>

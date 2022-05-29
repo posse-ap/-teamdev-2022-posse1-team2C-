@@ -49,8 +49,8 @@ $agent_supports_count = $agent_supports_count_data[0]['COUNT(support)'];
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CRAFT【エージェント企業詳細】</title>
   <link rel="stylesheet" href="../assets/css/reset.css">
-  <link rel="stylesheet" href="../assets/css/agentinfo.min.css">
-  <link rel="stylesheet" href="../assets/css/sp.min.css">
+  <link rel="stylesheet" href="../assets/css/agentinfo.css">
+  <link rel="stylesheet" href="../assets/css/sp.css">
   <script src="https://kit.fontawesome.com/d806b8b8d2.js" crossorigin="anonymous"></script>
 </head>
 

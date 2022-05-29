@@ -355,7 +355,7 @@ img {
 .contact__form__button {
   font-size: 18px;
   font-weight: bold;
-  background: rgba(26, 114, 182, 0.234);
+  background: linear-gradient(110.59deg, #1cbcbb 1.51%, #74d18e 124.9%);
   border-radius: 4px;
   min-width: 350px;
   color: #ffffff;
@@ -364,7 +364,7 @@ img {
 .contact__thanks__complete {
   margin: 15px 0;
   padding: 10px 5px;
-  background-color: rgba(26, 114, 182, 0.234);
+  background: linear-gradient(110.59deg, #1cbcbb 1.51%, #74d18e 124.9%);
   color: #ffffff;
   font-size: 20px;
   font-weight: 600;
@@ -373,12 +373,8 @@ img {
   text-align: left;
   padding: 0 20px;
 }
-.contact__thanks__nav {
-  color: rgba(26, 114, 182, 0.234);
-  border-bottom: 1px solid rgba(26, 114, 182, 0.234);
-}
 .contact__thanks__button {
-  background-color: rgba(26, 114, 182, 0.234);
+  background: linear-gradient(110.59deg, #1cbcbb 1.51%, #74d18e 124.9%);
   width: 200px;
   padding: 15px 0px;
   margin: 20px 0;

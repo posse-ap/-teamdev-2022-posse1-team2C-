@@ -131,8 +131,8 @@ for ($j = 1; $j <= $agents_count; $j++) {
   <meta name="viewport" content="width=device-width, initial-scales=1.0">
   <title>CRAFT</title>
   <link rel="stylesheet" href="../assets/css/reset.css">
-  <link rel="stylesheet" href="../assets/css/index-user.min.css">
-  <link rel="stylesheet" href="../assets/css/sp.min.css">
+  <link rel="stylesheet" href="../assets/css/index-user.css">
+  <link rel="stylesheet" href="../assets/css/sp.css">
 </head>
 
 <body>

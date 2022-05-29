@@ -7,8 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CRAFT【よくある質問】</title>
   <link rel="stylesheet" href="../assets/css/reset.css">
-  <link rel="stylesheet" href="../assets/css/q&a.min.css">
-  <link rel="stylesheet" href="../assets/css/sp.min.css">
+  <link rel="stylesheet" href="../assets/css/q&a.css">
+  <link rel="stylesheet" href="../assets/css/sp.css">
 </head>
 
 <body>
