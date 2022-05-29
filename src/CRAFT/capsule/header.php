@@ -6,9 +6,9 @@
     <ul class="header__nav__list">
       <li class="header__nav__item" id="index"><a href="./index.php">エージェント企業を探す</a></li>
       <li class="header__nav__item" id="diagnosis"><a href="/CRAFT/diagnosis.php">オススメ診断</a></li>
-      <li class="header__nav__item" id="apply"><a href="/CRAFT/apply.php">お問い合わせ</a></li>
+      <li class="header__nav__item" id="apply"><a href="/CRAFT/apply.php">申し込み</a></li>
       <li class="header__nav__item" id="q&a"><a href="/CRAFT/q&a.php">よくある質問</a></li>
-      <li class="header__nav__item" id="contact"><a href="/CRAFT/contact.php">ご要望・ご質問</a></li>
+      <li class="header__nav__item" id="contact"><a href="/CRAFT/contact.php">お問い合わせ</a></li>
     </ul>
   </nav>
   <div class="hamburger">
@@ -34,7 +34,7 @@
         <a href="">CRAFT</a>
         <ul class="hamburger__nav__item__child">
           <li><a href="/CRAFT/index.php">エージェント企業を探す</a></li>
-          <li><a href="/CRAFT/apply.php">エージェント企業にお問い合わせ</a></li>
+          <li><a href="/CRAFT/apply.php">エージェント企業に申し込み</a></li>
           <li><a href="/CRAFT/q&a.php">よくある質問</a></li>
           <li><a href="/CRAFT/agent/index.php">エージェント企業の方はこちら</a></li>
         </ul>

@@ -47,7 +47,7 @@ $agent_supports_count = $agent_supports_count_data[0]['COUNT(support)'];
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>CRAFT【エージェント企業詳細】</title>
   <link rel="stylesheet" href="../assets/css/reset.css">
   <link rel="stylesheet" href="../assets/css/agentinfo.min.css">
   <link rel="stylesheet" href="../assets/css/sp.min.css">
