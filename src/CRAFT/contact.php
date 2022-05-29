@@ -21,7 +21,7 @@
     <div class="container inner">
       <main class="main">
         <p class="title">
-          「CRAFT」へのご要望・ご質問
+          「CRAFT」へのお問い合わせ
         </p>
 
         <form action="/" class="contact__form" role="contact__form">
@@ -30,18 +30,18 @@
             <div class="attention__inner">
               <ul class="attention__inner__list">
                 <li class="attention__inner__item">
-                  ご要望・ご質問の前に、<a href="./q&a.php">よくある質問</a>をご確認ください。
+                  お問い合わせの前に、<a href="./q&a.php">よくある質問</a>をご確認ください。
                 </li>
                 <li class="attention__inner__item">
                   内容によりましては、お時間を頂戴する場合がございます。
                 </li>
                 <li class="attention__inner__item">
-                  皆様からいただいたご要望・ご質問は、必ず目を通しておりますが、個別に返信・対応をお約束するものではございません。あらかじめご了承ください。
+                  皆様からいただいたお問い合わせは、必ず目を通しておりますが、個別に返信・対応をお約束するものではございません。あらかじめご了承ください。
                 </li>
                 <li class="attention__inner__item">
-                  本フォームは、エージェント企業へのお問い合わせをお受けする窓口ではございません。エージェント企業へのお問い合わせをご希望の方は<a href="./apply.php">こちら</a>からよろしくお願いいたします。
+                  本フォームは、エージェント企業へのお問い合わせをお受けする窓口ではございません。エージェント企業への申し込みをご希望の方は<a href="./apply.php">こちら</a>からよろしくお願いいたします。
                 <li class="attention__inner__item">
-                  いただいた個人情報は、ご要望・ご質問の内容の確認・返信以外には使用いたしません。同意いただいた上のご利用をお願いします。本サービスの個人情報保護方針および、個人情報のお取り扱いについては、<a href="#">こちら</a>よりご確認いただけます。
+                  いただいた個人情報は、お問い合わせの内容の確認・返信以外には使用いたしません。同意いただいた上のご利用をお願いします。本サービスの個人情報保護方針および、個人情報のお取り扱いについては、<a href="#">こちら</a>よりご確認いただけます。
                 </li>
                 <li class="attention__inner__item">
                   返信内容の二次使用は固くお断りいたします。
@@ -55,7 +55,7 @@
                 <div class="contact__label__require">必須</div>
               </div>
               <dt><label for="name">お名前</label></dt>
-              <dd><input id="name" type="text" name="name"></dd>
+              <dd><input id="name" type="text" placeholder="例）井上花子" name="name"></dd>
             </div>
             <div class="contact__form__item">
               <div class="contact__label">
@@ -64,21 +64,21 @@
               <dt>
                 <wlabel for="email">メールアドレス</wlabel>
               </dt>
-              <dd><input id="email" type="email" name="email"></dd>
+              <dd><input id="email" type="email" placeholder="例）posse@keio.jp" name="email"></dd>
             </div>
             <div class="contact__form__item">
               <div class="contact__label">
                 <div class="contact__label__require">必須</div>
               </div>
               <dt><label for="tel">電話番号</label></dt>
-              <dd><input id="tel" type="text" name="tel"></dd>
+              <dd><input id="tel" type="text" placeholder="例）09012345678" name="tel"></dd>
             </div>
             <div class="contact__form__item">
               <div class="contact__label">
                 <div class="contact__label__require">必須</div>
               </div>
-              <dt><label for="content">ご要望・ご質問の内容</label></dt>
-              <dd><textarea id="content" type="text" name="content"></textarea></dd>
+              <dt><label for="content">お問い合わせの内容</label></dt>
+              <dd><textarea id="content" type="text" placeholder="例）ここにお問い合わせの内容を記入してください" name="content"></textarea></dd>
             </div>
             <div class="contact__form__footer">
               <button class="contact__form__button" type="submit">送信する</button>

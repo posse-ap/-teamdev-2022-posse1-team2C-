@@ -26,15 +26,19 @@
 
             <ul class="stepbar">
               <li class="stepbar__item">
-                <div class="stepbar__item-inner stepbar__item-inner--current">STEP1</div>
-              </li>
-              <li class="stepbar__item">
-                <div class="stepbar__item-inner">
-                  STEP2
+                <div class="stepbar__item-inner stepbar__item-inner--current">
+                  入力
                 </div>
               </li>
               <li class="stepbar__item">
-                <div class="stepbar__item-inner">STEP3</div>
+                <div class="stepbar__item-inner">
+                  確認
+                </div>
+              </li>
+              <li class="stepbar__item">
+                <div class="stepbar__item-inner">
+                  完了
+                </div>
               </li>
             </ul>
 
@@ -45,56 +49,56 @@
                     <div class="apply__label__require">必須</div>
                   </div>
                   <dt><label for="name">企業名</label></dt>
-                  <dd><input id="name" type="text" name="name" /></dd>
+                  <dd><input id="name" type="text" placeholder="例）アンチパターン" name="name" /></dd>
                 </div>
                 <div class="apply__form__item">
                   <div class="apply__label">
                     <div class="apply__label__require">必須</div>
                   </div>
                   <dt><label for="url">URL（企業HP）</label></dt>
-                  <dd><input id="url" type="text" name="url" /></dd>
+                  <dd><input id="url" type="text" placeholder="例）https://github.com/posse-ap" name="url" /></dd>
                 </div>
                 <div class="apply__form__item">
                   <div class="apply__label">
                     <div class="apply__label__require">必須</div>
                   </div>
                   <dt><label for="name__kanji">代表者様（漢字）</label></dt>
-                  <dd><input id="name__kanji" type="text" name="name__kanji" /></dd>
+                  <dd><input id="name__kanji" type="text" placeholder="例）加藤勇気" name="name__kanji" /></dd>
                 </div>
                 <div class="apply__form__item">
                   <div class="apply__label">
                     <div class="apply__label__require">必須</div>
                   </div>
                   <dt><label for="name__kana">代表者様（フリガナ）</label></dt>
-                  <dd><input id="name__kana" type="text" name="name__kana" /></dd>
+                  <dd><input id="name__kana" type="text" placeholder="例）カトウユウキ" name="name__kana" /></dd>
                 </div>
                 <div class="apply__form__item">
                   <div class="apply__label">
                     <div class="apply__label__require">必須</div>
                   </div>
                   <dt><label for="email">メールアドレス</label></dt>
-                  <dd><input id="email" type="email" name="email" /></dd>
+                  <dd><input id="email" type="email" placeholder="例）posse@keio.jp" name="email" /></dd>
                 </div>
                 <div class="apply__form__item">
                   <div class="apply__label">
                     <div class="apply__label__require">必須</div>
                   </div>
                   <dt><label for="tel">電話番号</label></dt>
-                  <dd><input id="tel" type="text" name="tel" /></dd>
+                  <dd><input id="tel" type="text" placeholder="例）09088771111" name="tel" /></dd>
                 </div>
                 <div class="apply__form__item">
                   <div class="apply__label">
                     <div class="apply__label__require">必須</div>
                   </div>
                   <dt><label for="postcode">郵便番号</label></dt>
-                  <dd><input id="postcode" type="text" name="postcode" /></dd>
+                  <dd><input id="postcode" type="text" placeholder="例）1234567" name="postcode" /></dd>
                 </div>
                 <div class="apply__form__item">
                   <div class="apply__label">
                     <div class="apply__label__require">必須</div>
                   </div>
                   <dt><label for="address">住所</label></dt>
-                  <dd><input id="address" type="text" name="address" /></dd>
+                  <dd><input id="address" type="text" placeholder="例）香川県高松市佐野12-444" name="address" /></dd>
                 </div>
                 <div class="apply__form__item">
                   <div class="apply__label">
@@ -120,15 +124,19 @@
 
             <ul class="stepbar">
               <li class="stepbar__item">
-                <div class="stepbar__item-inner">STEP1</div>
-              </li>
-              <li class="stepbar__item">
-                <div class="stepbar__item-inner stepbar__item-inner--current">
-                  STEP2
+                <div class="stepbar__item-inner">
+                  入力
                 </div>
               </li>
               <li class="stepbar__item">
-                <div class="stepbar__item-inner">STEP3</div>
+                <div class="stepbar__item-inner stepbar__item-inner--current">
+                  確認
+                </div>
+              </li>
+              <li class="stepbar__item">
+                <div class="stepbar__item-inner">
+                  完了
+                </div>
               </li>
             </ul>
 
@@ -188,24 +196,28 @@
 
             <ul class="stepbar">
               <li class="stepbar__item">
-                <div class="stepbar__item-inner">STEP1</div>
+                <div class="stepbar__item-inner">
+                  入力
+                </div>
               </li>
               <li class="stepbar__item">
-                <div class="stepbar__item-inner">STEP2</div>
+                <div class="stepbar__item-inner">
+                  確認
+                </div>
               </li>
               <li class="stepbar__item">
                 <div class="stepbar__item-inner stepbar__item-inner--current">
-                  STEP3
+                  完了
                 </div>
               </li>
             </ul>
 
             <div class="apply__thanks__inner">
               <p class="apply__thanks__complete">
-                お問い合わせを受け付けました
+                新規登録を受け付けました
               </p>
               <p class="apply__thanks__text">
-                この度はお問い合わせしていただき、誠にありがとうございます。<br /><br />ご入力いただきました内容を確認後、担当者よりご連絡させていただきます。<br />お急ぎのご連絡やご不明な点などございましたら
+                この度は新規登録の申し込みをしていただき、誠にありがとうございます。<br /><br />ご入力いただきました内容を確認後、担当者よりご連絡させていただきます。<br />お急ぎのご連絡やご不明な点などございましたら
                 <a href="#" class="apply__thanks__nav">こちら</a>
                 からご連絡ください。
               </p>

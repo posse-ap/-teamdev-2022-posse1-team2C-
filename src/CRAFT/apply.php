@@ -202,14 +202,18 @@ FROM
                             <ul class="stepbar">
                                 <li class="stepbar__item">
                                     <div class="stepbar__item-inner stepbar__item-inner--current">
-                                        STEP1
+                                        入力
                                     </div>
                                 </li>
                                 <li class="stepbar__item">
-                                    <div class="stepbar__item-inner">STEP2</div>
+                                    <div class="stepbar__item-inner">
+                                        確認
+                                    </div>
                                 </li>
                                 <li class="stepbar__item">
-                                    <div class="stepbar__item-inner">STEP3</div>
+                                    <div class="stepbar__item-inner">
+                                        完了
+                                    </div>
                                 </li>
                             </ul>
                             <?php
@@ -253,7 +257,7 @@ FROM
                                             <div class="apply__label__require">必須</div>
                                         </div>
                                         <dt><label for="name__kanji">お名前（漢字）</label></dt>
-                                        <dd><input id="name__kanji" type="text" name="name__kanji" value="<?php echo $_SESSION['name__kanji']; ?>" /></dd>
+                                        <dd><input id="name__kanji" type="text" name="name__kanji" placeholder="例）岡本太郎" value="<?php echo $_SESSION['name__kanji']; ?>" /></dd>
                                     </div>
                                     <?php
                                     if ($errmessage[1]) {
@@ -267,7 +271,7 @@ FROM
                                             <div class="apply__label__require">必須</div>
                                         </div>
                                         <dt><label for="name__kana">お名前（フリガナ）</label></dt>
-                                        <dd><input id="name__kana" type="text" name="name__kana" value="<?php echo $_SESSION['name__kana'] ?>" /></dd>
+                                        <dd><input id="name__kana" type="text" name="name__kana" placeholder="例）オカモトタロウ" value="<?php echo $_SESSION['name__kana'] ?>" /></dd>
                                     </div>
                                     <?php
                                     if ($errmessage[2]) {
@@ -281,7 +285,7 @@ FROM
                                             <div class="apply__label__require">必須</div>
                                         </div>
                                         <dt><label for="email">メールアドレス</label></dt>
-                                        <dd><input id="email" type="email" name="email" value="<?php echo $_SESSION['email'] ?>" /></dd>
+                                        <dd><input id="email" type="email" name="email" placeholder="例）posse@keio.jp" value="<?php echo $_SESSION['email'] ?>" /></dd>
                                     </div>
                                     <?php
                                     if ($errmessage[3]) {
@@ -295,7 +299,7 @@ FROM
                                             <div class="apply__label__require">必須</div>
                                         </div>
                                         <dt><label for="tel">電話番号</label></dt>
-                                        <dd><input id="tel" type="text" name="tel" value="<?php echo $_SESSION['tel'] ?>" /></dd>
+                                        <dd><input id="tel" type="text" name="tel" placeholder="例）09012345678" value="<?php echo $_SESSION['tel'] ?>" /></dd>
                                     </div>
                                     <?php
                                     if ($errmessage[4]) {
@@ -309,7 +313,7 @@ FROM
                                             <div class="apply__label__require">必須</div>
                                         </div>
                                         <dt><label for="postcode">郵便番号</label></dt>
-                                        <dd><input id="postcode" type="text" name="postcode" value="<?php echo $_SESSION['postcode'] ?>" /></dd>
+                                        <dd><input id="postcode" type="text" name="postcode" placeholder="例）1120001" value="<?php echo $_SESSION['postcode'] ?>" /></dd>
                                     </div>
                                     <?php
                                     if ($errmessage[5]) {
@@ -323,7 +327,7 @@ FROM
                                             <div class="apply__label__require">必須</div>
                                         </div>
                                         <dt><label for="address">住所</label></dt>
-                                        <dd><input id="address" type="text" name="address" value="<?php echo $_SESSION['address'] ?>" /></dd>
+                                        <dd><input id="address" type="text" name="address" placeholder="例）静岡県横浜市港区1-23-4" value="<?php echo $_SESSION['address'] ?>" /></dd>
                                     </div>
                                     <?php
                                     if ($errmessage2[1]) {
@@ -351,7 +355,7 @@ FROM
                                             <div class="apply__label__require">必須</div>
                                         </div>
                                         <dt><label for="university">大学</label></dt>
-                                        <dd><input id="university" type="text" name="university" value="<?php echo $_SESSION['university'] ?>" /></dd>
+                                        <dd><input id="university" type="text" name="university" placeholder="例）東京大学" value="<?php echo $_SESSION['university'] ?>" /></dd>
                                     </div>
                                     <?php
                                     if ($errmessage[7]) {
@@ -365,7 +369,7 @@ FROM
                                             <div class="apply__label__require">必須</div>
                                         </div>
                                         <dt><label for="faculty">学部</label></dt>
-                                        <dd><input id="faculty" type="text" name="faculty" value="<?php echo $_SESSION['faculty'] ?>" /></dd>
+                                        <dd><input id="faculty" type="text" name="faculty" placeholder="例）理工学部" value="<?php echo $_SESSION['faculty'] ?>" /></dd>
                                     </div>
                                     <?php
                                     if ($errmessage[8]) {
@@ -379,7 +383,7 @@ FROM
                                             <div class="apply__label__require">必須</div>
                                         </div>
                                         <dt><label for="course">学科</label></dt>
-                                        <dd><input id="course" type="text" name="course" value="<?php echo $_SESSION['course'] ?>" /></dd>
+                                        <dd><input id="course" type="text" name="course" placeholder="例）経済経営学科" value="<?php echo $_SESSION['course'] ?>" /></dd>
                                     </div>
                                     <?php
                                     if ($errmessage2[2]) {
@@ -405,7 +409,7 @@ FROM
                                         </div>
                                         <dt><label for="content">その他自由記述欄</label></dt>
                                         <dd>
-                                            <textarea id="content" type="text" name="content" value="<?php echo $_SESSION['content'] ?>"></textarea>
+                                            <textarea id="content" type="text" name="content" placeholder="エージェント企業へお伝えしたいことがありましたらご記入ください" value="<?php echo $_SESSION['content'] ?>"></textarea>
                                         </dd>
                                     </div>
                                 </dl>
@@ -424,15 +428,19 @@ FROM
                             </p>
                             <ul class="stepbar">
                                 <li class="stepbar__item">
-                                    <div class="stepbar__item-inner">STEP1</div>
-                                </li>
-                                <li class="stepbar__item">
-                                    <div class="stepbar__item-inner stepbar__item-inner--current">
-                                        STEP2
+                                    <div class="stepbar__item-inner">
+                                        入力
                                     </div>
                                 </li>
                                 <li class="stepbar__item">
-                                    <div class="stepbar__item-inner">STEP3</div>
+                                    <div class="stepbar__item-inner stepbar__item-inner--current">
+                                        確認
+                                    </div>
+                                </li>
+                                <li class="stepbar__item">
+                                    <div class="stepbar__item-inner">
+                                        完了
+                                    </div>
                                 </li>
                             </ul>
 
@@ -509,24 +517,28 @@ FROM
                             </p>
                             <ul class="stepbar">
                                 <li class="stepbar__item">
-                                    <div class="stepbar__item-inner">STEP1</div>
+                                    <div class="stepbar__item-inner">
+                                        入力
+                                    </div>
                                 </li>
                                 <li class="stepbar__item">
-                                    <div class="stepbar__item-inner">STEP2</div>
+                                    <div class="stepbar__item-inner">
+                                        確認
+                                    </div>
                                 </li>
                                 <li class="stepbar__item">
                                     <div class="stepbar__item-inner stepbar__item-inner--current">
-                                        STEP3
+                                        完了
                                     </div>
                                 </li>
                             </ul>
 
                             <div class="apply__thanks__inner">
                                 <p class="apply__thanks__complete">
-                                    お問い合わせを受け付けました
+                                    申し込みを受け付けました
                                 </p>
                                 <p class="apply__thanks__text">
-                                    この度はお問い合わせしていただき、誠にありがとうございます。<br /><br />ご入力いただきました内容を確認後、担当者よりご連絡させていただきます。<br />お急ぎのご連絡やご不明な点などございましたら
+                                    この度は申し込みしていただき、誠にありがとうございます。<br /><br />ご入力いただきました内容を確認後、担当者よりご連絡させていただきます。<br />お急ぎのご連絡やご不明な点などございましたら
                                     <a href="#" class="apply__thanks__nav">こちら</a>
                                     からご連絡ください。
                                 </p>
