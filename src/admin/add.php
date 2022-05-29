@@ -258,7 +258,7 @@ clientscales_id="' . $_POST['service__client__scale'][$j] . '"
                 <div class="apply__form__item">
 
                   <dt><label for="agent">貴社名</label></dt>
-                  <dd><input id="agent" type="text" name="agent" value="<?php echo $_SESSION['agent']; ?>" /></dd>
+                  <dd><input id="agent" type="text" name="agent" placeholder="例）アンチパターン" value="<?php echo $_SESSION['agent']; ?>" /></dd>
                 </div>
                 <?php
                 if ($errmessage_agent) {
@@ -269,7 +269,7 @@ clientscales_id="' . $_POST['service__client__scale'][$j] . '"
                 ?>
                 <div class="apply__form__item">
                   <dt><label for="name__kanji">代表者様氏名</label></dt>
-                  <dd><input id="name__kanji" type="text" name="name__kanji" value="<?php echo $_SESSION['name__kanji']; ?>" /></dd>
+                  <dd><input id="name__kanji" type="text" name="name__kanji" placeholder="例）山田太郎" value="<?php echo $_SESSION['name__kanji']; ?>" /></dd>
                 </div>
                 <?php
                 if ($errmessage_agent) {
@@ -280,7 +280,7 @@ clientscales_id="' . $_POST['service__client__scale'][$j] . '"
                 ?>
                 <div class="apply__form__item">
                   <dt><label for="name__kana">代表者様氏名（フリガナ）</label></dt>
-                  <dd><input id="name__kana" type="text" name="name__kana" value="<?php echo $_SESSION['name__kana']; ?>" /></dd>
+                  <dd><input id="name__kana" type="text" name="name__kana" placeholder="例）ヤマダタロウ" value="<?php echo $_SESSION['name__kana']; ?>" /></dd>
                 </div>
                 <?php
                 if ($errmessage_agent) {
@@ -291,7 +291,7 @@ clientscales_id="' . $_POST['service__client__scale'][$j] . '"
                 ?>
                 <div class="apply__form__item">
                   <dt><label for="url">URL（企業HP）</label></dt>
-                  <dd><input id="url" type="text" name="url" value="<?php echo $_SESSION['url']; ?>" /></dd>
+                  <dd><input id="url" type="text" name="url" placeholder="例）https://github.com/posse-ap" value="<?php echo $_SESSION['url']; ?>" /></dd>
                 </div>
                 <?php
                 if ($errmessage_agent) {
@@ -302,7 +302,7 @@ clientscales_id="' . $_POST['service__client__scale'][$j] . '"
                 ?>
                 <div class="apply__form__item">
                   <dt><label for="postcode">郵便番号</label></dt>
-                  <dd><input id="postcode" type="text" name="postcode" value="<?php echo $_SESSION['postcode']; ?>" /></dd>
+                  <dd><input id="postcode" type="text" name="postcode" placeholder="例）112-0012" value="<?php echo $_SESSION['postcode']; ?>" /></dd>
                 </div>
                 <?php
                 if ($errmessage_agent) {
@@ -313,7 +313,7 @@ clientscales_id="' . $_POST['service__client__scale'][$j] . '"
                 ?>
                 <div class="apply__form__item">
                   <dt><label for="address">住所</label></dt>
-                  <dd><input id="address" type="text" name="address" value="<?php echo $_SESSION['address']; ?>" /></dd>
+                  <dd><input id="address" type="text" name="address" placeholder="例）大阪府堺市泉444-11" value="<?php echo $_SESSION['address']; ?>" /></dd>
                 </div>
                 <?php
                 if ($errmessage_agent) {
@@ -324,7 +324,7 @@ clientscales_id="' . $_POST['service__client__scale'][$j] . '"
                 ?>
                 <div class="apply__form__item">
                   <dt><label for="tel">電話番号</label></dt>
-                  <dd><input id="tel" type="text" name="tel" value="<?php echo $_SESSION['tel']; ?>" /></dd>
+                  <dd><input id="tel" type="text" name="tel" placeholder="例）09033321111" value="<?php echo $_SESSION['tel']; ?>" /></dd>
                 </div>
                 <?php
                 if ($errmessage_agent) {
@@ -335,7 +335,7 @@ clientscales_id="' . $_POST['service__client__scale'][$j] . '"
                 ?>
                 <div class="apply__form__item">
                   <dt><label for="email">メールアドレス</label></dt>
-                  <dd><input id="email" type="email" name="email" value="<?php echo $_SESSION['email']; ?>" /></dd>
+                  <dd><input id="email" type="email" name="email" placeholder="例）posse@anti.com" value="<?php echo $_SESSION['email']; ?>" /></dd>
                 </div>
                 <?php
                 if ($errmessage_agent) {
@@ -346,7 +346,7 @@ clientscales_id="' . $_POST['service__client__scale'][$j] . '"
                 ?>
                 <div class="apply__form__item">
                   <dt><label for="email">連絡先メールアドレス</label></dt>
-                  <dd><input id="contact__email" type="email" name="contact__email" value="<?php echo $_SESSION['contact__email']; ?>" /></dd>
+                  <dd><input id="contact__email" type="email" name="contact__email" placeholder="例）pattern@craft.jp" value="<?php echo $_SESSION['contact__email']; ?>" /></dd>
                 </div>
 
 
@@ -360,7 +360,7 @@ clientscales_id="' . $_POST['service__client__scale'][$j] . '"
 
                 <div class="apply__form__item">
                   <dt><label for="agent__detail">企業紹介</label></dt>
-                  <dd><textarea name="agent__detail" id="agent__detail"><?php echo $_SESSION['agent__detail']; ?></textarea></dd>
+                  <dd><textarea name="agent__detail" placeholder="ここに企業の紹介を記入してください" id="agent__detail"><?php echo $_SESSION['agent__detail']; ?></textarea></dd>
                 </div>
               </dl>
               <p class="subtitle">担当者様情報</p>
@@ -375,7 +375,7 @@ clientscales_id="' . $_POST['service__client__scale'][$j] . '"
                 <div class="apply__form__item">
 
                   <dt><label for="staff__name__kanji">お名前</label></dt>
-                  <dd><input id="staff__name__kanji" type="text" name="staff__name__kanji" value="<?php echo $_SESSION['staff__name__kanji']; ?>" /></dd>
+                  <dd><input id="staff__name__kanji" type="text" name="staff__name__kanji" placeholder="例）齋藤加奈" value="<?php echo $_SESSION['staff__name__kanji']; ?>" /></dd>
                 </div>
                 <?php
                 if ($errmessage_staff) {
@@ -387,7 +387,7 @@ clientscales_id="' . $_POST['service__client__scale'][$j] . '"
                 <div class="apply__form__item">
 
                   <dt><label for="staff__name__kana">お名前（フリガナ）</label></dt>
-                  <dd><input id="staff__name__kana" type="text" name="staff__name__kana" value="<?php echo $_SESSION['staff__name__kana']; ?>" /></dd>
+                  <dd><input id="staff__name__kana" type="text" name="staff__name__kana" placeholder="例）サイトウカナ" value="<?php echo $_SESSION['staff__name__kana']; ?>" /></dd>
                 </div>
                 <?php
                 if ($errmessage_staff) {
@@ -398,7 +398,7 @@ clientscales_id="' . $_POST['service__client__scale'][$j] . '"
                 ?>
                 <div class="apply__form__item">
                   <dt><label for="staff__tel">電話番号</label></dt>
-                  <dd><input id="staff__tel" type="text" name="staff__tel" value="<?php echo $_SESSION['staff__tel']; ?>" /></dd>
+                  <dd><input id="staff__tel" type="text" name="staff__tel" placeholder="例）09012345678" value="<?php echo $_SESSION['staff__tel']; ?>" /></dd>
                 </div>
                 <?php
                 if ($errmessage_staff) {
@@ -409,7 +409,7 @@ clientscales_id="' . $_POST['service__client__scale'][$j] . '"
                 ?>
                 <div class="apply__form__item">
                   <dt><label for="staff__email">メールアドレス</label></dt>
-                  <dd><input id="staff__email" type="email" name="staff__email" value="<?php echo $_SESSION['staff__email']; ?>" /></dd>
+                  <dd><input id="staff__email" type="email" name="staff__email" placeholder="例）boozer@japan.com" value="<?php echo $_SESSION['staff__email']; ?>" /></dd>
                 </div>
                 <?php
                 if ($errmessage_staff) {
@@ -420,7 +420,7 @@ clientscales_id="' . $_POST['service__client__scale'][$j] . '"
                 ?>
                 <div class="apply__form__item">
                   <dt><label for="staff__dept">部署</label></dt>
-                  <dd><input id="staff__dept" type="text" name="staff__dept" value="<?php echo $_SESSION['staff__dept']; ?>" /></dd>
+                  <dd><input id="staff__dept" type="text" name="staff__dept" placeholder="例）営業" value="<?php echo $_SESSION['staff__dept']; ?>" /></dd>
                 </div>
                 <?php
                 if ($errmessage_staff) {
@@ -431,7 +431,7 @@ clientscales_id="' . $_POST['service__client__scale'][$j] . '"
                 ?>
                 <div class="apply__form__item">
                   <dt><label for="staff__pass">パスワード</label></dt>
-                  <dd><input id="staff__pass" type="text" name="staff__pass" value="<?php echo $_SESSION['staff__pass']; ?>" /></dd>
+                  <dd><input id="staff__pass" type="text" name="staff__pass" placeholder="例）password" value="<?php echo $_SESSION['staff__pass']; ?>" /></dd>
                 </div>
                 <?php
                 if ($errmessage_staff) {
@@ -442,7 +442,7 @@ clientscales_id="' . $_POST['service__client__scale'][$j] . '"
                 ?>
                 <div class="apply__form__item">
                   <dt><label for="staff__detail">担当者紹介文</label></dt>
-                  <dd><textarea name="staff__detail" id="staff__detail"><?php echo $_SESSION['staff__detail']; ?></textarea></dd>
+                  <dd><textarea name="staff__detail" id="staff__detail" placeholder="ここに担当者の紹介文を記入してください"><?php echo $_SESSION['staff__detail']; ?></textarea></dd>
                 </div>
               </dl>
               <p class="subtitle">サービス詳細</p>
@@ -456,7 +456,7 @@ clientscales_id="' . $_POST['service__client__scale'][$j] . '"
                 ?>
                 <div class="apply__form__item">
                   <dt><label for="service__name">サービス名</label></dt>
-                  <dd><input id="service__name" type="text" name="service__name" value="<?php echo $_SESSION['service__name']; ?>" /></dd>
+                  <dd><input id="service__name" type="text" name="service__name" placeholder="例）新卒〇〇" value="<?php echo $_SESSION['service__name']; ?>" /></dd>
                 </div>
                 <?php
                 if ($errmessage_service2) {
@@ -526,7 +526,7 @@ clientscales_id="' . $_POST['service__client__scale'][$j] . '"
                 ?>
                 <div class="apply__form__item">
                   <dt><label for="service__aria">対応エリア</label></dt>
-                  <dd><input id="service__aria" type="text" name="service__aria" value="<?php echo $_SESSION['service__aria']; ?>" /></dd>
+                  <dd><input id="service__aria" type="text" name="service__aria" placeholder="例）全国" value="<?php echo $_SESSION['service__aria']; ?>" /></dd>
                 </div>
                 <?php
                 if ($errmessage_service) {
@@ -537,7 +537,7 @@ clientscales_id="' . $_POST['service__client__scale'][$j] . '"
                 ?>
                 <div class="apply__form__item">
                   <dt><label for="service__unique">独自のサービス</label></dt>
-                  <dd><input id="service__unique" type="text" name="service__unique" value="<?php echo $_SESSION['service__unique']; ?>" /></dd>
+                  <dd><input id="service__unique" type="text" name="service__unique" placeholder="例）密着分析" value="<?php echo $_SESSION['service__unique']; ?>" /></dd>
                 </div>
                 <?php
                 if ($errmessage_service2) {
@@ -658,7 +658,7 @@ clientscales_id="' . $_POST['service__client__scale'][$j] . '"
                 ?>
                 <div class="apply__form__item">
                   <dt><label for="service__detail">サービスの特徴</label></dt>
-                  <dd><textarea name="service__detail" id="service__detail"><?php echo $_SESSION['service__detail']; ?></textarea></dd>
+                  <dd><textarea name="service__detail" id="service__detail" placeholder="ここにサービスの特徴を記入してください"><?php echo $_SESSION['service__detail']; ?></textarea></dd>
                 </div>
               </dl>
               <div class="apply__form__footer">
