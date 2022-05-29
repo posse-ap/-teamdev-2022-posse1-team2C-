@@ -620,7 +620,8 @@ SELECT
   service__useful,
   service__reaction,
   service__support,
-  service__detail
+  service__detail,
+  support_id
 FROM
 agents
 JOIN
