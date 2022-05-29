@@ -1,7 +1,6 @@
 <?php
-// require('./capsule/session.php');
+require('./capsule/session.php');
 require(dirname(__FILE__) . "../../dbconnect.php");
-session_start();
 
 $errmessage_agent = array();
 $array_agent_forms = [
@@ -17,12 +16,11 @@ for ($i = 0; $i < $agent_forms_length; $i++) {
 
 $errmessage_staff = array();
 $array_staff_forms = [
-  'staff__name__kanji', 'staff__name__kana', 'staff__tel',  'staff__email', 'staff__dept', 'staff__detail'
-
+  'staff__name__kanji', 'staff__name__kana', 'staff__tel',  'staff__email', 'staff__dept', 'staff__pass', 'staff__detail'
 ];
 
 $array_staff_message = [
-  '担当者様氏名(漢字)', '担当者様氏名(フリガナ)', '電話番号', 'メールアドレス', '部署', '担当者紹介文'
+  '担当者様氏名(漢字)', '担当者様氏名(フリガナ)', '電話番号', 'メールアドレス', '部署', 'パスワード', '担当者紹介文'
 ];
 $staff_forms_length = count($array_staff_forms);
 for ($i = 0; $i < $staff_forms_length; $i++) {
@@ -119,6 +117,7 @@ if (isset($_POST['send']) && $_POST['send']) {
     $_SESSION['staff__tel'] == !'' &&
     $_SESSION['staff__email'] == !'' &&
     $_SESSION['staff__dept'] == !'' &&
+    $_SESSION['staff__pass'] == !'' &&
     $_SESSION['staff__detail'] == !'' &&
     $_SESSION['service__name'] == !'' &&
     $_SESSION['service__aria'] == !'' &&
@@ -172,6 +171,7 @@ if (isset($_POST['send']) && $_POST['send']) {
   staff__tel="' . $_SESSION['staff__tel'] . '",
   staff__email="' . $_SESSION['staff__email'] . '",
   staff__dept="' . $_SESSION['staff__dept'] . '",
+  staff__pass="' . sha1($_SESSION['staff__pass']) . '",
   staff__detail="' . $_SESSION['staff__detail'] . '"
   ');
     $service_length = count($_POST['support']);
@@ -183,6 +183,18 @@ if (isset($_POST['send']) && $_POST['send']) {
       $agents_supports_connect = $db->exec('INSERT INTO agents_supports_connect SET
 agent_id="' . $agents_count . '",
 support_id="' . $_POST['support'][$j] . '"
+');
+      $agents_supports_mix = $db->exec('
+DROP TABLE IF EXISTS agents_supports_mix;
+
+CREATE table agents_supports_mix AS
+SELECT
+  agent_id,
+  support
+FROM
+  supports
+  join agents_supports_connect on support_id = supports.id;
+
 ');
     }
 
@@ -413,7 +425,18 @@ clientscales_id="' . $_POST['service__client__scale'][$j] . '"
                 <?php
                 if ($errmessage_staff) {
                   echo '<div style="color:red;">';
-                  echo $errmessage_staff[4];
+                  echo $errmessage_staff[5];
+                  echo '</div>';
+                }
+                ?>
+                <div class="apply__form__item">
+                  <dt><label for="staff__pass">パスワード</label></dt>
+                  <dd><input id="staff__pass" type="text" name="staff__pass" value="<?php echo $_SESSION['staff__pass']; ?>" /></dd>
+                </div>
+                <?php
+                if ($errmessage_staff) {
+                  echo '<div style="color:red;">';
+                  echo $errmessage_staff[6];
                   echo '</div>';
                 }
                 ?>

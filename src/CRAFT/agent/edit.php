@@ -1,3 +1,3 @@
 <?php
-// require('./capsule/session.php');
+require('./capsule/session.php');
 ?>

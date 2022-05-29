@@ -31,15 +31,6 @@
       </ul>
     </li>
     <li class="footer__item">
-      <p class="nav__title">OTHER SERVICE</p>
-      <ul class="nav__list">
-        <li class="nav__item"><a href="#">サービス１</a></li>
-        <li class="nav__item"><a href="#">サービス２</a></li>
-        <li class="nav__item"><a href="#">サービス３</a></li>
-        <li class="nav__item"><a href="#">サービス４</a></li>
-      </ul>
-    </li>
-    <li class="footer__item">
       <p class="nav__title">COMPANY</p>
       <ul class="nav__list">
         <li class="nav__item"><a href="#">会社概要</a></li>
