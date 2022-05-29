@@ -36,4 +36,4 @@ services:
       - "8025:8025"
       - "1025:1025"
     volumes:
-      - ./php/php.ini:/usr/local/etc/php/php.ini
+      - ./php/:/usr/local/etc/php/
