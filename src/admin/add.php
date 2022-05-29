@@ -1,5 +1,5 @@
 <?php
-require('./capsule/session.php');
+// require('./capsule/session.php');
 require(dirname(__FILE__) . "../../dbconnect.php");
 
 $errmessage_agent = array();

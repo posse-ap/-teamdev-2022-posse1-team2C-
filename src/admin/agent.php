@@ -172,7 +172,7 @@ for ($j = 1; $j <= $agents_count; $j++) {
                 <dd><?php echo $agents_data[0]['name__kanji'] ?></dd>
               </div>
               <div class="agent__info__contents">
-                <dt>代表者氏名（フリガナ））</dt>
+                <dt>代表者氏名（フリガナ）</dt>
                 <dd><?php echo $agents_data[0]['name__kana'] ?></dd>
               </div>
               <div class="agent__info__contents">
