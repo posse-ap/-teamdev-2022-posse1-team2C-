@@ -214,7 +214,7 @@ for ($j = 1; $j <= $agents_count; $j++) {
 
                     <li class="agent__item">
                       <button name="<?php echo $agent_supports_data_[$j][1][0]; ?>" value="<?php echo $agent_supports_data_[$j][1][0]; ?>" class="agent__item__detail">詳細</button>
-                      <button class="agent__item__apply">申し込む</button>
+                      <button class="agent__item__apply"><a href="./apply.php">申し込む</a></button>
                     </li>
                   </ul>
                 </li>
