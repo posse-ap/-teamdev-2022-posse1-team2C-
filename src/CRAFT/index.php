@@ -11,7 +11,6 @@ $agents_count_stmt->execute();
 $agents_count_data = $agents_count_stmt->fetchAll();
 $agents_count = $agents_count_data[0]['COUNT(*)'];
 
-
 for ($j = 1; $j <= $agents_count; $j++) {
   $agent_supports_stmt_[$j] = $db->prepare("SELECT * from agents_supports_mix WHERE agent_id = ?");
   $agent_supports_stmt_[$j]->bindValue(1, $j);
@@ -25,69 +24,51 @@ for ($j = 1; $j <= $agents_count; $j++) {
   $agent_supports_count_[$j] = $agent_supports_count_data_[$j][0]['COUNT(support)'];
 }
 
-
-
-
-// print_r($agent_supports_data_[1][0]['support']);
-
 $supports_stmt = $db->prepare("SELECT support from supports");
 $supports_stmt->execute();
 $supports_data = $supports_stmt->fetchAll();
-// echo $supports_data[0];
 $support_length = count($supports_data);
 
 for ($i = 0; $i < $support_length; $i++) {
   if (isset($_POST[$supports_data[$i][0]])) {
     $support = $supports_data[$i][0];
-    // echo $support;
     $agents_stmt = $db->prepare('SELECT * from agents_supports_mix where support=?');
     $agents_stmt->bindValue(1, $support);
     $agents_stmt->execute();
     $agents_data = $agents_stmt->fetchAll();
-    // echo $agents_data[1]['agent_id'];
-    
-
 
     $agents_count_stmt = $db->prepare("SELECT COUNT(*) from agents_supports_mix where support=?");
     $agents_count_stmt->bindValue(1, $support);
     $agents_count_stmt->execute();
     $agents_count_data = $agents_count_stmt->fetchAll();
     $agents_count = $agents_count_data[0]['COUNT(*)'];
-// for($l=0;$l<$agents_count;$l++){
-//     echo $agents_data[$l][0];
-// }
   }
 };
 
 for ($j = 1; $j <= $agents_count; $j++) {
-  if(isset($supports_data[$j][0])){
-  $agent_supports_stmt_[$j] = $db->prepare("SELECT * from agents_supports_mix WHERE agent_id = ?");
-  $agent_supports_stmt_[$j]->bindValue(1,$agents_data[$j-1]['agent_id']);
-  $agent_supports_stmt_[$j]->execute();
-  $agent_supports_data_[$j] = $agent_supports_stmt_[$j]->fetchAll();
-  // echo $agent_supports_data_[$j][1][0];
-  // $agent_supports_data_[$j][1][0];
-  // 
-  $agent_supports_count_stmt_[$j] = $db->prepare("SELECT COUNT(support) from agents_supports_mix WHERE agent_id = ?");
-  $agent_supports_count_stmt_[$j]->bindValue(1, $j);
-  $agent_supports_count_stmt_[$j]->execute();
-  $agent_supports_count_data_[$j] = $agent_supports_count_stmt_[$j]->fetchAll();
-  $agent_supports_count_[$j] = $agent_supports_count_data_[$j][0]['COUNT(support)'];
-  // echo $agent_supports_count_[$j];
+  if (isset($supports_data[$j][0])) {
+    $agent_supports_stmt_[$j] = $db->prepare("SELECT * from agents_supports_mix WHERE agent_id = ?");
+    $agent_supports_stmt_[$j]->bindValue(1, $agents_data[$j - 1]['agent_id']);
+    $agent_supports_stmt_[$j]->execute();
+    $agent_supports_data_[$j] = $agent_supports_stmt_[$j]->fetchAll();
+
+    $agent_supports_count_stmt_[$j] = $db->prepare("SELECT COUNT(support) from agents_supports_mix WHERE agent_id = ?");
+    $agent_supports_count_stmt_[$j]->bindValue(1, $j);
+    $agent_supports_count_stmt_[$j]->execute();
+    $agent_supports_count_data_[$j] = $agent_supports_count_stmt_[$j]->fetchAll();
+    $agent_supports_count_[$j] = $agent_supports_count_data_[$j][0]['COUNT(support)'];
   }
 }
-// echo $agent_supports_count_[4];
+
 $array_area = ['首都圏', '全国'];
 count($array_area);
 for ($k = 0; $k < count($array_area); $k++) {
-  // print_r($agent_supports_data_[1][$k]['support']);
   if (isset($_POST[$array_area[$k]])) {
     $area = $array_area[$k];
     $agents_stmt = $db->prepare('SELECT * from agents where service__aria=?');
     $agents_stmt->bindValue(1, $area);
     $agents_stmt->execute();
     $agents_data = $agents_stmt->fetchAll();
-    
 
     $agents_count_stmt = $db->prepare("SELECT COUNT(*) from agents where service__aria=?");
     $agents_count_stmt->bindValue(1, $area);
@@ -97,10 +78,7 @@ for ($k = 0; $k < count($array_area); $k++) {
   };
 }
 
-
 $array_scale = ['大手企業', 'ベンチャー企業'];
-
-
 for ($k = 0; $k < count($array_scale); $k++) {
   if (isset($_POST[$array_scale[$k]])) {
     $scale = $array_scale[$k];;
@@ -117,12 +95,8 @@ for ($k = 0; $k < count($array_scale); $k++) {
   };
 }
 
-
 $array_scores = ['score1', 'score2'];
 $array_total = [4.0, 3.0];
-
-
-
 for ($k = 0; $k < count($array_scores); $k++) {
   if (isset($_POST[$array_scores[$k]])) {
     $scores = $array_total[$k];
@@ -138,9 +112,6 @@ for ($k = 0; $k < count($array_scores); $k++) {
     $agents_count = $agents_count_data[0]['COUNT(*)'];
   };
 }
-// echo $agents_data[0][0];
-// for()
-// echo $agents_data[4]['agent']
 ?>
 
 <!DOCTYPE html>
@@ -217,7 +188,7 @@ for ($k = 0; $k < count($array_scores); $k++) {
                     <img class="img agent__item__img" src="../assets/img/agent.png" alt="企業名" width="300px" style="display: inline" />
                   </li>
                   <li class="agent__item">
-                    <h3 class="agent__item__name"><?php echo $agents_data[$j-1]['agent']; ?></h3>
+                    <h3 class="agent__item__name"><?php echo $agents_data[$j - 1]['agent']; ?></h3>
                   </li>
                   <li class="agent__item">
                     <span class="agent__item__title">総合点</span>
@@ -227,8 +198,7 @@ for ($k = 0; $k < count($array_scores); $k++) {
 
                   <?php for ($k = 0; $k < $agent_supports_count_[$agent_supports_data_[$j][1][0]]; $k++) { ?>
                     <form method="post">
-                  
-                      <p><?php echo $agent_supports_data_[$j][$k]['support'];?></p>
+                      <p><?php echo $agent_supports_data_[$j][$k]['support']; ?></p>
                     </form>
                   <?php }; ?>
                   <li class="agent__item">
