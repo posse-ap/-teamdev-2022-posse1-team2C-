@@ -25,7 +25,7 @@ require('./capsule/session.php');
       </script>
 
       <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
-        <h2 class="mt-5">問い合わせが多いエージェント企業</h2>
+        <h2 class="mt-5">お問い合わせ数top5【今月】</h2>
         <div class="table-responsive">
           <table class="table table-striped table-sm">
             <thead>
@@ -43,61 +43,148 @@ require('./capsule/session.php');
                 <td>1000</td>
                 <td><button class="bg-danger">削除</button></td>
               </tr>
+              <tr>
+                <td>マイナビ</td>
+                <td>100</td>
+                <td>1000</td>
+                <td><button class="bg-danger">削除</button></td>
+              </tr>
+              <tr>
+                <td>マイナビ</td>
+                <td>100</td>
+                <td>1000</td>
+                <td><button class="bg-danger">削除</button></td>
+              </tr>
+              <tr>
+                <td>マイナビ</td>
+                <td>100</td>
+                <td>1000</td>
+                <td><button class="bg-danger">削除</button></td>
+              </tr>
+              <tr>
+                <td>マイナビ</td>
+                <td>100</td>
+                <td>1000</td>
+                <td><button class="bg-danger">削除</button></td>
+              </tr>
             </tbody>
           </table>
         </div><!-- /.table-responsive -->
-        <h2 class="mt-5">最近お問い合わせをした学生</h2>
+        <h2 class="mt-5">お問い合わせ数top5【累計】</h2>
         <div class="table-responsive">
           <table class="table table-striped table-sm">
             <thead>
               <tr>
-                <th class="col-xs-2 col-ms-2 col-md-2 col-lg-2">お問い合わせ時刻</th>
-                <th class="col-xs-2 col-ms-2 col-md-2 col-lg-2">氏名</th>
-                <th class="col-xs-2 col-ms-2 col-md-2 col-lg-2">大学</th>
-                <th class="col-xs-2 col-ms-2 col-md-2 col-lg-2">お問い合わせ先</th>
-                <th class="col-xs-1 col-ms-1 col-md-1 col-lg-1">詳細</th>
+                <th class="col-xs-2 col-ms-2 col-md-2 col-lg-2">企業名</th>
+                <th class="col-xs-2 col-ms-2 col-md-2 col-lg-2">お問い合わせ数</th>
+                <th class="col-xs-2 col-ms-2 col-md-2 col-lg-2">アクセス数</th>
                 <th class="col-xs-1 col-ms-1 col-md-1 col-lg-1">削除</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>2022年4月6日 15:45:04</td>
-                <td>尾関なな海</td>
-                <td>慶應義塾大学</td>
                 <td>マイナビ</td>
-                <td><button class="bg-secondary">詳細</button></td>
+                <td>100</td>
+                <td>1000</td>
                 <td><button class="bg-danger">削除</button></td>
               </tr>
               <tr>
-                <td>2022年4月6日 15:45:04</td>
-                <td>湯山智晴</td>
-                <td>慶應義塾大学</td>
                 <td>マイナビ</td>
-                <td><button class="bg-secondary">詳細</button></td>
+                <td>100</td>
+                <td>1000</td>
                 <td><button class="bg-danger">削除</button></td>
               </tr>
               <tr>
-                <td>2022年4月6日 15:45:04</td>
-                <td>千羽maria</td>
-                <td>東京大学</td>
                 <td>マイナビ</td>
-                <td><button class="bg-secondary">詳細</button></td>
+                <td>100</td>
+                <td>1000</td>
                 <td><button class="bg-danger">削除</button></td>
               </tr>
               <tr>
-                <td>2022年4月6日 15:45:04</td>
-                <td>福場脩真</td>
-                <td>慶應義塾大学</td>
                 <td>マイナビ</td>
-                <td><button class="bg-secondary">詳細</button></td>
+                <td>100</td>
+                <td>1000</td>
                 <td><button class="bg-danger">削除</button></td>
               </tr>
               <tr>
-                <td>2022年4月6日 15:45:04</td>
-                <td>森本健介</td>
-                <td>慶應義塾大学</td>
                 <td>マイナビ</td>
-                <td><button class="bg-secondary">詳細</button></td>
+                <td>100</td>
+                <td>1000</td>
+                <td><button class="bg-danger">削除</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div><!-- /.table-responsive -->
+        <h2 class="mt-5">アクセス数数top5【今月】</h2>
+        <div class="table-responsive">
+          <table class="table table-striped table-sm">
+            <thead>
+              <tr>
+                <th class="col-xs-2 col-ms-2 col-md-2 col-lg-2">企業名</th>
+                <th class="col-xs-2 col-ms-2 col-md-2 col-lg-2">お問い合わせ数</th>
+                <th class="col-xs-2 col-ms-2 col-md-2 col-lg-2">アクセス数</th>
+                <th class="col-xs-1 col-ms-1 col-md-1 col-lg-1">削除</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>マイナビ</td>
+                <td>100</td>
+                <td>1000</td>
+                <td><button class="bg-danger">削除</button></td>
+              </tr>
+              <tr>
+                <td>マイナビ</td>
+                <td>100</td>
+                <td>1000</td>
+                <td><button class="bg-danger">削除</button></td>
+              </tr>
+              <tr>
+                <td>マイナビ</td>
+                <td>100</td>
+                <td>1000</td>
+                <td><button class="bg-danger">削除</button></td>
+              </tr>
+              <tr>
+                <td>マイナビ</td>
+                <td>100</td>
+                <td>1000</td>
+                <td><button class="bg-danger">削除</button></td>
+              </tr>
+              <tr>
+                <td>マイナビ</td>
+                <td>100</td>
+                <td>1000</td>
+                <td><button class="bg-danger">削除</button></td>
+              </tr>
+              <tr>
+                <td>マイナビ</td>
+                <td>100</td>
+                <td>1000</td>
+                <td><button class="bg-danger">削除</button></td>
+              </tr>
+              <tr>
+                <td>マイナビ</td>
+                <td>100</td>
+                <td>1000</td>
+                <td><button class="bg-danger">削除</button></td>
+              </tr>
+              <tr>
+                <td>マイナビ</td>
+                <td>100</td>
+                <td>1000</td>
+                <td><button class="bg-danger">削除</button></td>
+              </tr>
+              <tr>
+                <td>マイナビ</td>
+                <td>100</td>
+                <td>1000</td>
+                <td><button class="bg-danger">削除</button></td>
+              </tr>
+              <tr>
+                <td>マイナビ</td>
+                <td>100</td>
+                <td>1000</td>
                 <td><button class="bg-danger">削除</button></td>
               </tr>
             </tbody>
