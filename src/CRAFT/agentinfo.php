@@ -31,9 +31,11 @@ w<!DOCTYPE html>
                 <h3 class="">
                   <i class="far fa-lightbulb"></i>
                   <span>マイナビ</span>
+                  <!-- サービス名を入れる -->
                 </h3>
               </div>
               <p class="agent__service__main__info">ここにサービスの特徴が入ります。ここにサービスの特徴が入ります。ここにサービスの特徴が入ります。ここにサービスの特徴が入ります。ここにサービスの特徴が入ります。ここにサービスの特徴が入ります。ここにサービスの特徴が入ります。ここにサービスの特徴が入ります。ここにサービスの特徴が入ります。ここにサービスの特徴が入ります。ここにサービスの特徴が入ります。</p>
+            <!-- サービスの特徴を入れる -->
             </div>
             <div class="agent__service__inner">
               <div class="agent__service__inner__item">
@@ -43,6 +45,7 @@ w<!DOCTYPE html>
                   <span class="agent__service__inner__item__kind">面接練習</span>
                   <span class="agent__service__inner__item__kind">セミナー開催</span>
                   <span class="agent__service__inner__item__kind">個人面談</span>
+                  <!-- 上のサポート内容の数分だけspanごとfor文で回す -->
                 </div>
                 <dl class="agent__service__inner__item__graph">
                   <div class="agent__service__inner__item__graph__child">
@@ -60,6 +63,7 @@ w<!DOCTYPE html>
                   <div class="agent__service__inner__item__graph__child">
                     <dt>対応エリア</dt>
                     <dd></dd>
+                    <!-- dd内にdb情報を反映なかったら空欄 -->
                   </div>
                 </dl>
               </div>
@@ -74,6 +78,7 @@ w<!DOCTYPE html>
                       labels: ["総合評価", "求人の質", "使いやすさ", "対応の良さ", "サポート力"],
                       datasets: [{
                         data: [2.9, 3.7, 4.5, 3.2, 4.1],
+                        //dataにdbからとってきた値を入れる
                         backgroundColor: "RGBA(225,95,150, 0.5)",
                         borderColor: "RGBA(225,95,150, 1)",
                         borderWidth: 1,
@@ -118,17 +123,7 @@ w<!DOCTYPE html>
               <p class="agent__staff__info__text">
                 ここに担当者の紹介メッセージが入ります。ここに担当者の紹介メッセージが入ります。ここに担当者の紹介メッセージが入ります。ここに担当者の紹介メッセージが入ります。ここに担当者の紹介メッセージが入ります。ここに担当者の紹介メッセージが入ります。ここに担当者の紹介メッセージが入ります。
               </p>
-            </div>
-          </div>
-          <div class="agent__staff">
-            <div class="agent__staff__img">
-              <img src="../assets/img/mynavi.jpg" alt="担当者">
-            </div>
-            <div class="agent__staff__info">
-              <p class="agent__staff__info__name">ななみん</p>
-              <p class="agent__staff__info__text">
-                ここに担当者の紹介メッセージが入ります。ここに担当者の紹介メッセージが入ります。ここに担当者の紹介メッセージが入ります。ここに担当者の紹介メッセージが入ります。ここに担当者の紹介メッセージが入ります。ここに担当者の紹介メッセージが入ります。ここに担当者の紹介メッセージが入ります。
-              </p>
+
             </div>
           </div>
           <div class="agent__title">企業情報</div>
