@@ -1,4 +1,46 @@
-w<!DOCTYPE html>
+<?php
+session_start();
+require(dirname(__FILE__) . "/../dbconnect.php");
+
+if (!isset($_SESSION['agent_id'])) {
+  header('Location: http://' . $_SERVER['HTTP_HOST'] . '/CRAFT/index.php');
+  exit();
+}
+
+$agent_id = $_SESSION['agent_id']-1;
+
+$agents_stmt = $db->prepare("SELECT * from agents");
+$agents_stmt->execute();
+$agents_data = $agents_stmt->fetchAll();
+
+$staffs_stmt = $db->prepare("SELECT * from staffs");
+$staffs_stmt->execute();
+$staffs_data = $staffs_stmt->fetchAll();
+
+$clientscales_stmt = $db->prepare("SELECT * from agents_clientscales_mix where agent_id=?");
+$clientscales_stmt->bindValue(1, $agent_id);
+$clientscales_stmt->execute();
+$clientscales_data = $clientscales_stmt->fetchAll();
+
+$clientscales_count_stmt = $db->prepare("SELECT COUNT(clientscale) from agents_clientscales_mix WHERE agent_id = ?");
+$clientscales_count_stmt->bindValue(1, $agent_id);
+$clientscales_count_stmt->execute();
+$clientscales_count_data = $clientscales_count_stmt->fetchAll();
+$clientscales_count = $clientscales_count_data[0]['COUNT(clientscale)'];
+
+$agent_supports_stmt = $db->prepare("SELECT * from agents_supports_mix WHERE agent_id = ?");
+$agent_supports_stmt->bindValue(1, $agent_id);
+$agent_supports_stmt->execute();
+$agent_supports_data = $agent_supports_stmt->fetchAll();
+
+$agent_supports_count_stmt = $db->prepare("SELECT COUNT(support) from agents_supports_mix WHERE agent_id = ?");
+$agent_supports_count_stmt->bindValue(1, $agent_id);
+$agent_supports_count_stmt->execute();
+$agent_supports_count_data = $agent_supports_count_stmt->fetchAll();
+$agent_supports_count = $agent_supports_count_data[0]['COUNT(support)'];
+?>
+
+<!DOCTYPE html>
 <html lang="ja">
 
 <head>
@@ -30,40 +72,45 @@ w<!DOCTYPE html>
               <div class="agent__service__main__name">
                 <h3 class="">
                   <i class="far fa-lightbulb"></i>
-                  <span>マイナビ</span>
-                  <!-- サービス名を入れる -->
+                  <span><?php echo $agents_data[$agent_id]['service__name']; ?></span>
                 </h3>
               </div>
-              <p class="agent__service__main__info">ここにサービスの特徴が入ります。ここにサービスの特徴が入ります。ここにサービスの特徴が入ります。ここにサービスの特徴が入ります。ここにサービスの特徴が入ります。ここにサービスの特徴が入ります。ここにサービスの特徴が入ります。ここにサービスの特徴が入ります。ここにサービスの特徴が入ります。ここにサービスの特徴が入ります。ここにサービスの特徴が入ります。</p>
-            <!-- サービスの特徴を入れる -->
+              <p class="agent__service__main__info"><?php echo $agents_data[$agent_id]['service__detail']; ?></p>
             </div>
             <div class="agent__service__inner">
               <div class="agent__service__inner__item">
                 <div class="agent__service__inner__item__kinds">
-                  <span class="agent__service__inner__item__kind">ES添削</span>
-                  <span class="agent__service__inner__item__kind">特別選考</span>
-                  <span class="agent__service__inner__item__kind">面接練習</span>
-                  <span class="agent__service__inner__item__kind">セミナー開催</span>
-                  <span class="agent__service__inner__item__kind">個人面談</span>
-                  <!-- 上のサポート内容の数分だけspanごとfor文で回す -->
+                  <?php for ($i = 0; $i < $agent_supports_count; $i++) { ?>
+                    <span class="agent__service__inner__item__kind"><? echo $agent_supports_data[$i]['support']; ?></span>
+                  <?php } ?>
                 </div>
                 <dl class="agent__service__inner__item__graph">
                   <div class="agent__service__inner__item__graph__child">
                     <dt>エージェント企業の規模</dt>
-                    <dd>ベンチャー企業</dd>
+                    <dd><?php echo $agents_data[$agent_id]['service__agent__scale']; ?></dd>
                   </div>
                   <div class="agent__service__inner__item__graph__child">
                     <dt>紹介先企業の規模</dt>
-                    <dd>大手企業</dd>
+                    <dd>
+                      <?php
+                      for ($i = 0; $i < $clientscales_count - 1; $i++) {
+                        echo $clientscales_data[0]['clientscale']; ?>・
+                      <?php }?>
+                      <?php if($clientscales_count>0){
+                      echo $clientscales_data[$clientscales_count - 1]['clientscale'];}
+                      else{
+                        echo '-';
+                      } ?>
+
+                    </dd>
                   </div>
                   <div class="agent__service__inner__item__graph__child">
                     <dt>独自のサービス</dt>
-                    <dd></dd>
+                    <dd><?php echo $agents_data[$agent_id]['service__unique']; ?></dd>
                   </div>
                   <div class="agent__service__inner__item__graph__child">
                     <dt>対応エリア</dt>
-                    <dd></dd>
-                    <!-- dd内にdb情報を反映なかったら空欄 -->
+                    <dd><?php echo $agents_data[$agent_id]['service__aria'] ?></dd>
                   </div>
                 </dl>
               </div>
@@ -77,8 +124,13 @@ w<!DOCTYPE html>
                     data: {
                       labels: ["総合評価", "求人の質", "使いやすさ", "対応の良さ", "サポート力"],
                       datasets: [{
-                        data: [2.9, 3.7, 4.5, 3.2, 4.1],
-                        //dataにdbからとってきた値を入れる
+                        data: [
+                          <?php echo $agents_data[$agent_id]['service__total']; ?>,
+                          <?php echo $agents_data[$agent_id]['service__offer']; ?>,
+                          <?php echo $agents_data[$agent_id]['service__useful']; ?>,
+                          <?php echo $agents_data[$agent_id]['service__reaction']; ?>,
+                          <?php echo $agents_data[$agent_id]['service__support']; ?>
+                        ],
                         backgroundColor: "RGBA(225,95,150, 0.5)",
                         borderColor: "RGBA(225,95,150, 1)",
                         borderWidth: 1,
@@ -119,9 +171,9 @@ w<!DOCTYPE html>
               <img src="../assets/img/mynavi.jpg" alt="担当者">
             </div>
             <div class="agent__staff__info">
-              <p class="agent__staff__info__name">ななみん</p>
+              <p class="agent__staff__info__name"><?php echo $staffs_data[$agent_id]['staff__name__kanji']; ?></p>
               <p class="agent__staff__info__text">
-                ここに担当者の紹介メッセージが入ります。ここに担当者の紹介メッセージが入ります。ここに担当者の紹介メッセージが入ります。ここに担当者の紹介メッセージが入ります。ここに担当者の紹介メッセージが入ります。ここに担当者の紹介メッセージが入ります。ここに担当者の紹介メッセージが入ります。
+                <?php echo $staffs_data[$agent_id]['staff__detail']; ?>
               </p>
 
             </div>
@@ -130,29 +182,26 @@ w<!DOCTYPE html>
           <dl class="agent__info">
             <div class="agent__info__contents">
               <dt>企業名</dt>
-              <dd>マイナビ</dd>
+              <dd><?php echo $agents_data[$agent_id]['agent']; ?></dd>
             </div>
             <div class="agent__info__contents">
               <dt>企業HP（URL）</dt>
-              <dd><a href="#">マイナビのHPへ</a></dd>
+              <dd><a href="<?php echo $agents_data[$agent_id]['url']; ?>">マイナビのHPへ</a></dd>
             </div>
             <div class="agent__info__contents">
               <dt>代表者氏名</dt>
-              <dd>湯山トモハル</dd>
+              <dd><?php echo $agents_data[$agent_id]['name__kanji']; ?></dd>
             </div>
             <div class="agent__info__contents">
-              ここに企業の紹介が入ります。ここに企業の紹介が入ります。ここに企業の紹介が入ります。ここに企業の紹介が入ります。ここに企業の紹介が入ります。ここに企業の紹介が入ります。ここに企業の紹介が入ります。ここに企業の紹介が入ります。ここに企業の紹介が入ります。ここに企業の紹介が入ります。ここに企業の紹介が入ります。ここに企業の紹介が入ります。ここに企業の紹介が入ります。
+              <?php echo $agents_data[$agent_id]['agent__detail']; ?>
             </div>
           </dl>
         </div>
       </main>
-
       <?php require  "./capsule/aside.php"; ?>
     </div>
   </div>
-
   <?php require  "./capsule/footer.php"; ?>
-
   <script src="../assets/js/jquery-3.6.0.min.js"></script>
   <script src="../assets/js/pagescroll.js"></script>
   <script src="../assets/js/sp.js"></script>

@@ -24,6 +24,12 @@ for ($j = 1; $j <= $agents_count; $j++) {
   $agent_supports_count_data_[$j] = $agent_supports_count_stmt_[$j]->fetchAll();
   $agent_supports_count_[$j] = $agent_supports_count_data_[$j][0]['COUNT(support)'];
 }
+
+if (isset($_POST['agentinfo'])) {
+  $_SESSION['agent_id'] = $_POST['agentinfo'];
+  header('Location: http://' . $_SERVER['HTTP_HOST'] . '/CRAFT/agentinfo.php');
+  exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -89,8 +95,10 @@ for ($j = 1; $j <= $agents_count; $j++) {
         <section class="section">
           <ul class="agents">
             <?php for ($j = 1; $j <= $agents_count; $j++) { ?>
+              
               <li class="agent">
                 <ul class="agent__list">
+                <form method="post">
                   <li class="agent__item">
                     <img class="agent__item__img" src="../assets/img/career+.jpg" alt="企業名" width="300px" style="display: inline" />
                   </li>
@@ -113,13 +121,16 @@ for ($j = 1; $j <= $agents_count; $j++) {
                     <p class="agent__item__info">
                       <?php echo $agents_data[$j - 1]['service__detail'];; ?>
                     </p>
-                  </li>
+                  </li>      
+                  
                   <li class="agent__item">
-                    <button class="agent__item__detail">詳細</button>
+                    <button name="agentinfo" value="<?php echo $j;?>" class="agent__item__detail">詳細</button>
                     <button class="agent__item__apply">申し込む</button>
                   </li>
+                  </form>
                 </ul>
               </li>
+              
             <?php }; ?>
           </ul>
         </section>
