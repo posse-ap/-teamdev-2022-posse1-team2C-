@@ -600,10 +600,40 @@ DROP TABLE IF EXISTS agents_supports_mix;
 CREATE table agents_supports_mix AS
 SELECT
   agent_id,
-  support
+  support,
+  agent,
+  service__name,
+  name__kanji,
+  name__kana,
+  url,
+  postcode,
+  address,
+  tel,
+  email,
+  contact__email,
+  agent__detail,
+  service__agent__scale,
+  service__aria,
+  service__unique,
+  service__total,
+  service__offer,
+  service__useful,
+  service__reaction,
+  service__support,
+  service__detail
 FROM
-  supports
-  join agents_supports_connect on support_id = supports.id;
+agents
+JOIN
+agents_supports_connect
+ON
+agents.id = agent_id
+RIGHT JOIN
+supports
+ON
+supports.id = support_id;
+
+
+
 
 DROP TABLE IF EXISTS clientscales;
 
