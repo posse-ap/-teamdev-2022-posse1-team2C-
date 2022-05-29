@@ -2,7 +2,7 @@
 session_start();
 require(dirname(__FILE__) . "../../dbconnect.php");
 
-$agents_stmt = $db->prepare("SELECT * from agents");
+$agents_stmt = $db->prepare("SELECT * from agents_supports_mix");
 $agents_stmt->execute();
 $agents_data = $agents_stmt->fetchAll();
 
@@ -39,10 +39,12 @@ $support_length = count($supports_data);
 for ($i = 0; $i < $support_length; $i++) {
   if (isset($_POST[$supports_data[$i][0]])) {
     $support = $supports_data[$i][0];
+    // echo $support;
     $agents_stmt = $db->prepare('SELECT * from agents_supports_mix where support=?');
     $agents_stmt->bindValue(1, $support);
     $agents_stmt->execute();
     $agents_data = $agents_stmt->fetchAll();
+    // echo $agents_data[1]['agent_id'];
     
 
 
@@ -51,37 +53,41 @@ for ($i = 0; $i < $support_length; $i++) {
     $agents_count_stmt->execute();
     $agents_count_data = $agents_count_stmt->fetchAll();
     $agents_count = $agents_count_data[0]['COUNT(*)'];
-for($l=0;$l<$agents_count;$l++){
-    // echo $agents_data[$l][0];
-}
+// for($l=0;$l<$agents_count;$l++){
+//     echo $agents_data[$l][0];
+// }
   }
 };
 
 for ($j = 1; $j <= $agents_count; $j++) {
+  if(isset($supports_data[$j][0])){
   $agent_supports_stmt_[$j] = $db->prepare("SELECT * from agents_supports_mix WHERE agent_id = ?");
-  $agent_supports_stmt_[$j]->bindValue(1,$agents_data[$j-1][0]);
+  $agent_supports_stmt_[$j]->bindValue(1,$agents_data[$j-1]['agent_id']);
   $agent_supports_stmt_[$j]->execute();
   $agent_supports_data_[$j] = $agent_supports_stmt_[$j]->fetchAll();
-  
-
+  // echo $agent_supports_data_[$j][1][0];
+  // $agent_supports_data_[$j][1][0];
+  // 
   $agent_supports_count_stmt_[$j] = $db->prepare("SELECT COUNT(support) from agents_supports_mix WHERE agent_id = ?");
   $agent_supports_count_stmt_[$j]->bindValue(1, $j);
   $agent_supports_count_stmt_[$j]->execute();
   $agent_supports_count_data_[$j] = $agent_supports_count_stmt_[$j]->fetchAll();
   $agent_supports_count_[$j] = $agent_supports_count_data_[$j][0]['COUNT(support)'];
   // echo $agent_supports_count_[$j];
+  }
 }
-
+// echo $agent_supports_count_[4];
 $array_area = ['首都圏', '全国'];
 count($array_area);
 for ($k = 0; $k < count($array_area); $k++) {
-  print_r($agent_supports_data_[1][$k]['support']);
+  // print_r($agent_supports_data_[1][$k]['support']);
   if (isset($_POST[$array_area[$k]])) {
     $area = $array_area[$k];
     $agents_stmt = $db->prepare('SELECT * from agents where service__aria=?');
     $agents_stmt->bindValue(1, $area);
     $agents_stmt->execute();
     $agents_data = $agents_stmt->fetchAll();
+    
 
     $agents_count_stmt = $db->prepare("SELECT COUNT(*) from agents where service__aria=?");
     $agents_count_stmt->bindValue(1, $area);
@@ -171,7 +177,7 @@ for ($k = 0; $k < count($array_scores); $k++) {
                   <?
                   for ($i = 0; $i < $support_length; $i++) {
                   ?>
-                    <button name="<?php echo $supports_data[$i][0] ?>"><?php echo $supports_data[$i][0] ?></button>
+                    <button name="<?php echo $supports_data[$i][0]; ?>"><?php echo $supports_data[$i][0] ?></button>
                   <?
                   }
                   ?>
@@ -219,11 +225,10 @@ for ($k = 0; $k < count($array_scores); $k++) {
                     <span class="number_rating"><?php echo $agents_data[$j - 1]['service__total']; ?></span>
                   </li>
 
-                  <?php for ($k = 0; $k < $agent_supports_count_[$j]; $k++) { ?>
+                  <?php for ($k = 0; $k < $agent_supports_count_[$agent_supports_data_[$j][1][0]]; $k++) { ?>
                     <form method="post">
-                      <?echo $k;?>
-                      <p><?php echo $agent_supports_data_[$j]
-                      [$k]['support']; ?></p>
+                  
+                      <p><?php echo $agent_supports_data_[$j][$k]['support'];?></p>
                     </form>
                   <?php }; ?>
                   <li class="agent__item">
