@@ -110,7 +110,8 @@ for ($k = 0; $k < count($array_scores); $k++) {
     $agents_count_stmt->execute();
     $agents_count_data = $agents_count_stmt->fetchAll();
     $agents_count = $agents_count_data[0]['COUNT(*)'];
-  };
+  }
+};
 if (isset($_POST['agentinfo'])) {
   $_SESSION['agent_id'] = $_POST['agentinfo'];
   header('Location: http://' . $_SERVER['HTTP_HOST'] . '/CRAFT/agentinfo.php');
@@ -186,47 +187,47 @@ if (isset($_POST['agentinfo'])) {
         <section class="section">
           <ul class="agents">
             <?php for ($j = 1; $j <= $agents_count; $j++) { ?>
-              
+
               <li class="agent">
                 <ul class="agent__list">
-                <form method="post">
-                  <li class="agent__item">
-                    <img class="agent__item__img" src="../assets/img/career+.jpg" alt="企業名" width="300px" style="display: inline" />
-                  </li>
-                  <li class="agent__item">
-                    <span class="agent__item__title">総合点</span>
-                    <span class="agent__item__star star5_rating" data-rate="<?php echo $agents_data[$j - 1]['service__total']; ?>"></span>
-                    <span class="number_rating"><?php echo $agents_data[$j - 1]['service__total']; ?></span>
-                  </li>
-                  <li class="agent__item">
-                    <h3 class="agent__item__name"><?php echo $agents_data[$j - 1]['agent']; ?></h3>
-                  </li>
-                  <li class="agent__item">
-                    <div class="agent__item__support">
-                      <?php for ($k = 0; $k <= $agent_supports_count_[$j] - 1; $k++) { ?>
-                        <span class="agent__item__support__content"><?php echo $agent_supports_data_[$j][$k]['support']; ?></span>
+                  <form method="post">
+                    <li class="agent__item">
+                      <img class="agent__item__img" src="../assets/img/career+.jpg" alt="企業名" width="300px" style="display: inline" />
+                    </li>
+                    <li class="agent__item">
+                      <span class="agent__item__title">総合点</span>
+                      <span class="agent__item__star star5_rating" data-rate="<?php echo $agents_data[$j - 1]['service__total']; ?>"></span>
+                      <span class="number_rating"><?php echo $agents_data[$j - 1]['service__total']; ?></span>
+                    </li>
+                    <li class="agent__item">
+                      <h3 class="agent__item__name"><?php echo $agents_data[$j - 1]['agent']; ?></h3>
+                    </li>
+                    <li class="agent__item">
+                      <div class="agent__item__support">
+                        <?php for ($k = 0; $k <= $agent_supports_count_[$j] - 1; $k++) { ?>
+                          <span class="agent__item__support__content"><?php echo $agent_supports_data_[$j][$k]['support']; ?></span>
+                        <?php }; ?>
+                      </div>
+                    </li>
+                    <li class="agent__item">
+                      <?php for ($k = 0; $k < $agent_supports_count_[$agent_supports_data_[$j][1][0]]; $k++) { ?>
+                        <p><?php echo $agent_supports_data_[$j][$k]['support']; ?></p>
                       <?php }; ?>
-                    </div>
-                  </li>
-                  <?php for ($k = 0; $k < $agent_supports_count_[$agent_supports_data_[$j][1][0]]; $k++) { ?>
-                    <form method="post">
-                      <p><?php echo $agent_supports_data_[$j][$k]['support']; ?></p>
-                    </form>
-                  <?php }; ?>
-                  <li class="agent__item">
-                    <p class="agent__item__info">
-                      <?php echo $agents_data[$j - 1]['service__detail'];; ?>
-                    </p>
-                  </li>      
-                  
-                  <li class="agent__item">
-                    <button name="agentinfo" value="<?php echo $j;?>" class="agent__item__detail">詳細</button>
-                    <button class="agent__item__apply">申し込む</button>
-                  </li>
+                    </li>
+                    <li class="agent__item">
+                      <p class="agent__item__info">
+                        <?php echo $agents_data[$j - 1]['service__detail'];; ?>
+                      </p>
+                    </li>
+
+                    <li class="agent__item">
+                      <button name="agentinfo" value="<?php echo $j; ?>" class="agent__item__detail">詳細</button>
+                      <button class="agent__item__apply">申し込む</button>
+                    </li>
                   </form>
                 </ul>
               </li>
-              
+
             <?php }; ?>
           </ul>
         </section>
