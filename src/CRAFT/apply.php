@@ -174,9 +174,9 @@ FROM
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRAFT【申し込み】</title>
     <link rel="stylesheet" href="../assets/css/reset.css">
-    <link rel="stylesheet" href="../assets/css/apply.min.css">
-    <link rel="stylesheet" href="../assets/css/index-user.min.css">
-    <link rel="stylesheet" href="../assets/css/sp.min.css">
+    <link rel="stylesheet" href="../assets/css/apply.css">
+    <link rel="stylesheet" href="../assets/css/index-user.css">
+    <link rel="stylesheet" href="../assets/css/sp.css">
 </head>
 
 <body>

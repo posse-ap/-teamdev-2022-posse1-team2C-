@@ -111,7 +111,7 @@
   &__form__button {
     font-size: 18px;
     font-weight: bold;
-    background: vb.$color_accent;
+    background: linear-gradient(110.59deg, #1cbcbb 1.51%, #74d18e 124.9%);
     border-radius: 4px;
     min-width: 350px;
     color: vb.$color_white;
@@ -121,7 +121,7 @@
   &__thanks__complete {
     margin: 15px 0;
     padding: 10px 5px;
-    background-color: vb.$color_accent;
+    background: linear-gradient(110.59deg, #1cbcbb 1.51%, #74d18e 124.9%);
     color: vb.$color_white;
     font-size: 20px;
     font-weight: 600;
@@ -132,13 +132,8 @@
     padding: 0 20px;
   }
 
-  &__thanks__nav {
-    color: vb.$color_accent;
-    border-bottom: 1px solid vb.$color_accent;
-  }
-
   &__thanks__button {
-    background-color: vb.$color_accent;
+    background: linear-gradient(110.59deg, #1cbcbb 1.51%, #74d18e 124.9%);
     width: 200px;
     padding: 15px 0px;
     margin: 20px 0;
