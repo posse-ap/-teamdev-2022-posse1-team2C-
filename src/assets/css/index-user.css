@@ -291,7 +291,7 @@ img {
   color: #327e31;
   font-size: 14px;
 }
-.search__item dd {
+.search__item button {
   font-size: 12px;
   font-weight: bolder;
   padding: 10px 15px;
@@ -643,5 +643,4 @@ stars
 .star5_rating[data-rate="0"]:after {
   width: 0%;
 }
-
 /*# sourceMappingURL=index-user.css.map */

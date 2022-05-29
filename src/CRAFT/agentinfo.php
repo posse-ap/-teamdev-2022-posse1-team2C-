@@ -186,7 +186,7 @@ $agent_supports_count = $agent_supports_count_data[0]['COUNT(support)'];
             </div>
             <div class="agent__info__contents">
               <dt>企業HP（URL）</dt>
-              <dd><a href="<?php echo $agents_data[$agent_id]['url']; ?>">マイナビのHPへ</a></dd>
+              <dd><a href="<?php echo $agents_data[$agent_id]['url']; ?>"><?php echo $agents_data[$agent_id]['agent']; ?>のHPへ</a></dd>
             </div>
             <div class="agent__info__contents">
               <dt>代表者氏名</dt>

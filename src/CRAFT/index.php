@@ -112,10 +112,13 @@ for ($k = 0; $k < count($array_scores); $k++) {
     $agents_count = $agents_count_data[0]['COUNT(*)'];
   }
 };
-if (isset($_POST['agentinfo'])) {
-  $_SESSION['agent_id'] = $_POST['agentinfo'];
-  header('Location: http://' . $_SERVER['HTTP_HOST'] . '/CRAFT/agentinfo.php');
-  exit();
+
+for ($j = 1; $j <= $agents_count; $j++) {
+  if (isset($_POST[$agent_supports_data_[$j][1][0]])) {
+    $_SESSION['agent_id'] = $_POST[$agent_supports_data_[$j][1][0]];
+    header('Location: http://' . $_SERVER['HTTP_HOST'] . '/CRAFT/agentinfo.php');
+    exit();
+  }
 }
 ?>
 
@@ -141,13 +144,14 @@ if (isset($_POST['agentinfo'])) {
   <div class="content">
     <div class="container inner">
       <main class="main">
-        <p class="title">
-          エージェント企業を探す
-        </p>
-        <section class="section">
-          <div class="search">
-            <dl class="search__list">
-              <form method="post">
+        <form method="post">
+          <p class="title">
+            エージェント企業を探す
+          </p>
+          <section class="section">
+            <div class="search">
+              <dl class="search__list">
+
                 <div class="search__item">
                   <dt>サービス内容</dt>
                   <?
@@ -158,39 +162,31 @@ if (isset($_POST['agentinfo'])) {
                   }
                   ?>
                 </div>
-              </form>
-              <form method="post">
                 <div class="search__item">
                   <dt>対応エリアから探す</dt>
                   <button name="首都圏">首都圏</button>
                   <button name="全国">全国</button>
                 </div>
-              </form>
-              <form method="post">
                 <div class="search__item">
 
                   <dt>紹介先企業の規模</dt>
                   <button name="大手企業">大手企業</button>
                   <button name="ベンチャー企業">ベンチャー企業</button>
                 </div>
-              </form>
-              <form method="post">
                 <div class="search__item">
                   <dt>総合評価から探す</dt>
                   <button name="score1">4.0~</button>
                   <button name="score2">3.0~</button>
                 </div>
-              </form>
-            </dl>
-          </div>
-        </section>
-        <section class="section">
-          <ul class="agents">
-            <?php for ($j = 1; $j <= $agents_count; $j++) { ?>
+              </dl>
+            </div>
+          </section>
+          <section class="section">
+            <ul class="agents">
+              <?php for ($j = 1; $j <= $agents_count; $j++) { ?>
 
-              <li class="agent">
-                <ul class="agent__list">
-                  <form method="post">
+                <li class="agent">
+                  <ul class="agent__list">
                     <li class="agent__item">
                       <img class="agent__item__img" src="../assets/img/career+.jpg" alt="企業名" width="300px" style="display: inline" />
                     </li>
@@ -204,33 +200,30 @@ if (isset($_POST['agentinfo'])) {
                     </li>
                     <li class="agent__item">
                       <div class="agent__item__support">
-                        <?php for ($k = 0; $k <= $agent_supports_count_[$j] - 1; $k++) { ?>
+                        <?php for ($k = 0; $k < $agent_supports_count_[$agent_supports_data_[$j][1][0]]; $k++) { ?>
                           <span class="agent__item__support__content"><?php echo $agent_supports_data_[$j][$k]['support']; ?></span>
                         <?php }; ?>
                       </div>
                     </li>
-                    <li class="agent__item">
-                      <?php for ($k = 0; $k < $agent_supports_count_[$agent_supports_data_[$j][1][0]]; $k++) { ?>
-                        <p><?php echo $agent_supports_data_[$j][$k]['support']; ?></p>
-                      <?php }; ?>
-                    </li>
+
                     <li class="agent__item">
                       <p class="agent__item__info">
-                        <?php echo $agents_data[$j - 1]['service__detail'];; ?>
+                        <?php echo $agents_data[$j - 1]['service__detail']; ?>
                       </p>
                     </li>
 
                     <li class="agent__item">
-                      <button name="agentinfo" value="<?php echo $j; ?>" class="agent__item__detail">詳細</button>
+                      <button name="<?php echo $agent_supports_data_[$j][1][0]; ?>" value="<?php echo $agent_supports_data_[$j][1][0]; ?>" class="agent__item__detail">詳細</button>
                       <button class="agent__item__apply">申し込む</button>
                     </li>
-                  </form>
-                </ul>
-              </li>
+                  </ul>
+                </li>
 
-            <?php }; ?>
-          </ul>
-        </section>
+              <?php }; ?>
+            </ul>
+
+          </section>
+        </form>
       </main>
 
       <?php require  "./capsule/aside.php"; ?>
