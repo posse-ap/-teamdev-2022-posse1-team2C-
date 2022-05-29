@@ -1,0 +1,429 @@
+@media (max-width: 1200px) {
+  .agent__service__inner {
+    gap: 0px;
+
+    &__analysis {
+      width: calc(100% - 400px);
+    }
+  }
+
+  .agent__item__star {
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .agent {
+    width: calc((100% - 12px) / 2);
+
+    &__item__star {
+      font-size: 25px;
+    }
+  }
+
+  .agent__service {
+    &__inner {
+      display: block;
+    }
+
+    &__inner__item {
+      width: 100%;
+    }
+
+    &__inner__analysis {
+      width: 90%;
+      margin: 0 auto;
+    }
+
+    &__inner__item__graph {
+      width: auto;
+    }
+
+    canvas {
+      height: 300px;
+    }
+
+    h3 {
+      margin: 0 50px;
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .agent__item__star {
+    font-size: 27px;
+  }
+}
+
+@media (max-width: 900px) {
+  .agent__item__star {
+    font-size: 20px;
+  }
+
+  .contact {
+    &__form__item {
+      dd {
+        margin-left: 30px;
+        width: calc(100% - 250px);
+      }
+
+      input[type="text"],
+      input[type="email"],
+      textarea {
+        font-size: 12px;
+      }
+    }
+  }
+
+  .apply {
+    &__form__item {
+      dd {
+        margin-left: 30px;
+        width: calc(100% - 215px);
+      }
+
+      select {
+        font-size: 12px;
+      }
+
+      input[type="text"],
+      input[type="email"],
+      input[type="date"],
+      textarea {
+        font-size: 12px;
+      }
+
+      label + label {
+        margin-left: 5px;
+      }
+    }
+  }
+
+  .footer__item {
+    width: calc((80% - 80px) / 2);
+
+    &:nth-child(2n + 1) {
+      display: none;
+    }
+  }
+  .agent__service {
+    h3 {
+      margin: 0 20px;
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .agent {
+    width: 100%;
+
+    &__item__star {
+      font-size: 50px;
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  body {
+    font-size: 12px;
+  }
+
+  .content {
+    padding-top: 100px;
+
+    .container {
+      display: block;
+    }
+  }
+
+  .main {
+    width: 100%;
+  }
+
+  .aside {
+    width: fit-content;
+    margin: 100px auto 0 auto;
+  }
+
+  .contact {
+    &__form__item {
+      dt {
+        font-size: 12px;
+      }
+    }
+
+    &__form__button {
+      width: 100%;
+      min-width: 0;
+    }
+  }
+
+  .apply {
+    &__form__item {
+      dt {
+        font-size: 12px;
+      }
+
+      label + label {
+        margin-left: 20px;
+      }
+    }
+
+    &__form__button {
+      width: 100%;
+      min-width: 0;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .header__nav {
+    display: none;
+  }
+
+  .footer__list {
+    display: none;
+  }
+
+  .content {
+    padding-top: 80px;
+  }
+
+  .title {
+    font-size: 13px;
+  }
+
+  .main {
+    padding: 0 0 50px 0;
+  }
+
+  .header__active {
+    display: block;
+  }
+
+  .hamburger {
+    &__nav {
+      display: block;
+      position: fixed;
+      top: 0;
+      right: -300px;
+      width: 300px;
+      height: 100%;
+      padding-top: 50px;
+      background: #333;
+      font-size: 16px;
+      box-sizing: border-box;
+      z-index: 2;
+    }
+
+    &__nav__item {
+      display: block;
+      padding: 10px 28px;
+      text-align: left;
+      font-size: 20px;
+      font-weight: bold;
+
+      a {
+        text-decoration: none;
+        color: #ddd;
+      }
+    }
+
+    &__nav__item__child {
+      font-size: 13px;
+      padding: 10px 0 10px 10px;
+      visibility: visible;
+      opacity: 1;
+      display: none;
+
+      li {
+        padding: 5px 0;
+      }
+    }
+
+    &__button {
+      text-align: left;
+      position: fixed;
+      top: 23px;
+      right: 20px;
+      width: 35px;
+      height: 24px;
+      z-index: 3;
+      box-sizing: border-box;
+      cursor: pointer;
+      -webkit-transition: all 400ms;
+      transition: all 400ms;
+
+      span {
+        position: absolute;
+        width: 30px;
+        height: 3px;
+        background: #fff;
+        border-radius: 10px;
+        -webkit-transition: all 400ms;
+        transition: all 400ms;
+
+        &:nth-child(1) {
+          top: 0;
+        }
+        &:nth-child(2) {
+          top: 10px;
+        }
+        &:nth-child(3) {
+          top: 20px;
+          &::after {
+            content: "Menu";
+            position: absolute;
+            top: 5px;
+            left: -2px;
+            color: #fff;
+            font-size: 0.6rem;
+            text-transform: uppercase;
+          }
+        }
+      }
+    }
+
+    .open {
+      -webkit-transform: rotate(180deg);
+      transform: rotate(180deg);
+
+      span {
+        background: #fff;
+        width: 24px;
+
+        &:nth-child(1) {
+          top: 14px;
+          left: 18px;
+          transform: translateY(6px) rotate(-45deg);
+          width: 100%;
+        }
+
+        &:nth-child(2) {
+          opacity: 0;
+        }
+
+        &:nth-child(3) {
+          top: 26px;
+          left: 18px;
+          transform: translateY(-6px) rotate(45deg);
+          width: 100%;
+
+          &::after {
+            content: "Close";
+            transform: translateY(0) rotate(-225deg);
+            top: -25px;
+            left: -20px;
+          }
+        }
+      }
+    }
+  }
+
+  .contact {
+    &__form__item {
+      flex-wrap: wrap;
+
+      dt {
+        text-align: left;
+      }
+
+      dd {
+        margin: 10px 0 20px 0;
+        width: 100%;
+      }
+    }
+  }
+
+  .apply {
+    &__form__item {
+      flex-wrap: wrap;
+
+      dt {
+        text-align: left;
+      }
+
+      dd {
+        margin: 10px 0 20px 0;
+        width: 100%;
+      }
+    }
+  }
+
+  .agent__service {
+    display: block;
+
+    &__img {
+      display: flex;
+
+      img {
+        margin: 0 auto;
+      }
+    }
+
+    &__main {
+      width: 100%;
+      margin-top: 50px;
+    }
+
+    &__main__name {
+      margin: 10px 0;
+      text-align: left;
+    }
+
+    &__main__info {
+      padding: 0;
+    }
+  }
+
+  .agent__staff {
+    display: block;
+
+    &__img {
+      margin: 0 auto;
+    }
+
+    &__info {
+      width: 100%;
+    }
+
+    &__info__name {
+      text-align: left;
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  body {
+    font-size: 10px;
+  }
+
+  .content {
+    .container {
+      width: calc(100% - 50px);
+    }
+  }
+
+  .agents {
+    width: calc(100% - 40px);
+  }
+
+  .agent__item__star {
+    font-size: 35px;
+  }
+
+  .attention {
+    padding: 0 15px;
+  }
+
+  .attention__inner {
+    padding: 20px 10px 20px 20px;
+  }
+
+  .agent__info__contents {
+    dt,
+    dd {
+      font-size: 12px;
+    }
+  }
+}

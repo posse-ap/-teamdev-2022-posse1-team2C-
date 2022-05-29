@@ -1,0 +1,47 @@
+@use "./variables" as vb;
+
+.header {
+  z-index: 10;
+  width: 100%;
+  text-align: center;
+  position: fixed;
+  background-color: #c3c7f8;
+  margin: 0 auto;
+  display: flex;
+  padding-left: 50px;
+  justify-content: space-between;
+
+  &__title {
+    text-align: center;
+    font-size: 30px;
+    color: vb.$color_white;
+    line-height: 65px;
+  }
+
+  &__nav {
+    margin-right: 0;
+  }
+
+  &__nav__list {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin-right: 0;
+  }
+
+  &__nav__item {
+    color: vb.$color_white;
+    margin: 0 auto;
+    margin-right: 30px;
+    line-height: 65px;
+    font-size: 15px;
+    font-weight: 700;
+    @media screen and (max-width: 1000px) {
+      font-size: 12px;
+    }
+  }
+}
+
+.selected {
+  color: #c90cf8;
+}
