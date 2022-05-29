@@ -129,7 +129,7 @@ for ($j = 1; $j <= $agents_count; $j++) {
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scales=1.0">
-  <title>Document</title>
+  <title>CRAFT</title>
   <link rel="stylesheet" href="../assets/css/reset.css">
   <link rel="stylesheet" href="../assets/css/index-user.min.css">
   <link rel="stylesheet" href="../assets/css/sp.min.css">
