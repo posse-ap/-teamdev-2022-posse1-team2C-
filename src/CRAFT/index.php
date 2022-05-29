@@ -38,7 +38,7 @@ for ($i = 0; $i < $support_length; $i++) {
     $agents_stmt->bindValue(1, $support);
     $agents_stmt->execute();
     $agents_data = $agents_stmt->fetchAll();
-    $agents_data[1][0];
+
 
     $agents_count_stmt = $db->prepare("SELECT COUNT(*) from agents_supports_mix where support=?");
     $agents_count_stmt->bindValue(1, $support);
@@ -53,7 +53,6 @@ count($array_area);
 for ($k = 0; $k < count($array_area); $k++) {
   if (isset($_POST[$array_area[$k]])) {
     $area = $array_area[$k];
-    echo $area;
     $agents_stmt = $db->prepare('SELECT * from agents where service__aria=?');
     $agents_stmt->bindValue(1, $area);
     $agents_stmt->execute();
@@ -109,10 +108,6 @@ for ($k = 0; $k < count($array_scores); $k++) {
     $agents_count = $agents_count_data[0]['COUNT(*)'];
   };
 }
-
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -150,19 +145,6 @@ for ($k = 0; $k < count($array_scores); $k++) {
                   for ($i = 0; $i < $support_length; $i++) {
                   ?>
                     <button name="<?php echo $supports_data[$i][0] ?>"><?php echo $supports_data[$i][0] ?></button>
-
-                    <!-- <button name="">面接対策</button>
-                <button name="">セミナー/イベント開催</button>
-                <button name="">選考対策</button>
-                <button name="">企業紹介</button>
-                <button name="">ES添削</button>
-                <button name="">内定後のサポート</button>
-                <button name="">個別面談</button>
-                <button name="">自己分析</button>
-                <button name="">特別選考</button>
-                <button name="">選考後のフォロー</button>
-                <button name="">インターンシップ紹介</button>
-                <button name="">業界研究</button> -->
                   <?
                   }
                   ?>
@@ -210,12 +192,11 @@ for ($k = 0; $k < count($array_scores); $k++) {
                     <span class="number_rating"><?php echo $agents_data[$j - 1]['service__total']; ?></span>
                   </li>
 
-                  <?php for ($k = 0; $k <= $agent_supports_count_[$j] - 1; $k++) { ?>
-                    <p><?php echo $agent_supports_data_[$j][$k]['support']; ?></p>
+                  <?php for ($k = 0; $k < $agent_supports_count_[$j]; $k++) { ?>
+                    <form method="post">
+                      <p><?php echo $agent_supports_data_[$j][$k]['support']; ?></p>
+                    </form>
                   <?php }; ?>
-                  <p></p>
-                  <p></p>
-                  <p></p>
                   <li class="agent__item">
                     <p class="agent__item__info">
                       <?php echo $agents_data[$j - 1]['service__detail'];; ?>
